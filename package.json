@@ -1,0 +1,31 @@
+{
+  "name": "svgr",
+  "description": "Convert raw SVG into React components.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "codecov": "^2.3.0",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-import": "^2.7.0",
+    "jest": "^20.0.4"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
+    "h2x-core": "^0.1.6",
+    "h2x-plugin-jsx": "^0.1.6",
+    "mz": "^2.6.0",
+    "prettier": "^1.6.1",
+    "svgo": "^0.7.2"
+  }
+}
