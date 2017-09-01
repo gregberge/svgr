@@ -22,10 +22,16 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
+    "fs-readdir-recursive": "^1.0.0",
+    "glob": "^7.1.2",
     "h2x-core": "^0.1.6",
     "h2x-plugin-jsx": "^0.1.6",
+    "lodash": "^4.17.4",
     "mz": "^2.6.0",
+    "output-file-sync": "^2.0.0",
     "prettier": "^1.6.1",
-    "svgo": "^0.7.2"
+    "recursive-readdir": "^2.2.1",
+    "svgo": "^0.7.2",
+    "util.promisify": "^1.0.0"
   }
 }
