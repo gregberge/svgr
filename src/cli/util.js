@@ -3,13 +3,13 @@ import chalk from 'chalk'
 import { extname } from 'path'
 import fs from 'mz/fs'
 import readdir from 'recursive-readdir'
-import convert from '../'
+import { rawConvert } from '../'
 
-export { convert }
+export { rawConvert }
 
 export async function convertFile(filePath, opts) {
   const code = await fs.readFile(filePath, 'utf-8')
-  return convert(code, opts, { filePath })
+  return rawConvert(code, opts, { filePath })
 }
 
 export function exitError(error) {

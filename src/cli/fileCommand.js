@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import fs from 'mz/fs'
-import { readdirFilter, convertFile, convert } from './util'
+import { readdirFilter, convertFile, rawConvert } from './util'
 
 async function fileCommand(program, filenames, opts) {
   let conversions
@@ -17,7 +17,7 @@ async function fileCommand(program, filenames, opts) {
     })
 
     process.stdin.on('end', () => {
-      conversions.push(convert(code, opts, { filePath: 'svg-component' }))
+      conversions.push(rawConvert(code, opts, { filePath: 'svg-component' }))
       output()
     })
   }

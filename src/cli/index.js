@@ -6,7 +6,7 @@ import uniq from 'lodash/uniq'
 import pkg from '../../package.json'
 import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
-import getOpts from './getOpts'
+import configToOptions from '../configToOptions'
 
 program.replaceAttrValues = []
 
@@ -85,7 +85,7 @@ async function run() {
     process.exit(2)
   }
 
-  const opts = getOpts(program)
+  const opts = configToOptions(program)
 
   const command = program.outDir ? dirCommand : fileCommand
   await command(program, filenames, opts)
