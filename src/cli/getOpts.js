@@ -22,8 +22,11 @@ function getOpts(program) {
 
   function getSvgoConfig() {
     const plugins = []
-    if (!program.title) plugins.push({ removeTitle: {} })
-    return { plugins }
+    const config = { plugins }
+    if (!program.title || program.icon) plugins.push({ removeTitle: {} })
+    if (program.precision !== undefined)
+      config.floatPrecision = Number(program.precision)
+    return config
   }
 
   function getPrettierConfig() {

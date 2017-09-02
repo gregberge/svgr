@@ -28,6 +28,27 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
+  it('--icon', async () => {
+    const [stdout] = await exec(
+      'babel-node src/cli --icon __fixtures__/one.svg',
+    )
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--replace-attr-value', async () => {
+    const [stdout] = await exec(
+      'babel-node src/cli --replace-attr-value "#063855=currentColor" __fixtures__/one.svg',
+    )
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--precision', async () => {
+    const [stdout] = await exec(
+      'babel-node src/cli --precision 1 __fixtures__/one.svg',
+    )
+    expect(stdout).toMatchSnapshot()
+  })
+
   it('--no-title', async () => {
     const [stdout] = await exec(
       'babel-node src/cli --no-title __fixtures__/one.svg',
@@ -42,10 +63,8 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
-  it('--replace-attr-value', async () => {
-    const [stdout] = await exec(
-      'babel-node src/cli --replace-attr-value "#063855=currentColor" __fixtures__/one.svg',
-    )
+  it('should work with stdin', async () => {
+    const [stdout] = await exec('babel-node < src/cli __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 

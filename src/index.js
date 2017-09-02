@@ -9,8 +9,10 @@ import emSize from './h2x/emSize'
 import expandProps from './h2x/expandProps'
 import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
+import configToOptions from './configToOptions'
 
 export {
+  jsx,
   stripAttribute,
   emSize,
   expandProps,
@@ -19,33 +21,22 @@ export {
   removeComments,
 }
 
-const defaultOptions = {
-  svgo: {},
-  h2x: {
-    plugins: [
-      jsx,
-      removeComments,
-      emSize,
-      stripAttribute('xmlns'),
-      expandProps,
-    ],
-  },
-  template: wrapIntoComponent({ expandProps: true }),
-  prettier: {},
-}
-
-async function convert(code, options, state) {
+export async function rawConvert(code, options, state) {
   let result = code
-  const finalOptions = { ...defaultOptions, ...options }
-  result = finalOptions.svgo
-    ? await svgo(result, finalOptions.svgo, state)
-    : result
-  result = await h2x(result, finalOptions.h2x, state)
-  result = await transform(result, { transform: finalOptions.template }, state)
-  result = finalOptions.prettier
-    ? await prettier(result, finalOptions.prettier, state)
+  result = options.svgo ? await svgo(result, options.svgo, state) : result
+  result = await h2x(result, options.h2x, state)
+  result = await transform(result, { transform: options.template }, state)
+  result = options.prettier
+    ? await prettier(result, options.prettier, state)
     : result
   return result
 }
 
-export default convert
+export default async function convert(
+  code,
+  { componentName = 'SvgComponent', ...config } = {},
+) {
+  return rawConvert(code, configToOptions(config), {
+    filePath: componentName,
+  })
+}

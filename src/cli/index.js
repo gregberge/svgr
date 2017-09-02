@@ -27,6 +27,10 @@ program
     'replace an attribute value',
     values,
   )
+  .option(
+    '-p, --precision <value>',
+    'set the number of digits in the fractional part (svgo)',
+  )
   .option('--no-title', 'remove title tag (svgo)')
   .option(
     '--tab-width',

@@ -3,8 +3,18 @@
   "description": "Convert raw SVG into React components.",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "git@github.com:smooth-code/svgr.git",
   "author": "Greg Bergé <berge.greg@gmail.com>",
+  "keywords": [
+    "svg",
+    "h2x",
+    "react",
+    "component",
+    "svg2react",
+    "svg-to-react"
+  ],
   "license": "MIT",
+  "main": "lib/index.js",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
@@ -13,16 +23,18 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "codecov": "^2.3.0",
-    "eslint": "^4.5.0",
+    "conventional-github-releaser": "^1.1.12",
+    "conventional-recommended-bump": "^1.0.1",
+    "eslint": "^4.6.0",
     "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-config-prettier": "^2.3.0",
+    "eslint-config-prettier": "^2.4.0",
     "eslint-plugin-import": "^2.7.0",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "mversion": "^1.10.1"
   },
   "dependencies": {
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
-    "fs-readdir-recursive": "^1.0.0",
     "glob": "^7.1.2",
     "h2x-core": "^0.1.6",
     "h2x-plugin-jsx": "^0.1.6",
@@ -31,7 +43,17 @@
     "output-file-sync": "^2.0.0",
     "prettier": "^1.6.1",
     "recursive-readdir": "^2.2.1",
-    "svgo": "^0.7.2",
-    "util.promisify": "^1.0.0"
+    "svgo": "^0.7.2"
+  },
+  "jest": {
+    "rootDir": "src",
+    "coverageDirectory": "./coverage/"
+  },
+  "scripts": {
+    "prepublish": "yarn run build",
+    "build": "rm -rf lib/ && NODE_ENV=production babel src -d lib",
+    "format": "prettier \"src/**/*.js\"",
+    "release": "mversion `conventional-recommended-bump -p angular` -m",
+    "test": "eslint . && jest --runInBand --coverage && codecov"
   }
 }
