@@ -70,9 +70,9 @@ React supports SVG out of the box, it's simpler, easier and much more powerful t
 have components instead of SVG files. Wrapped in a React component, your SVG is
 inlined in the page and you can style it using CSS.
 
-There is a lot of similar projects but I wanted something solid and configurable.
-This project is based on [h2x](https://github.com/smooth-code/h2x), a powerful and
-configurable HTML transpiler. It uses AST power (like [Babel](https://github.com/babel/babel/)) that gives a lot of power.
+There is a lot of similar projects but I wanted something more solid and configurable.
+SVGR is based on [h2x](https://github.com/smooth-code/h2x), a powerful and
+configurable HTML transpiler. It uses AST (like [Babel](https://github.com/babel/babel/)) that gives a lot of power.
 
 ## Command line usage
 
@@ -109,7 +109,7 @@ configurable HTML transpiler. It uses AST power (like [Babel](https://github.com
 #### Transform a whole directory
 
 A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
-will be transformed into React components.
+are transformed into React components.
 
 ```
 $ svgr -d icons icons
@@ -135,11 +135,11 @@ $ svgr < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 
 To create icons, two options are important:
 
-- `--icon`: title will be removed and SVG will automatically inherits text size
-- `--replace-attr-value`: replace color value to "currentColor" to inherit text color
+- `--icon`: title is removed and SVG inherits text size
+- `--replace-attr-value "#000000=currentColor"`: "#000000" is replaced by "currentColor" and SVG inherits text color
 
 ```
-$ svgr --icon --replace-attr-value="#000000=currentColor" my-icon.svg
+$ svgr --icon --replace-attr-value "#000000=currentColor" my-icon.svg
 ```
 
 ## Node API usage
@@ -176,7 +176,7 @@ SVGR ships with a handful of customizable options, usable in both the CLI and AP
 
 ### SVGO
 Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before transforming
-it into component.
+it into a component.
 
 Default | CLI Override | API Override
 --------|--------------|-------------
@@ -190,7 +190,7 @@ Default | CLI Override | API Override
 `true`  | `--no-prettier` | `prettier: <bool>`
 
 ### Expand props
-Expand props, so all properties given to component will be forwarded on SVG tag.
+All properties given to component will be forwarded on SVG tag.
 
 Default | CLI Override | API Override
 --------|--------------|-------------
@@ -213,56 +213,56 @@ Default | CLI Override | API Override
 `[]`  | `--replace-attr-value <old=new>` | `replaceAttrValues: <string[]>`
 
 ### Precision
-Set number of digits in the fractional part. For more information, see [SVGO](https://github.com/svg/svgo).
+Set number of digits in the fractional part. See [SVGO](https://github.com/svg/svgo).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
 `3`  | `--precision <int>` | `precision: <int>`
 
 ### Title
-Remove the title from SVG. For more information, see [SVGO `removeTitle` plugin](https://github.com/svg/svgo).
+Remove the title from SVG. See [SVGO `removeTitle` plugin](https://github.com/svg/svgo).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
 `true`  | `--no-title` | `title: <bool>`
 
 ### Tab Width
-Specify the number of spaces per indentation-level. For more information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#tab-width).
+Specify the number of spaces per indentation-level. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#tab-width).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
  `2` | `--tab-width <int>` | `tabWidth: <int>`
 
 ### Tabs
-Indent lines with tabs instead of spaces For more information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#tabs).
+Indent lines with tabs instead of spaces. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#tabs).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
 `false` | `--use-tabs` | `useTabs: <bool>`
 
 ### Semicolons
-Print semicolons at the ends of statements. For more information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#semicolons).
+Print semicolons at the ends of statements. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#semicolons).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
 `true` | `--no-semi` | `semi: <bool>`
 
 ### Quotes
-Use single quotes instead of double quotes. For more information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#quotes).
+Use single quotes instead of double quotes. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#quotes).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
 `false` |  `--single-quote` | `singleQuote: <bool>`
 
 ### Trailing Commas
-Print trailing commas wherever possible when multi-line. For more information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#trailing-commas).
+Print trailing commas wherever possible when multi-line. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#trailing-commas).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
 `"none"` | <code>--trailing-comma <none&#124;es5&#124;all></code> | <code>trailingComma: "<none&#124;es5&#124;all>"</code>
 
 ### Bracket Spacing
-Print spaces between brackets in object literals. For more information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#bracket-spacing).
+Print spaces between brackets in object literals. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#bracket-spacing).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
@@ -270,8 +270,7 @@ Default | CLI Override | API Override
 
 ### JSX Brackets
 Put the `>` of a multi-line JSX element at the end of the last line instead of
-being alone on the next line (does not apply to self closing elements). For more
-information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
+being alone on the next line (does not apply to self closing elements). See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
@@ -280,7 +279,7 @@ Default | CLI Override | API Override
 ## Other projects
 
 A lot of projects tried to solve this problem, unfortunately, none of them
-fulfills my use-cases.
+fulfills my use cases.
 
 Using raw node:
 
