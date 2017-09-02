@@ -1,12 +1,13 @@
-<a href="https://github.com/smooth-code/svgr">
-  <img alt="svgr" src="https://raw.githubusercontent.com/smooth-code/svgr/master/resources/svgr-logo.png" height="200px" />
-</a>
-<br />
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/smooth-code/svgr/master/resources/svgr-logo.png" alt="svgr" title="svgr" width="300">
+  <br>
+  svgr 🦁
+  <br>
+</h1>
+<p align="center" style="font-size: 1.2rem;">Convert SVG into React components</p>
 
 [![Build Status](https://travis-ci.org/smooth-code/svgr.svg?branch=master)](https://travis-ci.org/smooth-code/svgr)
 [![codecov](https://codecov.io/gh/smooth-code/svgr/branch/master/graph/badge.svg)](https://codecov.io/gh/smooth-code/svgr)
-
-**SVGR** is a tool to convert raw SVG into React components 🦁.
 
 ```sh
 npm install svgr
