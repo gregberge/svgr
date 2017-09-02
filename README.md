@@ -1,4 +1,7 @@
-# SVGR
+<a href="https://github.com/smooth-code/svgr">
+  <img alt="svgr" src="https://raw.githubusercontent.com/smooth-code/svgr/master/resources/svgr-logo.png" height="200px" />
+</a>
+<br />
 
 [![Build Status](https://travis-ci.org/smooth-code/svgr.svg?branch=master)](https://travis-ci.org/smooth-code/svgr)
 [![codecov](https://codecov.io/gh/smooth-code/svgr/branch/master/graph/badge.svg)](https://codecov.io/gh/smooth-code/svgr)
