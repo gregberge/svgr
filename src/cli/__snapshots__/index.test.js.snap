@@ -158,7 +158,7 @@ export default One;
 "
 `;
 
-exports[`cli should work with directory 1`] = `
+exports[`cli should work with output directory 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
@@ -169,46 +169,10 @@ const One = props => (
 );
 
 export default One;
-
-
-import React from \\"react\\";
-
-const Two = props => (
-  <svg width={48} height={11} viewBox=\\"0 0 48 11\\" {...props}>
-    <title>Group 6</title>
-    <g stroke=\\"#063855\\" fill=\\"none\\" fillRule=\\"evenodd\\">
-      <path d=\\"M0 7l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 7\\" />
-      <path d=\\"M0 10l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 10M0 4l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 4\\" />
-    </g>
-  </svg>
-);
-
-export default Two;
-
-"
-`;
-
-exports[`cli should work with output directory 1`] = `
-"__fixtures__/one.svg -> __fixtures_build__/one.js
-__fixtures__/nested/two.svg -> __fixtures_build__/nested/two.js
 "
 `;
 
 exports[`cli should work with output directory 2`] = `
-"import React from \\"react\\";
-
-const One = props => (
-  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
-    <title>Rectangle 5</title>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-);
-
-export default One;
-"
-`;
-
-exports[`cli should work with output directory 3`] = `
 "import React from \\"react\\";
 
 const Two = props => (

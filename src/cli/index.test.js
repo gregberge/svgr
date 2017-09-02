@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* globals jasmine */
 import fs from 'mz/fs'
 import { exec } from 'mz/child_process'
 
@@ -73,16 +73,8 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
-  it('should work with directory', async () => {
-    const [stdout] = await exec('babel-node src/cli __fixtures__')
-    expect(stdout).toMatchSnapshot()
-  })
-
   it('should work with output directory', async () => {
-    const [stdout] = await exec(
-      'babel-node src/cli --out-dir __fixtures_build__ __fixtures__',
-    )
-    expect(stdout).toMatchSnapshot()
+    await exec('babel-node src/cli --out-dir __fixtures_build__ __fixtures__')
     expect(
       await fs.readFile('__fixtures_build__/one.js', 'utf-8'),
     ).toMatchSnapshot()
