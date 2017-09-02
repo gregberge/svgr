@@ -3,8 +3,17 @@
 </h1>
 <p align="center" style="font-size: 1.2rem;">Tranform SVG into React components 🦁</p>
 
-[![Build Status](https://travis-ci.org/smooth-code/svgr.svg?branch=master)](https://travis-ci.org/smooth-code/svgr)
-[![codecov](https://codecov.io/gh/smooth-code/svgr/branch/master/graph/badge.svg)](https://codecov.io/gh/smooth-code/svgr)
+[![Build Status][build-badge]][build]
+[![Code Coverage][coverage-badge]][coverage]
+[![version][version-badge]][package]
+[![MIT License][license-badge]][LICENSE]
+
+[![PRs Welcome][prs-badge]][prs]
+[![Chat][chat-badge]][chat]
+
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+[![Tweet][twitter-badge]][twitter]
 
 ```sh
 npm install svgr
@@ -315,3 +324,22 @@ Or using grunt:
 # License
 
 MIT
+
+[build-badge]: https://img.shields.io/travis/smooth-code/svgr.svg?style=flat-square
+[build]: https://travis-ci.org/smooth-code/svgr
+[coverage-badge]: https://img.shields.io/codecov/c/github/smooth-code/svgr.svg?style=flat-square
+[coverage]: https://codecov.io/github/smooth-code/svgr
+[version-badge]: https://img.shields.io/npm/v/svgr.svg?style=flat-square
+[package]: https://www.npmjs.com/package/svgr
+[license-badge]: https://img.shields.io/npm/l/svgr.svg?style=flat-square
+[license]: https://github.com/smooth-code/svgr/blob/master/LICENSE
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[prs]: http://makeapullrequest.com
+[chat]: https://gitter.im/smooth-code/svgr
+[chat-badge]: https://img.shields.io/gitter/room/smooth-code/svgr.svg?style=flat-square
+[github-watch-badge]: https://img.shields.io/github/watchers/smooth-code/svgr.svg?style=social
+[github-watch]: https://github.com/smooth-code/svgr/watchers
+[github-star-badge]: https://img.shields.io/github/stars/smooth-code/svgr.svg?style=social
+[github-star]: https://github.com/smooth-code/svgr/stargazers
+[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20svgr!%20https://github.com/smooth-code/svgr%20%F0%9F%91%8D
+[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/smooth-code/svgr.svg?style=social
