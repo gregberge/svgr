@@ -1,10 +1,7 @@
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/smooth-code/svgr/master/resources/svgr-logo.png" alt="svgr" title="svgr" width="300">
-  <br>
-  svgr 🦁
-  <br>
 </h1>
-<p align="center" style="font-size: 1.2rem;">Tranform SVG into React components</p>
+<p align="center" style="font-size: 1.2rem;">Tranform SVG into React components 🦁</p>
 
 [![Build Status](https://travis-ci.org/smooth-code/svgr.svg?branch=master)](https://travis-ci.org/smooth-code/svgr)
 [![codecov](https://codecov.io/gh/smooth-code/svgr/branch/master/graph/badge.svg)](https://codecov.io/gh/smooth-code/svgr)
