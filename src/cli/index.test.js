@@ -1,6 +1,8 @@
 import fs from 'mz/fs'
 import { exec } from 'mz/child_process'
 
+jest.setTimeout(10000)
+
 describe('cli', () => {
   it('should work with a simple file', async () => {
     const [stdout] = await exec('babel-node src/cli __fixtures__/one.svg')
