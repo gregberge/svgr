@@ -4,7 +4,7 @@
   svgr 🦁
   <br>
 </h1>
-<p align="center" style="font-size: 1.2rem;">Convert SVG into React components</p>
+<p align="center" style="font-size: 1.2rem;">Tranform SVG into React components</p>
 
 [![Build Status](https://travis-ci.org/smooth-code/svgr.svg?branch=master)](https://travis-ci.org/smooth-code/svgr)
 [![codecov](https://codecov.io/gh/smooth-code/svgr/branch/master/graph/badge.svg)](https://codecov.io/gh/smooth-code/svgr)
