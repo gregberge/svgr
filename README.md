@@ -96,7 +96,7 @@ configurable HTML transpiler. It uses AST power (like [Babel](https://github.com
 
 ### Recipes
 
-#### Processing a directory
+#### Transform a whole directory
 
 A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
 will be transformed into React components.
@@ -109,19 +109,19 @@ icons/spinner/cog-icon.svg -> icons/spinner/CogIcon.js
 icons/spinner/spinner-icon.svg -> icons/spinner/SpinnerIcon.js
 ```
 
-#### Using stdin
+#### Use stdin
 
 ```
 $ svgr < icons/web/wifi-icon.svg
 ```
 
-#### Using stdin / stdout
+#### Use stdin / stdout
 
 ```
 $ svgr < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 ```
 
-#### Creating icons
+#### Transform icons
 
 To create icons, two options are important:
 

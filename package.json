@@ -50,10 +50,12 @@
     "coverageDirectory": "./coverage/"
   },
   "scripts": {
-    "prepublish": "yarn run build",
     "build": "rm -rf lib/ && NODE_ENV=production babel src -d lib",
-    "format": "prettier \"src/**/*.js\"",
+    "ci": "yarn lint && yarn test",
+    "format": "prettier --write \"src/**/*.js\"",
+    "lint": "eslint .",
     "release": "mversion `conventional-recommended-bump -p angular` -m",
-    "test": "eslint . && jest --runInBand --coverage && codecov"
+    "test": "jest --runInBand --coverage && codecov",
+    "prepublish": "yarn run build"
   }
 }
