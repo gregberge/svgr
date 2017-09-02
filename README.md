@@ -57,13 +57,12 @@ export default One
 ## Motivation
 
 React supports SVG out of the box, it's simpler, easier and much more powerful to
-have a component instead of an SVG file. Wrapped in React components, your SVG are
+have components instead of SVG files. Wrapped in a React component, your SVG is
 inlined in the page and you can style it using CSS.
 
-There is a lot of projects doing the same but I wanted something solid and configurable.
-This is project is based on [h2x](https://github.com/smooth-code/h2x), a powerful and
-configurable HTML transpiler. It permits to modify SVG code using AST, that give a lot
-of power.
+There is a lot of similar projects but I wanted something solid and configurable.
+This project is based on [h2x](https://github.com/smooth-code/h2x), a powerful and
+configurable HTML transpiler. It uses AST power (like [Babel](https://github.com/babel/babel/)) that gives a lot of power.
 
 ## Command line usage
 
@@ -99,8 +98,8 @@ of power.
 
 #### Processing a directory
 
-A whole directory can be processed, all svg (matching `.svg` or `.SVG`) will be transformed into React
-components.
+A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
+will be transformed into React components.
 
 ```
 $ svgr -d icons icons
@@ -126,8 +125,8 @@ $ svgr < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 
 To create icons, two options are important:
 
-- `--icon`: title will be removed and svg will automatically inherits text size
-- `--replace-attr-value`: replace color value to "currentColor" to inherits text color
+- `--icon`: title will be removed and SVG will automatically inherits text size
+- `--replace-attr-value`: replace color value to "currentColor" to inherit text color
 
 ```
 $ svgr --icon --replace-attr-value="#000000=currentColor" my-icon.svg
@@ -135,7 +134,7 @@ $ svgr --icon --replace-attr-value="#000000=currentColor" my-icon.svg
 
 ## Node API usage
 
-SVGR can also be used programatically:
+SVGR can also be used programmatically:
 
 ```js
 import svgr from 'svgr'
@@ -166,7 +165,8 @@ svgr(svgCode, { prettier: false }).then(jsCode => {
 SVGR ships with a handful of customizable options, usable in both the CLI and API.
 
 ### SVGO
-Use [SVGO](https://github.com/svg/svgo/) to optimize svg code before transforming it into component.
+Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before transforming
+it into component.
 
 Default | CLI Override | API Override
 --------|--------------|-------------
@@ -259,7 +259,9 @@ Default | CLI Override | API Override
 `true` | `--no-bracket-spacing` | `bracketSpacing: <bool>`
 
 ### JSX Brackets
-Put the `>` of a multi-line JSX element at the end of the last line instead of being alone on the next line (does not apply to self closing elements). For more information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
+Put the `>` of a multi-line JSX element at the end of the last line instead of
+being alone on the next line (does not apply to self closing elements). For more
+information, see [Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
 
 Default | CLI Override | API Override
 --------|--------------|-------------
@@ -267,48 +269,47 @@ Default | CLI Override | API Override
 
 ## Other projects
 
-A lot of projects are tried to solve this problem.
+A lot of projects tried to solve this problem, unfortunately, none of them
+fulfills my use-cases.
 
 Using raw node:
 
-- https://github.com/publitas/svg-to-react
-- https://github.com/quirinpa/svg-2-react-isvg
-- https://github.com/egoist/svg-to-component
-- https://github.com/mapbox/svg-react-transformer
-- https://github.com/andgandolfi/svg-to-react-k
+- [svg-to-react](https://github.com/publitas/svg-to-react)
+- [svg-2-react-isvg](https://github.com/quirinpa/svg-2-react-isvg)
+- [svg-to-component](https://github.com/egoist/svg-to-component)
+- [svg-react-transformer](https://github.com/mapbox/svg-react-transformer)
+- [svg-to-react-k](https://github.com/andgandolfi/svg-to-react-k)
 
 Using command line:
 
-- https://github.com/goopscoop/svg-to-react-cli
-- https://github.com/meriadec/svg2react
-- https://github.com/mapbox/svg-react-transformer-writer
-- https://github.com/joshblack/react-svg-converter
+- [svg-to-react-cli](https://github.com/goopscoop/svg-to-react-cli)
+- [svg2react](https://github.com/meriadec/svg2react)
+- [svg-react-transformer-writer](https://github.com/mapbox/svg-react-transformer-writer)
+- [react-svg-converter](https://github.com/joshblack/react-svg-converter)
 
 Or using a Webpack loader:
 
-- https://github.com/jhamlet/svg-react-loader
-- https://github.com/mapbox/svg-react-transformer-loader
+- [svg-react-loader](https://github.com/jhamlet/svg-react-loader)
+- [svg-react-transformer-loader](https://github.com/mapbox/svg-react-transformer-loader)
 
 Or using a browserify loader:
 
-- https://github.com/coma/svg-reactify
+- [svg-reactify](https://github.com/coma/svg-reactify)
 
 Or using gulp / grunt plugin:
 
-- https://github.com/marvin1023/gulp-svg-to-react
+- [gulp-svg-to-react](https://github.com/marvin1023/gulp-svg-to-react)
 
 Or at runtime:
 
-- https://github.com/tonis2/svg-react
-- https://github.com/quirinpa/react-isvg-loader/blob/master/index.js
-- https://github.com/MoOx/react-svg-inline
+- [svg-react](https://github.com/tonis2/svg-react)
+- [react-isvg-loader](https://github.com/quirinpa/react-isvg-loader/)
+- [react-svg-inline](https://github.com/MoOx/react-svg-inline)
 
 Or using grunt:
 
-- https://github.com/okcoker/grunt-svg-react-component
-- https://github.com/sairion/svg-inline-react
-
-I think it's enough, the goal of this library is to try to do it right once for all.
+- [grunt-svg-react-component](https://github.com/okcoker/grunt-svg-react-component)
+- [svg-inline-react](https://github.com/sairion/svg-inline-react)
 
 # License
 
