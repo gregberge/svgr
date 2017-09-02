@@ -11,7 +11,7 @@ npm install svgr
 
 ## Example
 
-**icon.svg**:
+**Take an icon.svg**:
 
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
@@ -36,11 +36,12 @@ npm install svgr
 </svg>
 ```
 
+**Run SVGR**
 ```sh
 svgr --no-semi --icon icon.svg
 ```
 
-**Output:**
+**Output**
 ```js
 import React from "react"
 
