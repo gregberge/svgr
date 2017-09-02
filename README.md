@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/smooth-code/svgr.svg?branch=master)](https://travis-ci.org/smooth-code/svgr)
 [![codecov](https://codecov.io/gh/smooth-code/svgr/branch/master/graph/badge.svg)](https://codecov.io/gh/smooth-code/svgr)
 
-**SVGR** is a tool to convert raw SVG into React components.
+**SVGR** is a tool to convert raw SVG into React components 🦁.
 
 ```sh
 npm install svgr
