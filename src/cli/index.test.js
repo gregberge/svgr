@@ -1,9 +1,12 @@
+/* eslint-disable no-undef */
 import fs from 'mz/fs'
 import { exec } from 'mz/child_process'
 
-jest.setTimeout(10000)
-
 describe('cli', () => {
+  beforeEach(() => {
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000
+  })
+
   it('should work with a simple file', async () => {
     const [stdout] = await exec('babel-node src/cli __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
