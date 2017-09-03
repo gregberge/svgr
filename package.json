@@ -44,6 +44,9 @@
     "recursive-readdir": "^2.2.1",
     "svgo": "^0.7.2"
   },
+  "bin": {
+    "svgr": "./bin/svgr"
+  },
   "jest": {
     "rootDir": "src",
     "coverageDirectory": "./coverage/"

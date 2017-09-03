@@ -21,6 +21,7 @@ const defaultConfig = {
   trailingComma: undefined, // default to prettier
   bracketSpacing: undefined, // default to prettier
   jsxBracketSameLine: undefined, // default to prettier
+  template: wrapIntoComponent,
 }
 
 function configToOptions(config = {}) {
@@ -64,7 +65,7 @@ function configToOptions(config = {}) {
       plugins: getH2xPlugins(),
     },
     prettier: config.prettier ? getPrettierConfig() : null,
-    template: wrapIntoComponent({ expandProps: config.expandProps }),
+    template: config.template(config),
   }
 }
 

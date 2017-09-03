@@ -1,4 +1,5 @@
 import jsx from 'h2x-plugin-jsx'
+import path from 'path'
 import svgo from './plugins/svgo'
 import h2x from './plugins/h2x'
 import prettier from './plugins/prettier'
@@ -21,7 +22,20 @@ export {
   removeComments,
 }
 
+const firstUpperCase = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
+const hyphenToCamelCase = str =>
+  str.replace(/-(.)/g, (match, chr) => chr.toUpperCase())
+
+function expandState(state) {
+  const componentName = firstUpperCase(
+    hyphenToCamelCase(path.parse(state.filePath).name),
+  )
+
+  return { ...state, componentName }
+}
+
 export async function rawConvert(code, options, state) {
+  state = expandState(state)
   let result = code
   result = options.svgo ? await svgo(result, options.svgo, state) : result
   result = await h2x(result, options.h2x, state)

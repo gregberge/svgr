@@ -86,6 +86,7 @@ configurable HTML transpiler. It uses AST (like [Babel](https://github.com/babel
     -d, --out-dir <dirname>          output files into a directory
     --no-svgo                        disable SVGO
     --no-prettier                    disable Prettier
+    --template <file>                specify a custom template to use
     --no-expand-props                disable props expanding
     --icon                           use "1em" as width and height
     --replace-attr-value [old=new]   replace an attribute value
@@ -142,6 +143,14 @@ To create icons, two options are important:
 $ svgr --icon --replace-attr-value "#000000=currentColor" my-icon.svg
 ```
 
+#### Use a specific template
+
+You can use a specific template, for an example of template, see [the default one](src/transforms/wrapIntoComponent.js).
+
+```
+$ svgr --template path/to/template.js my-icon.svg
+```
+
 ## Node API usage
 
 SVGR can also be used programmatically:
@@ -188,6 +197,13 @@ Use [Prettier](https://github.com/prettier/prettier) to format JavaScript code o
 Default | CLI Override | API Override
 --------|--------------|-------------
 `true`  | `--no-prettier` | `prettier: <bool>`
+
+### Template
+Specify a template file (CLI) or a template function (API) to use. For an example of template, see [the default one](src/transforms/wrapIntoComponent.js).
+
+Default | CLI Override | API Override
+--------|--------------|-------------
+[`wrapIntoComponent`](src/transforms/wrapIntoComponent.js)  | `--template` | `template: <func>`
 
 ### Expand props
 All properties given to component will be forwarded on SVG tag.
