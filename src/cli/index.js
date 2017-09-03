@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import program from 'commander'
-import fs from 'fs'
+import path from 'path'
+import fs from 'mz/fs'
 import glob from 'glob'
 import uniq from 'lodash/uniq'
 import pkg from '../../package.json'
@@ -20,6 +21,7 @@ program
   .option('-d, --out-dir <dirname>', 'output files into a directory')
   .option('--no-svgo', 'disable SVGO')
   .option('--no-prettier', 'disable Prettier')
+  .option('--template <file>', 'specify a custom template to use')
   .option('--no-expand-props', 'disable props expanding')
   .option('--icon', 'use "1em" as width and height')
   .option(
@@ -74,18 +76,36 @@ async function run() {
 
   filenames = uniq(filenames)
 
-  filenames.forEach(filename => {
-    if (!fs.existsSync(filename)) {
-      errors.push(`${filename} does not exist`)
-    }
-  })
+  await Promise.all(
+    filenames.map(async filename => {
+      if (await !fs.exists(filename)) {
+        errors.push(`${filename} does not exist`)
+      }
+    }),
+  )
 
   if (errors.length) {
     console.error(errors.join('. '))
     process.exit(2)
   }
 
-  const opts = configToOptions(program)
+  const config = { ...program }
+
+  if (config.template) {
+    try {
+      const template = require(path.join(process.cwd(), program.template)) // eslint-disable-line global-require, import/no-dynamic-require
+      if (template.default) config.template = template.default
+      else config.template = template
+
+      if (typeof config.template !== 'function')
+        throw new Error('Template must be a function')
+    } catch (error) {
+      console.error(`Error when loading template: ${program.template}`)
+      process.exit(2)
+    }
+  }
+
+  const opts = configToOptions(config)
 
   const command = program.outDir ? dirCommand : fileCommand
   await command(program, filenames, opts)

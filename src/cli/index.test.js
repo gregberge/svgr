@@ -68,6 +68,13 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
+  it('--template', async () => {
+    const [stdout] = await exec(
+      'babel-node src/cli --template __fixtures__/template.js __fixtures__/one.svg',
+    )
+    expect(stdout).toMatchSnapshot()
+  })
+
   it('should work with stdin', async () => {
     const [stdout] = await exec('babel-node src/cli < __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
