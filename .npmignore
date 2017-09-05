@@ -1,3 +1,4 @@
 /*
 !/lib/*.js
+!/bin/svgr
 *.test.js
