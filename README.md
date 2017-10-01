@@ -179,6 +179,46 @@ svgr(svgCode, { prettier: false }).then(jsCode => {
 })
 ```
 
+## Webpack usage
+
+SVGR has a Webpack loader, you can use it using following `webpack.config.js`:
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        use: ['svgr/webpack', 'babel-loader']
+      }
+    ]
+  }
+}
+```
+
+It is also possible to specify options:
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svgr/webpack',
+            options: {
+              svgo: false
+            }
+          },
+          'babel-loader',
+        ]
+      }
+    ]
+  }
+}
+```
+
 ## Options
 
 SVGR ships with a handful of customizable options, usable in both the CLI and API.
