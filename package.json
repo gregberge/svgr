@@ -16,20 +16,23 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "codecov": "^2.3.0",
     "conventional-github-releaser": "^1.1.12",
-    "conventional-recommended-bump": "^1.0.1",
-    "eslint": "^4.6.0",
-    "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-config-prettier": "^2.4.0",
+    "conventional-recommended-bump": "^1.0.2",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-import": "^2.7.0",
-    "jest": "^20.0.4",
-    "mversion": "^1.10.1"
+    "jest": "^21.2.1",
+    "mversion": "^1.10.1",
+    "react": "^16.0.0",
+    "webpack": "^3.6.0"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -37,10 +40,11 @@
     "glob": "^7.1.2",
     "h2x-core": "^0.1.6",
     "h2x-plugin-jsx": "^0.1.6",
+    "loader-utils": "^1.1.0",
     "lodash": "^4.17.4",
     "mz": "^2.6.0",
     "output-file-sync": "^2.0.0",
-    "prettier": "^1.6.1",
+    "prettier": "^1.7.3",
     "recursive-readdir": "^2.2.1",
     "svgo": "^0.7.2"
   },
@@ -49,7 +53,10 @@
   },
   "jest": {
     "rootDir": "src",
-    "coverageDirectory": "./coverage/"
+    "coverageDirectory": "./coverage/",
+    "watchPathIgnorePatterns": [
+      "<rootDir>/__fixtures__"
+    ]
   },
   "scripts": {
     "build": "rm -rf lib/ && NODE_ENV=production babel src -d lib",
