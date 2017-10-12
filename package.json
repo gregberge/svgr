@@ -64,7 +64,8 @@
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint .",
     "release": "mversion `conventional-recommended-bump -p angular` -m",
-    "test": "jest --runInBand --coverage && codecov",
+    "clear": "rm -rf __fixtures_build__ lib",
+    "test": "npm run clear && jest --runInBand --coverage && codecov",
     "prepublish": "yarn run build"
   }
 }
