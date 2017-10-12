@@ -86,7 +86,7 @@ describe('cli', () => {
       await fs.readFile('__fixtures_build__/One.js', 'utf-8'),
     ).toMatchSnapshot()
     expect(
-      await fs.readFile('__fixtures_build__/nested/two.js', 'utf-8'),
+      await fs.readFile('__fixtures_build__/nested/Two.js', 'utf-8'),
     ).toMatchSnapshot()
   })
 })
