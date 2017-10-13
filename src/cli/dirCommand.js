@@ -18,7 +18,6 @@ async function dirCommand(program, filenames, opts) {
   async function write(src, relative) {
     if (!isCompilableExtension(relative)) return false
 
-    console.log('write', relative)
     relative = rename(relative)
 
     const dest = path.join(program.outDir, relative)
