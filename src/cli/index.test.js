@@ -83,10 +83,10 @@ describe('cli', () => {
   it('should work with output directory', async () => {
     await exec('babel-node src/cli --out-dir __fixtures_build__ __fixtures__')
     expect(
-      await fs.readFile('__fixtures_build__/one.js', 'utf-8'),
+      await fs.readFile('__fixtures_build__/One.js', 'utf-8'),
     ).toMatchSnapshot()
     expect(
-      await fs.readFile('__fixtures_build__/nested/two.js', 'utf-8'),
+      await fs.readFile('__fixtures_build__/nested/Two.js', 'utf-8'),
     ).toMatchSnapshot()
   })
 })

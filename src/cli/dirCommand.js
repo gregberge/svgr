@@ -3,13 +3,22 @@ import fs from 'mz/fs'
 import path from 'path'
 import outputFileSync from 'output-file-sync'
 import { convertFile, isCompilableExtension, readdir } from './util'
+import { pascalCase } from '../transforms/rename'
+
+export const rename = (relative) => {
+  const relativePath = path.parse(relative)
+  relativePath.ext = '.js'
+  relativePath.name = pascalCase(relativePath.name)
+  relativePath.base = null
+
+  return path.format(relativePath)
+}
 
 async function dirCommand(program, filenames, opts) {
   async function write(src, relative) {
     if (!isCompilableExtension(relative)) return false
 
-    // remove extension and then append back on .js
-    relative = `${relative.replace(/\.(\w*?)$/, '')}.js`
+    relative = rename(relative)
 
     const dest = path.join(program.outDir, relative)
 

@@ -5,6 +5,7 @@ import h2x from './plugins/h2x'
 import prettier from './plugins/prettier'
 import transform from './plugins/transform'
 import wrapIntoComponent from './transforms/wrapIntoComponent'
+import { pascalCase } from './transforms/rename'
 import stripAttribute from './h2x/stripAttribute'
 import emSize from './h2x/emSize'
 import expandProps from './h2x/expandProps'
@@ -22,14 +23,8 @@ export {
   removeComments,
 }
 
-const firstUpperCase = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
-const hyphenToCamelCase = str =>
-  str.replace(/-(.)/g, (match, chr) => chr.toUpperCase())
-
 function expandState(state) {
-  const componentName = firstUpperCase(
-    hyphenToCamelCase(path.parse(state.filePath).name),
-  )
+  const componentName = pascalCase(path.parse(state.filePath).name)
 
   return { ...state, componentName }
 }
