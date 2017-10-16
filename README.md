@@ -205,13 +205,13 @@ module.exports = {
       {
         test: /\.svg$/,
         use: [
+          'babel-loader',
           {
-            loader: 'svgr/webpack',
+            loader: 'svgr/lib/webpack',
             options: {
               svgo: false
             }
           },
-          'babel-loader',
         ]
       }
     ]
