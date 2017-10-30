@@ -66,6 +66,6 @@
     "release": "mversion `conventional-recommended-bump -p angular` -m",
     "clear": "rm -rf __fixtures_build__ lib",
     "test": "npm run clear && jest --runInBand --coverage && codecov",
-    "prepublish": "yarn run build"
+    "prepublishOnly": "yarn run build"
   }
 }
