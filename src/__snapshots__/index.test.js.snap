@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`convert should convert style attribute 1`] = `
+"import React from \\"react\\";
+
+const SvgComponent = props => (
+  <svg
+    xmlnsXlink=\\"http://www.w3.org/1999/xlink\\"
+    width={48}
+    height={48}
+    {...props}
+  >
+    <g transform=\\"translate(0 -1004.362)\\">
+      <g id=\\"a\\" color=\\"#000\\" fill=\\"#a3a3a3\\" strokeWidth={8}>
+        <rect
+          style={{ marker: \\"none\\" }}
+          width={4}
+          height={4}
+          x={4}
+          y={1010.362}
+          rx={0.2}
+          ry={0.2}
+          overflow=\\"visible\\"
+        />
+        <rect
+          ry={0.2}
+          rx={0.2}
+          y={1010.362}
+          x={12}
+          height={4}
+          width={32}
+          style={{ marker: \\"none\\" }}
+          overflow=\\"visible\\"
+        />
+      </g>
+      <use xlinkHref=\\"#a\\" />
+      <use xlinkHref=\\"#a\\" transform=\\"translate(0 8)\\" />
+      <use xlinkHref=\\"#a\\" transform=\\"translate(0 16)\\" />
+      <use xlinkHref=\\"#a\\" transform=\\"translate(0 24)\\" />
+      <use xlinkHref=\\"#a\\" transform=\\"translate(0 32)\\" />
+    </g>
+  </svg>
+);
+
+export default SvgComponent;
+"
+`;
+
 exports[`convert should convert using config 1`] = `
 "import React from \\"react\\";
 
@@ -44,7 +90,7 @@ exports[`rawConvert should convert using specific options 1`] = `
 "import React from 'react'
 
 const MyComponent = (props) => {/*?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?*/}
-<svg width=\\"88px\\" height=\\"88px\\" viewBox=\\"0 0 88 88\\" version=\\"1.1\\" xmlnsXlink=\\"http://www.w3.org/1999/xlink\\" {...props}>
+<svg width=\\"88px\\" height=\\"88px\\" viewBox=\\"0 0 88 88\\" version={1.1} xmlnsXlink=\\"http://www.w3.org/1999/xlink\\" {...props}>
   {/*Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch*/}
   <title>
     Dismiss

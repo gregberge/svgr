@@ -2554,8 +2554,8 @@ h2x-parse@^0.1.0:
     jsdom "11.1.0"
 
 h2x-plugin-jsx@^0.1.6:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/h2x-plugin-jsx/-/h2x-plugin-jsx-0.1.7.tgz#e6901ecb5388594ff9836cd6303007fdfa3e5a8c"
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/h2x-plugin-jsx/-/h2x-plugin-jsx-0.1.8.tgz#f8bacb6b8c22844477e40be1167fa4e5d44b229a"
   dependencies:
     h2x-types "^0.1.0"
 
