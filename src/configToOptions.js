@@ -5,6 +5,7 @@ import emSize from './h2x/emSize'
 import expandProps from './h2x/expandProps'
 import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
+import removeStyle from './h2x/removeStyle'
 
 const defaultConfig = {
   svgo: true,
@@ -28,7 +29,7 @@ function configToOptions(config = {}) {
   config = { ...defaultConfig, ...config }
 
   function getH2xPlugins() {
-    const plugins = [jsx, stripAttribute('xmlns'), removeComments]
+    const plugins = [jsx, stripAttribute('xmlns'), removeComments, removeStyle]
     if (config.icon) plugins.push(emSize)
     config.replaceAttrValues.forEach(([oldValue, newValue]) => {
       plugins.push(replaceAttrValue(oldValue, newValue))

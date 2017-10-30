@@ -56,6 +56,12 @@
     "coverageDirectory": "./coverage/",
     "watchPathIgnorePatterns": [
       "<rootDir>/__fixtures__"
+    ],
+    "collectCoverageFrom" : [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/__fixtures__/**",
+      "!**/__snapshots__/**"
     ]
   },
   "scripts": {
