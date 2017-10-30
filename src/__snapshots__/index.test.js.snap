@@ -22,6 +22,24 @@ export default SvgComponent;
 "
 `;
 
+exports[`convert should remove style tags 1`] = `
+"import React from \\"react\\";
+
+const SvgComponent = props => (
+  <svg width={88} height={88} viewBox=\\"0 0 88 88\\" {...props}>
+    <title>Dismiss</title>
+    <g id=\\"Blocks\\" fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\">
+      <g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
+        <path d=\\"M51 37L37 51M51 51L37 37\\" id=\\"Shape\\" />
+      </g>
+    </g>
+  </svg>
+);
+
+export default SvgComponent;
+"
+`;
+
 exports[`rawConvert should convert using specific options 1`] = `
 "import React from 'react'
 

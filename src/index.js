@@ -11,6 +11,7 @@ import emSize from './h2x/emSize'
 import expandProps from './h2x/expandProps'
 import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
+import removeStyle from './h2x/removeStyle'
 import configToOptions from './configToOptions'
 
 export {
@@ -21,6 +22,7 @@ export {
   replaceAttrValue,
   wrapIntoComponent,
   removeComments,
+  removeStyle,
 }
 
 function expandState(state) {
