@@ -189,7 +189,7 @@ module.exports = {
     rules: [
       {
         test: /\.svg$/,
-        use: ['svgr/webpack', 'babel-loader']
+        use: ['babel-loader', 'svgr/lib/webpack']
       }
     ]
   }
