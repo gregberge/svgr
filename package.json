@@ -24,14 +24,13 @@
     "babel-preset-react": "^6.24.1",
     "codecov": "^3.0.0",
     "conventional-github-releaser": "^2.0.0",
-    "conventional-recommended-bump": "^1.0.2",
     "eslint": "^4.8.0",
     "eslint-config-airbnb-base": "^12.0.1",
     "eslint-config-prettier": "^2.7.0",
     "eslint-plugin-import": "^2.7.0",
     "jest": "^21.2.1",
-    "mversion": "^1.10.1",
     "react": "^16.0.0",
+    "standard-version": "^4.2.0",
     "webpack": "^3.6.0"
   },
   "dependencies": {
@@ -69,7 +68,7 @@
     "ci": "yarn lint && yarn test",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint .",
-    "release": "mversion `conventional-recommended-bump -p angular` -m",
+    "release": "standard-version && conventional-github-releaser",
     "clear": "rm -rf __fixtures_build__ lib",
     "test": "npm run clear && jest --runInBand --coverage && codecov",
     "prepublishOnly": "yarn run build"

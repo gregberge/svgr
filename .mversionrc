@@ -1,7 +1,0 @@
-{
-  "scripts": {
-    "precommit": "yarn build && git add -A",
-    "postcommit": "git push && git push --tags",
-    "postupdate": "npm publish && conventional-github-releaser --preset angular"
-  }
-}
