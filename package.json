@@ -68,7 +68,7 @@
     "ci": "yarn lint && yarn test",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint .",
-    "release": "standard-version && conventional-github-releaser",
+    "release": "yarn build && standard-version && conventional-github-releaser",
     "clear": "rm -rf __fixtures_build__ lib",
     "test": "npm run clear && jest --runInBand --coverage && codecov",
     "prepublishOnly": "yarn run build"
