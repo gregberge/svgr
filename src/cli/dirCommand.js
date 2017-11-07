@@ -5,7 +5,7 @@ import outputFileSync from 'output-file-sync'
 import { convertFile, isCompilableExtension, readdir } from './util'
 import { pascalCase } from '../transforms/rename'
 
-export const rename = (relative) => {
+export const rename = relative => {
   const relativePath = path.parse(relative)
   relativePath.ext = '.js'
   relativePath.name = pascalCase(relativePath.name)
