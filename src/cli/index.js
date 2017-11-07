@@ -100,7 +100,8 @@ async function run() {
       if (typeof config.template !== 'function')
         throw new Error('Template must be a function')
     } catch (error) {
-      console.error(`Error when loading template: ${program.template}`)
+      console.error(`Error when loading template: ${program.template}\n`)
+      console.error(error.stack)
       process.exit(2)
     }
   }
