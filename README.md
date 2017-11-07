@@ -145,10 +145,19 @@ $ svgr --icon --replace-attr-value "#000000=currentColor" my-icon.svg
 
 #### Use a specific template
 
-You can use a specific template, for an example of template, see [the default one](src/transforms/wrapIntoComponent.js).
+You can use a specific template.
 
 ```
 $ svgr --template path/to/template.js my-icon.svg
+```
+
+**Example of template:**
+
+```js
+module.exports = (opts = {}) => (code, state) => `import React from 'react'
+const ${state.componentName} = (${opts.expandProps ? 'props' : ''}) => ${code}
+export default ${state.componentName}
+`
 ```
 
 ## Node API usage

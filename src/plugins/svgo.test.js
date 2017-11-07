@@ -17,7 +17,7 @@ describe('svgo', () => {
     </svg>`)
 
     expect(result).toBe(
-      '<svg width="88" height="88" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg"><title>Dismiss</title><g stroke="#063855" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M51 37L37 51M51 51L37 37"/></g></svg>',
+      '<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg"><g stroke="#063855" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M51 37L37 51M51 51L37 37"/></g></svg>',
     )
   })
 
@@ -40,7 +40,7 @@ describe('svgo', () => {
     )
 
     expect(result).toBe(
-      '<svg width="88" height="88" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg"><title>Dismiss</title><desc>Created with Sketch.</desc><g stroke="#063855" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M51 37L37 51M51 51L37 37"/></g></svg>',
+      '<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg"><desc>Created with Sketch.</desc><g stroke="#063855" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M51 37L37 51M51 51L37 37"/></g></svg>',
     )
   })
 })

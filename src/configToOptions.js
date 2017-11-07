@@ -43,6 +43,8 @@ function configToOptions(config = {}) {
     const plugins = []
     const svgoConfig = { plugins }
     if (!config.title || config.icon) plugins.push({ removeTitle: {} })
+    else if (config.title) plugins.push({ removeTitle: false })
+    if (config.icon) plugins.push({ removeViewBox: false })
     if (config.precision === 'number')
       svgoConfig.floatPrecision = Number(svgoConfig.precision)
     return svgoConfig
