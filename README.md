@@ -136,7 +136,7 @@ $ svgr < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 
 To create icons, two options are important:
 
-- `--icon`: title is removed and SVG inherits text size
+- `--icon`: title is removed, viewBox is preserved and SVG inherits text size
 - `--replace-attr-value "#000000=currentColor"`: "#000000" is replaced by "currentColor" and SVG inherits text color
 
 ```
@@ -262,8 +262,7 @@ Default | CLI Override | API Override
 `true`  | `--no-expand-props` | `expandProps: <bool>`
 
 ### Icon
-Remove title and replace SVG "width" and "height" value by "1em" (SVG size inherits
-from text size).
+Preserve viewBox property and replace SVG "width" and "height" value by "1em" in order to make SVG size inherits from text size. Also remove title.
 
 Default | CLI Override | API Override
 --------|--------------|-------------
