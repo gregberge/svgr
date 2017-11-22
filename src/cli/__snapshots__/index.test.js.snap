@@ -18,7 +18,7 @@ exports[`cli --no-expand-props 1`] = `
 "import React from \\"react\\";
 
 const One = () => (
-  <svg width={48} height={1}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\">
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
@@ -32,7 +32,7 @@ export default One;
 exports[`cli --no-prettier 1`] = `
 "import React from 'react'
 
-const One = (props) => <svg width={48} height={1} {...props}>
+const One = (props) => <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
   <title>
     Rectangle 5
   </title>
@@ -48,7 +48,7 @@ exports[`cli --no-semi 1`] = `
 "import React from \\"react\\"
 
 const One = props => (
-  <svg width={48} height={1} {...props}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
@@ -103,7 +103,7 @@ exports[`cli --no-title 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
-  <svg width={48} height={1} {...props}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 );
@@ -113,7 +113,7 @@ export default One;
 "
 `;
 
-exports[`cli --precision 1`] = `
+exports[`cli --no-view-box 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
@@ -128,11 +128,26 @@ export default One;
 "
 `;
 
+exports[`cli --precision 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
 exports[`cli --replace-attr-value 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
-  <svg width={48} height={1} {...props}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"currentColor\\" fillRule=\\"evenodd\\" />
   </svg>
@@ -148,7 +163,7 @@ exports[`cli --template 1`] = `
 
 export default function One() {
   return (
-    <svg width={48} height={1} {...props}>
+    <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
       <title>Rectangle 5</title>
       <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
     </svg>
@@ -162,7 +177,7 @@ exports[`cli should work with a simple file 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
-  <svg width={48} height={1} {...props}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
@@ -177,7 +192,7 @@ exports[`cli should work with output directory 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
-  <svg width={48} height={1} {...props}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
@@ -191,7 +206,7 @@ exports[`cli should work with output directory 2`] = `
 "import React from \\"react\\";
 
 const Two = props => (
-  <svg width={48} height={11} {...props}>
+  <svg width={48} height={11} viewBox=\\"0 0 48 11\\" {...props}>
     <title>Group 6</title>
     <g stroke=\\"#063855\\" fill=\\"none\\" fillRule=\\"evenodd\\">
       <path d=\\"M0 7l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 7\\" />
@@ -208,7 +223,7 @@ exports[`cli should work with stdin 1`] = `
 "import React from \\"react\\";
 
 const SvgComponent = props => (
-  <svg width={48} height={1} {...props}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>

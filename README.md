@@ -262,11 +262,18 @@ Default | CLI Override | API Override
 `true`  | `--no-expand-props` | `expandProps: <bool>`
 
 ### Icon
-Preserve viewBox property and replace SVG "width" and "height" value by "1em" in order to make SVG size inherits from text size. Also remove title.
+Replace SVG "width" and "height" value by "1em" in order to make SVG size inherits from text size. Also remove title.
 
 Default | CLI Override | API Override
 --------|--------------|-------------
 `false`  | `--icon` | `icon: <bool>`
+
+### ViewBox
+Setting this to `false` will remove the viewBox property.
+
+Default | CLI Override | API Override
+--------|--------------|-------------
+`true`  | `--no-view-box` | `viewBox: <bool>`
 
 ### Replace attribute value
 Replace an attribute value by an other. The main usage of this option is to change

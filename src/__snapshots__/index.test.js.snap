@@ -50,7 +50,7 @@ exports[`convert should convert using config 1`] = `
 "import React from \\"react\\";
 
 const SvgComponent = props => (
-  <svg width={88} height={88} {...props}>
+  <svg width={88} height={88} viewBox=\\"0 0 88 88\\" {...props}>
     <title>Dismiss</title>
     <g
       stroke=\\"#063855\\"
@@ -72,7 +72,7 @@ exports[`convert should remove style tags 1`] = `
 "import React from \\"react\\";
 
 const SvgComponent = props => (
-  <svg width={88} height={88} {...props}>
+  <svg width={88} height={88} viewBox=\\"0 0 88 88\\" {...props}>
     <title>Dismiss</title>
     <g fill=\\"red\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\">
       <g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>

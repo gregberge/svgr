@@ -11,6 +11,7 @@ const defaultConfig = {
   svgo: true,
   prettier: true,
   icon: false,
+  viewBox: true,
   replaceAttrValues: [],
   expandProps: true,
   title: true,
@@ -44,7 +45,7 @@ function configToOptions(config = {}) {
     const svgoConfig = { plugins }
     if (!config.title || config.icon) plugins.push({ removeTitle: {} })
     else if (config.title) plugins.push({ removeTitle: false })
-    if (config.icon) plugins.push({ removeViewBox: false })
+    if (config.viewBox) plugins.push({ removeViewBox: false })
     if (config.precision === 'number')
       svgoConfig.floatPrecision = Number(svgoConfig.precision)
     return svgoConfig
