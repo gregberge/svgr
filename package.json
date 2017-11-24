@@ -24,18 +24,18 @@
     "babel-preset-react": "^6.24.1",
     "codecov": "^3.0.0",
     "conventional-github-releaser": "^2.0.0",
-    "eslint": "^4.8.0",
+    "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.0.1",
-    "eslint-config-prettier": "^2.7.0",
+    "eslint-config-prettier": "^2.8.0",
     "eslint-plugin-import": "^2.7.0",
     "jest": "^21.2.1",
-    "react": "^16.0.0",
+    "react": "^16.1.1",
     "standard-version": "^4.2.0",
     "webpack": "^3.6.0"
   },
   "dependencies": {
     "chalk": "^2.1.0",
-    "commander": "^2.11.0",
+    "commander": "^2.12.1",
     "glob": "^7.1.2",
     "h2x-core": "^0.1.6",
     "h2x-plugin-jsx": "^0.1.6",
@@ -43,9 +43,9 @@
     "lodash": "^4.17.4",
     "mz": "^2.6.0",
     "output-file-sync": "^2.0.0",
-    "prettier": "^1.8.1",
+    "prettier": "^1.8.2",
     "recursive-readdir": "^2.2.1",
-    "svgo": "^1.0.2"
+    "svgo": "^1.0.3"
   },
   "bin": {
     "svgr": "./bin/svgr"
