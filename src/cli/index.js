@@ -24,6 +24,7 @@ program
   .option('--template <file>', 'specify a custom template to use')
   .option('--no-expand-props', 'disable props expanding')
   .option('--icon', 'use "1em" as width and height')
+  .option('--no-view-box', 'remove viewBox')
   .option(
     '--replace-attr-value [old=new]',
     'replace an attribute value',

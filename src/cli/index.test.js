@@ -40,6 +40,13 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
+  it('--no-view-box', async () => {
+    const [stdout] = await exec(
+      'babel-node src/cli --no-view-box __fixtures__/one.svg',
+    )
+    expect(stdout).toMatchSnapshot()
+  })
+
   it('--replace-attr-value', async () => {
     const [stdout] = await exec(
       'babel-node src/cli --replace-attr-value "#063855=currentColor" __fixtures__/one.svg',
