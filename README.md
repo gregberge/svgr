@@ -5,11 +5,9 @@
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package]
-[![MIT License][license-badge]][LICENSE]
+[![version][version-badge]][package] [![MIT License][license-badge]][license]
 
-[![PRs Welcome][prs-badge]][prs]
-[![Chat][chat-badge]][chat]
+[![PRs Welcome][prs-badge]][prs] [![Chat][chat-badge]][chat]
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
@@ -47,13 +45,15 @@ npm install svgr
 ```
 
 **Run SVGR**
+
 ```sh
 svgr --no-semi --icon --replace-attr-value "#063855=currentColor" icon.svg
 ```
 
 **Output**
+
 ```js
-import React from "react"
+import React from 'react'
 
 const SvgComponent = props => (
   <svg width="1em" height="1em" viewBox="0 0 48 1" {...props}>
@@ -66,13 +66,14 @@ export default SvgComponent
 
 ## Motivation
 
-React supports SVG out of the box, it's simpler, easier and much more powerful to
-have components instead of SVG files. Wrapped in a React component, your SVG is
-inlined in the page and you can style it using CSS.
+React supports SVG out of the box, it's simpler, easier and much more powerful
+to have components instead of SVG files. Wrapped in a React component, your SVG
+is inlined in the page and you can style it using CSS.
 
-There are a lot of similar projects, but I wanted something more solid and configurable.
-SVGR is based on [h2x](https://github.com/smooth-code/h2x), a powerful and
-configurable HTML transpiler. It uses AST (like [Babel](https://github.com/babel/babel/)) that gives a lot of power.
+There are a lot of similar projects, but I wanted something more solid and
+configurable. SVGR is based on [h2x](https://github.com/smooth-code/h2x), a
+powerful and configurable HTML transpiler. It uses AST (like
+[Babel](https://github.com/babel/babel/)) that gives a lot of power.
 
 ## Command line usage
 
@@ -136,8 +137,9 @@ $ svgr < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 
 To create icons, two options are important:
 
-- `--icon`: title is removed, viewBox is preserved and SVG inherits text size
-- `--replace-attr-value "#000000=currentColor"`: "#000000" is replaced by "currentColor" and SVG inherits text color
+* `--icon`: title is removed, viewBox is preserved and SVG inherits text size
+* `--replace-attr-value "#000000=currentColor"`: "#000000" is replaced by
+  "currentColor" and SVG inherits text color
 
 ```
 $ svgr --icon --replace-attr-value "#000000=currentColor" my-icon.svg
@@ -183,9 +185,11 @@ const svgCode = `
 </svg>
 `
 
-svgr(svgCode, { prettier: false }).then(jsCode => {
-  console.log(jsCode)
-})
+svgr(svgCode, { prettier: false, componentName: 'MyComponent' }).then(
+  jsCode => {
+    console.log(jsCode)
+  },
+)
 ```
 
 ## Webpack usage
@@ -198,10 +202,10 @@ module.exports = {
     rules: [
       {
         test: /\.svg$/,
-        use: ['babel-loader', 'svgr/lib/webpack']
-      }
-    ]
-  }
+        use: ['babel-loader', 'svgr/lib/webpack'],
+      },
+    ],
+  },
 }
 ```
 
@@ -218,134 +222,163 @@ module.exports = {
           {
             loader: 'svgr/lib/webpack',
             options: {
-              svgo: false
-            }
+              svgo: false,
+            },
           },
-        ]
-      }
-    ]
-  }
+        ],
+      },
+    ],
+  },
 }
 ```
 
 ## Options
 
-SVGR ships with a handful of customizable options, usable in both the CLI and API.
+SVGR ships with a handful of customizable options, usable in both the CLI and
+API.
 
 ### SVGO
-Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before transforming
-it into a component.
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`true`  | `--no-svgo` | `svgo: <bool>`
+Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before
+transforming it into a component.
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `true`  | `--no-svgo`  | `svgo: <bool>` |
 
 ### Prettier
-Use [Prettier](https://github.com/prettier/prettier) to format JavaScript code output.
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`true`  | `--no-prettier` | `prettier: <bool>`
+Use [Prettier](https://github.com/prettier/prettier) to format JavaScript code
+output.
+
+| Default | CLI Override    | API Override       |
+| ------- | --------------- | ------------------ |
+| `true`  | `--no-prettier` | `prettier: <bool>` |
 
 ### Template
-Specify a template file (CLI) or a template function (API) to use. For an example of template, see [the default one](src/transforms/wrapIntoComponent.js).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-[`wrapIntoComponent`](src/transforms/wrapIntoComponent.js)  | `--template` | `template: <func>`
+Specify a template file (CLI) or a template function (API) to use. For an
+example of template, see [the default one](src/transforms/wrapIntoComponent.js).
+
+| Default                                                    | CLI Override | API Override       |
+| ---------------------------------------------------------- | ------------ | ------------------ |
+| [`wrapIntoComponent`](src/transforms/wrapIntoComponent.js) | `--template` | `template: <func>` |
 
 ### Expand props
+
 All properties given to component will be forwarded on SVG tag.
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`true`  | `--no-expand-props` | `expandProps: <bool>`
+| Default | CLI Override        | API Override          |
+| ------- | ------------------- | --------------------- |
+| `true`  | `--no-expand-props` | `expandProps: <bool>` |
 
 ### Icon
-Replace SVG "width" and "height" value by "1em" in order to make SVG size inherits from text size. Also remove title.
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`false`  | `--icon` | `icon: <bool>`
+Replace SVG "width" and "height" value by "1em" in order to make SVG size
+inherits from text size. Also remove title.
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `false` | `--icon`     | `icon: <bool>` |
 
 ### ViewBox
+
 Setting this to `false` will remove the viewBox property.
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`true`  | `--no-view-box` | `viewBox: <bool>`
+| Default | CLI Override    | API Override      |
+| ------- | --------------- | ----------------- |
+| `true`  | `--no-view-box` | `viewBox: <bool>` |
 
 ### Replace attribute value
-Replace an attribute value by an other. The main usage of this option is to change
-an icon color to "currentColor" in order to inherit from text color.
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`[]`  | `--replace-attr-value <old=new>` | `replaceAttrValues: <string[]>`
+Replace an attribute value by an other. The main usage of this option is to
+change an icon color to "currentColor" in order to inherit from text color.
+
+| Default | CLI Override                     | API Override                    |
+| ------- | -------------------------------- | ------------------------------- |
+| `[]`    | `--replace-attr-value <old=new>` | `replaceAttrValues: <string[]>` |
 
 ### Precision
-Set number of digits in the fractional part. See [SVGO](https://github.com/svg/svgo).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`3`  | `--precision <int>` | `precision: <int>`
+Set number of digits in the fractional part. See
+[SVGO](https://github.com/svg/svgo).
+
+| Default | CLI Override        | API Override       |
+| ------- | ------------------- | ------------------ |
+| `3`     | `--precision <int>` | `precision: <int>` |
 
 ### Title
-Remove the title from SVG. See [SVGO `removeTitle` plugin](https://github.com/svg/svgo).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`true`  | `--no-title` | `title: <bool>`
+Remove the title from SVG. See
+[SVGO `removeTitle` plugin](https://github.com/svg/svgo).
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `true`  | `--no-title` | `title: <bool>` |
 
 ### Tab Width
-Specify the number of spaces per indentation-level. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#tab-width).
 
-Default | CLI Override | API Override
---------|--------------|-------------
- `2` | `--tab-width <int>` | `tabWidth: <int>`
+Specify the number of spaces per indentation-level. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#tab-width).
+
+| Default | CLI Override        | API Override      |
+| ------- | ------------------- | ----------------- |
+| `2`     | `--tab-width <int>` | `tabWidth: <int>` |
 
 ### Tabs
-Indent lines with tabs instead of spaces. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#tabs).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`false` | `--use-tabs` | `useTabs: <bool>`
+Indent lines with tabs instead of spaces. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#tabs).
+
+| Default | CLI Override | API Override      |
+| ------- | ------------ | ----------------- |
+| `false` | `--use-tabs` | `useTabs: <bool>` |
 
 ### Semicolons
-Print semicolons at the ends of statements. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#semicolons).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`true` | `--no-semi` | `semi: <bool>`
+Print semicolons at the ends of statements. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#semicolons).
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `true`  | `--no-semi`  | `semi: <bool>` |
 
 ### Quotes
-Use single quotes instead of double quotes. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#quotes).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`false` |  `--single-quote` | `singleQuote: <bool>`
+Use single quotes instead of double quotes. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#quotes).
+
+| Default | CLI Override     | API Override          |
+| ------- | ---------------- | --------------------- |
+| `false` | `--single-quote` | `singleQuote: <bool>` |
 
 ### Trailing Commas
-Print trailing commas wherever possible when multi-line. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#trailing-commas).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`"none"` | <code>--trailing-comma <none&#124;es5&#124;all></code> | <code>trailingComma: "<none&#124;es5&#124;all>"</code>
+Print trailing commas wherever possible when multi-line. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#trailing-commas).
+
+| Default  | CLI Override                                           | API Override                                           |
+| -------- | ------------------------------------------------------ | ------------------------------------------------------ |
+| `"none"` | <code>--trailing-comma <none&#124;es5&#124;all></code> | <code>trailingComma: "<none&#124;es5&#124;all>"</code> |
 
 ### Bracket Spacing
-Print spaces between brackets in object literals. See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#bracket-spacing).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`true` | `--no-bracket-spacing` | `bracketSpacing: <bool>`
+Print spaces between brackets in object literals. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#bracket-spacing).
+
+| Default | CLI Override           | API Override             |
+| ------- | ---------------------- | ------------------------ |
+| `true`  | `--no-bracket-spacing` | `bracketSpacing: <bool>` |
 
 ### JSX Brackets
-Put the `>` of a multi-line JSX element at the end of the last line instead of
-being alone on the next line (does not apply to self closing elements). See [Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
 
-Default | CLI Override | API Override
---------|--------------|-------------
-`false` | `--jsx-bracket-same-line` | `jsxBracketSameLine: <bool>`
+Put the `>` of a multi-line JSX element at the end of the last line instead of
+being alone on the next line (does not apply to self closing elements). See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
+
+| Default | CLI Override              | API Override                 |
+| ------- | ------------------------- | ---------------------------- |
+| `false` | `--jsx-bracket-same-line` | `jsxBracketSameLine: <bool>` |
 
 ## Other projects
 
@@ -354,42 +387,42 @@ fulfills my use cases.
 
 Using raw node:
 
-- [svg-to-react](https://github.com/publitas/svg-to-react)
-- [svg-2-react-isvg](https://github.com/quirinpa/svg-2-react-isvg)
-- [svg-to-component](https://github.com/egoist/svg-to-component)
-- [svg-react-transformer](https://github.com/mapbox/svg-react-transformer)
-- [svg-to-react-k](https://github.com/andgandolfi/svg-to-react-k)
+* [svg-to-react](https://github.com/publitas/svg-to-react)
+* [svg-2-react-isvg](https://github.com/quirinpa/svg-2-react-isvg)
+* [svg-to-component](https://github.com/egoist/svg-to-component)
+* [svg-react-transformer](https://github.com/mapbox/svg-react-transformer)
+* [svg-to-react-k](https://github.com/andgandolfi/svg-to-react-k)
 
 Using command line:
 
-- [svg-to-react-cli](https://github.com/goopscoop/svg-to-react-cli)
-- [svg2react](https://github.com/meriadec/svg2react)
-- [svg-react-transformer-writer](https://github.com/mapbox/svg-react-transformer-writer)
-- [react-svg-converter](https://github.com/joshblack/react-svg-converter)
+* [svg-to-react-cli](https://github.com/goopscoop/svg-to-react-cli)
+* [svg2react](https://github.com/meriadec/svg2react)
+* [svg-react-transformer-writer](https://github.com/mapbox/svg-react-transformer-writer)
+* [react-svg-converter](https://github.com/joshblack/react-svg-converter)
 
 Or using a Webpack loader:
 
-- [svg-react-loader](https://github.com/jhamlet/svg-react-loader)
-- [svg-react-transformer-loader](https://github.com/mapbox/svg-react-transformer-loader)
+* [svg-react-loader](https://github.com/jhamlet/svg-react-loader)
+* [svg-react-transformer-loader](https://github.com/mapbox/svg-react-transformer-loader)
 
 Or using a browserify loader:
 
-- [svg-reactify](https://github.com/coma/svg-reactify)
+* [svg-reactify](https://github.com/coma/svg-reactify)
 
 Or using gulp / grunt plugin:
 
-- [gulp-svg-to-react](https://github.com/marvin1023/gulp-svg-to-react)
+* [gulp-svg-to-react](https://github.com/marvin1023/gulp-svg-to-react)
 
 Or at runtime:
 
-- [svg-react](https://github.com/tonis2/svg-react)
-- [react-isvg-loader](https://github.com/quirinpa/react-isvg-loader/)
-- [react-svg-inline](https://github.com/MoOx/react-svg-inline)
+* [svg-react](https://github.com/tonis2/svg-react)
+* [react-isvg-loader](https://github.com/quirinpa/react-isvg-loader/)
+* [react-svg-inline](https://github.com/MoOx/react-svg-inline)
 
 Or using grunt:
 
-- [grunt-svg-react-component](https://github.com/okcoker/grunt-svg-react-component)
-- [svg-inline-react](https://github.com/sairion/svg-inline-react)
+* [grunt-svg-react-component](https://github.com/okcoker/grunt-svg-react-component)
+* [svg-inline-react](https://github.com/sairion/svg-inline-react)
 
 # License
 
