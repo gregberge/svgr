@@ -15,6 +15,7 @@ const defaultConfig = {
   replaceAttrValues: [],
   expandProps: true,
   title: true,
+  ids: false,
   precision: 3, // default to svgo
   semi: undefined, // default to prettier
   singleQuote: undefined, // default to prettier
@@ -46,6 +47,7 @@ function configToOptions(config = {}) {
     if (!config.title || config.icon) plugins.push({ removeTitle: {} })
     else if (config.title) plugins.push({ removeTitle: false })
     if (config.viewBox) plugins.push({ removeViewBox: false })
+    if (config.ids) plugins.push({ cleanupIDs: { remove: false } })
     if (config.precision === 'number')
       svgoConfig.floatPrecision = Number(svgoConfig.precision)
     return svgoConfig
