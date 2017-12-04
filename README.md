@@ -89,6 +89,7 @@ powerful and configurable HTML transpiler. It uses AST (like
     --no-prettier                    disable Prettier
     --template <file>                specify a custom template to use
     --no-expand-props                disable props expanding
+    --ids                            keep ids within the svg
     --icon                           use "1em" as width and height
     --replace-attr-value [old=new]   replace an attribute value
     -p, --precision <value>          set the number of digits in the fractional part (svgo)
