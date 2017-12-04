@@ -89,6 +89,7 @@ powerful and configurable HTML transpiler. It uses AST (like
     --no-prettier                    disable Prettier
     --template <file>                specify a custom template to use
     --no-expand-props                disable props expanding
+    --ids                            keep ids within the svg
     --icon                           use "1em" as width and height
     --replace-attr-value [old=new]   replace an attribute value
     -p, --precision <value>          set the number of digits in the fractional part (svgo)
@@ -288,6 +289,16 @@ Setting this to `false` will remove the viewBox property.
 | Default | CLI Override    | API Override      |
 | ------- | --------------- | ----------------- |
 | `true`  | `--no-view-box` | `viewBox: <bool>` |
+
+### Ids
+
+Setting this to `true` will keep ids. It can be useful to target specific ids
+using CSS or third party library (eg:
+[react-mutate-icon](https://github.com/lifeiscontent/react-mutate-icon)).
+
+| Default | CLI Override | API Override  |
+| ------- | ------------ | ------------- |
+| `false` | `--ids`      | `ids: <bool>` |
 
 ### Replace attribute value
 

@@ -40,6 +40,11 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
+  it('--ids', async () => {
+    const [stdout] = await exec('babel-node src/cli --ids __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
   it('--no-view-box', async () => {
     const [stdout] = await exec(
       'babel-node src/cli --no-view-box __fixtures__/one.svg',

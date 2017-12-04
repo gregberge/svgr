@@ -14,6 +14,33 @@ export default One;
 "
 `;
 
+exports[`cli --ids 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <g id=\\"Page-1\\" fill=\\"none\\" fillRule=\\"evenodd\\">
+      <g id=\\"19-Separator\\" transform=\\"translate(-129 -156)\\" fill=\\"#063855\\">
+        <g id=\\"Controls/Settings\\" transform=\\"translate(80)\\">
+          <g id=\\"Content\\" transform=\\"translate(0 64)\\">
+            <g id=\\"Group\\" transform=\\"translate(24 56)\\">
+              <g id=\\"Group-2\\">
+                <path id=\\"Rectangle-5\\" d=\\"M25 36h48v1H25z\\" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
 exports[`cli --no-expand-props 1`] = `
 "import React from \\"react\\";
 

@@ -23,6 +23,7 @@ program
   .option('--no-prettier', 'disable Prettier')
   .option('--template <file>', 'specify a custom template to use')
   .option('--no-expand-props', 'disable props expanding')
+  .option('--ids', 'keep ids within the svg')
   .option('--icon', 'use "1em" as width and height')
   .option('--no-view-box', 'remove viewBox')
   .option(
