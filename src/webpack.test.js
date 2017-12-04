@@ -36,7 +36,7 @@ describe('webpack loader', () => {
                     },
                   },
                   {
-                    loader: path.resolve(__dirname, 'webpack.js'),
+                    loader: path.resolve(__dirname, '../webpack.js'),
                     options: {
                       expandProps: false,
                     },

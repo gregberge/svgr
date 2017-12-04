@@ -9,4 +9,12 @@ function svgrLoader(source) {
     .catch(err => callback(err))
 }
 
-export default svgrLoader
+function svgrLoaderWithWarning(source) {
+  console.warn(
+    'Using "svgr/lib/webpack" is deprecated and will be removed in v2. Please use "svgr/webpack" instead.',
+  )
+  return svgrLoader.call(this, source)
+}
+
+export { svgrLoader }
+export default svgrLoaderWithWarning
