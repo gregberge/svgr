@@ -16,6 +16,7 @@ const defaultConfig = {
   icon: false,
   viewBox: true,
   replaceAttrValues: [],
+  removeDimensions: false,
   expandProps: true,
   title: true,
   ids: false,
@@ -52,6 +53,7 @@ function configToOptions(config = {}) {
     const svgoConfig = { plugins }
     if (!config.title || config.icon) plugins.push({ removeTitle: {} })
     else if (config.title) plugins.push({ removeTitle: false })
+    if (config.removeDimensions) plugins.push({ removeDimensions: {} });
     if (config.viewBox) plugins.push({ removeViewBox: false })
     if (config.ids) plugins.push({ cleanupIDs: { remove: false } })
     if (config.precision === 'number')
