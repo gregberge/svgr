@@ -51,6 +51,13 @@ describe('cli', () => {
     )
     expect(stdout).toMatchSnapshot()
   })
+  
+  it('--no-dimensions', async () => {
+    const [stdout] = await exec(
+      'babel-node src/cli --no-dimensions __fixtures__/one.svg',
+    )
+    expect(stdout).toMatchSnapshot()
+  })
 
   it('--replace-attr-value', async () => {
     const [stdout] = await exec(
