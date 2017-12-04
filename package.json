@@ -65,12 +65,12 @@
   },
   "scripts": {
     "build": "rm -rf lib/ && NODE_ENV=production babel src -d lib",
-    "ci": "yarn lint && yarn test",
+    "ci": "yarn lint && yarn build && yarn test",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint .",
     "release": "yarn build && standard-version && conventional-github-releaser",
     "clear": "rm -rf __fixtures_build__ lib",
-    "test": "npm run clear && jest --runInBand --coverage && codecov",
+    "test": "jest --runInBand --coverage && codecov",
     "prepublishOnly": "yarn run build"
   }
 }
