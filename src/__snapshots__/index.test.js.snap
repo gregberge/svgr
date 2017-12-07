@@ -87,6 +87,25 @@ export default SvgComponent;
 "
 `;
 
+exports[`convert should support react-native 1`] = `
+"import React from \\"react\\";
+
+const SvgComponent = props => (
+  <svg width={88} height={88} viewBox=\\"0 0 88 88\\" {...props}>
+    <title>Dismiss</title>
+    <g fill=\\"red\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\">
+      <g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
+        <path d=\\"M51 37L37 51\\" id=\\"Shape\\" />
+        <path d=\\"M51 51L37 37\\" />
+      </g>
+    </g>
+  </svg>
+);
+
+export default SvgComponent;
+"
+`;
+
 exports[`rawConvert should convert using specific options 1`] = `
 "import React from 'react'
 

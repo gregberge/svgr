@@ -1,15 +1,18 @@
 import jsx from 'h2x-plugin-jsx'
 import wrapIntoComponent from './transforms/wrapIntoComponent'
+import wrapIntoNativeComponent from './transforms/wrapIntoNativeComponent'
 import stripAttribute from './h2x/stripAttribute'
 import emSize from './h2x/emSize'
 import expandProps from './h2x/expandProps'
 import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
 import removeStyle from './h2x/removeStyle'
+import toReactNative from './h2x/toReactNative'
 
 const defaultConfig = {
   svgo: true,
   prettier: true,
+  native: false,
   icon: false,
   viewBox: true,
   replaceAttrValues: [],
@@ -28,6 +31,8 @@ const defaultConfig = {
 }
 
 function configToOptions(config = {}) {
+  if (!config.template && config.native)
+    config.template = wrapIntoNativeComponent
   config = { ...defaultConfig, ...config }
 
   function getH2xPlugins() {
@@ -37,6 +42,7 @@ function configToOptions(config = {}) {
       plugins.push(replaceAttrValue(oldValue, newValue))
     })
     if (config.expandProps) plugins.push(expandProps)
+    if (config.native) plugins.push(toReactNative)
 
     return plugins
   }
