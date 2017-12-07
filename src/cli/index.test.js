@@ -8,99 +8,99 @@ describe('cli', () => {
   })
 
   it('should work with a simple file', async () => {
-    const [stdout] = await exec('babel-node src/cli __fixtures__/one.svg')
+    const [stdout] = await exec('bin/svgr __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
   it('--no-svgo', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --no-svgo __fixtures__/one.svg',
+      'bin/svgr --no-svgo __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--no-prettier', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --no-prettier __fixtures__/one.svg',
+      'bin/svgr --no-prettier __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--no-expand-props', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --no-expand-props __fixtures__/one.svg',
+      'bin/svgr --no-expand-props __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--icon', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --icon __fixtures__/one.svg',
+      'bin/svgr --icon __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--ids', async () => {
-    const [stdout] = await exec('babel-node src/cli --ids __fixtures__/one.svg')
+    const [stdout] = await exec('bin/svgr --ids __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
   it('--no-view-box', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --no-view-box __fixtures__/one.svg',
+      'bin/svgr --no-view-box __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--replace-attr-value', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --replace-attr-value "#063855=currentColor" __fixtures__/one.svg',
+      'bin/svgr --replace-attr-value "#063855=currentColor" __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--precision', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --precision 1 __fixtures__/one.svg',
+      'bin/svgr --precision 1 __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--no-title', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --no-title __fixtures__/one.svg',
+      'bin/svgr --no-title __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--no-semi', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --no-semi __fixtures__/one.svg',
+      'bin/svgr --no-semi __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--template', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --template __fixtures__/template.js __fixtures__/one.svg',
+      'bin/svgr --template __fixtures__/template.js __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--native', async () => {
     const [stdout] = await exec(
-      'babel-node src/cli --native __fixtures__/one.svg',
+      'bin/svgr --native __fixtures__/one.svg',
     )
     expect(stdout).toMatchSnapshot()
   })
 
   it('should work with stdin', async () => {
-    const [stdout] = await exec('babel-node src/cli < __fixtures__/one.svg')
+    const [stdout] = await exec('bin/svgr < __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
   it('should work with output directory', async () => {
-    await exec('babel-node src/cli --out-dir __fixtures_build__ __fixtures__')
+    await exec('bin/svgr --out-dir __fixtures_build__ __fixtures__')
     expect(
       await fs.readFile('__fixtures_build__/One.js', 'utf-8'),
     ).toMatchSnapshot()

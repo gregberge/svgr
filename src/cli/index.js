@@ -56,7 +56,7 @@ program
     'print spaces between brackets in object literals (prettier)',
   )
   .option(
-    '--jsx-bracket-same-line	',
+    '--jsx-bracket-same-line',
     'put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)',
   )
 
