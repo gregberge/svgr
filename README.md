@@ -148,6 +148,14 @@ To create icons, two options are important:
 $ svgr --icon --replace-attr-value "#000000=currentColor" my-icon.svg
 ```
 
+#### Target React Native
+
+It is possible to target React Native using [react-native-svg](https://github.com/react-native-community/react-native-svg).
+
+```
+$ svgr --native my-icon.svg
+```
+
 #### Use a specific template
 
 You can use a specific template.
