@@ -30,7 +30,8 @@ const toReactNative = () => ({
         const component = elementToComponent[path.node.name]
         if (component) {
           path.node.name = component
-          state.reactNativeSvgReplacedComponents = state.reactNativeSvgReplacedComponents || new Set()
+          state.reactNativeSvgReplacedComponents =
+            state.reactNativeSvgReplacedComponents || new Set()
           state.reactNativeSvgReplacedComponents.add(component)
           return
         }
@@ -38,7 +39,7 @@ const toReactNative = () => ({
         // Remove element if not supported
         if (!componentToElement[path.node.name]) {
           state.unsupportedComponents = state.unsupportedComponents || new Set()
-          state.unsupportedComponents.add(component)
+          state.unsupportedComponents.add(path.node.name)
           path.remove()
         }
       },
