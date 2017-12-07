@@ -26,6 +26,7 @@ program
   .option('--ids', 'keep ids within the svg')
   .option('--icon', 'use "1em" as width and height')
   .option('--no-view-box', 'remove viewBox')
+  .option('--native', 'add react-native support with react-native-svg')
   .option(
     '--replace-attr-value [old=new]',
     'replace an attribute value',

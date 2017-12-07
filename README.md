@@ -91,6 +91,7 @@ powerful and configurable HTML transpiler. It uses AST (like
     --no-expand-props                disable props expanding
     --ids                            keep ids within the svg
     --icon                           use "1em" as width and height
+    --native                         add react-native support with react-native-svg 
     --replace-attr-value [old=new]   replace an attribute value
     -p, --precision <value>          set the number of digits in the fractional part (svgo)
     --no-title                       remove title tag (svgo)
@@ -281,6 +282,15 @@ inherits from text size. Also remove title.
 | Default | CLI Override | API Override   |
 | ------- | ------------ | -------------- |
 | `false` | `--icon`     | `icon: <bool>` |
+
+### Native
+
+Modify all SVG nodes with uppercase and use a specific template with
+react-native-svg imports. **All unsupported nodes will be removed.**
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `false` | `--native`     | `native: <bool>` |
 
 ### ViewBox
 
