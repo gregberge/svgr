@@ -96,7 +96,6 @@ describe('convert', () => {
     expect(result).toMatchSnapshot()
   })
 
-
   it('should support react-native', async () => {
     const result = await convert(
       `
@@ -122,7 +121,7 @@ describe('convert', () => {
           </g>
       </svg>
     `,
-    {}
+      {},
     )
 
     expect(result).toMatchSnapshot()

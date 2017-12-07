@@ -1,4 +1,4 @@
-export default () => (code, state) => `
+module.exports = () => (code, state) => `
 import React from 'react'
 
 export default function ${state.componentName}() {

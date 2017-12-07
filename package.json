@@ -16,7 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -24,26 +24,26 @@
     "babel-preset-react": "^6.24.1",
     "codecov": "^3.0.0",
     "conventional-github-releaser": "^2.0.0",
-    "eslint": "^4.12.0",
+    "eslint": "^4.12.1",
     "eslint-config-airbnb-base": "^12.0.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.7.0",
     "jest": "^21.2.1",
     "react": "^16.2.0",
     "standard-version": "^4.2.0",
-    "webpack": "^3.6.0"
+    "webpack": "^3.10.0"
   },
   "dependencies": {
     "chalk": "^2.1.0",
     "commander": "^2.12.2",
     "glob": "^7.1.2",
-    "h2x-core": "^0.1.6",
-    "h2x-plugin-jsx": "^0.1.6",
+    "h2x-core": "^0.1.9",
+    "h2x-plugin-jsx": "^0.1.9",
     "loader-utils": "^1.1.0",
     "lodash": "^4.17.4",
     "mz": "^2.6.0",
     "output-file-sync": "^2.0.0",
-    "prettier": "^1.8.2",
+    "prettier": "^1.9.1",
     "recursive-readdir": "^2.2.1",
     "svgo": "^1.0.3"
   },
@@ -64,9 +64,10 @@
     ]
   },
   "scripts": {
+    "dev": "babel --watch src -d lib",
     "build": "rm -rf lib/ && NODE_ENV=production babel src -d lib",
     "ci": "yarn lint && yarn build && yarn test",
-    "format": "prettier --write \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.js\" \"*.md\"",
     "lint": "eslint .",
     "release": "yarn build && standard-version && conventional-github-releaser -p angular",
     "clear": "rm -rf __fixtures_build__ lib",

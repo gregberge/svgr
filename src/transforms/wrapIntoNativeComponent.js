@@ -1,22 +1,29 @@
-export default (opts = {}) => (code, state) => `import React from 'react'
-import Svg, {
-    Circle,
-    Ellipse,
-    G,
-    LinearGradient,
-    RadialGradient,
-    Line,
-    Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Text,
-    Use,
-    Defs,
-    Stop
-} from 'react-native-svg';
+const componentsToList = components =>
+  [...components].filter(component => component !== 'Svg').join(', ')
 
-const ${state.componentName} = (${opts.expandProps ? 'props' : ''}) => ${code}
+const logUnsupportedComponents = components => {
+  if (!components.size) return ''
+  return `
+// SVGR has dropped some elements not supported by react-native-svg: ${componentsToList(
+    components,
+  )}
+`
+}
 
-export default ${state.componentName}`
+export default (opts = {}) => (code, state) => {
+  const {
+    reactNativeSvgReplacedComponents = new Set(),
+    unsupportedComponents = new Set(),
+  } = state
+
+  return `import React from 'react'
+  import Svg, { ${componentsToList(
+    reactNativeSvgReplacedComponents,
+  )} } from 'react-native-svg';
+  ${logUnsupportedComponents(unsupportedComponents)}
+
+
+  const ${state.componentName} = (${opts.expandProps ? 'props' : ''}) => ${code}
+
+  export default ${state.componentName}`
+}

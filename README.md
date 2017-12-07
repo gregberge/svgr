@@ -78,34 +78,35 @@ powerful and configurable HTML transpiler. It uses AST (like
 ## Command line usage
 
 ```
-  Usage: svgr [options] <file>
+Usage: svgr [options] <file>
 
 
-  Options:
+Options:
 
-    -V, --version                    output the version number
-    -d, --out-dir <dirname>          output files into a directory
-    --no-svgo                        disable SVGO
-    --no-prettier                    disable Prettier
-    --template <file>                specify a custom template to use
-    --no-expand-props                disable props expanding
-    --ids                            keep ids within the svg
-    --icon                           use "1em" as width and height
-    --native                         add react-native support with react-native-svg 
-    --replace-attr-value [old=new]   replace an attribute value
-    -p, --precision <value>          set the number of digits in the fractional part (svgo)
-    --no-title                       remove title tag (svgo)
-    --tab-width                      specify the number of spaces by indentation-level (prettier)
-    --use-tabs                       indent lines with tabs instead of spaces (prettier)
-    --no-semi                        remove semi-colons (prettier)
-    --single-quote                   use single-quotes instead of double-quotes (prettier)
-    --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
-    --no-bracket-spacing             print spaces between brackets in object literals (prettier)
-    --jsx-bracket-same-line	         put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)
-    -h, --help                       output usage information
+  -V, --version                    output the version number
+  -d, --out-dir <dirname>          output files into a directory
+  --no-svgo                        disable SVGO (default: true)
+  --no-prettier                    disable Prettier (default: true)
+  --template <file>                specify a custom template to use
+  --no-expand-props                disable props expanding (default: true)
+  --ids                            keep ids within the svg
+  --icon                           use "1em" as width and height
+  --no-view-box                    remove viewBox (default: true)
+  --native                         add react-native support with react-native-svg
+  --replace-attr-value [old=new]   replace an attribute value
+  -p, --precision <value>          set the number of digits in the fractional part (svgo)
+  --no-title                       remove title tag (svgo) (default: true)
+  --tab-width                      specify the number of spaces by indentation-level (prettier)
+  --use-tabs                       indent lines with tabs instead of spaces (prettier)
+  --no-semi                        remove semi-colons (prettier) (default: true)
+  --single-quote                   use single-quotes instead of double-quotes (prettier)
+  --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
+  --no-bracket-spacing             print spaces between brackets in object literals (prettier) (default: true)
+  --jsx-bracket-same-line          put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)
+  -h, --help                       output usage information
 
-  Examples:
-    svgr --replace-attr-value "#fff=currentColor" icon.svg
+Examples:
+  svgr --replace-attr-value "#fff=currentColor" icon.svg
 ```
 
 ### Recipes
@@ -145,6 +146,14 @@ To create icons, two options are important:
 
 ```
 $ svgr --icon --replace-attr-value "#000000=currentColor" my-icon.svg
+```
+
+#### Target React Native
+
+It is possible to target React Native using [react-native-svg](https://github.com/react-native-community/react-native-svg).
+
+```
+$ svgr --native my-icon.svg
 ```
 
 #### Use a specific template
@@ -288,9 +297,9 @@ inherits from text size. Also remove title.
 Modify all SVG nodes with uppercase and use a specific template with
 react-native-svg imports. **All unsupported nodes will be removed.**
 
-| Default | CLI Override | API Override   |
-| ------- | ------------ | -------------- |
-| `false` | `--native`     | `native: <bool>` |
+| Default | CLI Override | API Override     |
+| ------- | ------------ | ---------------- |
+| `false` | `--native`   | `native: <bool>` |
 
 ### ViewBox
 

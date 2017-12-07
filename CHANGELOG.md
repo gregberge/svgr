@@ -9,7 +9,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * add option to keeps IDs from SVG ([bfd4066](https://github.com/smooth-code/svgr/commit/bfd4066))
-* simplify webpack usage ([7ac643e](https://github.com/smooth-code/svgr/commit/7ac643e))
 
 
 
