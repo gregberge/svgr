@@ -1,4 +1,4 @@
-const supportedElements = {
+const elementToComponent = {
   svg: 'Svg',
   circle: 'Circle',
   ellipse: 'Ellipse',
@@ -17,18 +17,28 @@ const supportedElements = {
   stop: 'Stop',
 }
 
-const reverse = Object.keys(supportedElements).reduce(
-  (map, key) => ({ ...map, [supportedElements[key]]: key }),
+const componentToElement = Object.keys(elementToComponent).reduce(
+  (map, key) => ({ ...map, [elementToComponent[key]]: key }),
   {},
 )
 
 const toReactNative = () => ({
   visitor: {
     JSXElement: {
-      enter(path) {
-        if (supportedElements[path.node.name]) {
-          path.node.name = supportedElements[path.node.name]
-        } else if (!reverse[path.node.name]) {
+      enter(path, state) {
+        // Replace element by react-native-svg components
+        const component = elementToComponent[path.node.name]
+        if (component) {
+          path.node.name = component
+          state.reactNativeSvgReplacedComponents = state.reactNativeSvgReplacedComponents || new Set()
+          state.reactNativeSvgReplacedComponents.add(component)
+          return
+        }
+
+        // Remove element if not supported
+        if (!componentToElement[path.node.name]) {
+          state.unsupportedComponents = state.unsupportedComponents || new Set()
+          state.unsupportedComponents.add(component)
           path.remove()
         }
       },

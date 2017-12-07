@@ -43,23 +43,7 @@ export default One;
 
 exports[`cli --native 1`] = `
 "import React from \\"react\\";
-import Svg, {
-  Circle,
-  Ellipse,
-  G,
-  LinearGradient,
-  RadialGradient,
-  Line,
-  Path,
-  Polygon,
-  Polyline,
-  Rect,
-  Symbol,
-  Text,
-  Use,
-  Defs,
-  Stop
-} from \\"react-native-svg\\";
+import Svg, { Path } from \\"react-native-svg\\";
 
 const One = props => (
   <Svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>

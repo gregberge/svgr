@@ -27,7 +27,6 @@ export {
 
 function expandState(state) {
   const componentName = pascalCase(path.parse(state.filePath).name)
-
   return { ...state, componentName }
 }
 

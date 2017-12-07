@@ -1,22 +1,15 @@
-export default (opts = {}) => (code, state) => `import React from 'react'
-import Svg, {
-    Circle,
-    Ellipse,
-    G,
-    LinearGradient,
-    RadialGradient,
-    Line,
-    Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Text,
-    Use,
-    Defs,
-    Stop
-} from 'react-native-svg';
+const componentsToImport = components =>
+  [...components].filter(component => component !== 'Svg').join(', ')
 
-const ${state.componentName} = (${opts.expandProps ? 'props' : ''}) => ${code}
+export default (opts = {}) => (code, state) => {
+  const { reactNativeSvgReplacedComponents = new Set() } = state
 
-export default ${state.componentName}`
+  return `import React from 'react'
+  import Svg, { ${componentsToImport(
+    reactNativeSvgReplacedComponents,
+  )} } from 'react-native-svg';
+
+  const ${state.componentName} = (${opts.expandProps ? 'props' : ''}) => ${code}
+
+  export default ${state.componentName}`
+}
