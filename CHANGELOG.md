@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/smooth-code/svgr/compare/v1.3.0...v1.4.0) (2017-12-07)
+
+
+### Features
+
+* add "-native" option to target React Native ([76fd6f5](https://github.com/smooth-code/svgr/commit/76fd6f5))
+* **native:** import only relevant components ([fcd4229](https://github.com/smooth-code/svgr/commit/fcd4229))
+* **native:** log unsupported components ([888d968](https://github.com/smooth-code/svgr/commit/888d968))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/smooth-code/svgr/compare/v1.1.0...v1.3.0) (2017-12-05)
 
