@@ -333,6 +333,14 @@ using CSS or third party library (eg:
 | ------- | ------------ | ------------- |
 | `false` | `--ids`      | `ids: <bool>` |
 
+### Ref
+
+Setting this to `true` will allow you to hook into the ref of the svg components that are created by exposing a `svgRef` prop
+
+| Default | CLI Override | API Override  |
+| ------- | ------------ | ------------- |
+| `false` | `--ref`      | `ref: <bool>` |
+
 ### Replace attribute value
 
 Replace an attribute value by an other. The main usage of this option is to
