@@ -4,6 +4,7 @@ import convert, {
   stripAttribute,
   expandProps,
   replaceAttrValue,
+  svgRef,
   wrapIntoComponent,
 } from './'
 
@@ -30,11 +31,12 @@ describe('rawConvert', () => {
           plugins: [
             jsx,
             stripAttribute('xmlns'),
+            svgRef,
             expandProps,
             replaceAttrValue('#063855', 'currentColor'),
           ],
         },
-        template: wrapIntoComponent({ expandProps: true }),
+        template: wrapIntoComponent({ expandProps: true, ref: true }),
       },
       { filePath: 'MyComponent.js' },
     )

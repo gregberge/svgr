@@ -90,6 +90,7 @@ Options:
   --template <file>                specify a custom template to use
   --no-expand-props                disable props expanding (default: true)
   --ids                            keep ids within the svg
+  --ref                            add svgRef prop to svg
   --icon                           use "1em" as width and height
   --no-view-box                    remove viewBox (default: true)
   --native                         add react-native support with react-native-svg
@@ -167,10 +168,23 @@ $ svgr --template path/to/template.js my-icon.svg
 **Example of template:**
 
 ```js
-module.exports = (opts = {}) => (code, state) => `import React from 'react'
-const ${state.componentName} = (${opts.expandProps ? 'props' : ''}) => ${code}
-export default ${state.componentName}
-`
+export default (opts = {}) => {
+  let props = ''
+
+  if (opts.expandProps && opts.ref) {
+    props = '{svgRef, ...props}'
+  } else if (opts.expandProps) {
+    props = 'props'
+  } else if (opts.ref) {
+    props = '{svgRef}'
+  }
+
+  return (code, state) => `import React from 'react'
+
+const ${state.componentName} = (${props}) => ${code}
+
+export default ${state.componentName}`
+}
 ```
 
 ## Node API usage
