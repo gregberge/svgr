@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/smooth-code/svgr/compare/v1.4.0...v1.5.0) (2017-12-12)
+
+
+### Features
+
+* add ref option ([#29](https://github.com/smooth-code/svgr/issues/29)) ([86e0bda](https://github.com/smooth-code/svgr/commit/86e0bda))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/smooth-code/svgr/compare/v1.3.0...v1.4.0) (2017-12-07)
 
