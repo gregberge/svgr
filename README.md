@@ -168,7 +168,7 @@ $ svgr --template path/to/template.js my-icon.svg
 **Example of template:**
 
 ```js
-export default (opts = {}) => {
+module.exports = (opts = {}) => {
   let props = ''
 
   if (opts.expandProps && opts.ref) {
