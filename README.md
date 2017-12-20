@@ -13,6 +13,8 @@
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
+[**Try it out online!**](https://svgr.now.sh)
+
 ```sh
 npm install svgr
 ```
