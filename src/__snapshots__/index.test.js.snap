@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`convert should accept initial state (for webpack) 1`] = `
+"import React from \\"react\\";
+
+const SvgComponent = props => (
+  <svg height={25} width={23} {...props}>
+    <path d=\\"M9.9 1.1L3.3 21.78l16.5-13.2H0l16.5 13.2z\\" />
+  </svg>
+);
+
+export default \\"path/to/svg.svg\\";
+export { SvgComponent as ReactComponent };
+"
+`;
+
 exports[`convert should convert style attribute 1`] = `
 "import React from \\"react\\";
 
