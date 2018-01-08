@@ -9,9 +9,17 @@ export default (opts = {}) => {
     props = '{svgRef}'
   }
 
-  return (code, state) => `import React from 'react'
+  return (code, state) => {
+    let result = `import React from 'react'\n\n`
+    result += `const ${state.componentName} = (${props}) => ${code}\n\n`
 
-const ${state.componentName} = (${props}) => ${code}
+    if (state.webpack && state.webpack.previousExport) {
+      result += `export default ${state.webpack.previousExport}\n`
+      result += `export { ${state.componentName} as ReactComponent }`
+    } else {
+      result += `export default ${state.componentName}`
+    }
 
-export default ${state.componentName}`
+    return result
+  }
 }

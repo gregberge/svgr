@@ -223,40 +223,68 @@ svgr(svgCode, { prettier: false, componentName: 'MyComponent' }).then(
 
 SVGR has a Webpack loader, you can use it using following `webpack.config.js`:
 
+In your `webpack.config.js`:
+
 ```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        use: ['babel-loader', 'svgr/webpack'],
-      },
-    ],
-  },
+{
+  test: /\.svg$/,
+  use: ['babel-loader', 'svgr/webpack'],
 }
 ```
 
-It is also possible to specify options:
+In your code:
 
 ```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        use: [
-          'babel-loader',
-          {
-            loader: 'svgr/webpack',
-            options: {
-              svgo: false,
-            },
-          },
-        ],
+import Star from './star.svg'
+
+const App = () => (
+  <div>
+    <Star />
+  </div>
+)
+```
+
+### Passing options
+
+```js
+{
+  test: /\.svg$/,
+  use: [
+    'babel-loader',
+    {
+      loader: 'svgr/webpack',
+      options: {
+        native: true,
       },
-    ],
-  },
+    },
+  ],
 }
+```
+
+### Using with `url-loader` or `file-loader`
+
+It is possible to use it with [`url-loader`](https://github.com/webpack-contrib/url-loader) or [`file-loader`](https://github.com/webpack-contrib/file-loader).
+
+In your `webpack.config.js`:
+
+```js
+{
+  test: /\.svg$/,
+  use: ['babel-loader', 'svgr/webpack', 'url-loader'],
+}
+```
+
+In your code:
+
+```js
+import starUrl, { ReactComponent as Star } from './star.svg'
+
+const App = () => (
+  <div>
+    <img src={starUrl} alt="star" />
+    <Star />
+  </div>
+)
 ```
 
 ## Options

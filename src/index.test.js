@@ -261,4 +261,17 @@ describe('convert', () => {
 
     expect(result).toMatchSnapshot()
   })
+
+  it('should accept initial state (for webpack)', async () => {
+    const result = await convert(
+      `<?xml version="1.0" encoding="UTF-8"?>
+  <svg height="25" width="23">
+    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+  </svg>`,
+      {},
+      { webpack: { previousExport: '"path/to/svg.svg"' } },
+    )
+
+    expect(result).toMatchSnapshot()
+  })
 })
