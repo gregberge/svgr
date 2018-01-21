@@ -14,6 +14,20 @@ export default One;
 "
 `;
 
+exports[`cli --icon 2`] = `
+"import React from \\"react\\";
+
+const Two = props => (
+  <svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default Two;
+
+"
+`;
+
 exports[`cli --ids 1`] = `
 "import React from \\"react\\";
 

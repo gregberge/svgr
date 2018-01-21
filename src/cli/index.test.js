@@ -32,6 +32,8 @@ describe('cli', () => {
   it('--icon', async () => {
     const [stdout] = await exec('bin/svgr --icon __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
+    const [stdout2] = await exec('bin/svgr --icon __fixtures__/two.svg')
+    expect(stdout2).toMatchSnapshot()
   })
 
   it('--ref', async () => {
