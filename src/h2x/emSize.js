@@ -12,13 +12,31 @@ const emSize = () => ({
   visitor: {
     JSXElement: {
       enter(path) {
-        if (path.node.name === 'svg' && !path.node.attributes.some(attr => attr && attr.name === 'width' && attr.value === '1em') && !path.node.attributes.some(attr => attr && attr.name === 'height' && attr.value === '1em')) {
-          const nextAttrs = path.node.attributes.filter(attr => attr.name !== 'width' && attr.name !== 'height');
-          nextAttrs.push(makeSizeAttr('width'));
-          nextAttrs.push(makeSizeAttr('height'));
-          path.node.attributes = nextAttrs;
-          path.replace(path.node);
-        }
+        // Skip if not svg node
+        if (path.node.name !== 'svg') return
+
+        // Split attributes into two arrays
+        const sizeAttributes = []
+        const otherAttributes = []
+        path.node.attributes.forEach(attr => {
+          if (attr.name === 'width' || attr.name === 'height')
+            sizeAttributes.push(attr)
+          else otherAttributes.push(attr)
+        })
+
+        // Skip if size attributes are correctly set
+        if (
+          sizeAttributes.length === 2 &&
+          sizeAttributes.every(attr => attr.value === '1em')
+        )
+          return
+
+        path.node.attributes = [
+          ...otherAttributes,
+          makeSizeAttr('width'),
+          makeSizeAttr('height'),
+        ]
+        path.replace(path.node)
       },
     },
   },
