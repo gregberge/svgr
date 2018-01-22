@@ -23,7 +23,6 @@ program
   .option('--no-prettier', 'disable Prettier')
   .option('--template <file>', 'specify a custom template to use')
   .option('--no-expand-props', 'disable props expanding')
-  .option('--ids', 'keep ids within the svg')
   .option('--ref', 'add svgRef prop to svg')
   .option('--icon', 'use "1em" as width and height')
   .option('--no-view-box', 'remove viewBox')
@@ -37,6 +36,8 @@ program
     '-p, --precision <value>',
     'set the number of digits in the fractional part (svgo)',
   )
+  .option('--ids', 'keep ids within the svg (svgo)')
+  .option('--keep-useless-defs', 'keep elements of <defs> without id (svgo)')
   .option('--no-title', 'remove title tag (svgo)')
   .option(
     '--tab-width',

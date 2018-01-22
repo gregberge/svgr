@@ -91,13 +91,14 @@ Options:
   --no-prettier                    disable Prettier (default: true)
   --template <file>                specify a custom template to use
   --no-expand-props                disable props expanding (default: true)
-  --ids                            keep ids within the svg
   --ref                            add svgRef prop to svg
   --icon                           use "1em" as width and height
   --no-view-box                    remove viewBox (default: true)
   --native                         add react-native support with react-native-svg
   --replace-attr-value [old=new]   replace an attribute value
   -p, --precision <value>          set the number of digits in the fractional part (svgo)
+  --ids                            keep ids within the svg (svgo)
+  --keep-useless-defs              keep elements of <defs> without id (svgo)
   --no-title                       remove title tag (svgo) (default: true)
   --tab-width                      specify the number of spaces by indentation-level (prettier)
   --use-tabs                       indent lines with tabs instead of spaces (prettier)
@@ -388,6 +389,15 @@ Set number of digits in the fractional part. See
 | Default | CLI Override        | API Override       |
 | ------- | ------------------- | ------------------ |
 | `3`     | `--precision <int>` | `precision: <int>` |
+
+### Useless Defs
+
+Keep elements of `<defs>` without `id`. It also keep unused symbols. See
+[SVGO `removeUselessDefs` plugin](https://github.com/svg/svgo).
+
+| Default | CLI Override          | API Override              |
+| ------- | --------------------- | ------------------------- |
+| `false` | `--keep-useless-defs` | `keepUselessDefs: <bool>` |
 
 ### Title
 
