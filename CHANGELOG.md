@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/smooth-code/svgr/compare/v1.6.0...v1.7.0) (2018-01-23)
+
+
+### Features
+
+* **emSize:** add support for missing width/height ([2eacfd8](https://github.com/smooth-code/svgr/commit/2eacfd8))
+* add option keepUselessDefs ([3d03510](https://github.com/smooth-code/svgr/commit/3d03510)), closes [#36](https://github.com/smooth-code/svgr/issues/36)
+
+
+### Performance Improvements
+
+* refactor emSize to reduce iterations ([3c9d8b4](https://github.com/smooth-code/svgr/commit/3c9d8b4))
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/smooth-code/svgr/compare/v1.5.0...v1.6.0) (2018-01-08)
 
