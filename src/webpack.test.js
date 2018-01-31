@@ -4,7 +4,7 @@ import MemoryFs from 'memory-fs'
 
 function compile(rules) {
   const compiler = webpack({
-    context: __dirname,
+    context: path.resolve(__dirname),
     entry: './__fixtures__/icon.svg',
     output: {
       path: path.resolve(__dirname),
