@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/smooth-code/svgr/compare/v1.7.0...v1.8.0) (2018-01-31)
+
+
+### Bug Fixes
+
+* fix tabWidth option ([#49](https://github.com/smooth-code/svgr/issues/49)) ([a863280](https://github.com/smooth-code/svgr/commit/a863280)), closes [#33](https://github.com/smooth-code/svgr/issues/33)
+
+
+### Features
+
+* support custom file extension ([#47](https://github.com/smooth-code/svgr/issues/47)) ([56a111f](https://github.com/smooth-code/svgr/commit/56a111f)), closes [#31](https://github.com/smooth-code/svgr/issues/31)
+* **webpack:** include Babel transformation ([#48](https://github.com/smooth-code/svgr/issues/48)) ([dfecd39](https://github.com/smooth-code/svgr/commit/dfecd39)), closes [#45](https://github.com/smooth-code/svgr/issues/45)
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/smooth-code/svgr/compare/v1.6.0...v1.7.0) (2018-01-23)
 
