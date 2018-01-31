@@ -8,8 +8,13 @@ describe('rename', () => {
     expect(rename('camelcase.js')).toBe('Camelcase.js')
   })
 
-  it('should change the extension to js', () => {
+  it('should change the extension to js by default', () => {
     const result = rename('camel-case.svg')
     expect(result).toBe('CamelCase.js')
+  })
+
+  it('should change the extension to whatever is configured', () => {
+    const result = rename('camel-case.svg', { ext: 'tsx' })
+    expect(result).toBe('CamelCase.tsx')
   })
 })

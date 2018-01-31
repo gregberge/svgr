@@ -22,6 +22,7 @@ program
   .option('--no-svgo', 'disable SVGO')
   .option('--no-prettier', 'disable Prettier')
   .option('--template <file>', 'specify a custom template to use')
+  .option('--ext <ext>', 'specify a custom file extension (default: "js")')
   .option('--no-expand-props', 'disable props expanding')
   .option('--ref', 'add svgRef prop to svg')
   .option('--icon', 'use "1em" as width and height')

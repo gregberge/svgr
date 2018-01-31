@@ -31,6 +31,7 @@ const defaultConfig = {
   bracketSpacing: undefined, // default to prettier
   jsxBracketSameLine: undefined, // default to prettier
   template: wrapIntoComponent,
+  ext: 'js',
 }
 
 function configToOptions(config = {}) {
@@ -83,6 +84,7 @@ function configToOptions(config = {}) {
     },
     prettier: config.prettier ? getPrettierConfig() : null,
     template: config.template(config),
+    ext: config.ext,
   }
 }
 
