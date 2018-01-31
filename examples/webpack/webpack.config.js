@@ -10,19 +10,11 @@ module.exports = {
     rules: [
       {
         test: /url\.svg$/,
-        use: [
-          'babel-loader',
-          require.resolve('../../lib/webpack'),
-          'url-loader',
-        ],
+        use: [require.resolve('../../webpack'), 'url-loader'],
       },
       {
         test: /simple\.svg$/,
-        use: ['babel-loader', require.resolve('../../lib/webpack')],
-      },
-      {
-        test: /\.js$/,
-        use: ['babel-loader'],
+        use: [require.resolve('../../webpack')],
       },
     ],
   },
