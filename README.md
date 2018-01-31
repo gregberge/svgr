@@ -230,7 +230,7 @@ In your `webpack.config.js`:
 ```js
 {
   test: /\.svg$/,
-  use: ['babel-loader', 'svgr/webpack'],
+  use: ['svgr/webpack'],
 }
 ```
 
@@ -252,7 +252,6 @@ const App = () => (
 {
   test: /\.svg$/,
   use: [
-    'babel-loader',
     {
       loader: 'svgr/webpack',
       options: {
@@ -272,7 +271,7 @@ In your `webpack.config.js`:
 ```js
 {
   test: /\.svg$/,
-  use: ['babel-loader', 'svgr/webpack', 'url-loader'],
+  use: ['svgr/webpack', 'url-loader'],
 }
 ```
 
@@ -287,6 +286,29 @@ const App = () => (
     <Star />
   </div>
 )
+```
+
+### Use your own Babel configuration
+
+By default, `svgr/webpack` includes a `babel-loader` with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/src/webpack.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+
+```js
+// Example using preact
+{
+  test: /\.svg$/,
+  use: [
+    {
+      loader: 'babel-loader',
+      options: {
+        presets: ['preact', 'env'],
+      },
+    },
+    {
+      loader: 'svgr/webpack',
+      options: { babel: false },
+    }
+  ],
+}
 ```
 
 ## Options
