@@ -64,7 +64,12 @@ describe('cli', () => {
   })
 
   it('--precision', async () => {
-    const [stdout] = await exec('bin/svgr --precision 1 __fixtures__/one.svg')
+    const [stdout] = await exec('bin/svgr --precision 10 __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--tab-width', async () => {
+    const [stdout] = await exec('bin/svgr --tab-width 4 __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 

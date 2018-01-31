@@ -36,13 +36,15 @@ program
   .option(
     '-p, --precision <value>',
     'set the number of digits in the fractional part (svgo)',
+    parseInt,
   )
   .option('--ids', 'keep ids within the svg (svgo)')
   .option('--keep-useless-defs', 'keep elements of <defs> without id (svgo)')
   .option('--no-title', 'remove title tag (svgo)')
   .option(
-    '--tab-width',
+    '--tab-width <value>',
     'specify the number of spaces by indentation-level (prettier)',
+    parseInt,
   )
   .option('--use-tabs', 'indent lines with tabs instead of spaces (prettier)')
   .option('--no-semi', 'remove semi-colons (prettier)')
