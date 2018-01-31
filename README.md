@@ -90,6 +90,7 @@ Options:
   --no-svgo                        disable SVGO (default: true)
   --no-prettier                    disable Prettier (default: true)
   --template <file>                specify a custom template to use
+  --ext <ext>                      specify a custom file extension to use (default: "js")
   --no-expand-props                disable props expanding (default: true)
   --ref                            add svgRef prop to svg
   --icon                           use "1em" as width and height
@@ -319,6 +320,14 @@ example of template, see [the default one](src/transforms/wrapIntoComponent.js).
 | Default                                                    | CLI Override | API Override       |
 | ---------------------------------------------------------- | ------------ | ------------------ |
 | [`wrapIntoComponent`](src/transforms/wrapIntoComponent.js) | `--template` | `template: <func>` |
+
+### File extension
+
+Specify a custom extension for generated files.
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `"js"`  | `--ext`      | `ext: <string>` |
 
 ### Expand props
 

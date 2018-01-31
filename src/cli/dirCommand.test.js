@@ -14,7 +14,7 @@ describe('rename', () => {
   })
 
   it('should change the extension to whatever is configured', () => {
-    const result = rename('camel-case.svg', {ext: 'tsx'})
+    const result = rename('camel-case.svg', { ext: 'tsx' })
     expect(result).toBe('CamelCase.tsx')
   })
 })
