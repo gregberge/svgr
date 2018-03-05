@@ -92,6 +92,7 @@ Options:
   --keep-useless-defs              keep elements of <defs> without id (svgo)
   --native                         add react-native support with react-native-svg
   --no-bracket-spacing             print spaces between brackets in object literals (prettier) (default: true)
+  --no-dimensions                  remove width and height (svgo) (default: false)
   --no-expand-props                disable props expanding (default: true)
   --no-prettier                    disable Prettier (default: true)
   --no-semi                        remove semi-colons (prettier) (default: true)
