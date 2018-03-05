@@ -121,7 +121,8 @@ Examples:
 A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
 are transformed into React components.
 
-```
+```sh
+# Usage: svgr [-d out-dir] [src-dir]
 $ svgr -d icons icons
 icons/web/clock-icon.svg -> icons/web/ClockIcon.js
 icons/web/wifi-icon.svg -> icons/web/WifiIcon.js
