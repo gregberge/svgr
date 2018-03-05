@@ -95,6 +95,11 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
+  it('--no-dimensions', async () => {
+    const [stdout] = await exec('bin/svgr --no-dimensions __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
   it('should work with stdin', async () => {
     const [stdout] = await exec('bin/svgr < __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()

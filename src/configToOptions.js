@@ -12,6 +12,7 @@ import toReactNative from './h2x/toReactNative'
 
 const defaultConfig = {
   bracketSpacing: undefined, // default to prettier
+  dimensions: true,
   expandProps: true,
   ext: 'js',
   icon: false,
@@ -57,6 +58,7 @@ function configToOptions(config = {}) {
     const svgoConfig = { plugins }
     if (!config.title || config.icon) plugins.push({ removeTitle: {} })
     else if (config.title) plugins.push({ removeTitle: false })
+    if (!config.dimensions) plugins.push({ removeDimensions: true })
     if (config.viewBox) plugins.push({ removeViewBox: false })
     if (config.keepUselessDefs) plugins.push({ removeUselessDefs: false })
     if (config.ids) plugins.push({ cleanupIDs: { remove: false } })
