@@ -13,6 +13,8 @@
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
+[**Try it out online!**](https://svgr.now.sh)
+
 ```sh
 npm install svgr
 ```
@@ -88,13 +90,16 @@ Options:
   --no-svgo                        disable SVGO (default: true)
   --no-prettier                    disable Prettier (default: true)
   --template <file>                specify a custom template to use
+  --ext <ext>                      specify a custom file extension to use (default: "js")
   --no-expand-props                disable props expanding (default: true)
-  --ids                            keep ids within the svg
+  --ref                            add svgRef prop to svg
   --icon                           use "1em" as width and height
   --no-view-box                    remove viewBox (default: true)
   --native                         add react-native support with react-native-svg
   --replace-attr-value [old=new]   replace an attribute value
   -p, --precision <value>          set the number of digits in the fractional part (svgo)
+  --ids                            keep ids within the svg (svgo)
+  --keep-useless-defs              keep elements of <defs> without id (svgo)
   --no-title                       remove title tag (svgo) (default: true)
   --tab-width                      specify the number of spaces by indentation-level (prettier)
   --use-tabs                       indent lines with tabs instead of spaces (prettier)
@@ -116,7 +121,8 @@ Examples:
 A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
 are transformed into React components.
 
-```
+```sh
+# Usage: svgr [-d out-dir] [src-dir]
 $ svgr -d icons icons
 icons/web/clock-icon.svg -> icons/web/ClockIcon.js
 icons/web/wifi-icon.svg -> icons/web/WifiIcon.js
@@ -167,10 +173,23 @@ $ svgr --template path/to/template.js my-icon.svg
 **Example of template:**
 
 ```js
-module.exports = (opts = {}) => (code, state) => `import React from 'react'
-const ${state.componentName} = (${opts.expandProps ? 'props' : ''}) => ${code}
-export default ${state.componentName}
-`
+module.exports = (opts = {}) => {
+  let props = ''
+
+  if (opts.expandProps && opts.ref) {
+    props = '{svgRef, ...props}'
+  } else if (opts.expandProps) {
+    props = 'props'
+  } else if (opts.ref) {
+    props = '{svgRef}'
+  }
+
+  return (code, state) => `import React from 'react'
+
+const ${state.componentName} = (${props}) => ${code}
+
+export default ${state.componentName}`
+}
 ```
 
 ## Node API usage
@@ -207,39 +226,89 @@ svgr(svgCode, { prettier: false, componentName: 'MyComponent' }).then(
 
 SVGR has a Webpack loader, you can use it using following `webpack.config.js`:
 
+In your `webpack.config.js`:
+
 ```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        use: ['babel-loader', 'svgr/webpack'],
-      },
-    ],
-  },
+{
+  test: /\.svg$/,
+  use: ['svgr/webpack'],
 }
 ```
 
-It is also possible to specify options:
+In your code:
 
 ```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        use: [
-          'babel-loader',
-          {
-            loader: 'svgr/webpack',
-            options: {
-              svgo: false,
-            },
-          },
-        ],
+import Star from './star.svg'
+
+const App = () => (
+  <div>
+    <Star />
+  </div>
+)
+```
+
+### Passing options
+
+```js
+{
+  test: /\.svg$/,
+  use: [
+    {
+      loader: 'svgr/webpack',
+      options: {
+        native: true,
       },
-    ],
-  },
+    },
+  ],
+}
+```
+
+### Using with `url-loader` or `file-loader`
+
+It is possible to use it with [`url-loader`](https://github.com/webpack-contrib/url-loader) or [`file-loader`](https://github.com/webpack-contrib/file-loader).
+
+In your `webpack.config.js`:
+
+```js
+{
+  test: /\.svg$/,
+  use: ['svgr/webpack', 'url-loader'],
+}
+```
+
+In your code:
+
+```js
+import starUrl, { ReactComponent as Star } from './star.svg'
+
+const App = () => (
+  <div>
+    <img src={starUrl} alt="star" />
+    <Star />
+  </div>
+)
+```
+
+### Use your own Babel configuration
+
+By default, `svgr/webpack` includes a `babel-loader` with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/src/webpack.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+
+```js
+// Example using preact
+{
+  test: /\.svg$/,
+  use: [
+    {
+      loader: 'babel-loader',
+      options: {
+        presets: ['preact', 'env'],
+      },
+    },
+    {
+      loader: 'svgr/webpack',
+      options: { babel: false },
+    }
+  ],
 }
 ```
 
@@ -274,6 +343,14 @@ example of template, see [the default one](src/transforms/wrapIntoComponent.js).
 | Default                                                    | CLI Override | API Override       |
 | ---------------------------------------------------------- | ------------ | ------------------ |
 | [`wrapIntoComponent`](src/transforms/wrapIntoComponent.js) | `--template` | `template: <func>` |
+
+### File extension
+
+Specify a custom extension for generated files.
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `"js"`  | `--ext`      | `ext: <string>` |
 
 ### Expand props
 
@@ -319,6 +396,14 @@ using CSS or third party library (eg:
 | ------- | ------------ | ------------- |
 | `false` | `--ids`      | `ids: <bool>` |
 
+### Ref
+
+Setting this to `true` will allow you to hook into the ref of the svg components that are created by exposing a `svgRef` prop
+
+| Default | CLI Override | API Override  |
+| ------- | ------------ | ------------- |
+| `false` | `--ref`      | `ref: <bool>` |
+
 ### Replace attribute value
 
 Replace an attribute value by an other. The main usage of this option is to
@@ -336,6 +421,15 @@ Set number of digits in the fractional part. See
 | Default | CLI Override        | API Override       |
 | ------- | ------------------- | ------------------ |
 | `3`     | `--precision <int>` | `precision: <int>` |
+
+### Useless Defs
+
+Keep elements of `<defs>` without `id`. It also keep unused symbols. See
+[SVGO `removeUselessDefs` plugin](https://github.com/svg/svgo).
+
+| Default | CLI Override          | API Override              |
+| ------- | --------------------- | ------------------------- |
+| `false` | `--keep-useless-defs` | `keepUselessDefs: <bool>` |
 
 ### Title
 

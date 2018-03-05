@@ -4,12 +4,14 @@ import wrapIntoNativeComponent from './transforms/wrapIntoNativeComponent'
 import stripAttribute from './h2x/stripAttribute'
 import emSize from './h2x/emSize'
 import expandProps from './h2x/expandProps'
+import svgRef from './h2x/svgRef'
 import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
 import removeStyle from './h2x/removeStyle'
 import toReactNative from './h2x/toReactNative'
 
 const defaultConfig = {
+  ref: false,
   svgo: true,
   prettier: true,
   native: false,
@@ -19,6 +21,7 @@ const defaultConfig = {
   dimensions: true,
   expandProps: true,
   title: true,
+  keepUselessDefs: false,
   ids: false,
   precision: 3, // default to svgo
   semi: undefined, // default to prettier
@@ -29,6 +32,7 @@ const defaultConfig = {
   bracketSpacing: undefined, // default to prettier
   jsxBracketSameLine: undefined, // default to prettier
   template: wrapIntoComponent,
+  ext: 'js',
 }
 
 function configToOptions(config = {}) {
@@ -42,6 +46,7 @@ function configToOptions(config = {}) {
     config.replaceAttrValues.forEach(([oldValue, newValue]) => {
       plugins.push(replaceAttrValue(oldValue, newValue))
     })
+    if (config.ref) plugins.push(svgRef)
     if (config.expandProps) plugins.push(expandProps)
     if (config.native) plugins.push(toReactNative)
 
@@ -55,6 +60,7 @@ function configToOptions(config = {}) {
     else if (config.title) plugins.push({ removeTitle: false })
     if (!config.dimensions) plugins.push({ removeDimensions: {} });
     if (config.viewBox) plugins.push({ removeViewBox: false })
+    if (config.keepUselessDefs) plugins.push({ removeUselessDefs: false })
     if (config.ids) plugins.push({ cleanupIDs: { remove: false } })
     if (config.precision === 'number')
       svgoConfig.floatPrecision = Number(svgoConfig.precision)
@@ -80,6 +86,7 @@ function configToOptions(config = {}) {
     },
     prettier: config.prettier ? getPrettierConfig() : null,
     template: config.template(config),
+    ext: config.ext,
   }
 }
 

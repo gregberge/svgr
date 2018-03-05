@@ -9,6 +9,7 @@ import { pascalCase } from './transforms/rename'
 import stripAttribute from './h2x/stripAttribute'
 import emSize from './h2x/emSize'
 import expandProps from './h2x/expandProps'
+import svgRef from './h2x/svgRef'
 import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
 import removeStyle from './h2x/removeStyle'
@@ -20,6 +21,7 @@ export {
   emSize,
   expandProps,
   replaceAttrValue,
+  svgRef,
   wrapIntoComponent,
   removeComments,
   removeStyle,
@@ -45,8 +47,10 @@ export async function rawConvert(code, options, state) {
 export default async function convert(
   code,
   { componentName = 'SvgComponent', ...config } = {},
+  initialState = {},
 ) {
   return rawConvert(code, configToOptions(config), {
+    ...initialState,
     filePath: componentName,
   })
 }

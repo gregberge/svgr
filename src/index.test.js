@@ -261,4 +261,33 @@ describe('convert', () => {
 
     expect(result).toMatchSnapshot()
   })
+
+  it('should accept initial state (for webpack)', async () => {
+    const result = await convert(
+      `<?xml version="1.0" encoding="UTF-8"?>
+  <svg height="25" width="23">
+    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+  </svg>`,
+      {},
+      { webpack: { previousExport: '"path/to/svg.svg"' } },
+    )
+
+    expect(result).toMatchSnapshot()
+  })
+
+  describe('options', () => {
+    it('keepUselessDefs', async () => {
+      const svgWithUselessDefs = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="0" height="0" style="position:absolute">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="filter">
+    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
+    <path d="M0 0h24v24H0z" fill="none" />
+  </symbol>
+</svg>`
+      expect(await convert(svgWithUselessDefs)).toMatchSnapshot('default')
+      expect(
+        await convert(svgWithUselessDefs, { keepUselessDefs: true }),
+      ).toMatchSnapshot('keepUselessDefs: true')
+    })
+  })
 })

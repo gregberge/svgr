@@ -1,5 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`convert options keepUselessDefs: default 1`] = `
+"import React from \\"react\\";
+
+const SvgComponent = props => (
+  <svg width={0} height={0} style={{ position: \\"absolute\\" }} {...props} />
+);
+
+export default SvgComponent;
+"
+`;
+
+exports[`convert options keepUselessDefs: keepUselessDefs: true 1`] = `
+"import React from \\"react\\";
+
+const SvgComponent = props => (
+  <svg width={0} height={0} style={{ position: \\"absolute\\" }} {...props}>
+    <symbol viewBox=\\"0 0 24 24\\">
+      <path d=\\"M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z\\" />
+      <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+    </symbol>
+  </svg>
+);
+
+export default SvgComponent;
+"
+`;
+
+exports[`convert should accept initial state (for webpack) 1`] = `
+"import React from \\"react\\";
+
+const SvgComponent = props => (
+  <svg height={25} width={23} {...props}>
+    <path d=\\"M9.9 1.1L3.3 21.78l16.5-13.2H0l16.5 13.2z\\" />
+  </svg>
+);
+
+export default \\"path/to/svg.svg\\";
+export { SvgComponent as ReactComponent };
+"
+`;
+
 exports[`convert should convert style attribute 1`] = `
 "import React from \\"react\\";
 

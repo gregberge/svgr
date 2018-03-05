@@ -1,59 +1,76 @@
 import path from 'path'
 import webpack from 'webpack'
+import MemoryFs from 'memory-fs'
+
+function compile(rules) {
+  const compiler = webpack({
+    context: path.resolve(__dirname),
+    entry: './__fixtures__/icon.svg',
+    output: {
+      path: path.resolve(__dirname),
+      filename: 'bundle.js',
+    },
+    module: { rules },
+  })
+
+  compiler.outputFileSystem = new MemoryFs()
+
+  return new Promise((resolve, reject) => {
+    compiler.run((err, stats) => {
+      if (err) reject(err)
+
+      resolve(
+        stats
+          .toJson()
+          .modules.find(({ name }) => name === './src/__fixtures__/icon.svg')
+          .source,
+      )
+    })
+  })
+}
 
 describe('webpack loader', () => {
-  it('should convert file', () =>
-    new Promise((resolve, reject) => {
-      webpack(
-        {
-          entry: path.resolve(__dirname, '__fixtures__/main.js'),
-          output: {
-            path: path.resolve(__dirname, '__fixtures__/dist'),
+  it('should convert file', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './webpack.js'),
+            options: {
+              expandProps: false,
+            },
           },
-          module: {
-            rules: [
-              {
-                test: /\.svg$/,
-                use: [
-                  {
-                    loader: 'babel-loader',
-                    options: {
-                      presets: [
-                        [
-                          'env',
-                          {
-                            targets: {
-                              node: '6',
-                            },
-                          },
-                        ],
-                        'react',
-                      ],
-                      plugins: [
-                        'transform-class-properties',
-                        'transform-object-rest-spread',
-                      ],
-                    },
-                  },
-                  {
-                    loader: path.resolve(__dirname, '../webpack.js'),
-                    options: {
-                      expandProps: false,
-                    },
-                  },
-                ],
-              },
-            ],
+        ],
+      },
+    ])
+
+    expect(source).toMatchSnapshot()
+  })
+
+  it('should convert file (babel: false)', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: ['@babel/preset-react'],
+            },
           },
-        },
-        (err, stats) => {
-          if (err || stats.hasErrors()) reject(err)
-          /* eslint-disable global-require, import/no-dynamic-require */
-          require(path.resolve(__dirname, '__fixtures__/dist/main.js'))
-          /* eslint-enable global-require, import/no-dynamic-require */
-          expect(global.exported_icon.name).toBe('SvgComponent')
-          resolve()
-        },
-      )
-    }))
+          {
+            loader: path.resolve(__dirname, './webpack.js'),
+            options: {
+              babel: false,
+              expandProps: false,
+            },
+          },
+        ],
+      },
+    ])
+
+    expect(source).toMatchSnapshot()
+  })
 })

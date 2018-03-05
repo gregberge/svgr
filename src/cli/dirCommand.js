@@ -5,9 +5,9 @@ import outputFileSync from 'output-file-sync'
 import { convertFile, isCompilableExtension, readdir } from './util'
 import { pascalCase } from '../transforms/rename'
 
-export const rename = relative => {
+export const rename = (relative, { ext = 'js' } = {}) => {
   const relativePath = path.parse(relative)
-  relativePath.ext = '.js'
+  relativePath.ext = `.${ext}`
   relativePath.name = pascalCase(relativePath.name)
   relativePath.base = null
 
@@ -18,7 +18,7 @@ async function dirCommand(program, filenames, opts) {
   async function write(src, relative) {
     if (!isCompilableExtension(relative)) return false
 
-    relative = rename(relative)
+    relative = rename(relative, opts)
 
     const dest = path.join(program.outDir, relative)
 

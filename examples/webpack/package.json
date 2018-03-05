@@ -1,0 +1,7 @@
+{
+  "name": "svgr-webpack-example",
+  "devDependencies": {
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0"
+  }
+}

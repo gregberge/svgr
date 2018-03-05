@@ -4,7 +4,7 @@ exports[`cli --icon 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
-  <svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 48 1\\" {...props}>
+  <svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 );
@@ -202,6 +202,36 @@ export default One;
 "
 `;
 
+exports[`cli --ref --no-expand-props 1`] = `
+"import React from \\"react\\";
+
+const One = ({ svgRef }) => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" ref={svgRef}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --ref 1`] = `
+"import React from \\"react\\";
+
+const One = ({ svgRef, ...props }) => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" ref={svgRef} {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
 exports[`cli --replace-attr-value 1`] = `
 "import React from \\"react\\";
 
@@ -210,6 +240,21 @@ const One = props => (
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"currentColor\\" fillRule=\\"evenodd\\" />
   </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --tab-width 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+    <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+        <title>Rectangle 5</title>
+        <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
 );
 
 export default One;
