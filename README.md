@@ -85,30 +85,30 @@ Usage: svgr [options] <file>
 
 Options:
 
-  -V, --version                    output the version number
-  -d, --out-dir <dirname>          output files into a directory
-  --no-svgo                        disable SVGO (default: true)
-  --no-prettier                    disable Prettier (default: true)
-  --template <file>                specify a custom template to use
   --ext <ext>                      specify a custom file extension to use (default: "js")
-  --no-expand-props                disable props expanding (default: true)
-  --ref                            add svgRef prop to svg
   --icon                           use "1em" as width and height
-  --no-view-box                    remove viewBox (default: true)
-  --native                         add react-native support with react-native-svg
-  --replace-attr-value [old=new]   replace an attribute value
-  -p, --precision <value>          set the number of digits in the fractional part (svgo)
   --ids                            keep ids within the svg (svgo)
-  --keep-useless-defs              keep elements of <defs> without id (svgo)
-  --no-title                       remove title tag (svgo) (default: true)
-  --tab-width                      specify the number of spaces by indentation-level (prettier)
-  --use-tabs                       indent lines with tabs instead of spaces (prettier)
-  --no-semi                        remove semi-colons (prettier) (default: true)
-  --single-quote                   use single-quotes instead of double-quotes (prettier)
-  --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
-  --no-bracket-spacing             print spaces between brackets in object literals (prettier) (default: true)
   --jsx-bracket-same-line          put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)
+  --keep-useless-defs              keep elements of <defs> without id (svgo)
+  --native                         add react-native support with react-native-svg
+  --no-bracket-spacing             print spaces between brackets in object literals (prettier) (default: true)
+  --no-expand-props                disable props expanding (default: true)
+  --no-prettier                    disable Prettier (default: true)
+  --no-semi                        remove semi-colons (prettier) (default: true)
+  --no-svgo                        disable SVGO (default: true)
+  --no-title                       remove title tag (svgo) (default: true)
+  --no-view-box                    remove viewBox (default: true)
+  --ref                            add svgRef prop to svg
+  --replace-attr-value [old=new]   replace an attribute value
+  --single-quote                   use single-quotes instead of double-quotes (prettier)
+  --tab-width                      specify the number of spaces by indentation-level (prettier)
+  --template <file>                specify a custom template to use
+  --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
+  --use-tabs                       indent lines with tabs instead of spaces (prettier)
+  -d, --out-dir <dirname>          output files into a directory
   -h, --help                       output usage information
+  -p, --precision <value>          set the number of digits in the fractional part (svgo)
+  -V, --version                    output the version number
 
 Examples:
   svgr --replace-attr-value "#fff=currentColor" icon.svg
