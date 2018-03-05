@@ -11,27 +11,27 @@ import removeStyle from './h2x/removeStyle'
 import toReactNative from './h2x/toReactNative'
 
 const defaultConfig = {
-  ref: false,
-  svgo: true,
-  prettier: true,
-  native: false,
-  icon: false,
-  viewBox: true,
-  replaceAttrValues: [],
+  bracketSpacing: undefined, // default to prettier
   expandProps: true,
-  title: true,
-  keepUselessDefs: false,
+  ext: 'js',
+  icon: false,
   ids: false,
+  jsxBracketSameLine: undefined, // default to prettier
+  keepUselessDefs: false,
+  native: false,
   precision: 3, // default to svgo
+  prettier: true,
+  ref: false,
+  replaceAttrValues: [],
   semi: undefined, // default to prettier
   singleQuote: undefined, // default to prettier
+  svgo: true,
   tabWidth: undefined, // default to prettier
-  useTabs: undefined, // default to prettier
-  trailingComma: undefined, // default to prettier
-  bracketSpacing: undefined, // default to prettier
-  jsxBracketSameLine: undefined, // default to prettier
   template: wrapIntoComponent,
-  ext: 'js',
+  title: true,
+  trailingComma: undefined, // default to prettier
+  useTabs: undefined, // default to prettier
+  viewBox: true,
 }
 
 function configToOptions(config = {}) {
