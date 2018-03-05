@@ -33,15 +33,15 @@ describe('cli', () => {
     const [stdout] = await exec('bin/svgr --icon __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
-
+  
   it('--ref', async () => {
     const [stdout] = await exec('bin/svgr --ref __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
-
+ 
   it('--ref --no-expand-props', async () => {
     const [stdout] = await exec(
-      'bin/svgr --ref --no-expand-props __fixtures__/one.svg',
+      'bin/svgr --ref --no-expand-props __fixtures__/one.svg'
     )
     expect(stdout).toMatchSnapshot()
   })
