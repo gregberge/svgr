@@ -21,6 +21,7 @@ const defaultConfig = {
   expandProps: true,
   title: true,
   keepUselessDefs: false,
+  dimensions: true, // default is keeping dimensions
   ids: false,
   precision: 3, // default to svgo
   semi: undefined, // default to prettier
@@ -42,6 +43,8 @@ function configToOptions(config = {}) {
   function getH2xPlugins() {
     const plugins = [jsx, stripAttribute('xmlns'), removeComments, removeStyle]
     if (config.icon) plugins.push(emSize)
+    if (!config.dimensions)
+      plugins.push(stripAttribute('height'), stripAttribute('width'))
     config.replaceAttrValues.forEach(([oldValue, newValue]) => {
       plugins.push(replaceAttrValue(oldValue, newValue))
     })

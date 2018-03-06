@@ -27,6 +27,7 @@ program
   .option('--ref', 'add svgRef prop to svg')
   .option('--icon', 'use "1em" as width and height')
   .option('--no-view-box', 'remove viewBox')
+  .option('--no-dimensions', 'remove height and width attributes')
   .option('--native', 'add react-native support with react-native-svg')
   .option(
     '--replace-attr-value [old=new]',
