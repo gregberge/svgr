@@ -58,6 +58,21 @@ export default One;
 "
 `;
 
+exports[`cli --no-dimensions 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
 exports[`cli --no-expand-props 1`] = `
 "import React from \\"react\\";
 
