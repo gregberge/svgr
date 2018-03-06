@@ -95,6 +95,7 @@ Options:
   --ref                            add svgRef prop to svg
   --icon                           use "1em" as width and height
   --no-view-box                    remove viewBox (default: true)
+  --no-dimensions                  remove height and width (default: true)
   --native                         add react-native support with react-native-svg
   --replace-attr-value [old=new]   replace an attribute value
   -p, --precision <value>          set the number of digits in the fractional part (svgo)
