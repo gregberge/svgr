@@ -42,10 +42,13 @@ function configToOptions(config = {}) {
 
   function getH2xPlugins() {
     const plugins = [jsx, stripAttribute('xmlns'), removeComments, removeStyle]
-    if (config.icon) plugins.push(emSize)
     config.replaceAttrValues.forEach(([oldValue, newValue]) => {
       plugins.push(replaceAttrValue(oldValue, newValue))
     })
+    if (!config.dimensions) {
+      plugins.push(...['width', 'height'].map(stripAttribute))
+    }
+    if (config.icon) plugins.push(emSize)
     if (config.ref) plugins.push(svgRef)
     if (config.expandProps) plugins.push(expandProps)
     if (config.native) plugins.push(toReactNative)
@@ -56,9 +59,8 @@ function configToOptions(config = {}) {
   function getSvgoConfig() {
     const plugins = []
     const svgoConfig = { plugins }
-    if (!config.title || config.icon) plugins.push({ removeTitle: {} })
+    if (!config.title || config.icon) plugins.push({ removeTitle: true })
     else if (config.title) plugins.push({ removeTitle: false })
-    if (!config.dimensions) plugins.push({ removeDimensions: true })
     if (config.viewBox) plugins.push({ removeViewBox: false })
     if (config.keepUselessDefs) plugins.push({ removeUselessDefs: false })
     if (config.ids) plugins.push({ cleanupIDs: { remove: false } })

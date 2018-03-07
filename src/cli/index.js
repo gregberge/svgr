@@ -38,6 +38,12 @@ program
   .option('--no-svgo', 'disable SVGO')
   .option('--no-title', 'remove title tag (svgo)')
   .option('--no-view-box', 'remove viewBox')
+  .option('-d, --out-dir <dirname>', 'output files into a directory')
+  .option(
+    '-p, --precision <value>',
+    'set the number of digits in the fractional part (svgo)',
+    parseInt,
+  )
   .option('--ref', 'add svgRef prop to svg')
   .option(
     '--replace-attr-value [old=new]',
@@ -59,12 +65,6 @@ program
     'print trailing commas wherever possible when multi-line (prettier)',
   )
   .option('--use-tabs', 'indent lines with tabs instead of spaces (prettier)')
-  .option('-d, --out-dir <dirname>', 'output files into a directory')
-  .option(
-    '-p, --precision <value>',
-    'set the number of digits in the fractional part (svgo)',
-    parseInt,
-  )
 
 program.on('--help', () => {
   console.log(`

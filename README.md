@@ -86,19 +86,22 @@ Usage: svgr [options] <file>
 Options:
 
   --ext <ext>                      specify a custom file extension to use (default: "js")
+  --help, -h                       output usage information
   --icon                           use "1em" as width and height
   --ids                            keep ids within the svg (svgo)
   --jsx-bracket-same-line          put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)
   --keep-useless-defs              keep elements of <defs> without id (svgo)
   --native                         add react-native support with react-native-svg
   --no-bracket-spacing             print spaces between brackets in object literals (prettier) (default: true)
-  --no-dimensions                  remove width and height (svgo) (default: false)
+  --no-dimensions                  remove width and height (default: false)
   --no-expand-props                disable props expanding (default: true)
   --no-prettier                    disable Prettier (default: true)
   --no-semi                        remove semi-colons (prettier) (default: true)
   --no-svgo                        disable SVGO (default: true)
   --no-title                       remove title tag (svgo) (default: true)
   --no-view-box                    remove viewBox (default: true)
+  --out-dir, -d <dirname>          output files into a directory
+  --precision, -p <value>          set the number of digits in the fractional part (svgo)
   --ref                            add svgRef prop to svg
   --replace-attr-value [old=new]   replace an attribute value
   --single-quote                   use single-quotes instead of double-quotes (prettier)
@@ -106,10 +109,7 @@ Options:
   --template <file>                specify a custom template to use
   --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
   --use-tabs                       indent lines with tabs instead of spaces (prettier)
-  -d, --out-dir <dirname>          output files into a directory
-  -h, --help                       output usage information
-  -p, --precision <value>          set the number of digits in the fractional part (svgo)
-  -V, --version                    output the version number
+  --version, -V                    output the version number
 
 Examples:
   svgr --replace-attr-value "#fff=currentColor" icon.svg
@@ -318,33 +318,6 @@ By default, `svgr/webpack` includes a `babel-loader` with [optimized configurati
 SVGR ships with a handful of customizable options, usable in both the CLI and
 API.
 
-### SVGO
-
-Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before
-transforming it into a component.
-
-| Default | CLI Override | API Override   |
-| ------- | ------------ | -------------- |
-| `true`  | `--no-svgo`  | `svgo: <bool>` |
-
-### Prettier
-
-Use [Prettier](https://github.com/prettier/prettier) to format JavaScript code
-output.
-
-| Default | CLI Override    | API Override       |
-| ------- | --------------- | ------------------ |
-| `true`  | `--no-prettier` | `prettier: <bool>` |
-
-### Template
-
-Specify a template file (CLI) or a template function (API) to use. For an
-example of template, see [the default one](src/transforms/wrapIntoComponent.js).
-
-| Default                                                    | CLI Override | API Override       |
-| ---------------------------------------------------------- | ------------ | ------------------ |
-| [`wrapIntoComponent`](src/transforms/wrapIntoComponent.js) | `--template` | `template: <func>` |
-
 ### File extension
 
 Specify a custom extension for generated files.
@@ -352,14 +325,6 @@ Specify a custom extension for generated files.
 | Default | CLI Override | API Override    |
 | ------- | ------------ | --------------- |
 | `"js"`  | `--ext`      | `ext: <string>` |
-
-### Expand props
-
-All properties given to component will be forwarded on SVG tag.
-
-| Default | CLI Override        | API Override          |
-| ------- | ------------------- | --------------------- |
-| `true`  | `--no-expand-props` | `expandProps: <bool>` |
 
 ### Icon
 
@@ -370,23 +335,6 @@ inherits from text size. Also remove title.
 | ------- | ------------ | -------------- |
 | `false` | `--icon`     | `icon: <bool>` |
 
-### Native
-
-Modify all SVG nodes with uppercase and use a specific template with
-react-native-svg imports. **All unsupported nodes will be removed.**
-
-| Default | CLI Override | API Override     |
-| ------- | ------------ | ---------------- |
-| `false` | `--native`   | `native: <bool>` |
-
-### ViewBox
-
-Setting this to `false` will remove the viewBox property.
-
-| Default | CLI Override    | API Override      |
-| ------- | --------------- | ----------------- |
-| `true`  | `--no-view-box` | `viewBox: <bool>` |
-
 ### Ids
 
 Setting this to `true` will keep ids. It can be useful to target specific ids
@@ -396,6 +344,105 @@ using CSS or third party library (eg:
 | Default | CLI Override | API Override  |
 | ------- | ------------ | ------------- |
 | `false` | `--ids`      | `ids: <bool>` |
+
+### JSX Brackets
+
+Put the `>` of a multi-line JSX element at the end of the last line instead of
+being alone on the next line (does not apply to self closing elements). See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
+
+| Default | CLI Override              | API Override                 |
+| ------- | ------------------------- | ---------------------------- |
+| `false` | `--jsx-bracket-same-line` | `jsxBracketSameLine: <bool>` |
+
+
+### Useless Defs
+
+Keep elements of `<defs>` without `id`. It also keep unused symbols. See
+[SVGO `removeUselessDefs` plugin](https://github.com/svg/svgo).
+
+| Default | CLI Override          | API Override              |
+| ------- | --------------------- | ------------------------- |
+| `false` | `--keep-useless-defs` | `keepUselessDefs: <bool>` |
+
+### Native
+
+Modify all SVG nodes with uppercase and use a specific template with
+react-native-svg imports. **All unsupported nodes will be removed.**
+
+| Default | CLI Override | API Override     |
+| ------- | ------------ | ---------------- |
+| `false` | `--native`   | `native: <bool>` |
+
+
+### Bracket Spacing
+
+Print spaces between brackets in object literals. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#bracket-spacing).
+
+| Default | CLI Override           | API Override             |
+| ------- | ---------------------- | ------------------------ |
+| `true`  | `--no-bracket-spacing` | `bracketSpacing: <bool>` |
+
+### Dimensions
+
+Remove width and height.
+
+| Default | CLI Override      | API Override         |
+| ------- | ----------------- | -------------------- |
+| `false` | `--no-dimensions` | `dimensions: <bool>` |
+
+### Expand props
+
+All properties given to component will be forwarded on SVG tag.
+
+| Default | CLI Override        | API Override          |
+| ------- | ------------------- | --------------------- |
+| `true`  | `--no-expand-props` | `expandProps: <bool>` |
+
+### Prettier
+
+Use [Prettier](https://github.com/prettier/prettier) to format JavaScript code
+output.
+
+| Default | CLI Override    | API Override       |
+| ------- | --------------- | ------------------ |
+| `true`  | `--no-prettier` | `prettier: <bool>` |
+
+### Semicolons
+
+Print semicolons at the ends of statements. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#semicolons).
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `true`  | `--no-semi`  | `semi: <bool>` |
+
+### SVGO
+
+Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before
+transforming it into a component.
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `true`  | `--no-svgo`  | `svgo: <bool>` |
+
+### Title
+
+Remove the title from SVG. See
+[SVGO `removeTitle` plugin](https://github.com/svg/svgo).
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `true`  | `--no-title` | `title: <bool>` |
+
+### ViewBox
+
+Setting this to `false` will remove the viewBox property.
+
+| Default | CLI Override    | API Override      |
+| ------- | --------------- | ----------------- |
+| `true`  | `--no-view-box` | `viewBox: <bool>` |
 
 ### Ref
 
@@ -414,32 +461,14 @@ change an icon color to "currentColor" in order to inherit from text color.
 | ------- | -------------------------------- | ------------------------------- |
 | `[]`    | `--replace-attr-value <old=new>` | `replaceAttrValues: <string[]>` |
 
-### Precision
+### Quotes
 
-Set number of digits in the fractional part. See
-[SVGO](https://github.com/svg/svgo).
+Use single quotes instead of double quotes. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#quotes).
 
-| Default | CLI Override        | API Override       |
-| ------- | ------------------- | ------------------ |
-| `3`     | `--precision <int>` | `precision: <int>` |
-
-### Useless Defs
-
-Keep elements of `<defs>` without `id`. It also keep unused symbols. See
-[SVGO `removeUselessDefs` plugin](https://github.com/svg/svgo).
-
-| Default | CLI Override          | API Override              |
-| ------- | --------------------- | ------------------------- |
-| `false` | `--keep-useless-defs` | `keepUselessDefs: <bool>` |
-
-### Title
-
-Remove the title from SVG. See
-[SVGO `removeTitle` plugin](https://github.com/svg/svgo).
-
-| Default | CLI Override | API Override    |
-| ------- | ------------ | --------------- |
-| `true`  | `--no-title` | `title: <bool>` |
+| Default | CLI Override     | API Override          |
+| ------- | ---------------- | --------------------- |
+| `false` | `--single-quote` | `singleQuote: <bool>` |
 
 ### Tab Width
 
@@ -450,32 +479,14 @@ Specify the number of spaces per indentation-level. See
 | ------- | ------------------- | ----------------- |
 | `2`     | `--tab-width <int>` | `tabWidth: <int>` |
 
-### Tabs
+### Template
 
-Indent lines with tabs instead of spaces. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#tabs).
+Specify a template file (CLI) or a template function (API) to use. For an
+example of template, see [the default one](src/transforms/wrapIntoComponent.js).
 
-| Default | CLI Override | API Override      |
-| ------- | ------------ | ----------------- |
-| `false` | `--use-tabs` | `useTabs: <bool>` |
-
-### Semicolons
-
-Print semicolons at the ends of statements. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#semicolons).
-
-| Default | CLI Override | API Override   |
-| ------- | ------------ | -------------- |
-| `true`  | `--no-semi`  | `semi: <bool>` |
-
-### Quotes
-
-Use single quotes instead of double quotes. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#quotes).
-
-| Default | CLI Override     | API Override          |
-| ------- | ---------------- | --------------------- |
-| `false` | `--single-quote` | `singleQuote: <bool>` |
+| Default                                                    | CLI Override | API Override       |
+| ---------------------------------------------------------- | ------------ | ------------------ |
+| [`wrapIntoComponent`](src/transforms/wrapIntoComponent.js) | `--template` | `template: <func>` |
 
 ### Trailing Commas
 
@@ -486,24 +497,47 @@ Print trailing commas wherever possible when multi-line. See
 | -------- | ------------------------------------------------------ | ------------------------------------------------------ |
 | `"none"` | <code>--trailing-comma <none&#124;es5&#124;all></code> | <code>trailingComma: "<none&#124;es5&#124;all>"</code> |
 
-### Bracket Spacing
+### Tabs
 
-Print spaces between brackets in object literals. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#bracket-spacing).
+Indent lines with tabs instead of spaces. See
+[Prettier](https://github.com/prettier/prettier/blob/master/README.md#tabs).
 
-| Default | CLI Override           | API Override             |
-| ------- | ---------------------- | ------------------------ |
-| `true`  | `--no-bracket-spacing` | `bracketSpacing: <bool>` |
+| Default | CLI Override | API Override      |
+| ------- | ------------ | ----------------- |
+| `false` | `--use-tabs` | `useTabs: <bool>` |
 
-### JSX Brackets
+### Output Directory
 
-Put the `>` of a multi-line JSX element at the end of the last line instead of
-being alone on the next line (does not apply to self closing elements). See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
+Output files into a directory.
 
-| Default | CLI Override              | API Override                 |
-| ------- | ------------------------- | ---------------------------- |
-| `false` | `--jsx-bracket-same-line` | `jsxBracketSameLine: <bool>` |
+| Default     | CLI Override          | API Override        |
+| ----------- | --------------------- | ------------------- |
+| `undefined` | `--out-dir <dirname>` | `outDir: <dirname>` |
+
+### Help
+
+Output usage information.
+
+| Default     | CLI Override |
+| ----------- | ------------ |
+| `undefined` | `--help`     |
+
+### Precision
+
+Set number of digits in the fractional part. See
+[SVGO](https://github.com/svg/svgo).
+
+| Default | CLI Override        | API Override       |
+| ------- | ------------------- | ------------------ |
+| `3`     | `--precision <int>` | `precision: <int>` |
+
+### Version
+
+Output the version number.
+
+| Default     | CLI Override |
+| ----------- | ------------ |
+| `undefined` | `--version`  |
 
 ## Other projects
 

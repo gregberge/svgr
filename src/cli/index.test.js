@@ -12,13 +12,48 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
-  it('--no-svgo', async () => {
-    const [stdout] = await exec('bin/svgr --no-svgo __fixtures__/one.svg')
+  it('should work with stdin', async () => {
+    const [stdout] = await exec('bin/svgr < __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
-  it('--no-prettier', async () => {
-    const [stdout] = await exec('bin/svgr --no-prettier __fixtures__/one.svg')
+  it('--icon', async () => {
+    const [stdout] = await exec('bin/svgr --icon __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--ids', async () => {
+    const [stdout] = await exec('bin/svgr --ids __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--jsx-bracket-same-line', async () => {
+    const [stdout] = await exec('bin/svgr --jsx-bracket-same-line __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--keep-useless-defs', async () => {
+    const [stdout] = await exec('bin/svgr --keep-useless-defs __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--native', async () => {
+    const [stdout] = await exec('bin/svgr --native __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--no-bracket-spacing', async () => {
+    const [stdout] = await exec('bin/svgr --no-bracket-spacing __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--no-dimensions', async () => {
+    const [stdout] = await exec('bin/svgr --no-dimensions __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--no-dimensions --no-view-box', async () => {
+    const [stdout] = await exec('bin/svgr --no-dimensions --no-view-box __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
@@ -29,8 +64,28 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
-  it('--icon', async () => {
-    const [stdout] = await exec('bin/svgr --icon __fixtures__/one.svg')
+  it('--no-prettier', async () => {
+    const [stdout] = await exec('bin/svgr --no-prettier __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--no-semi', async () => {
+    const [stdout] = await exec('bin/svgr --no-semi __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--no-svgo', async () => {
+    const [stdout] = await exec('bin/svgr --no-svgo __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--no-title', async () => {
+    const [stdout] = await exec('bin/svgr --no-title __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
+
+  it('--no-view-box', async () => {
+    const [stdout] = await exec('bin/svgr --no-view-box __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
@@ -46,16 +101,6 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
-  it('--ids', async () => {
-    const [stdout] = await exec('bin/svgr --ids __fixtures__/one.svg')
-    expect(stdout).toMatchSnapshot()
-  })
-
-  it('--no-view-box', async () => {
-    const [stdout] = await exec('bin/svgr --no-view-box __fixtures__/one.svg')
-    expect(stdout).toMatchSnapshot()
-  })
-
   it('--replace-attr-value', async () => {
     const [stdout] = await exec(
       'bin/svgr --replace-attr-value "#063855=currentColor" __fixtures__/one.svg',
@@ -63,23 +108,13 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
-  it('--precision', async () => {
-    const [stdout] = await exec('bin/svgr --precision 10 __fixtures__/one.svg')
+  it('--single-quote', async () => {
+    const [stdout] = await exec('bin/svgr --single-quote __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
   it('--tab-width', async () => {
     const [stdout] = await exec('bin/svgr --tab-width 4 __fixtures__/one.svg')
-    expect(stdout).toMatchSnapshot()
-  })
-
-  it('--no-title', async () => {
-    const [stdout] = await exec('bin/svgr --no-title __fixtures__/one.svg')
-    expect(stdout).toMatchSnapshot()
-  })
-
-  it('--no-semi', async () => {
-    const [stdout] = await exec('bin/svgr --no-semi __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
@@ -90,22 +125,29 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
-  it('--native', async () => {
-    const [stdout] = await exec('bin/svgr --native __fixtures__/one.svg')
+  describe('--trailing-comma', () => {
+    it('none', async () => {
+      const [stdout] = await exec(`bin/svgr --trailing-comma none __fixtures__/one.svg`)
+      expect(stdout).toMatchSnapshot()
+    })
+
+    it('es5', async () => {
+      const [stdout] = await exec(`bin/svgr --trailing-comma es5 __fixtures__/one.svg`)
+      expect(stdout).toMatchSnapshot()
+    })
+
+    it('all', async () => {
+      const [stdout] = await exec(`bin/svgr --trailing-comma all __fixtures__/one.svg`)
+      expect(stdout).toMatchSnapshot()
+    })
+  })
+
+  it('--use-tabs', async () => {
+    const [stdout] = await exec('bin/svgr --use-tabs __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
 
-  it('--no-dimensions', async () => {
-    const [stdout] = await exec('bin/svgr --no-dimensions __fixtures__/one.svg')
-    expect(stdout).toMatchSnapshot()
-  })
-
-  it('should work with stdin', async () => {
-    const [stdout] = await exec('bin/svgr < __fixtures__/one.svg')
-    expect(stdout).toMatchSnapshot()
-  })
-
-  it('should work with output directory', async () => {
+  it('--out-dir', async () => {
     await exec('bin/svgr --out-dir __fixtures_build__ __fixtures__')
     expect(
       await fs.readFile('__fixtures_build__/One.js', 'utf-8'),
@@ -113,5 +155,26 @@ describe('cli', () => {
     expect(
       await fs.readFile('__fixtures_build__/nested/Two.js', 'utf-8'),
     ).toMatchSnapshot()
+  })
+
+  it('--help', async () => {
+    const [stdout] = await exec('bin/svgr --help')
+    const [shorthand] = await exec('bin/svgr -h')
+    expect(stdout).toMatchSnapshot()
+    expect(shorthand).toEqual(stdout);
+  })
+
+  it('--precision', async () => {
+    const [stdout] = await exec('bin/svgr --precision 10 __fixtures__/one.svg')
+    const [shorthand] = await exec('bin/svgr -p 10 __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+    expect(shorthand).toEqual(stdout)
+  })
+
+  it('--version', async () => {
+    const [stdout] = await exec('bin/svgr --version')
+    const [shorthand] = await exec('bin/svgr -V')
+    expect(stdout).toMatchSnapshot()
+    expect(shorthand).toEqual(stdout)
   })
 })
