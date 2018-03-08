@@ -15,7 +15,7 @@ exports[`cli --help 1`] = `
     --keep-useless-defs              keep elements of <defs> without id (svgo)
     --native                         add react-native support with react-native-svg
     --no-bracket-spacing             print spaces between brackets in object literals (prettier)
-    --no-dimensions                  remove width and height
+    --no-dimensions                  remove width and height from root SVG tag
     --no-expand-props                disable props expanding
     --no-prettier                    disable Prettier
     --no-semi                        remove semi-colons (prettier)
@@ -43,7 +43,7 @@ exports[`cli --icon 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
-  <svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
+  <svg viewBox=\\"0 0 48 1\\" {...props} width=\\"1em\\" height=\\"1em\\">
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 );
@@ -351,7 +351,7 @@ exports[`cli --ref 1`] = `
 "import React from \\"react\\";
 
 const One = ({ svgRef, ...props }) => (
-  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" ref={svgRef} {...props}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props} ref={svgRef}>
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>

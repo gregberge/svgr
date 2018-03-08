@@ -31,7 +31,7 @@ program
     '--no-bracket-spacing',
     'print spaces between brackets in object literals (prettier)',
   )
-  .option('--no-dimensions', 'remove width and height')
+  .option('--no-dimensions', 'remove width and height from root SVG tag')
   .option('--no-expand-props', 'disable props expanding')
   .option('--no-prettier', 'disable Prettier')
   .option('--no-semi', 'remove semi-colons (prettier)')

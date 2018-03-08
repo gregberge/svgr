@@ -3,6 +3,7 @@ import wrapIntoComponent from './transforms/wrapIntoComponent'
 import wrapIntoNativeComponent from './transforms/wrapIntoNativeComponent'
 import stripAttribute from './h2x/stripAttribute'
 import emSize from './h2x/emSize'
+import removeDimensions from './h2x/removeDimensions'
 import expandProps from './h2x/expandProps'
 import svgRef from './h2x/svgRef'
 import replaceAttrValue from './h2x/replaceAttrValue'
@@ -45,13 +46,11 @@ function configToOptions(config = {}) {
     config.replaceAttrValues.forEach(([oldValue, newValue]) => {
       plugins.push(replaceAttrValue(oldValue, newValue))
     })
-    if (!config.dimensions) {
-      plugins.push(...['width', 'height'].map(stripAttribute))
-    }
-    if (config.icon) plugins.push(emSize)
-    if (config.ref) plugins.push(svgRef)
+    if (!config.dimensions) plugins.push(removeDimensions)
     if (config.expandProps) plugins.push(expandProps)
+    if (config.icon) plugins.push(emSize)
     if (config.native) plugins.push(toReactNative)
+    if (config.ref) plugins.push(svgRef)
 
     return plugins
   }
