@@ -93,7 +93,7 @@ Options:
   --keep-useless-defs              keep elements of <defs> without id (svgo)
   --native                         add react-native support with react-native-svg
   --no-bracket-spacing             print spaces between brackets in object literals (prettier) (default: true)
-  --no-dimensions                  remove width and height (default: false)
+  --no-dimensions                  remove width and height from root SVG tag (default: false)
   --no-expand-props                disable props expanding (default: true)
   --no-prettier                    disable Prettier (default: true)
   --no-semi                        remove semi-colons (prettier) (default: true)
@@ -386,7 +386,7 @@ Print spaces between brackets in object literals. See
 
 ### Dimensions
 
-Remove width and height.
+Remove width and height from root SVG tag.
 
 | Default | CLI Override      | API Override         |
 | ------- | ----------------- | -------------------- |
@@ -514,14 +514,6 @@ Output files into a directory.
 | ----------- | --------------------- | ------------------- |
 | `undefined` | `--out-dir <dirname>` | `outDir: <dirname>` |
 
-### Help
-
-Output usage information.
-
-| Default     | CLI Override |
-| ----------- | ------------ |
-| `undefined` | `--help`     |
-
 ### Precision
 
 Set number of digits in the fractional part. See
@@ -530,14 +522,6 @@ Set number of digits in the fractional part. See
 | Default | CLI Override        | API Override       |
 | ------- | ------------------- | ------------------ |
 | `3`     | `--precision <int>` | `precision: <int>` |
-
-### Version
-
-Output the version number.
-
-| Default     | CLI Override |
-| ----------- | ------------ |
-| `undefined` | `--version`  |
 
 ## Other projects
 
