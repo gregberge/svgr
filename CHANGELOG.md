@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/smooth-code/svgr/compare/v1.8.1...v1.9.0) (2018-03-08)
+
+
+### Features
+
+* add option to removeDimensions ([#58](https://github.com/smooth-code/svgr/issues/58)) ([7357e7c](https://github.com/smooth-code/svgr/commit/7357e7c))
+
+
+
 <a name="1.8.1"></a>
 ## [1.8.1](https://github.com/smooth-code/svgr/compare/v1.8.0...v1.8.1) (2018-01-31)
 
