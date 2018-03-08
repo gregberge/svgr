@@ -18,52 +18,53 @@ const values = val => {
 program
   .version(pkg.version)
   .usage('[options] <file>')
-  .option('-d, --out-dir <dirname>', 'output files into a directory')
-  .option('--no-svgo', 'disable SVGO')
-  .option('--no-prettier', 'disable Prettier')
-  .option('--template <file>', 'specify a custom template to use')
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
-  .option('--no-expand-props', 'disable props expanding')
-  .option('--ref', 'add svgRef prop to svg')
   .option('--icon', 'use "1em" as width and height')
-  .option('--no-view-box', 'remove viewBox')
+  .option('--ids', 'keep ids within the svg (svgo)')
+  .option(
+    '--jsx-bracket-same-line',
+    'put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)',
+  )
+  .option('--keep-useless-defs', 'keep elements of <defs> without id (svgo)')
   .option('--native', 'add react-native support with react-native-svg')
+  .option(
+    '--no-bracket-spacing',
+    'print spaces between brackets in object literals (prettier)',
+  )
+  .option('--no-dimensions', 'remove width and height from root SVG tag')
+  .option('--no-expand-props', 'disable props expanding')
+  .option('--no-prettier', 'disable Prettier')
+  .option('--no-semi', 'remove semi-colons (prettier)')
+  .option('--no-svgo', 'disable SVGO')
+  .option('--no-title', 'remove title tag (svgo)')
+  .option('--no-view-box', 'remove viewBox')
+  .option('-d, --out-dir <dirname>', 'output files into a directory')
+  .option(
+    '-p, --precision <value>',
+    'set the number of digits in the fractional part (svgo)',
+    parseInt,
+  )
+  .option('--ref', 'add svgRef prop to svg')
   .option(
     '--replace-attr-value [old=new]',
     'replace an attribute value',
     values,
   )
   .option(
-    '-p, --precision <value>',
-    'set the number of digits in the fractional part (svgo)',
-    parseInt,
+    '--single-quote',
+    'use single-quotes instead of double-quotes (prettier)',
   )
-  .option('--ids', 'keep ids within the svg (svgo)')
-  .option('--keep-useless-defs', 'keep elements of <defs> without id (svgo)')
-  .option('--no-title', 'remove title tag (svgo)')
   .option(
     '--tab-width <value>',
     'specify the number of spaces by indentation-level (prettier)',
     parseInt,
   )
-  .option('--use-tabs', 'indent lines with tabs instead of spaces (prettier)')
-  .option('--no-semi', 'remove semi-colons (prettier)')
-  .option(
-    '--single-quote',
-    'use single-quotes instead of double-quotes (prettier)',
-  )
+  .option('--template <file>', 'specify a custom template to use')
   .option(
     '--trailing-comma <none|es5|all>',
     'print trailing commas wherever possible when multi-line (prettier)',
   )
-  .option(
-    '--no-bracket-spacing',
-    'print spaces between brackets in object literals (prettier)',
-  )
-  .option(
-    '--jsx-bracket-same-line',
-    'put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)',
-  )
+  .option('--use-tabs', 'indent lines with tabs instead of spaces (prettier)')
 
 program.on('--help', () => {
   console.log(`

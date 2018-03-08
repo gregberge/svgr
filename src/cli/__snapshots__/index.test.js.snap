@@ -1,10 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`cli --help 1`] = `
+"
+  Usage: svgr [options] <file>
+
+
+  Options:
+
+    -V, --version                    output the version number
+    --ext <ext>                      specify a custom file extension (default: \\"js\\")
+    --icon                           use \\"1em\\" as width and height
+    --ids                            keep ids within the svg (svgo)
+    --jsx-bracket-same-line          put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)
+    --keep-useless-defs              keep elements of <defs> without id (svgo)
+    --native                         add react-native support with react-native-svg
+    --no-bracket-spacing             print spaces between brackets in object literals (prettier)
+    --no-dimensions                  remove width and height from root SVG tag
+    --no-expand-props                disable props expanding
+    --no-prettier                    disable Prettier
+    --no-semi                        remove semi-colons (prettier)
+    --no-svgo                        disable SVGO
+    --no-title                       remove title tag (svgo)
+    --no-view-box                    remove viewBox
+    -d, --out-dir <dirname>          output files into a directory
+    -p, --precision <value>          set the number of digits in the fractional part (svgo)
+    --ref                            add svgRef prop to svg
+    --replace-attr-value [old=new]   replace an attribute value
+    --single-quote                   use single-quotes instead of double-quotes (prettier)
+    --tab-width <value>              specify the number of spaces by indentation-level (prettier)
+    --template <file>                specify a custom template to use
+    --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
+    --use-tabs                       indent lines with tabs instead of spaces (prettier)
+    -h, --help                       output usage information
+
+  Examples:
+    svgr --replace-attr-value \\"#fff=currentColor\\" icon.svg
+
+"
+`;
+
 exports[`cli --icon 1`] = `
 "import React from \\"react\\";
 
 const One = props => (
-  <svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
+  <svg viewBox=\\"0 0 48 1\\" {...props} width=\\"1em\\" height=\\"1em\\">
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 );
@@ -41,6 +80,36 @@ export default One;
 "
 `;
 
+exports[`cli --jsx-bracket-same-line 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --keep-useless-defs 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
 exports[`cli --native 1`] = `
 "import React from \\"react\\";
 import Svg, { Path } from \\"react-native-svg\\";
@@ -51,6 +120,51 @@ const One = props => (
   <Svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
     <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </Svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --no-bracket-spacing 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --no-dimensions --no-view-box 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --no-dimensions 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
 );
 
 export default One;
@@ -172,6 +286,37 @@ export default One;
 "
 `;
 
+exports[`cli --out-dir 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+"
+`;
+
+exports[`cli --out-dir 2`] = `
+"import React from \\"react\\";
+
+const Two = props => (
+  <svg width={48} height={11} viewBox=\\"0 0 48 11\\" {...props}>
+    <title>Group 6</title>
+    <g stroke=\\"#063855\\" fill=\\"none\\" fillRule=\\"evenodd\\">
+      <path d=\\"M0 7l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 7\\" />
+      <path d=\\"M0 10l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 10M0 4l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 4\\" />
+    </g>
+  </svg>
+);
+
+export default Two;
+"
+`;
+
 exports[`cli --precision 1`] = `
 "import React from \\"react\\";
 
@@ -206,7 +351,7 @@ exports[`cli --ref 1`] = `
 "import React from \\"react\\";
 
 const One = ({ svgRef, ...props }) => (
-  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" ref={svgRef} {...props}>
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props} ref={svgRef}>
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
@@ -224,6 +369,21 @@ const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
     <title>Rectangle 5</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"currentColor\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --single-quote 1`] = `
+"import React from 'react';
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 );
 
@@ -262,6 +422,71 @@ export default function One() {
 "
 `;
 
+exports[`cli --trailing-comma all 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --trailing-comma es5 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --trailing-comma none 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --use-tabs 1`] = `
+"import React from \\"react\\";
+
+const One = props => (
+	<svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+		<title>Rectangle 5</title>
+		<path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+	</svg>
+);
+
+export default One;
+
+"
+`;
+
+exports[`cli --version 1`] = `
+"1.8.1
+"
+`;
+
 exports[`cli should work with a simple file 1`] = `
 "import React from \\"react\\";
 
@@ -274,37 +499,6 @@ const One = props => (
 
 export default One;
 
-"
-`;
-
-exports[`cli should work with output directory 1`] = `
-"import React from \\"react\\";
-
-const One = props => (
-  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
-    <title>Rectangle 5</title>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-);
-
-export default One;
-"
-`;
-
-exports[`cli should work with output directory 2`] = `
-"import React from \\"react\\";
-
-const Two = props => (
-  <svg width={48} height={11} viewBox=\\"0 0 48 11\\" {...props}>
-    <title>Group 6</title>
-    <g stroke=\\"#063855\\" fill=\\"none\\" fillRule=\\"evenodd\\">
-      <path d=\\"M0 7l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 7\\" />
-      <path d=\\"M0 10l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 10M0 4l5.317-2.658a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0l2.634 1.316a6 6 0 0 0 5.366 0l2.634-1.316a6 6 0 0 1 5.366 0L48 4\\" />
-    </g>
-  </svg>
-);
-
-export default Two;
 "
 `;
 

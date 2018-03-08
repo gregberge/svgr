@@ -3,6 +3,7 @@ import wrapIntoComponent from './transforms/wrapIntoComponent'
 import wrapIntoNativeComponent from './transforms/wrapIntoNativeComponent'
 import stripAttribute from './h2x/stripAttribute'
 import emSize from './h2x/emSize'
+import removeDimensions from './h2x/removeDimensions'
 import expandProps from './h2x/expandProps'
 import svgRef from './h2x/svgRef'
 import replaceAttrValue from './h2x/replaceAttrValue'
@@ -11,27 +12,28 @@ import removeStyle from './h2x/removeStyle'
 import toReactNative from './h2x/toReactNative'
 
 const defaultConfig = {
-  ref: false,
-  svgo: true,
-  prettier: true,
-  native: false,
-  icon: false,
-  viewBox: true,
-  replaceAttrValues: [],
+  bracketSpacing: undefined, // default to prettier
+  dimensions: true,
   expandProps: true,
-  title: true,
-  keepUselessDefs: false,
+  ext: 'js',
+  icon: false,
   ids: false,
+  jsxBracketSameLine: undefined, // default to prettier
+  keepUselessDefs: false,
+  native: false,
   precision: 3, // default to svgo
+  prettier: true,
+  ref: false,
+  replaceAttrValues: [],
   semi: undefined, // default to prettier
   singleQuote: undefined, // default to prettier
+  svgo: true,
   tabWidth: undefined, // default to prettier
-  useTabs: undefined, // default to prettier
-  trailingComma: undefined, // default to prettier
-  bracketSpacing: undefined, // default to prettier
-  jsxBracketSameLine: undefined, // default to prettier
   template: wrapIntoComponent,
-  ext: 'js',
+  title: true,
+  trailingComma: undefined, // default to prettier
+  useTabs: undefined, // default to prettier
+  viewBox: true,
 }
 
 function configToOptions(config = {}) {
@@ -41,13 +43,14 @@ function configToOptions(config = {}) {
 
   function getH2xPlugins() {
     const plugins = [jsx, stripAttribute('xmlns'), removeComments, removeStyle]
-    if (config.icon) plugins.push(emSize)
     config.replaceAttrValues.forEach(([oldValue, newValue]) => {
       plugins.push(replaceAttrValue(oldValue, newValue))
     })
-    if (config.ref) plugins.push(svgRef)
+    if (!config.dimensions) plugins.push(removeDimensions)
     if (config.expandProps) plugins.push(expandProps)
+    if (config.icon) plugins.push(emSize)
     if (config.native) plugins.push(toReactNative)
+    if (config.ref) plugins.push(svgRef)
 
     return plugins
   }
@@ -55,7 +58,7 @@ function configToOptions(config = {}) {
   function getSvgoConfig() {
     const plugins = []
     const svgoConfig = { plugins }
-    if (!config.title || config.icon) plugins.push({ removeTitle: {} })
+    if (!config.title || config.icon) plugins.push({ removeTitle: true })
     else if (config.title) plugins.push({ removeTitle: false })
     if (config.viewBox) plugins.push({ removeViewBox: false })
     if (config.keepUselessDefs) plugins.push({ removeUselessDefs: false })
