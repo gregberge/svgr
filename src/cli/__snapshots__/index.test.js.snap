@@ -4,7 +4,6 @@ exports[`cli --help 1`] = `
 "
   Usage: svgr [options] <file>
 
-
   Options:
 
     -V, --version                    output the version number

@@ -1,4 +1,3 @@
-
 const dimensionAttrs = ['width', 'height']
 
 const filterDimensionAttrs = attr => !dimensionAttrs.includes(attr.name)

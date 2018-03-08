@@ -355,7 +355,6 @@ being alone on the next line (does not apply to self closing elements). See
 | ------- | ------------------------- | ---------------------------- |
 | `false` | `--jsx-bracket-same-line` | `jsxBracketSameLine: <bool>` |
 
-
 ### Useless Defs
 
 Keep elements of `<defs>` without `id`. It also keep unused symbols. See
@@ -373,7 +372,6 @@ react-native-svg imports. **All unsupported nodes will be removed.**
 | Default | CLI Override | API Override     |
 | ------- | ------------ | ---------------- |
 | `false` | `--native`   | `native: <bool>` |
-
 
 ### Bracket Spacing
 
