@@ -28,12 +28,16 @@ describe('cli', () => {
   })
 
   it('--jsx-bracket-same-line', async () => {
-    const [stdout] = await exec('bin/svgr --jsx-bracket-same-line __fixtures__/one.svg')
+    const [stdout] = await exec(
+      'bin/svgr --jsx-bracket-same-line __fixtures__/one.svg',
+    )
     expect(stdout).toMatchSnapshot()
   })
 
   it('--keep-useless-defs', async () => {
-    const [stdout] = await exec('bin/svgr --keep-useless-defs __fixtures__/one.svg')
+    const [stdout] = await exec(
+      'bin/svgr --keep-useless-defs __fixtures__/one.svg',
+    )
     expect(stdout).toMatchSnapshot()
   })
 
@@ -43,7 +47,9 @@ describe('cli', () => {
   })
 
   it('--no-bracket-spacing', async () => {
-    const [stdout] = await exec('bin/svgr --no-bracket-spacing __fixtures__/one.svg')
+    const [stdout] = await exec(
+      'bin/svgr --no-bracket-spacing __fixtures__/one.svg',
+    )
     expect(stdout).toMatchSnapshot()
   })
 
@@ -53,7 +59,9 @@ describe('cli', () => {
   })
 
   it('--no-dimensions --no-view-box', async () => {
-    const [stdout] = await exec('bin/svgr --no-dimensions --no-view-box __fixtures__/one.svg')
+    const [stdout] = await exec(
+      'bin/svgr --no-dimensions --no-view-box __fixtures__/one.svg',
+    )
     expect(stdout).toMatchSnapshot()
   })
 
@@ -127,17 +135,23 @@ describe('cli', () => {
 
   describe('--trailing-comma', () => {
     it('none', async () => {
-      const [stdout] = await exec(`bin/svgr --trailing-comma none __fixtures__/one.svg`)
+      const [stdout] = await exec(
+        `bin/svgr --trailing-comma none __fixtures__/one.svg`,
+      )
       expect(stdout).toMatchSnapshot()
     })
 
     it('es5', async () => {
-      const [stdout] = await exec(`bin/svgr --trailing-comma es5 __fixtures__/one.svg`)
+      const [stdout] = await exec(
+        `bin/svgr --trailing-comma es5 __fixtures__/one.svg`,
+      )
       expect(stdout).toMatchSnapshot()
     })
 
     it('all', async () => {
-      const [stdout] = await exec(`bin/svgr --trailing-comma all __fixtures__/one.svg`)
+      const [stdout] = await exec(
+        `bin/svgr --trailing-comma all __fixtures__/one.svg`,
+      )
       expect(stdout).toMatchSnapshot()
     })
   })
@@ -161,7 +175,7 @@ describe('cli', () => {
     const [stdout] = await exec('bin/svgr --help')
     const [shorthand] = await exec('bin/svgr -h')
     expect(stdout).toMatchSnapshot()
-    expect(shorthand).toEqual(stdout);
+    expect(shorthand).toEqual(stdout)
   })
 
   it('--precision', async () => {

@@ -14,7 +14,9 @@ function svgrLoader(source) {
       })
     })
 
-  const exportMatches = source.match(/^module.exports\s*=\s*(.*)/)
+  const exportMatches = source
+    .toString('utf-8')
+    .match(/^module.exports\s*=\s*(.*)/)
   const previousExport = exportMatches ? exportMatches[1] : null
 
   const pBabelTransform = async jsCode =>
