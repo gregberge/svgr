@@ -171,13 +171,6 @@ describe('cli', () => {
     ).toMatchSnapshot()
   })
 
-  it('--help', async () => {
-    const [stdout] = await exec('bin/svgr --help')
-    const [shorthand] = await exec('bin/svgr -h')
-    expect(stdout).toMatchSnapshot()
-    expect(shorthand).toEqual(stdout)
-  })
-
   it('--precision', async () => {
     const [stdout] = await exec('bin/svgr --precision 10 __fixtures__/one.svg')
     const [shorthand] = await exec('bin/svgr -p 10 __fixtures__/one.svg')
