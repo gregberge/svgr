@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.1"></a>
+## [1.9.1](https://github.com/smooth-code/svgr/compare/v1.9.0...v1.9.1) (2018-03-25)
+
+
+### Bug Fixes
+
+* fix width / height override ([1f91705](https://github.com/smooth-code/svgr/commit/1f91705)), closes [#issuecomment-375467614](https://github.com/smooth-code/svgr/issues/issuecomment-375467614)
+* handle filename with numbers ([a2387ea](https://github.com/smooth-code/svgr/commit/a2387ea)), closes [#62](https://github.com/smooth-code/svgr/issues/62) [#64](https://github.com/smooth-code/svgr/issues/64)
+
+
+
 <a name="1.9.0"></a>
 # [1.9.0](https://github.com/smooth-code/svgr/compare/v1.8.1...v1.9.0) (2018-03-08)
 
