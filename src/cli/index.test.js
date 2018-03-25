@@ -177,11 +177,4 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
     expect(shorthand).toEqual(stdout)
   })
-
-  it('--version', async () => {
-    const [stdout] = await exec('bin/svgr --version')
-    const [shorthand] = await exec('bin/svgr -V')
-    expect(stdout).toMatchSnapshot()
-    expect(shorthand).toEqual(stdout)
-  })
 })
