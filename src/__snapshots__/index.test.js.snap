@@ -171,3 +171,12 @@ const MyComponent = (props) => {/*?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?*/
 
 export default MyComponent"
 `;
+
+exports[`should handle componentName with only numbers 1`] = `
+"import React from 'react'
+
+const Svg1BigSvg = (props) => <svg />
+
+
+export default Svg1BigSvg"
+`;

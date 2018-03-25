@@ -27,9 +27,17 @@ export {
   removeStyle,
 }
 
-function expandState(state) {
+function getComponentName(state) {
   const componentName = pascalCase(path.parse(state.filePath).name)
-  return { ...state, componentName }
+  if (Number.isNaN(parseInt(componentName[0], 10))) {
+    return componentName
+  }
+
+  return `Svg${componentName}`
+}
+
+function expandState(state) {
+  return { componentName: getComponentName(state), ...state  }
 }
 
 export async function rawConvert(code, options, state) {
