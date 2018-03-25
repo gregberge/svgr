@@ -10,8 +10,11 @@ export default (opts = {}) => {
   }
 
   return (code, state) => {
+    // prepend 'svg' to the component const name if it starts with a number
+    const name = Number.isNaN(parseInt(state.componentName[0], 10)) ? state.componentName : `svg${state.componentName}`;
+
     let result = `import React from 'react'\n\n`
-    result += `const ${state.componentName} = (${props}) => ${code}\n\n`
+    result += `const ${name} = (${props}) => ${code}\n\n`
 
     if (state.webpack && state.webpack.previousExport) {
       result += `export default ${state.webpack.previousExport}\n`
