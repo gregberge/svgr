@@ -36,11 +36,26 @@ describe('rawConvert', () => {
         },
         template: wrapIntoComponent({ expandProps: true }),
       },
-      { filePath: 'MyComponent.js' },
+      { filePath: 'MyComponent.svg' },
     )
 
     expect(result).toMatchSnapshot()
   })
+})
+
+it('should handle componentName with only numbers', async () => {
+  const result = await rawConvert(
+    `<svg></svg>`,
+    {
+      h2x: {
+        plugins: [jsx],
+      },
+      template: wrapIntoComponent({ expandProps: true }),
+    },
+    { filePath: '1_big_svg.svg' },
+  )
+
+  expect(result).toMatchSnapshot()
 })
 
 describe('convert', () => {
