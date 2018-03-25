@@ -47,10 +47,10 @@ function configToOptions(config = {}) {
       plugins.push(replaceAttrValue(oldValue, newValue))
     })
     if (!config.dimensions) plugins.push(removeDimensions)
-    if (config.expandProps) plugins.push(expandProps)
     if (config.icon) plugins.push(emSize)
-    if (config.native) plugins.push(toReactNative)
     if (config.ref) plugins.push(svgRef)
+    if (config.expandProps) plugins.push(expandProps)
+    if (config.native) plugins.push(toReactNative)
 
     return plugins
   }
