@@ -443,11 +443,6 @@ export default One;
 "
 `;
 
-exports[`cli --version 1`] = `
-"1.9.0
-"
-`;
-
 exports[`cli should work with a simple file 1`] = `
 "import React from \\"react\\";
 
