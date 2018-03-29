@@ -475,9 +475,9 @@ Setting this to `true` will allow you to hook into the ref of the svg components
 Replace an attribute value by an other. The main usage of this option is to
 change an icon color to "currentColor" in order to inherit from text color.
 
-| Default | CLI Override                     | API Override                    |
-| ------- | -------------------------------- | ------------------------------- |
-| `[]`    | `--replace-attr-value <old=new>` | `replaceAttrValues: <string[]>` |
+| Default | CLI Override                     | API Override                              |
+| ------- | -------------------------------- | ----------------------------------------- |
+| `[]`    | `--replace-attr-value <old=new>` | `replaceAttrValues: <string[[old, new]]>` |
 
 ### Quotes
 
