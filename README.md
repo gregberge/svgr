@@ -99,7 +99,7 @@ Options:
   --no-semi                        remove semi-colons (prettier) (default: true)
   --no-svgo                        disable SVGO (default: true)
   --no-title                       remove title tag (svgo) (default: true)
-  --no-view-box                    remove viewBox (default: true)
+  --no-view-box                    remove viewBox
   --out-dir, -d <dirname>          output files into a directory
   --precision, -p <value>          set the number of digits in the fractional part (svgo)
   --ref                            add svgRef prop to svg
