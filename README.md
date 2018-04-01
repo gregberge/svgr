@@ -82,34 +82,33 @@ powerful and configurable HTML transpiler. It uses AST (like
 ```
 Usage: svgr [options] <file>
 
-
 Options:
 
-  --ext <ext>                      specify a custom file extension to use (default: "js")
-  --help, -h                       output usage information
+  -V, --version                    output the version number
+  --ext <ext>                      specify a custom file extension (default: "js")
   --icon                           use "1em" as width and height
   --ids                            keep ids within the svg (svgo)
   --jsx-bracket-same-line          put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)
   --keep-useless-defs              keep elements of <defs> without id (svgo)
   --native                         add react-native support with react-native-svg
-  --no-bracket-spacing             print spaces between brackets in object literals (prettier) (default: true)
-  --no-dimensions                  remove width and height from root SVG tag (default: false)
-  --no-expand-props                disable props expanding (default: true)
-  --no-prettier                    disable Prettier (default: true)
-  --no-semi                        remove semi-colons (prettier) (default: true)
-  --no-svgo                        disable SVGO (default: true)
-  --no-title                       remove title tag (svgo) (default: true)
-  --no-view-box                    remove viewBox (default: true)
-  --out-dir, -d <dirname>          output files into a directory
-  --precision, -p <value>          set the number of digits in the fractional part (svgo)
+  --no-bracket-spacing             print spaces between brackets in object literals (prettier)
+  --no-dimensions                  remove width and height from root SVG tag
+  --no-expand-props                disable props expanding
+  --no-prettier                    disable Prettier
+  --no-semi                        remove semi-colons (prettier)
+  --no-svgo                        disable SVGO
+  --no-title                       remove title tag (svgo)
+  --no-view-box                    remove viewBox
+  -d, --out-dir <dirname>          output files into a directory
+  -p, --precision <value>          set the number of digits in the fractional part (svgo)
   --ref                            add svgRef prop to svg
   --replace-attr-value [old=new]   replace an attribute value
   --single-quote                   use single-quotes instead of double-quotes (prettier)
-  --tab-width                      specify the number of spaces by indentation-level (prettier)
+  --tab-width <value>              specify the number of spaces by indentation-level (prettier)
   --template <file>                specify a custom template to use
   --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
   --use-tabs                       indent lines with tabs instead of spaces (prettier)
-  --version, -V                    output the version number
+  -h, --help                       output usage information
 
 Examples:
   svgr --replace-attr-value "#fff=currentColor" icon.svg
