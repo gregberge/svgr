@@ -28,6 +28,7 @@ const defaultConfig = {
   semi: undefined, // default to prettier
   singleQuote: undefined, // default to prettier
   svgo: true,
+  svgoConfig: {},
   tabWidth: undefined, // default to prettier
   template: wrapIntoComponent,
   title: true,
@@ -57,7 +58,7 @@ function configToOptions(config = {}) {
 
   function getSvgoConfig() {
     const plugins = []
-    const svgoConfig = { plugins }
+    const svgoConfig = Object.assign({ plugins }, config.svgoConfig)
     if (!config.title || config.icon) plugins.push({ removeTitle: true })
     else if (config.title) plugins.push({ removeTitle: false })
     if (config.viewBox) plugins.push({ removeViewBox: false })
