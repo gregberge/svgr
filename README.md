@@ -446,7 +446,7 @@ transforming it into a component.
 
 ### Title
 
-Remove the title from SVG. See
+Setting this to `false` will remove the title from SVG. See
 [SVGO `removeTitle` plugin](https://github.com/svg/svgo).
 
 | Default | CLI Override | API Override    |
