@@ -58,7 +58,7 @@ function configToOptions(config = {}) {
 
   function getSvgoConfig() {
     const plugins = []
-    const svgoConfig = Object.assign(config.svgoConfig, { plugins })
+    const svgoConfig = Object.assign({ plugins }, config.svgoConfig)
     if (!config.title || config.icon) plugins.push({ removeTitle: true })
     else if (config.title) plugins.push({ removeTitle: false })
     if (config.viewBox) plugins.push({ removeViewBox: false })
