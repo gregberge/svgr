@@ -62,7 +62,7 @@ function configToOptions(config = {}) {
     else if (config.title) plugins.push({ removeTitle: false })
     if (config.viewBox) plugins.push({ removeViewBox: false })
     if (config.keepUselessDefs) plugins.push({ removeUselessDefs: false })
-    if (config.ids) plugins.push({ cleanupIDs: { remove: false } })
+    if (config.ids) plugins.push({ cleanupIDs: { remove: false, minify: false } })
     if (config.precision === 'number')
       svgoConfig.floatPrecision = Number(svgoConfig.precision)
     return svgoConfig
