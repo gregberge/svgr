@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`cli --icon 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
@@ -15,7 +15,7 @@ export default One;
 `;
 
 exports[`cli --ids 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -42,7 +42,7 @@ export default One;
 `;
 
 exports[`cli --jsx-bracket-same-line 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -57,7 +57,7 @@ export default One;
 `;
 
 exports[`cli --keep-useless-defs 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -72,8 +72,8 @@ export default One;
 `;
 
 exports[`cli --native 1`] = `
-"import React from \\"react\\";
-import Svg, { Path } from \\"react-native-svg\\";
+"import React from 'react';
+import Svg, { Path } from 'react-native-svg';
 
 // SVGR has dropped some elements not supported by react-native-svg: title
 
@@ -89,7 +89,7 @@ export default One;
 `;
 
 exports[`cli --no-bracket-spacing 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -104,7 +104,7 @@ export default One;
 `;
 
 exports[`cli --no-dimensions --no-view-box 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg {...props}>
@@ -119,7 +119,7 @@ export default One;
 `;
 
 exports[`cli --no-dimensions 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg viewBox=\\"0 0 48 1\\" {...props}>
@@ -134,7 +134,7 @@ export default One;
 `;
 
 exports[`cli --no-expand-props 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = () => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\">
@@ -164,7 +164,7 @@ export default One
 `;
 
 exports[`cli --no-semi 1`] = `
-"import React from \\"react\\"
+"import React from 'react'
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -179,7 +179,7 @@ export default One
 `;
 
 exports[`cli --no-svgo 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg
@@ -219,7 +219,7 @@ export default One;
 `;
 
 exports[`cli --no-title 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -233,7 +233,7 @@ export default One;
 `;
 
 exports[`cli --no-view-box 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} {...props}>
@@ -248,7 +248,7 @@ export default One;
 `;
 
 exports[`cli --out-dir 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -262,7 +262,7 @@ export default One;
 `;
 
 exports[`cli --out-dir 2`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const Two = props => (
   <svg width={48} height={11} viewBox=\\"0 0 48 11\\" {...props}>
@@ -279,7 +279,7 @@ export default Two;
 `;
 
 exports[`cli --precision 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -294,7 +294,7 @@ export default One;
 `;
 
 exports[`cli --ref --no-expand-props 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = ({ svgRef }) => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" ref={svgRef}>
@@ -309,7 +309,7 @@ export default One;
 `;
 
 exports[`cli --ref 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = ({ svgRef, ...props }) => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" ref={svgRef} {...props}>
@@ -324,7 +324,7 @@ export default One;
 `;
 
 exports[`cli --replace-attr-value 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -354,7 +354,7 @@ export default One;
 `;
 
 exports[`cli --tab-width 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
     <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -369,7 +369,7 @@ export default One;
 `;
 
 exports[`cli --template 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 export default function One() {
   return (
@@ -384,7 +384,7 @@ export default function One() {
 `;
 
 exports[`cli --trailing-comma all 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -399,7 +399,7 @@ export default One;
 `;
 
 exports[`cli --trailing-comma es5 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -414,7 +414,7 @@ export default One;
 `;
 
 exports[`cli --trailing-comma none 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -429,7 +429,7 @@ export default One;
 `;
 
 exports[`cli --use-tabs 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
 	<svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -444,7 +444,7 @@ export default One;
 `;
 
 exports[`cli should work with a simple file 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const One = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
@@ -459,7 +459,7 @@ export default One;
 `;
 
 exports[`cli should work with stdin 1`] = `
-"import React from \\"react\\";
+"import React from 'react';
 
 const SvgComponent = props => (
   <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
