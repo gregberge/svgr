@@ -37,7 +37,7 @@ function getComponentName(state) {
 }
 
 function expandState(state) {
-  return { componentName: getComponentName(state), ...state  }
+  return { componentName: getComponentName(state), ...state }
 }
 
 export async function rawConvert(code, options, state) {
