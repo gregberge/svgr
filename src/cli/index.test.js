@@ -177,4 +177,10 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
     expect(shorthand).toEqual(stdout)
   })
+
+  it('--svg-attributes', async () => {
+    const [stdout] = await exec('bin/svgr --svg-attribute focusable=false --svg-attribute hidden=0 __fixtures__/one.svg')
+
+    expect(stdout).toMatchSnapshot();
+  })
 })

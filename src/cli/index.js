@@ -15,6 +15,11 @@ const values = val => {
   program.replaceAttrValues = [...program.replaceAttrValues, val.split('=')]
 }
 
+const parseArgsToObj = (arg, accumulation = {}) => {
+  const [name, value] = arg.split('=')
+  return { ...accumulation, [name]: value }
+}
+
 program
   .version(pkg.version)
   .usage('[options] <file>')
@@ -45,6 +50,11 @@ program
     parseInt,
   )
   .option('--ref', 'add svgRef prop to svg')
+  .option(
+    '--svg-attribute [property=value]',
+    'add some attributes to the svg',
+    parseArgsToObj
+  )
   .option(
     '--replace-attr-value [old=new]',
     'replace an attribute value',

@@ -304,5 +304,13 @@ describe('convert', () => {
         await convert(svgWithUselessDefs, { keepUselessDefs: true }),
       ).toMatchSnapshot('keepUselessDefs: true')
     })
+
+    it('svgAttribute', async () => {
+      const svg = `<svg><path d="M0 0h24v24H0z" fill="none" /></svg>`
+
+      expect(
+        await convert(svg, { svgAttribute: { focusable: false } }),
+      ).toMatchSnapshot()
+    })
   })
 })

@@ -102,6 +102,7 @@ Options:
   -d, --out-dir <dirname>          output files into a directory
   -p, --precision <value>          set the number of digits in the fractional part (svgo)
   --ref                            add svgRef prop to svg
+  --svg-attribute [property=value] add some attributes to the svg
   --replace-attr-value [old=new]   replace an attribute value
   --single-quote                   use single-quotes instead of double-quotes (prettier)
   --tab-width <value>              specify the number of spaces by indentation-level (prettier)
@@ -468,6 +469,15 @@ Setting this to `true` will allow you to hook into the ref of the svg components
 | Default | CLI Override | API Override  |
 | ------- | ------------ | ------------- |
 | `false` | `--ref`      | `ref: <bool>` |
+
+### Svg Attributes
+
+Add any attributes to the svg.
+You can add multiple attributes by calling many times this option.
+
+| Default | CLI Override                       | API Override                               |
+| ------- | ---------------------------------- | ------------------------------------------ |
+| `{}`    | `--svg-attribute [property=value]` | `svgAttribute: <Object{property:value}>`   |
 
 ### Replace attribute value
 
