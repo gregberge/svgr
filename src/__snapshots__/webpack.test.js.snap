@@ -23,7 +23,9 @@ export default SvgComponent;"
 exports[`webpack loader should convert file 1`] = `
 "import React from \\"react\\";
 
-var _ref = React.createElement(\\"svg\\", {
+var _ref =
+/*#__PURE__*/
+React.createElement(\\"svg\\", {
   width: 88,
   height: 88,
   viewBox: \\"0 0 88 88\\"
