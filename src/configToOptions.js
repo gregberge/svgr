@@ -10,6 +10,7 @@ import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
 import removeStyle from './h2x/removeStyle'
 import svgAttribute from './h2x/svgAttribute'
+import titleProp from './h2x/titleProp'
 import toReactNative from './h2x/toReactNative'
 
 const defaultConfig = {
@@ -38,6 +39,7 @@ const defaultConfig = {
 }
 
 function configToOptions(config = {}) {
+
   if (!config.template && config.native)
     config.template = wrapIntoNativeComponent
   config = { ...defaultConfig, ...config }
@@ -54,6 +56,7 @@ function configToOptions(config = {}) {
     if (config.svgAttribute) plugins.push(svgAttribute(config.svgAttribute))
     if (config.expandProps) plugins.push(expandProps)
     if (config.native) plugins.push(toReactNative)
+    if (config.titleProp) plugins.push(titleProp)
 
     return plugins
   }

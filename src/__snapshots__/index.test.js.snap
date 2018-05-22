@@ -40,6 +40,20 @@ export default SvgComponent
 "
 `;
 
+exports[`convert options titleProp 1`] = `
+"import React from 'react'
+
+const SvgComponent = ({ title, ...props }) => (
+  <svg width={0} height={0} style={{ position: 'absolute' }} {...props}>
+    <title>{title}</title>
+    <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert should accept initial state (for webpack) 1`] = `
 "import React from 'react'
 
