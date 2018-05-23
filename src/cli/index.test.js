@@ -17,6 +17,13 @@ describe('cli', () => {
     expect(stdout).toMatchSnapshot()
   })
 
+  it('--config', async () => {
+    const [stdout] = await exec(
+      'babel-node src/cli/index.js --config src/__fixtures__/svgr/.svgrrc __fixtures__/one.svg',
+    )
+    expect(stdout).toMatchSnapshot()
+  })
+
   it('--icon', async () => {
     const [stdout] = await exec('bin/svgr --icon __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
@@ -179,11 +186,13 @@ describe('cli', () => {
   })
 
   it('--svg-attributes', async () => {
-    const [stdout] = await exec('bin/svgr --svg-attribute focusable=false --svg-attribute hidden=0 __fixtures__/one.svg')
+    const [stdout] = await exec(
+      'bin/svgr --svg-attribute focusable=false --svg-attribute hidden=0 __fixtures__/one.svg',
+    )
 
-    expect(stdout).toMatchSnapshot();
-  });
-  
+    expect(stdout).toMatchSnapshot()
+  })
+
   it('--title-prop', async () => {
     const [stdout] = await exec('bin/svgr --title-prop __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()

@@ -1,0 +1,5 @@
+{
+    noSemi: true,
+    icon: true,
+    replaceAttrValues: [["#063855", "currentColor"]]
+}

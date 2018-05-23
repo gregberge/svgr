@@ -14,15 +14,15 @@ export const rename = (relative, { ext = 'js' } = {}) => {
   return path.format(relativePath)
 }
 
-async function dirCommand(program, filenames, opts) {
+async function dirCommand(program, filenames, config) {
   async function write(src, relative) {
     if (!isCompilableExtension(relative)) return false
 
-    relative = rename(relative, opts)
+    relative = rename(relative, config)
 
     const dest = path.join(program.outDir, relative)
 
-    const code = await convertFile(src, opts, { filePath: dest })
+    const code = await convertFile(src, config, { filePath: dest })
 
     outputFileSync(dest, code)
     console.log(`${src} -> ${dest}`)
@@ -31,7 +31,7 @@ async function dirCommand(program, filenames, opts) {
   }
 
   async function handle(filename) {
-    if (!await fs.exists(filename)) return
+    if (!(await fs.exists(filename))) return
 
     const stat = await fs.stat(filename)
 

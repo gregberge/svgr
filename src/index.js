@@ -13,7 +13,7 @@ import svgRef from './h2x/svgRef'
 import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
 import removeStyle from './h2x/removeStyle'
-import configToOptions from './configToOptions'
+import { configToOptions } from './config'
 
 export {
   jsx,
@@ -57,8 +57,10 @@ export default async function convert(
   { componentName = 'SvgComponent', ...config } = {},
   initialState = {},
 ) {
-  return rawConvert(code, configToOptions(config), {
+  const options = configToOptions(config)
+  const state = {
     ...initialState,
     filePath: componentName,
-  })
+  }
+  return rawConvert(code, options, state)
 }

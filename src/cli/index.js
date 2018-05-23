@@ -7,7 +7,6 @@ import uniq from 'lodash/uniq'
 import pkg from '../../package.json'
 import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
-import configToOptions from '../configToOptions'
 
 program.replaceAttrValues = []
 
@@ -23,6 +22,7 @@ const parseArgsToObj = (arg, accumulation = {}) => {
 program
   .version(pkg.version)
   .usage('[options] <file>')
+  .option('--config <file>', 'specify the path of the svgr config')
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
   .option('--icon', 'use "1em" as width and height')
   .option('--ids', 'keep ids within the svg (svgo)')
@@ -53,7 +53,7 @@ program
   .option(
     '--svg-attribute [property=value]',
     'add some attributes to the svg',
-    parseArgsToObj
+    parseArgsToObj,
   )
   .option(
     '--replace-attr-value [old=new]',
@@ -126,10 +126,8 @@ async function run() {
     }
   }
 
-  const opts = configToOptions(config)
-
   const command = program.outDir ? dirCommand : fileCommand
-  await command(program, filenames, opts)
+  await command(program, filenames, config)
 }
 
 run().catch(error => {
