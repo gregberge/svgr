@@ -353,6 +353,28 @@ export default One;
 "
 `;
 
+exports[`cli --svg-attributes 1`] = `
+"import React from 'react';
+
+const One = props => (
+  <svg
+    focusable=\\"false\\"
+    hidden=\\"0\\"
+    width={48}
+    height={1}
+    viewBox=\\"0 0 48 1\\"
+    {...props}
+  >
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
 exports[`cli --tab-width 1`] = `
 "import React from 'react';
 

@@ -9,6 +9,7 @@ import svgRef from './h2x/svgRef'
 import replaceAttrValue from './h2x/replaceAttrValue'
 import removeComments from './h2x/removeComments'
 import removeStyle from './h2x/removeStyle'
+import svgAttribute from './h2x/svgAttribute'
 import toReactNative from './h2x/toReactNative'
 
 const defaultConfig = {
@@ -43,12 +44,14 @@ function configToOptions(config = {}) {
 
   function getH2xPlugins() {
     const plugins = [jsx, stripAttribute('xmlns'), removeComments, removeStyle]
+
     config.replaceAttrValues.forEach(([oldValue, newValue]) => {
       plugins.push(replaceAttrValue(oldValue, newValue))
     })
     if (!config.dimensions) plugins.push(removeDimensions)
     if (config.icon) plugins.push(emSize)
     if (config.ref) plugins.push(svgRef)
+    if (config.svgAttribute) plugins.push(svgAttribute(config.svgAttribute))
     if (config.expandProps) plugins.push(expandProps)
     if (config.native) plugins.push(toReactNative)
 

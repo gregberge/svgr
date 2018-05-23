@@ -27,6 +27,19 @@ export default SvgComponent
 "
 `;
 
+exports[`convert options svgAttribute 1`] = `
+"import React from 'react'
+
+const SvgComponent = props => (
+  <svg focusable=\\"false\\" {...props}>
+    <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert should accept initial state (for webpack) 1`] = `
 "import React from 'react'
 

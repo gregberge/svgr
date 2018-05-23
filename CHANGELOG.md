@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.2"></a>
+## [1.9.2](https://github.com/smooth-code/svgr/compare/v1.9.1...v1.9.2) (2018-05-14)
+
+
+### Bug Fixes
+
+* **ids:** do not minify them ([538b73f](https://github.com/smooth-code/svgr/commit/538b73f))
+
+
+
 <a name="1.9.1"></a>
 ## [1.9.1](https://github.com/smooth-code/svgr/compare/v1.9.0...v1.9.1) (2018-03-25)
 
