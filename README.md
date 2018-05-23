@@ -85,6 +85,7 @@ Usage: svgr [options] <file>
 Options:
 
   -V, --version                    output the version number
+  --config <file>                  specify the path of the svgr config
   --ext <ext>                      specify a custom file extension (default: "js")
   --icon                           use "1em" as width and height
   --ids                            keep ids within the svg (svgo)
@@ -392,6 +393,14 @@ By default, `svgr/rollup` includes a `babel-loader` with [optimized configuratio
 
 SVGR ships with a handful of customizable options, usable in both the CLI and
 API.
+
+### Config
+
+specify the path of the svgr config
+
+| Default     | CLI Override | API Orveride       |
+| ----------- | ------------ | ------------------ |
+| `undefined` | `--config`   | `config: <string>` |
 
 ### File extension
 

@@ -4,12 +4,26 @@ import { extname } from 'path'
 import fs from 'mz/fs'
 import readdir from 'recursive-readdir'
 import { rawConvert } from '../'
+import { configToOptions, resolveConfig } from '../config'
 
-export { rawConvert }
+function mergeConfigs(cliConfig, rcConfig) {
+  return Object.keys(cliConfig).reduce(
+    (config, key) => {
+      const value = cliConfig[key]
+      if (!Array.isArray(value) || value.length > 0) {
+        config[key] = value
+      }
+      return config
+    },
+    { ...rcConfig },
+  )
+}
 
-export async function convertFile(filePath, opts) {
+export async function convertFile(filePath, config) {
   const code = await fs.readFile(filePath, 'utf-8')
-  return rawConvert(code, opts, { filePath })
+  const rcConfig = await resolveConfig(config.config || filePath)
+  const options = configToOptions(mergeConfigs(config, rcConfig))
+  return rawConvert(code, options, { filePath })
 }
 
 export function exitError(error) {
