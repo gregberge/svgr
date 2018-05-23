@@ -15,6 +15,8 @@
 
 [**Try it out online!**](https://svgr.now.sh)
 
+[**Watch the talk at React Europe**](https://www.youtube.com/watch?v=geKCzi7ZPkA)
+
 ```sh
 npm install svgr
 ```
