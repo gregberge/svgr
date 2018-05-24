@@ -182,5 +182,10 @@ describe('cli', () => {
     const [stdout] = await exec('bin/svgr --svg-attribute focusable=false --svg-attribute hidden=0 __fixtures__/one.svg')
 
     expect(stdout).toMatchSnapshot();
+  });
+  
+  it('--title-prop', async () => {
+    const [stdout] = await exec('bin/svgr --title-prop __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
   })
 })

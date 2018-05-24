@@ -405,6 +405,21 @@ export default function One() {
 "
 `;
 
+exports[`cli --title-prop 1`] = `
+"import React from 'react';
+
+const One = ({ title, ...props }) => (
+  <svg width={48} height={1} viewBox=\\"0 0 48 1\\" {...props}>
+    <title>{title}</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+);
+
+export default One;
+
+"
+`;
+
 exports[`cli --trailing-comma all 1`] = `
 "import React from 'react';
 
