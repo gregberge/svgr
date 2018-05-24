@@ -1,12 +1,20 @@
 export default (opts = {}) => {
   let props = ''
 
-  if (opts.expandProps && opts.ref) {
+  if (opts.expandProps && opts.ref && opts.titleProp) {
+    props = '{svgRef, title, ...props}'
+  } else if (opts.expandProps && opts.titleProp) {
+    props = '{title, ...props}'
+  } else if (opts.expandProps && opts.ref) {
     props = '{svgRef, ...props}'
+  } else if (opts.titleProp && opts.ref) {
+    props = '{svgRef, title}'
   } else if (opts.expandProps) {
     props = 'props'
   } else if (opts.ref) {
     props = '{svgRef}'
+  } else if (opts.titleProp) {
+    props = '{title}'
   }
 
   return (code, state) => {

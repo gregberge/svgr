@@ -75,6 +75,7 @@ program
     'print trailing commas wherever possible when multi-line (prettier)',
   )
   .option('--use-tabs', 'indent lines with tabs instead of spaces (prettier)')
+  .option('--title-prop', 'create a title element linked with props')
 
 program.on('--help', () => {
   console.log(`

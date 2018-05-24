@@ -109,6 +109,7 @@ Options:
   --template <file>                specify a custom template to use
   --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
   --use-tabs                       indent lines with tabs instead of spaces (prettier)
+  --title-prop                     create a title element linked with props
   -h, --help                       output usage information
 
 Examples:
@@ -532,6 +533,14 @@ Indent lines with tabs instead of spaces. See
 | Default | CLI Override | API Override      |
 | ------- | ------------ | ----------------- |
 | `false` | `--use-tabs` | `useTabs: <bool>` |
+
+### Title Prop
+
+Add an `<svg><title>{title}</title></svg>` element managed by React instead of adding a title property to the `<svg title={title}/>` element.
+
+| Default | CLI Override   | API Override        |
+| ------- | -------------- | ------------------- |
+| `false` | `--title-prop` | `titleProp: <bool>` |
 
 ### Output Directory
 
