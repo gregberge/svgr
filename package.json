@@ -31,6 +31,9 @@
     "jest": "^22.4.3",
     "memory-fs": "^0.4.1",
     "react": "^16.3.2",
+    "rollup": "^0.59.3",
+    "rollup-plugin-image": "^1.0.2",
+    "rollup-plugin-url": "^1.4.0",
     "standard-version": "^4.3.0",
     "webpack": "^4.8.2"
   },
@@ -52,6 +55,7 @@
     "output-file-sync": "^2.0.1",
     "prettier": "^1.12.1",
     "recursive-readdir": "^2.2.2",
+    "rollup-pluginutils": "^2.3.0",
     "svgo": "^1.0.5"
   },
   "bin": {

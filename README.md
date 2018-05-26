@@ -278,19 +278,6 @@ In your `webpack.config.js`:
 }
 ```
 
-In your code:
-
-```js
-import starUrl, { ReactComponent as Star } from './star.svg'
-
-const App = () => (
-  <div>
-    <img src={starUrl} alt="star" />
-    <Star />
-  </div>
-)
-```
-
 ### Use your own Babel configuration
 
 By default, `svgr/webpack` includes a `babel-loader` with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/src/webpack.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
@@ -331,6 +318,73 @@ It is possible to detect the module that requires your SVG using [`Rule.issuer`]
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
     loader: 'url-loader'
   },
+}
+```
+
+## Rollup usage
+
+SVGR has a Rollup loader, you can use it using following `rollup.config.js`:
+
+In your `rollup.config.js`:
+
+```js
+{
+  plugins: [svgr()]
+}
+```
+
+In your code:
+
+```js
+import Star from './star.svg'
+
+const App = () => (
+  <div>
+    <Star />
+  </div>
+)
+```
+
+### Passing options
+
+```js
+{
+  plugins: [svgr({ native: true })]
+}
+```
+
+### Using with `url` plugin
+
+It is possible to use it with [`url`](https://github.com/rollup/rollup-plugin-url).
+
+In your `rollup.config.js`:
+
+```js
+{
+  plugins: [url(), svgr()]
+}
+```
+
+In your code:
+
+```js
+import starUrl, { ReactComponent as Star } from './star.svg'
+
+const App = () => (
+  <div>
+    <img src={starUrl} alt="star" />
+    <Star />
+  </div>
+)
+```
+
+### Use your own Babel configuration
+
+By default, `svgr/rollup` includes a `babel-loader` with [optimized configuration](https://github.com/smooth-code/svgr/blob/next/src/rollup.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+
+```js
+{
+  plugins: [svgr({ babel: false })]
 }
 ```
 
@@ -476,9 +530,9 @@ Setting this to `true` will allow you to hook into the ref of the svg components
 Add any attributes to the svg.
 You can add multiple attributes by calling many times this option.
 
-| Default | CLI Override                       | API Override                               |
-| ------- | ---------------------------------- | ------------------------------------------ |
-| `{}`    | `--svg-attribute [property=value]` | `svgAttribute: <Object{property:value}>`   |
+| Default | CLI Override                       | API Override                             |
+| ------- | ---------------------------------- | ---------------------------------------- |
+| `{}`    | `--svg-attribute [property=value]` | `svgAttribute: <Object{property:value}>` |
 
 ### Replace attribute value
 
