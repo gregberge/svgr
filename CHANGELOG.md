@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.0"></a>
+# [1.10.0](https://github.com/smooth-code/svgr/compare/v1.9.2...v1.10.0) (2018-05-28)
+
+
+### Features
+
+* upgrade Prettier (v1.13) ([2f50403](https://github.com/smooth-code/svgr/commit/2f50403)), closes [#108](https://github.com/smooth-code/svgr/issues/108)
+
+
+
 <a name="1.9.2"></a>
 ## [1.9.2](https://github.com/smooth-code/svgr/compare/v1.9.1...v1.9.2) (2018-05-14)
 
