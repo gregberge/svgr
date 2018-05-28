@@ -21,6 +21,7 @@ const defaultConfig = {
   jsxBracketSameLine: undefined, // default to prettier
   keepUselessDefs: false,
   native: false,
+  parser: 'babylon', // default to prettier
   precision: 3, // default to svgo
   prettier: true,
   ref: false,
@@ -77,6 +78,7 @@ function configToOptions(config = {}) {
       trailingComma: config.trailingComma,
       bracketSpacing: config.bracketSpacing,
       jsxBracketSameLine: config.jsxBracketSameLine,
+      parser: config.parser
     }
   }
 
