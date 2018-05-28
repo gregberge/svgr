@@ -74,7 +74,7 @@
     "ci": "yarn lint && yarn build && yarn test",
     "format": "prettier --write \"src/**/*.js\" \"*.md\"",
     "lint": "eslint .",
-    "release": "yarn build && standard-version && conventional-github-releaser -p angular",
+    "release": "yarn build && standard-version && conventional-github-releaser --preset angular",
     "clear": "rm -rf __fixtures_build__ lib",
     "test": "jest --runInBand --coverage && codecov",
     "prepublishOnly": "yarn run build"
