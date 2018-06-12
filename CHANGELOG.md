@@ -2,6 +2,130 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/smooth-code/svgr/compare/v1.10.0...v2.0.0) (2018-06-12)
+
+### Features
+
+#### Project configurations
+
+SVGR now supports Prettier (`.prettierc`) and SVGO (`.svgo.yml`) configurations. It also supports a new `.svgrrc` configuration. See the readme for more detail.
+
+#### Rollup plugin
+
+Rollup has now an official SVGR plugin available under `@svgr/rollup`.
+
+#### Split into several modules
+
+SVGR is now an ecosystem of four modules:
+
+- `@svgr/core`: Core of SVGR, it exposes the Node API
+- `@svgr/cli`: Command Line Interface
+- `@svgr/webpack`: webpack loader
+- `@svgr/rollup`: a fresh new Rollup plugin
+
+#### `svgAttributes` and `titleProp` options
+
+Two new options appears, the first one `svgAttributes` gives you the opportunity to add attribute on the root `svg` tag without creating a custom template:
+
+Command:
+
+```
+svgr --svg-attributes focusable=true foo.svg
+```
+
+Output:
+
+```js
+props => <svg focusable="false" />
+```
+
+The second one, `titleProp`, adds a custom property `title` to specify the title of the SVG.
+
+Command:
+
+```
+svgr --title-prop foo.svg
+```
+
+Output:
+
+```js
+({ title }) => <svg><title>{title}</title></svg>
+```
+
+### Breaking changes
+
+#### Node version
+
+Node v6 support has been dropped, you need Node >= 8 to run SVGR.
+
+#### Prettier options
+
+All Prettier options have been removed:
+
+- `jsx-bracket-same-line`
+- `no-bracket-spacing`
+- `no-semi`
+- `single-quote`
+- `tab-width`
+- `trailing-comma`
+- `use-tabs`
+
+If you used it, use a `.prettierrc` instead of use the new option `--prettier-config`:
+
+v1.x:
+
+```
+svgr --no-semi file.svg
+```
+
+v2.x:
+
+```
+svgr --prettier-config '{"semi": true}' file.svg
+```
+
+#### SVGO options
+
+All SVGO options have been removed:
+
+- `ids`
+- `keep-useless-defs`
+- `no-title`
+- `no-view-box`
+- `precision`
+
+If you used it, use a `.svgo.yml` instead of use the new option `--svgo-config`:
+
+v1.x:
+
+```
+svgr --ids file.svg
+```
+
+v2.x:
+
+```
+svgr --svgo-config '{"plugins": [{"cleanupIDs": {"remove": false, "minify": false}}]}' file.svg
+```
+
+#### Other options
+
+- `replace-attr-value` has been renamed into `replace-attr-values`
+
+In API, `replaceAttrValues` is now an object instead of an array.
+
+#### Node API changes
+
+- `rawConvert` method has been dropped
+- Templates now receive three arguments: `code`, `config` and `state`
+- `componentName` must now be passed in state
+
+### Thanks
+
+Thanks to [@MarquesDev](https://github.com/MarquesDev) and [@lifeiscontent](https://github.com/lifeiscontent).
+
 <a name="1.10.0"></a>
 # [1.10.0](https://github.com/smooth-code/svgr/compare/v1.9.2...v1.10.0) (2018-05-28)
 

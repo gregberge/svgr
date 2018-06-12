@@ -1,2 +1,5 @@
+__fixtures_build__
+__fixtures__
 CHANGELOG.md
 package.json
+lib/

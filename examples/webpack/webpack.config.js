@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  mode: 'development',
   entry: ['./main'],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -10,11 +11,11 @@ module.exports = {
     rules: [
       {
         test: /url\.svg$/,
-        use: [require.resolve('../../webpack'), 'url-loader'],
+        use: ['@svgr/webpack', 'url-loader'],
       },
       {
         test: /simple\.svg$/,
-        use: [require.resolve('../../webpack')],
+        use: '@svgr/webpack',
       },
     ],
   },

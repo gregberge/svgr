@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`util #convertFile should convert a file 1`] = `
+"import React from 'react'
+
+const File = props => (
+  <svg width={48} height={1} {...props}>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default File
+"
+`;
+
+exports[`util #convertFile should support a custom config path 1`] = `
+"import React from 'react'
+
+const File = props => (
+  <svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default File
+"
+`;

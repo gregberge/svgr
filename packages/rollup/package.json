@@ -1,0 +1,38 @@
+{
+  "name": "@svgr/rollup",
+  "description": "SVGR Rollup plugin.",
+  "version": "1.10.0",
+  "main": "lib/index.js",
+  "repository": "git@github.com:smooth-code/svgr.git",
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "keywords": [
+    "svgr",
+    "svg",
+    "react",
+    "rollup",
+    "rollup-plugin"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf lib/",
+    "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
+    "prepublishOnly": "yarn run build"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "@babel/preset-react": "^7.0.0-beta.49",
+    "@svgr/core": "^1.10.0",
+    "rollup-pluginutils": "^2.3.0"
+  },
+  "devDependencies": {
+    "rollup": "^0.60.2",
+    "rollup-plugin-image": "^1.0.2",
+    "rollup-plugin-url": "^1.4.0"
+  }
+}

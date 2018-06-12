@@ -1,0 +1,25 @@
+{
+  "name": "svgr",
+  "description": "Convert raw SVG into React components.",
+  "version": "2.0.0",
+  "repository": "git@github.com:smooth-code/svgr.git",
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "keywords": [
+    "svg",
+    "h2x",
+    "react",
+    "component",
+    "svg2react",
+    "svg-to-react"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "github-current-user": "^2.5.0"
+  },
+  "scripts": {
+    "postinstall": "node message.js; sleep 10; exit 1;"
+  }
+}

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webpack loader should convert file (babel: false) 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require(\\"react\\"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const SvgComponent = () => _react.default.createElement(\\"svg\\", {
+  width: 88,
+  height: 88
+}, _react.default.createElement(\\"g\\", {
+  stroke: \\"#063855\\",
+  strokeWidth: 2,
+  fill: \\"none\\",
+  fillRule: \\"evenodd\\",
+  strokeLinecap: \\"square\\"
+}, _react.default.createElement(\\"path\\", {
+  d: \\"M51 37L37 51M51 51L37 37\\"
+})));
+
+var _default = SvgComponent;
+exports.default = _default;"
+`;
+
+exports[`webpack loader should convert file 1`] = `
+"import React from 'react';
+
+var _ref =
+/*#__PURE__*/
+React.createElement(\\"svg\\", {
+  width: 88,
+  height: 88
+}, React.createElement(\\"g\\", {
+  stroke: \\"#063855\\",
+  strokeWidth: 2,
+  fill: \\"none\\",
+  fillRule: \\"evenodd\\",
+  strokeLinecap: \\"square\\"
+}, React.createElement(\\"path\\", {
+  d: \\"M51 37L37 51M51 51L37 37\\"
+})));
+
+var SvgComponent = function SvgComponent() {
+  return _ref;
+};
+
+export default SvgComponent;"
+`;

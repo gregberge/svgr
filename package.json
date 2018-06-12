@@ -1,82 +1,35 @@
 {
-  "name": "svgr",
-  "description": "Convert raw SVG into React components.",
-  "version": "1.10.0",
-  "main": "lib/index.js",
-  "repository": "git@github.com:smooth-code/svgr.git",
-  "author": "Greg Bergé <berge.greg@gmail.com>",
-  "keywords": [
-    "svg",
-    "h2x",
-    "react",
-    "component",
-    "svg2react",
-    "svg-to-react"
+  "private": true,
+  "workspaces": [
+    "packages/*"
   ],
-  "license": "MIT",
+  "scripts": {
+    "build": "lerna run build",
+    "ci": "yarn build && yarn lint && yarn test --ci",
+    "format": "prettier --write \"packages/**/*.{js,json,md}\" \"*.{js,json,md}\"",
+    "lint": "eslint .",
+    "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
+    "test": "jest --runInBand"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/node": "^7.0.0-beta.49",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.0.1",
     "babel-loader": "^7.1.4",
     "codecov": "^3.0.2",
-    "conventional-github-releaser": "^2.0.2",
+    "conventional-github-releaser": "^3.1.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.0.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.12.0",
-    "jest": "^23.0.1",
-    "memory-fs": "^0.4.1",
-    "react": "^16.4.0",
-    "standard-version": "^4.4.0",
-    "webpack": "^4.9.1"
-  },
-  "dependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
-    "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-react": "^7.0.0-beta.49",
-    "chalk": "^2.4.1",
-    "commander": "^2.15.1",
-    "glob": "^7.1.2",
-    "h2x-core": "^1.0.0",
-    "h2x-plugin-jsx": "^1.0.0",
-    "loader-utils": "^1.1.0",
-    "lodash": "^4.17.10",
-    "mz": "^2.6.0",
-    "output-file-sync": "^2.0.1",
-    "prettier": "^1.13.0",
-    "recursive-readdir": "^2.2.2",
-    "svgo": "^1.0.5"
-  },
-  "bin": {
-    "svgr": "./bin/svgr"
-  },
-  "jest": {
-    "rootDir": "src",
-    "coverageDirectory": "./coverage/",
-    "watchPathIgnorePatterns": [
-      "<rootDir>/__fixtures__"
-    ],
-    "collectCoverageFrom": [
-      "**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/__fixtures__/**",
-      "!**/__snapshots__/**"
-    ]
-  },
-  "scripts": {
-    "dev": "babel --watch src -d lib",
-    "build": "rm -rf lib/ && NODE_ENV=production babel src -d lib",
-    "ci": "yarn lint && yarn build && yarn test",
-    "format": "prettier --write \"src/**/*.js\" \"*.md\"",
-    "lint": "eslint .",
-    "release": "yarn build && standard-version && conventional-github-releaser --preset angular",
-    "clear": "rm -rf __fixtures_build__ lib",
-    "test": "jest --runInBand --coverage && codecov",
-    "prepublishOnly": "yarn run build"
+    "jest": "^23.1.0",
+    "lerna": "^2.11.0",
+    "react": "^16.4.0"
   }
 }

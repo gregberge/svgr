@@ -7,8 +7,6 @@
 [![Code Coverage][coverage-badge]][coverage]
 [![version][version-badge]][package] [![MIT License][license-badge]][license]
 
-[![PRs Welcome][prs-badge]][prs] [![Chat][chat-badge]][chat]
-
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
@@ -18,7 +16,7 @@
 [**Watch the talk at React Europe**](https://www.youtube.com/watch?v=geKCzi7ZPkA)
 
 ```sh
-npm install svgr
+npm install @svgr/cli
 ```
 
 ## Example
@@ -51,7 +49,7 @@ npm install svgr
 **Run SVGR**
 
 ```sh
-svgr --no-semi --icon --replace-attr-value "#063855=currentColor" icon.svg
+svgr --icon --replace-attr-values "#063855=currentColor" icon.svg
 ```
 
 **Output**
@@ -86,34 +84,27 @@ Usage: svgr [options] <file>
 
 Options:
 
-  -V, --version                    output the version number
-  --ext <ext>                      specify a custom file extension (default: "js")
-  --icon                           use "1em" as width and height
-  --ids                            keep ids within the svg (svgo)
-  --jsx-bracket-same-line          put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (prettier)
-  --keep-useless-defs              keep elements of <defs> without id (svgo)
-  --native                         add react-native support with react-native-svg
-  --no-bracket-spacing             print spaces between brackets in object literals (prettier)
-  --no-dimensions                  remove width and height from root SVG tag
-  --no-expand-props                disable props expanding
-  --no-prettier                    disable Prettier
-  --no-semi                        remove semi-colons (prettier)
-  --no-svgo                        disable SVGO
-  --no-title                       remove title tag (svgo)
-  --no-view-box                    remove viewBox
-  -d, --out-dir <dirname>          output files into a directory
-  -p, --precision <value>          set the number of digits in the fractional part (svgo)
-  --ref                            add svgRef prop to svg
-  --replace-attr-value [old=new]   replace an attribute value
-  --single-quote                   use single-quotes instead of double-quotes (prettier)
-  --tab-width <value>              specify the number of spaces by indentation-level (prettier)
-  --template <file>                specify a custom template to use
-  --trailing-comma <none|es5|all>  print trailing commas wherever possible when multi-line (prettier)
-  --use-tabs                       indent lines with tabs instead of spaces (prettier)
-  -h, --help                       output usage information
+  -V, --version                      output the version number
+  --config <file>                    specify the path of the svgr config
+  -d, --out-dir <dirname>            output files into a directory
+  --ext <ext>                        specify a custom file extension (default: "js")
+  --icon                             use "1em" as width and height
+  --native                           add react-native support with react-native-svg
+  --ref                              add svgRef prop to svg
+  --no-dimensions                    remove width and height from root SVG tag
+  --no-expand-props                  disable props expanding
+  --svg-attributes <property=value>  add some attributes to the svg
+  --replace-attr-values <old=new>    replace an attribute value
+  --template <file>                  specify a custom template to use
+  --title-prop                       create a title element linked with props
+  --prettier-config <fileOrJson>     Prettier config
+  --no-prettier                      disable Prettier
+  --svgo-config <fileOrJson>         SVGO config
+  --no-svgo                          disable SVGO
+  -h, --help                         output usage information
 
 Examples:
-  svgr --replace-attr-value "#fff=currentColor" icon.svg
+  svgr --replace-attr-values "#fff=currentColor" icon.svg
 ```
 
 ### Recipes
@@ -148,12 +139,12 @@ $ svgr < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 
 To create icons, two options are important:
 
-* `--icon`: title is removed, viewBox is preserved and SVG inherits text size
-* `--replace-attr-value "#000000=currentColor"`: "#000000" is replaced by
+- `--icon`: viewBox is preserved and SVG inherits text size
+- `--replace-attr-values "#000000=currentColor"`: "#000000" is replaced by
   "currentColor" and SVG inherits text color
 
 ```
-$ svgr --icon --replace-attr-value "#000000=currentColor" my-icon.svg
+$ svgr --icon --replace-attr-values "#000000=currentColor" my-icon.svg
 ```
 
 #### Target React Native
@@ -172,167 +163,87 @@ You can use a specific template.
 $ svgr --template path/to/template.js my-icon.svg
 ```
 
-**Example of template:**
-
-```js
-module.exports = (opts = {}) => {
-  let props = ''
-
-  if (opts.expandProps && opts.ref) {
-    props = '{svgRef, ...props}'
-  } else if (opts.expandProps) {
-    props = 'props'
-  } else if (opts.ref) {
-    props = '{svgRef}'
-  }
-
-  return (code, state) => `import React from 'react'
-
-const ${state.componentName} = (${props}) => ${code}
-
-export default ${state.componentName}`
-}
-```
+You can find template examples in [templates folder](https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates).
 
 ## Node API usage
 
 SVGR can also be used programmatically:
 
 ```js
-import svgr from 'svgr'
+import svgr from '@svgr/core'
 
 const svgCode = `
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
-    <title>Dismiss</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
-        <g id="Dismiss" stroke="#063855" stroke-width="2">
-            <path d="M51,37 L37,51" id="Shape"></path>
-            <path d="M51,51 L37,37" id="Shape"></path>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="10" y="10" height="100" width="100"
+    style="stroke:#ff0000; fill: #0000ff"/>
 </svg>
 `
 
-svgr(svgCode, { prettier: false, componentName: 'MyComponent' }).then(
-  jsCode => {
-    console.log(jsCode)
-  },
-)
+svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
+  console.log(jsCode)
+})
 ```
 
-## Webpack usage
+## [Webpack loader](https://github.com/smooth-code/svgr/blob/master/packages/webpack)
 
-SVGR has a Webpack loader, you can use it using following `webpack.config.js`:
+## [Rollup plugin](https://github.com/smooth-code/svgr/blob/master/packages/rollup)
 
-In your `webpack.config.js`:
+## Configurations
 
-```js
+### SVGR
+
+SVGR uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) for configuration file support. This means you can configure prettier via:
+
+- A `.svgrrc` file, written in YAML or JSON, with optional extensions: .yaml/.yml/.json/.js.
+- A `svgr.config.js` file that exports an object.
+- A "svgr" key in your package.json file.
+
+The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
+
+The options to the configuration file are the same as the API options.
+
+#### Example
+
+JSON:
+
+```json
 {
-  test: /\.svg$/,
-  use: ['svgr/webpack'],
+  "icon": true,
+  "expandProps": false
 }
 ```
 
-In your code:
+JS:
 
 ```js
-import Star from './star.svg'
-
-const App = () => (
-  <div>
-    <Star />
-  </div>
-)
-```
-
-### Passing options
-
-```js
-{
-  test: /\.svg$/,
-  use: [
-    {
-      loader: 'svgr/webpack',
-      options: {
-        native: true,
-      },
-    },
-  ],
+// .svgrrc.js
+module.exports = {
+  icon: true,
+  expandProps: false,
 }
 ```
 
-### Using with `url-loader` or `file-loader`
+YAML:
 
-It is possible to use it with [`url-loader`](https://github.com/webpack-contrib/url-loader) or [`file-loader`](https://github.com/webpack-contrib/file-loader).
-
-In your `webpack.config.js`:
-
-```js
-{
-  test: /\.svg$/,
-  use: ['svgr/webpack', 'url-loader'],
-}
+```yml
+# .svgrrc
+icon: true
+expandProps: false
 ```
 
-In your code:
+### Prettier
 
-```js
-import starUrl, { ReactComponent as Star } from './star.svg'
+The recommended way to configure Prettier for SVGR is to use [`.prettierrc`](https://prettier.io/docs/en/configuration.html). It is fully supported in [all formats available](https://prettier.io/docs/en/configuration.html) and it is relative to the transformed SVG file.
 
-const App = () => (
-  <div>
-    <img src={starUrl} alt="star" />
-    <Star />
-  </div>
-)
-```
+Even if it is not recommended, you can also use `prettierConfig` option to specify your Prettier configuration. `prettierConfig` has precedence on `.prettierrc`.
 
-### Use your own Babel configuration
+### SVGO
 
-By default, `svgr/webpack` includes a `babel-loader` with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/src/webpack.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+The recommended way to configure SVGO for SVGR is to use [`.svgo.yml`](https://github.com/svg/svgo/blob/master/.svgo.yml). [Several formats are suported](./packages/core/src/plugins/svgo.js) and it is relative to the transformed SVG file.
 
-```js
-// Example using preact
-{
-  test: /\.svg$/,
-  use: [
-    {
-      loader: 'babel-loader',
-      options: {
-        presets: ['preact', 'env'],
-      },
-    },
-    {
-      loader: 'svgr/webpack',
-      options: { babel: false },
-    }
-  ],
-}
-```
-
-### Handle SVG in CSS, Sass or Less
-
-It is possible to detect the module that requires your SVG using [`Rule.issuer`](https://webpack.js.org/configuration/module/#rule-issuer) in Webpack. Using it you can specify two different configurations for JavaScript and the rest of your files.
-
-```js
-{
-  {
-    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    issuer: {
-      test: /\.jsx?$/
-    },
-    use: ['babel-loader', 'svgr/webpack', 'url-loader']
-  },
-  {
-    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url-loader'
-  },
-}
-```
+Even if it is not recommended, you can also use `svgoConfig` option to specify your Prettier configuration. `svgoConfig` has precedence on `.svgo.yml`.
 
 ## Options
 
@@ -350,58 +261,20 @@ Specify a custom extension for generated files.
 ### Icon
 
 Replace SVG "width" and "height" value by "1em" in order to make SVG size
-inherits from text size. Also remove title.
+inherits from text size.
 
 | Default | CLI Override | API Override   |
 | ------- | ------------ | -------------- |
 | `false` | `--icon`     | `icon: <bool>` |
 
-### Ids
-
-Setting this to `true` will keep ids. It can be useful to target specific ids
-using CSS or third party library (eg:
-[react-mutate-icon](https://github.com/lifeiscontent/react-mutate-icon)).
-
-| Default | CLI Override | API Override  |
-| ------- | ------------ | ------------- |
-| `false` | `--ids`      | `ids: <bool>` |
-
-### JSX Brackets
-
-Put the `>` of a multi-line JSX element at the end of the last line instead of
-being alone on the next line (does not apply to self closing elements). See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#jsx-brackets).
-
-| Default | CLI Override              | API Override                 |
-| ------- | ------------------------- | ---------------------------- |
-| `false` | `--jsx-bracket-same-line` | `jsxBracketSameLine: <bool>` |
-
-### Useless Defs
-
-Keep elements of `<defs>` without `id`. It also keep unused symbols. See
-[SVGO `removeUselessDefs` plugin](https://github.com/svg/svgo).
-
-| Default | CLI Override          | API Override              |
-| ------- | --------------------- | ------------------------- |
-| `false` | `--keep-useless-defs` | `keepUselessDefs: <bool>` |
-
 ### Native
 
 Modify all SVG nodes with uppercase and use a specific template with
-react-native-svg imports. **All unsupported nodes will be removed.**
+[`react-native-svg`](https://github.com/react-native-community/react-native-svg) imports. **All unsupported nodes will be removed.**
 
 | Default | CLI Override | API Override     |
 | ------- | ------------ | ---------------- |
 | `false` | `--native`   | `native: <bool>` |
-
-### Bracket Spacing
-
-Print spaces between brackets in object literals. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#bracket-spacing).
-
-| Default | CLI Override           | API Override             |
-| ------- | ---------------------- | ------------------------ |
-| `true`  | `--no-bracket-spacing` | `bracketSpacing: <bool>` |
 
 ### Dimensions
 
@@ -428,14 +301,13 @@ output.
 | ------- | --------------- | ------------------ |
 | `true`  | `--no-prettier` | `prettier: <bool>` |
 
-### Semicolons
+### Prettier config
 
-Print semicolons at the ends of statements. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#semicolons).
+Specify Prettier config. [See Prettier options](https://prettier.io/docs/en/options.html).
 
-| Default | CLI Override | API Override   |
-| ------- | ------------ | -------------- |
-| `true`  | `--no-semi`  | `semi: <bool>` |
+| Default | CLI Override        | API Override               |
+| ------- | ------------------- | -------------------------- |
+| `null`  | `--prettier-config` | `prettierConfig: <object>` |
 
 ### SVGO
 
@@ -446,22 +318,13 @@ transforming it into a component.
 | ------- | ------------ | -------------- |
 | `true`  | `--no-svgo`  | `svgo: <bool>` |
 
-### Title
+### SVGO config
 
-Setting this to `false` will remove the title from SVG. See
-[SVGO `removeTitle` plugin](https://github.com/svg/svgo).
+Specify SVGO config. [See SVGO options](https://gist.github.com/pladaria/69321af86ce165c2c1fc1c718b098dd0).
 
-| Default | CLI Override | API Override    |
-| ------- | ------------ | --------------- |
-| `true`  | `--no-title` | `title: <bool>` |
-
-### ViewBox
-
-Setting this to `false` will remove the viewBox property.
-
-| Default | CLI Override    | API Override      |
-| ------- | --------------- | ----------------- |
-| `true`  | `--no-view-box` | `viewBox: <bool>` |
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--svgo-config` | `svgoConfig: <object>` |
 
 ### Ref
 
@@ -476,54 +339,26 @@ Setting this to `true` will allow you to hook into the ref of the svg components
 Replace an attribute value by an other. The main usage of this option is to
 change an icon color to "currentColor" in order to inherit from text color.
 
-| Default | CLI Override                     | API Override                              |
-| ------- | -------------------------------- | ----------------------------------------- |
-| `[]`    | `--replace-attr-value <old=new>` | `replaceAttrValues: <string[[old, new]]>` |
+| Default | CLI Override                      | API Override                         |
+| ------- | --------------------------------- | ------------------------------------ |
+| `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { old: 'new' }>` |
 
-### Quotes
+### SVG attributes
 
-Use single quotes instead of double quotes. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#quotes).
+Add attributes to the root SVG tag.
 
-| Default | CLI Override     | API Override          |
-| ------- | ---------------- | --------------------- |
-| `false` | `--single-quote` | `singleQuote: <bool>` |
-
-### Tab Width
-
-Specify the number of spaces per indentation-level. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#tab-width).
-
-| Default | CLI Override        | API Override      |
-| ------- | ------------------- | ----------------- |
-| `2`     | `--tab-width <int>` | `tabWidth: <int>` |
+| Default | CLI Override                    | API Override                        |
+| ------- | ------------------------------- | ----------------------------------- |
+| `[]`    | `--svg-attributes <name=value>` | `svgAttributes: { name: 'value' }>` |
 
 ### Template
 
 Specify a template file (CLI) or a template function (API) to use. For an
-example of template, see [the default one](src/transforms/wrapIntoComponent.js).
+example of template, see [the default one](packages/core/src/templates/reactDomTemplate.js).
 
-| Default                                                    | CLI Override | API Override       |
-| ---------------------------------------------------------- | ------------ | ------------------ |
-| [`wrapIntoComponent`](src/transforms/wrapIntoComponent.js) | `--template` | `template: <func>` |
-
-### Trailing Commas
-
-Print trailing commas wherever possible when multi-line. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#trailing-commas).
-
-| Default  | CLI Override                                           | API Override                                           |
-| -------- | ------------------------------------------------------ | ------------------------------------------------------ |
-| `"none"` | <code>--trailing-comma <none&#124;es5&#124;all></code> | <code>trailingComma: "<none&#124;es5&#124;all>"</code> |
-
-### Tabs
-
-Indent lines with tabs instead of spaces. See
-[Prettier](https://github.com/prettier/prettier/blob/master/README.md#tabs).
-
-| Default | CLI Override | API Override      |
-| ------- | ------------ | ----------------- |
-| `false` | `--use-tabs` | `useTabs: <bool>` |
+| Default                                                               | CLI Override | API Override       |
+| --------------------------------------------------------------------- | ------------ | ------------------ |
+| [`reactDomTemplate`](packages/core/src/templates/reactDomTemplate.js) | `--template` | `template: <func>` |
 
 ### Output Directory
 
@@ -532,59 +367,6 @@ Output files into a directory.
 | Default     | CLI Override          | API Override        |
 | ----------- | --------------------- | ------------------- |
 | `undefined` | `--out-dir <dirname>` | `outDir: <dirname>` |
-
-### Precision
-
-Set number of digits in the fractional part. See
-[SVGO](https://github.com/svg/svgo).
-
-| Default | CLI Override        | API Override       |
-| ------- | ------------------- | ------------------ |
-| `3`     | `--precision <int>` | `precision: <int>` |
-
-## Other projects
-
-A lot of projects tried to solve this problem, unfortunately, none of them
-fulfills my use cases.
-
-Using raw node:
-
-* [svg-to-react](https://github.com/publitas/svg-to-react)
-* [svg-2-react-isvg](https://github.com/quirinpa/svg-2-react-isvg)
-* [svg-to-component](https://github.com/egoist/svg-to-component)
-* [svg-react-transformer](https://github.com/mapbox/svg-react-transformer)
-* [svg-to-react-k](https://github.com/andgandolfi/svg-to-react-k)
-
-Using command line:
-
-* [svg-to-react-cli](https://github.com/goopscoop/svg-to-react-cli)
-* [svg2react](https://github.com/meriadec/svg2react)
-* [svg-react-transformer-writer](https://github.com/mapbox/svg-react-transformer-writer)
-* [react-svg-converter](https://github.com/joshblack/react-svg-converter)
-
-Or using a Webpack loader:
-
-* [svg-react-loader](https://github.com/jhamlet/svg-react-loader)
-* [svg-react-transformer-loader](https://github.com/mapbox/svg-react-transformer-loader)
-
-Or using a browserify loader:
-
-* [svg-reactify](https://github.com/coma/svg-reactify)
-
-Or using gulp / grunt plugin:
-
-* [gulp-svg-to-react](https://github.com/marvin1023/gulp-svg-to-react)
-
-Or at runtime:
-
-* [svg-react](https://github.com/tonis2/svg-react)
-* [react-isvg-loader](https://github.com/quirinpa/react-isvg-loader/)
-* [react-svg-inline](https://github.com/MoOx/react-svg-inline)
-
-Or using grunt:
-
-* [grunt-svg-react-component](https://github.com/okcoker/grunt-svg-react-component)
-* [svg-inline-react](https://github.com/sairion/svg-inline-react)
 
 # License
 
@@ -600,8 +382,6 @@ MIT
 [license]: https://github.com/smooth-code/svgr/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[chat]: https://gitter.im/smooth-code/svgr
-[chat-badge]: https://img.shields.io/gitter/room/smooth-code/svgr.svg?style=flat-square
 [github-watch-badge]: https://img.shields.io/github/watchers/smooth-code/svgr.svg?style=social
 [github-watch]: https://github.com/smooth-code/svgr/watchers
 [github-star-badge]: https://img.shields.io/github/stars/smooth-code/svgr.svg?style=social

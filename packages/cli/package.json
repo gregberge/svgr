@@ -1,0 +1,33 @@
+{
+  "name": "@svgr/cli",
+  "description": "SVGR command line.",
+  "version": "1.10.0",
+  "repository": "git@github.com:smooth-code/svgr.git",
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "keywords": [
+    "svgr",
+    "svg",
+    "react",
+    "cli"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "license": "MIT",
+  "bin": {
+    "svgr": "./bin/svgr"
+  },
+  "scripts": {
+    "prebuild": "rm -rf lib/",
+    "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
+    "prepublishOnly": "yarn run build"
+  },
+  "dependencies": {
+    "@svgr/core": "^1.10.0",
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "glob": "^7.1.2",
+    "output-file-sync": "^2.0.1",
+    "recursive-readdir": "^2.2.2"
+  }
+}
