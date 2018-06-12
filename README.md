@@ -7,8 +7,6 @@
 [![Code Coverage][coverage-badge]][coverage]
 [![version][version-badge]][package] [![MIT License][license-badge]][license]
 
-[![PRs Welcome][prs-badge]][prs] [![Chat][chat-badge]][chat]
-
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
