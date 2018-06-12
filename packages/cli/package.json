@@ -24,8 +24,6 @@
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
     "glob": "^7.1.2",
-    "lodash": "^4.17.10",
-    "mz": "^2.7.0",
     "output-file-sync": "^2.0.1",
     "recursive-readdir": "^2.2.2"
   }

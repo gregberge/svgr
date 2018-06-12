@@ -1,11 +1,11 @@
 /* eslint-disable no-underscore-dangle, no-console */
-import fs from 'mz/fs'
 import path from 'path'
 import outputFileSync from 'output-file-sync'
+import readdir from 'recursive-readdir'
 import { pascalCase } from '@svgr/core'
-import { convertFile, isCompilableExtension, readdir } from './util'
+import { stat, convertFile } from './util'
 
-export const rename = (relative, { ext = 'js' } = {}) => {
+function rename(relative, ext) {
   const relativePath = path.parse(relative)
   relativePath.ext = `.${ext}`
   relativePath.name = pascalCase(relativePath.name)
@@ -14,28 +14,30 @@ export const rename = (relative, { ext = 'js' } = {}) => {
   return path.format(relativePath)
 }
 
-async function dirCommand(program, filenames, config) {
-  async function write(src, relative) {
-    if (!isCompilableExtension(relative)) return false
+const COMPILABLE_EXTENSIONS = ['.svg', '.SVG']
 
-    relative = rename(relative, config)
+export function isCompilable(filename) {
+  const ext = path.extname(filename)
+  return COMPILABLE_EXTENSIONS.includes(ext)
+}
+
+async function dirCommand(program, filenames, { ext = 'js', ...options }) {
+  async function write(src, relative) {
+    if (!isCompilable(relative)) return false
+    relative = rename(relative, ext)
 
     const dest = path.join(program.outDir, relative)
-
-    const code = await convertFile(src, config, { filePath: dest })
+    const code = await convertFile(src, options, { filePath: dest })
 
     outputFileSync(dest, code)
     console.log(`${src} -> ${dest}`)
-
     return true
   }
 
   async function handle(filename) {
-    if (!(await fs.exists(filename))) return
+    const stats = await stat(filename)
 
-    const stat = await fs.stat(filename)
-
-    if (stat.isDirectory(filename)) {
+    if (stats.isDirectory(filename)) {
       const dirname = filename
       const files = await readdir(dirname)
       await Promise.all(

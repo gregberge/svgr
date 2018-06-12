@@ -1,15 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`cli should support --prettier-config as file 1`] = `
+"import React from 'react'
+
+const File = props => (
+     <svg width={48} height={1} {...props}>
+          <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+     </svg>
+)
+
+export default File
+
+"
+`;
+
+exports[`cli should support --prettier-config as json 1`] = `
+"import React from 'react'
+
+const File = props => (
+     <svg width={48} height={1} {...props}>
+          <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+     </svg>
+)
+
+export default File
+
+"
+`;
+
+exports[`cli should support --svgo-config as file 1`] = `
+"import React from 'react'
+
+const File = props => (
+  <svg width={48} height={1} {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default File
+
+"
+`;
+
+exports[`cli should support --svgo-config as json 1`] = `
+"import React from 'react'
+
+const File = props => (
+  <svg width={48} height={1} {...props}>
+    <title>Rectangle 5</title>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default File
+
+"
+`;
+
 exports[`cli should support various args: --icon 1`] = `
 "import React from 'react'
 
-const One = props => (
+const File = props => (
   <svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -17,13 +75,13 @@ export default One
 exports[`cli should support various args: --native --icon 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
-const One = props => (
+const File = props => (
   <Svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
     <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </Svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -31,13 +89,13 @@ export default One
 exports[`cli should support various args: --native --no-expand-props 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
-const One = () => (
+const File = () => (
   <Svg width={48} height={1}>
     <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </Svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -45,13 +103,13 @@ export default One
 exports[`cli should support various args: --native --ref 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
-const One = ({ svgRef, ...props }) => (
+const File = ({ svgRef, ...props }) => (
   <Svg width={48} height={1} ref={svgRef} {...props}>
     <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </Svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -59,13 +117,13 @@ export default One
 exports[`cli should support various args: --native 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
-const One = props => (
+const File = props => (
   <Svg width={48} height={1} {...props}>
     <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </Svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -73,13 +131,13 @@ export default One
 exports[`cli should support various args: --no-dimensions 1`] = `
 "import React from 'react'
 
-const One = props => (
+const File = props => (
   <svg {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -87,13 +145,13 @@ export default One
 exports[`cli should support various args: --no-expand-props 1`] = `
 "import React from 'react'
 
-const One = () => (
+const File = () => (
   <svg width={48} height={1}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -101,19 +159,19 @@ export default One
 exports[`cli should support various args: --no-prettier 1`] = `
 "import React from 'react'
 
-const One = props => <svg width={48} height={1} {...props}>
+const File = props => <svg width={48} height={1} {...props}>
   <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
 </svg>
 
 
-export default One
+export default File
 "
 `;
 
 exports[`cli should support various args: --no-svgo 1`] = `
 "import React from 'react'
 
-const One = props => (
+const File = props => (
   <svg
     width=\\"48px\\"
     height=\\"1px\\"
@@ -145,7 +203,7 @@ const One = props => (
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -153,13 +211,13 @@ export default One
 exports[`cli should support various args: --ref 1`] = `
 "import React from 'react'
 
-const One = ({ svgRef, ...props }) => (
+const File = ({ svgRef, ...props }) => (
   <svg width={48} height={1} ref={svgRef} {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -167,13 +225,13 @@ export default One
 exports[`cli should support various args: --replace-attr-values "#063855=currentColor" 1`] = `
 "import React from 'react'
 
-const One = props => (
+const File = props => (
   <svg width={48} height={1} {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"currentColor\\" fillRule=\\"evenodd\\" />
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -181,13 +239,13 @@ export default One
 exports[`cli should support various args: --svg-attributes "focusable=false" 1`] = `
 "import React from 'react'
 
-const One = props => (
+const File = props => (
   <svg focusable=\\"false\\" width={48} height={1} {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -195,14 +253,14 @@ export default One
 exports[`cli should support various args: --title-prop 1`] = `
 "import React from 'react'
 
-const One = ({ title, ...props }) => (
+const File = ({ title, ...props }) => (
   <svg width={48} height={1} {...props}>
     <title>{title}</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
@@ -210,13 +268,13 @@ export default One
 exports[`cli should work with a simple file 1`] = `
 "import React from 'react'
 
-const One = props => (
+const File = props => (
   <svg width={48} height={1} {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
 
-export default One
+export default File
 
 "
 `;
