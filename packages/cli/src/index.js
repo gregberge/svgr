@@ -1,16 +1,37 @@
 /* eslint-disable no-console */
 import program from 'commander'
 import path from 'path'
-import fs from 'mz/fs'
 import glob from 'glob'
-import uniq from 'lodash/uniq'
+import fs from 'fs'
 import pkg from '../package.json'
 import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
+import { stat, exitError } from './util'
 
-const argsToObject = (arg, accumulation = {}) => {
+const parseObject = (arg, accumulation = {}) => {
   const [name, value] = arg.split('=')
   return { ...accumulation, [name]: value }
+}
+
+const isFile = filePath => {
+  try {
+    const stats = fs.statSync(filePath)
+    return stats.isFile()
+  } catch (error) {
+    return false
+  }
+}
+
+const parseConfig = name => arg => {
+  const json = isFile(arg) ? fs.readFileSync(arg) : arg
+  try {
+    return JSON.parse(json)
+  } catch (error) {
+    exitError(
+      `"${name}" is not valid, please specify a file or use inline JSON.`,
+    )
+    return null
+  }
 }
 
 program
@@ -25,18 +46,28 @@ program
   .option('--no-dimensions', 'remove width and height from root SVG tag')
   .option('--no-expand-props', 'disable props expanding')
   .option(
-    '--svg-attributes [property=value]',
+    '--svg-attributes <property=value>',
     'add some attributes to the svg',
-    argsToObject,
+    parseObject,
   )
   .option(
-    '--replace-attr-values [old=new]',
+    '--replace-attr-values <old=new>',
     'replace an attribute value',
-    argsToObject,
+    parseObject,
   )
   .option('--template <file>', 'specify a custom template to use')
   .option('--title-prop', 'create a title element linked with props')
+  .option(
+    '--prettier-config <fileOrJson>',
+    'Prettier config',
+    parseConfig('--prettier-config'),
+  )
   .option('--no-prettier', 'disable Prettier')
+  .option(
+    '--svgo-config <fileOrJson>',
+    'SVGO config',
+    parseConfig('--svgo-config'),
+  )
   .option('--no-svgo', 'disable SVGO')
 
 program.on('--help', () => {
@@ -50,17 +81,17 @@ program.parse(process.argv)
 
 async function run() {
   const errors = []
-  let filenames = program.args.reduce((globbed, input) => {
+  const filenames = program.args.reduce((globbed, input) => {
     let files = glob.sync(input)
     if (!files.length) files = [input]
     return globbed.concat(files)
   }, [])
 
-  filenames = uniq(filenames)
-
   await Promise.all(
     filenames.map(async filename => {
-      if (await !fs.exists(filename)) {
+      try {
+        await stat(filename)
+      } catch (error) {
         errors.push(`${filename} does not exist`)
       }
     }),

@@ -18,7 +18,7 @@
 [**Watch the talk at React Europe**](https://www.youtube.com/watch?v=geKCzi7ZPkA)
 
 ```sh
-npm install svgr
+npm install @svgr/cli
 ```
 
 ## Example
@@ -95,11 +95,13 @@ Options:
   --ref                              add svgRef prop to svg
   --no-dimensions                    remove width and height from root SVG tag
   --no-expand-props                  disable props expanding
-  --svg-attributes [property=value]  add some attributes to the svg
-  --replace-attr-values [old=new]    replace an attribute value
+  --svg-attributes <property=value>  add some attributes to the svg
+  --replace-attr-values <old=new>    replace an attribute value
   --template <file>                  specify a custom template to use
   --title-prop                       create a title element linked with props
+  --prettier-config <fileOrJson>     Prettier config
   --no-prettier                      disable Prettier
+  --svgo-config <fileOrJson>         SVGO config
   --no-svgo                          disable SVGO
   -h, --help                         output usage information
 
@@ -139,7 +141,7 @@ $ svgr < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 
 To create icons, two options are important:
 
-- `--icon`: title is removed, viewBox is preserved and SVG inherits text size
+- `--icon`: viewBox is preserved and SVG inherits text size
 - `--replace-attr-values "#000000=currentColor"`: "#000000" is replaced by
   "currentColor" and SVG inherits text color
 
@@ -174,136 +176,76 @@ import svgr from '@svgr/core'
 
 const svgCode = `
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
-    <title>Dismiss</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
-        <g id="Dismiss" stroke="#063855" stroke-width="2">
-            <path d="M51,37 L37,51" id="Shape"></path>
-            <path d="M51,51 L37,37" id="Shape"></path>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="10" y="10" height="100" width="100"
+    style="stroke:#ff0000; fill: #0000ff"/>
 </svg>
 `
 
-svgr(svgCode, { prettier: false }, { componentName: 'MyComponent' }).then(
-  jsCode => {
-    console.log(jsCode)
-  },
-)
+svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
+  console.log(jsCode)
+})
 ```
 
-## Webpack usage
+## [Webpack loader](https://github.com/smooth-code/svgr/blob/master/packages/webpack)
 
-SVGR has a Webpack loader, you can use it using following `webpack.config.js`:
+## [Rollup plugin](https://github.com/smooth-code/svgr/blob/master/packages/rollup)
 
-In your `webpack.config.js`:
+## Configurations
 
-```js
+### SVGR
+
+SVGR uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) for configuration file support. This means you can configure prettier via:
+
+- A `.svgrrc` file, written in YAML or JSON, with optional extensions: .yaml/.yml/.json/.js.
+- A `svgr.config.js` file that exports an object.
+- A "svgr" key in your package.json file.
+
+The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
+
+The options to the configuration file are the same as the API options.
+
+#### Example
+
+JSON:
+
+```json
 {
-  test: /\.svg$/,
-  use: ['@svgr/webpack'],
+  "icon": true,
+  "expandProps": false
 }
 ```
 
-In your code:
+JS:
 
 ```js
-import Star from './star.svg'
-
-const App = () => (
-  <div>
-    <Star />
-  </div>
-)
-```
-
-### Passing options
-
-```js
-{
-  test: /\.svg$/,
-  use: [
-    {
-      loader: '@svgr/webpack',
-      options: {
-        native: true,
-      },
-    },
-  ],
+// .svgrrc.js
+module.exports = {
+  icon: true,
+  expandProps: false,
 }
 ```
 
-### Using with `url-loader` or `file-loader`
+YAML:
 
-It is possible to use it with [`url-loader`](https://github.com/webpack-contrib/url-loader) or [`file-loader`](https://github.com/webpack-contrib/file-loader).
-
-In your `webpack.config.js`:
-
-```js
-{
-  test: /\.svg$/,
-  use: ['@svgr/webpack', 'url-loader'],
-}
+```yml
+# .svgrrc
+icon: true
+expandProps: false
 ```
 
-In your code:
+### Prettier
 
-```js
-import starUrl, { ReactComponent as Star } from './star.svg'
+The recommended way to configure Prettier for SVGR is to use [`.prettierrc`](https://prettier.io/docs/en/configuration.html). It is fully supported in [all formats available](https://prettier.io/docs/en/configuration.html) and it is relative to the transformed SVG file.
 
-const App = () => (
-  <div>
-    <img src={starUrl} alt="star" />
-    <Star />
-  </div>
-)
-```
+Even if it is not recommended, you can also use `prettierConfig` option to specify your Prettier configuration. `prettierConfig` has precedence on `.prettierrc`.
 
-### Use your own Babel configuration
+### SVGO
 
-By default, `@svgr/webpack` includes a `babel-loader` with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/src/webpack.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+The recommended way to configure SVGO for SVGR is to use [`.svgo.yml`](https://github.com/svg/svgo/blob/master/.svgo.yml). [Several formats are suported](./packages/core/src/plugins/svgo.js) and it is relative to the transformed SVG file.
 
-```js
-// Example using preact
-{
-  test: /\.svg$/,
-  use: [
-    {
-      loader: 'babel-loader',
-      options: {
-        presets: ['preact', 'env'],
-      },
-    },
-    {
-      loader: '@svgr/webpack',
-      options: { babel: false },
-    }
-  ],
-}
-```
-
-### Handle SVG in CSS, Sass or Less
-
-It is possible to detect the module that requires your SVG using [`Rule.issuer`](https://webpack.js.org/configuration/module/#rule-issuer) in Webpack. Using it you can specify two different configurations for JavaScript and the rest of your files.
-
-```js
-{
-  {
-    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    issuer: {
-      test: /\.jsx?$/
-    },
-    use: ['babel-loader', '@svgr/webpack', 'url-loader']
-  },
-  {
-    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url-loader'
-  },
-}
-```
+Even if it is not recommended, you can also use `svgoConfig` option to specify your Prettier configuration. `svgoConfig` has precedence on `.svgo.yml`.
 
 ## Options
 
@@ -321,7 +263,7 @@ Specify a custom extension for generated files.
 ### Icon
 
 Replace SVG "width" and "height" value by "1em" in order to make SVG size
-inherits from text size. Also remove title.
+inherits from text size.
 
 | Default | CLI Override | API Override   |
 | ------- | ------------ | -------------- |
@@ -330,7 +272,7 @@ inherits from text size. Also remove title.
 ### Native
 
 Modify all SVG nodes with uppercase and use a specific template with
-react-native-svg imports. **All unsupported nodes will be removed.**
+[`react-native-svg`](https://github.com/react-native-community/react-native-svg) imports. **All unsupported nodes will be removed.**
 
 | Default | CLI Override | API Override     |
 | ------- | ------------ | ---------------- |
@@ -361,6 +303,14 @@ output.
 | ------- | --------------- | ------------------ |
 | `true`  | `--no-prettier` | `prettier: <bool>` |
 
+### Prettier config
+
+Specify Prettier config. [See Prettier options](https://prettier.io/docs/en/options.html).
+
+| Default | CLI Override        | API Override               |
+| ------- | ------------------- | -------------------------- |
+| `null`  | `--prettier-config` | `prettierConfig: <object>` |
+
 ### SVGO
 
 Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before
@@ -369,6 +319,14 @@ transforming it into a component.
 | Default | CLI Override | API Override   |
 | ------- | ------------ | -------------- |
 | `true`  | `--no-svgo`  | `svgo: <bool>` |
+
+### SVGO config
+
+Specify SVGO config. [See SVGO options](https://gist.github.com/pladaria/69321af86ce165c2c1fc1c718b098dd0).
+
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--svgo-config` | `svgoConfig: <object>` |
 
 ### Ref
 
@@ -387,9 +345,9 @@ change an icon color to "currentColor" in order to inherit from text color.
 | ------- | --------------------------------- | ------------------------------------ |
 | `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { old: 'new' }>` |
 
-### SVG attribute
+### SVG attributes
 
-Add attribute to the root SVG tag.
+Add attributes to the root SVG tag.
 
 | Default | CLI Override                    | API Override                        |
 | ------- | ------------------------------- | ----------------------------------- |
@@ -398,11 +356,11 @@ Add attribute to the root SVG tag.
 ### Template
 
 Specify a template file (CLI) or a template function (API) to use. For an
-example of template, see [the default one](src/transforms/wrapIntoComponent.js).
+example of template, see [the default one](packages/core/src/templates/reactDomTemplate.js).
 
-| Default                                                    | CLI Override | API Override       |
-| ---------------------------------------------------------- | ------------ | ------------------ |
-| [`wrapIntoComponent`](src/transforms/wrapIntoComponent.js) | `--template` | `template: <func>` |
+| Default                                                               | CLI Override | API Override       |
+| --------------------------------------------------------------------- | ------------ | ------------------ |
+| [`reactDomTemplate`](packages/core/src/templates/reactDomTemplate.js) | `--template` | `template: <func>` |
 
 ### Output Directory
 
@@ -411,50 +369,6 @@ Output files into a directory.
 | Default     | CLI Override          | API Override        |
 | ----------- | --------------------- | ------------------- |
 | `undefined` | `--out-dir <dirname>` | `outDir: <dirname>` |
-
-## Other projects
-
-A lot of projects tried to solve this problem, unfortunately, none of them
-fulfills my use cases.
-
-Using raw node:
-
-- [svg-to-react](https://github.com/publitas/svg-to-react)
-- [svg-2-react-isvg](https://github.com/quirinpa/svg-2-react-isvg)
-- [svg-to-component](https://github.com/egoist/svg-to-component)
-- [svg-react-transformer](https://github.com/mapbox/svg-react-transformer)
-- [svg-to-react-k](https://github.com/andgandolfi/svg-to-react-k)
-
-Using command line:
-
-- [svg-to-react-cli](https://github.com/goopscoop/svg-to-react-cli)
-- [svg2react](https://github.com/meriadec/svg2react)
-- [svg-react-transformer-writer](https://github.com/mapbox/svg-react-transformer-writer)
-- [react-svg-converter](https://github.com/joshblack/react-svg-converter)
-
-Or using a Webpack loader:
-
-- [svg-react-loader](https://github.com/jhamlet/svg-react-loader)
-- [svg-react-transformer-loader](https://github.com/mapbox/svg-react-transformer-loader)
-
-Or using a browserify loader:
-
-- [svg-reactify](https://github.com/coma/svg-reactify)
-
-Or using gulp / grunt plugin:
-
-- [gulp-svg-to-react](https://github.com/marvin1023/gulp-svg-to-react)
-
-Or at runtime:
-
-- [svg-react](https://github.com/tonis2/svg-react)
-- [react-isvg-loader](https://github.com/quirinpa/react-isvg-loader/)
-- [react-svg-inline](https://github.com/MoOx/react-svg-inline)
-
-Or using grunt:
-
-- [grunt-svg-react-component](https://github.com/okcoker/grunt-svg-react-component)
-- [svg-inline-react](https://github.com/sairion/svg-inline-react)
 
 # License
 
@@ -470,8 +384,6 @@ MIT
 [license]: https://github.com/smooth-code/svgr/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[chat]: https://gitter.im/smooth-code/svgr
-[chat-badge]: https://img.shields.io/gitter/room/smooth-code/svgr.svg?style=flat-square
 [github-watch-badge]: https://img.shields.io/github/watchers/smooth-code/svgr.svg?style=social
 [github-watch]: https://github.com/smooth-code/svgr/watchers
 [github-star-badge]: https://img.shields.io/github/stars/smooth-code/svgr.svg?style=social

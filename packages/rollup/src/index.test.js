@@ -5,12 +5,13 @@ import svgr from './index'
 
 const compile = (plugins = [svgr()]) =>
   rollup({
-    input: './__fixtures__/one.svg',
+    input: './__fixtures__/simple/file.svg',
     plugins,
   })
 
 const getCode = bundler =>
-  bundler.modules.find(({ id }) => id.includes('__fixtures__/one.svg')).code
+  bundler.modules.find(({ id }) => id.includes('__fixtures__/simple/file.svg'))
+    .code
 
 describe('rollup loader', () => {
   it('should convert file', async () => {
