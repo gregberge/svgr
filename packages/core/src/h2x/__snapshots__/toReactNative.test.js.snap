@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toReactNative should take svg and convert it to react-native 1`] = `
+"<Svg>
+  <G stroke=\\"#063855\\" strokeWidth={2}>
+    <Path d=\\"M51,37 L37,51\\" id=\\"Shape\\" />
+  </G>
+</Svg>
+"
+`;
