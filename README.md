@@ -243,7 +243,7 @@ Even if it is not recommended, you can also use `prettierConfig` option to speci
 
 The recommended way to configure SVGO for SVGR is to use [`.svgo.yml`](https://github.com/svg/svgo/blob/master/.svgo.yml). [Several formats are suported](./packages/core/src/plugins/svgo.js) and it is relative to the transformed SVG file.
 
-Even if it is not recommended, you can also use `svgoConfig` option to specify your Prettier configuration. `svgoConfig` has precedence on `.svgo.yml`.
+Even if it is not recommended, you can also use `svgoConfig` option to specify your SVGO configuration. `svgoConfig` has precedence on `.svgo.yml`.
 
 ## Options
 
