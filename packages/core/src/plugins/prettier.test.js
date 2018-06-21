@@ -22,4 +22,22 @@ describe('prettier', () => {
     )
     expect(result).toBe('const foo = <div />;\n')
   })
+
+  it('should resolve the prettier config with the editorconfig option', async () => {
+    // only mock prettier `resolveConfig` method
+    jest.mock('prettier', () =>
+      Object.assign(require.requireActual('prettier'), {
+        resolveConfig: jest.fn(),
+      }),
+    )
+    /* eslint-disable global-require */
+    const prettierPlugin = require('./prettier').default
+    const { resolveConfig } = require('prettier')
+    /* eslint-enable global-require */
+
+    await prettierPlugin(`const foo = <div></div>`, { prettier: true })
+    expect(resolveConfig).toHaveBeenCalledWith(expect.any(String), {
+      editorconfig: true,
+    })
+  })
 })
