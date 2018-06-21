@@ -24,12 +24,8 @@ describe('prettier', () => {
   })
 
   it('should resolve the prettier config with the editorconfig option', async () => {
-    // only mock prettier `resolveConfig` method
-    jest.mock('prettier', () =>
-      Object.assign(require.requireActual('prettier'), {
-        resolveConfig: jest.fn(),
-      }),
-    )
+    jest.resetModules()
+    jest.doMock('prettier')
     /* eslint-disable global-require */
     const prettierPlugin = require('./prettier').default
     const { resolveConfig } = require('prettier')
