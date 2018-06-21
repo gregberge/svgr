@@ -45,6 +45,7 @@ program
     'specify filename case (pascal, kebab, camel) (default: "pascal")',
   )
   .option('--icon', 'use "1em" as width and height')
+  .option('--typescript', 'add typescript support')
   .option('--native', 'add react-native support with react-native-svg')
   .option('--ref', 'add svgRef prop to svg')
   .option('--no-dimensions', 'remove width and height from root SVG tag')

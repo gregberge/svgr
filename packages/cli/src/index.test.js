@@ -127,6 +127,7 @@ describe('cli', () => {
     '--no-svgo',
     '--no-prettier',
     '--title-prop',
+    '--typescript',
   ]
 
   it(
