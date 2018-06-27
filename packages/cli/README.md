@@ -12,20 +12,33 @@ npm install @svgr/cli
 
 ## Usage
 
-```js
-import svgr from '@svgr/core'
+```
+  Usage: index [options] <file>
 
-const svgCode = `
-<svg xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
-  <rect x="10" y="10" height="100" width="100"
-    style="stroke:#ff0000; fill: #0000ff"/>
-</svg>
-`
+  Options:
 
-svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
-  console.log(jsCode)
-})
+    -V, --version                      output the version number
+    --config <file>                    specify the path of the svgr config
+    -d, --out-dir <dirname>            output files into a directory
+    --ext <ext>                        specify a custom file extension (default: "js")
+    --filename-case <case>             specify filename case (pascal, kebab, camel) (default: "pascal")
+    --icon                             use "1em" as width and height
+    --native                           add react-native support with react-native-svg
+    --ref                              add svgRef prop to svg
+    --no-dimensions                    remove width and height from root SVG tag
+    --no-expand-props                  disable props expanding
+    --svg-attributes <property=value>  add some attributes to the svg
+    --replace-attr-values <old=new>    replace an attribute value
+    --template <file>                  specify a custom template to use
+    --title-prop                       create a title element linked with props
+    --prettier-config <fileOrJson>     Prettier config
+    --no-prettier                      disable Prettier
+    --svgo-config <fileOrJson>         SVGO config
+    --no-svgo                          disable SVGO
+    -h, --help                         output usage information
+
+  Examples:
+    svgr --replace-attr-values "#fff=currentColor" icon.svg
 ```
 
 ## License

@@ -30,7 +30,7 @@ describe('config', () => {
       const config = await resolveConfigFile(
         path.join(__dirname, '__fixtures__/svgr'),
       )
-      expect(config).toMatch(/__fixtures__\/svgr\/\.svgrrc$/)
+      expect(config).toMatch(/__fixtures__(\/|\\)svgr(\/|\\)\.svgrrc$/)
     })
   })
 })
