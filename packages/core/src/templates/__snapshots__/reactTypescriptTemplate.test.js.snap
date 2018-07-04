@@ -43,7 +43,7 @@ export default Test"
 exports[`reactTypescriptTemplate should wrap code into a component 6`] = `
 "import * as React from 'react'
 
-const Test = ({title: string, ...props: any}) => <Svg />
+const Test = ({title: string, ...props}) => <Svg />
 
 export default Test"
 `;
@@ -51,7 +51,7 @@ export default Test"
 exports[`reactTypescriptTemplate should wrap code into a component 7`] = `
 "import * as React from 'react'
 
-const Test = ({svgRef: string, ...props: any}) => <Svg />
+const Test = ({svgRef: string, ...props}) => <Svg />
 
 export default Test"
 `;
