@@ -127,7 +127,6 @@ describe('cli', () => {
     '--no-svgo',
     '--no-prettier',
     '--title-prop',
-    '--typescript',
   ]
 
   it(
@@ -141,5 +140,14 @@ describe('cli', () => {
       )
     },
     30000,
+  )
+
+  it(
+    'should work convert to typescript',
+    async () => {
+      const result = await cli('--typescript __fixtures__/simple/file.svg')
+      expect(result).toMatchSnapshot()
+    },
+    10000,
   )
 })
