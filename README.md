@@ -157,6 +157,14 @@ It is possible to target React Native using [react-native-svg](https://github.co
 $ svgr --native my-icon.svg
 ```
 
+#### Target Typescript
+
+It is possible to target Typescript
+
+```
+$ svgr --typescript my-icon.svg
+```
+
 #### Use a specific template
 
 You can use a specific template.
@@ -277,6 +285,14 @@ Modify all SVG nodes with uppercase and use a specific template with
 | Default | CLI Override | API Override     |
 | ------- | ------------ | ---------------- |
 | `false` | `--native`   | `native: <bool>` |
+
+### Typescript
+
+Use Typescript instead of Javascript
+
+| Default | CLI Override   | API Override         |
+| ------- | -------------- | -------------------- |
+| `false` | `--typescript` | `typescript: <bool>` |
 
 ### Dimensions
 
