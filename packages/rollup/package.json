@@ -1,7 +1,7 @@
 {
   "name": "@svgr/rollup",
   "description": "SVGR Rollup plugin.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "lib/index.js",
   "repository": "git@github.com:smooth-code/svgr.git",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -27,7 +27,7 @@
     "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.52",
     "@babel/preset-env": "^7.0.0-beta.52",
     "@babel/preset-react": "^7.0.0-beta.52",
-    "@svgr/core": "^2.0.0",
+    "@svgr/core": "^2.1.0",
     "rollup-pluginutils": "^2.3.0"
   },
   "devDependencies": {

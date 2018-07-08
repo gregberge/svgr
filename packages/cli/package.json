@@ -1,7 +1,7 @@
 {
   "name": "@svgr/cli",
   "description": "SVGR command line.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "repository": "git@github.com:smooth-code/svgr.git",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "keywords": [
@@ -23,13 +23,12 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@svgr/core": "^2.0.0",
+    "@svgr/core": "^2.1.0",
     "chalk": "^2.4.1",
     "commander": "^2.16.0",
     "glob": "^7.1.2",
     "lodash": "^4.17.10",
     "output-file-sync": "^2.0.1",
     "recursive-readdir": "^2.2.2"
-  },
-  "devDependencies": {}
+  }
 }
