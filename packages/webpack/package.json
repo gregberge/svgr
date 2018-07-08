@@ -22,17 +22,18 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
-    "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-react": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.52",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.52",
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.52",
+    "@babel/preset-env": "^7.0.0-beta.52",
+    "@babel/preset-react": "^7.0.0-beta.52",
     "@svgr/core": "^2.0.0",
     "loader-utils": "^1.1.0"
   },
   "devDependencies": {
-    "babel-loader": "^8.0.0-beta.3",
+    "babel-loader": "^8.0.0-beta.4",
     "memory-fs": "^0.4.1",
-    "webpack": "^4.12.0"
+    "url-loader": "^1.0.1",
+    "webpack": "^4.15.1"
   }
 }

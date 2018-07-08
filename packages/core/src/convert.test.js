@@ -1,4 +1,4 @@
-import convert from './'
+import convert from '.'
 
 const svgBaseCode = `
 <?xml version="1.0" encoding="UTF-8"?>
@@ -216,8 +216,8 @@ describe('convert', () => {
       expect(
         await convert(svg, { svgAttribute: { focusable: false } }),
       ).toMatchSnapshot()
-    });
-    
+    })
+
     it('titleProp', async () => {
       const svg = `
       <svg width="0" height="0" style="position:absolute">
