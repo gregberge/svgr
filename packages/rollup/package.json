@@ -22,16 +22,16 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
-    "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-react": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.52",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.52",
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.52",
+    "@babel/preset-env": "^7.0.0-beta.52",
+    "@babel/preset-react": "^7.0.0-beta.52",
     "@svgr/core": "^2.0.0",
     "rollup-pluginutils": "^2.3.0"
   },
   "devDependencies": {
-    "rollup": "^0.60.2",
+    "rollup": "^0.62.0",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-url": "^1.4.0"
   }

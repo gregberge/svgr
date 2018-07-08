@@ -12,7 +12,7 @@ import {
   svgRef,
   titleProp,
   toReactNative,
-} from '../'
+} from '..'
 
 function configToPlugins(config) {
   const plugins = [

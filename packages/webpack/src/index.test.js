@@ -54,6 +54,29 @@ describe('webpack loader', () => {
   )
 
   it(
+    'should support url-loader',
+    async () => {
+      const source = await compile([
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: path.resolve(__dirname, './index.js'),
+              options: {
+                expandProps: false,
+              },
+            },
+            'url-loader',
+          ],
+        },
+      ])
+
+      expect(source).toMatchSnapshot()
+    },
+    15000,
+  )
+
+  it(
     'should convert file (babel: false)',
     async () => {
       const source = await compile([
