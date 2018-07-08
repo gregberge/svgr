@@ -22,4 +22,18 @@ describe('prettier', () => {
     )
     expect(result).toBe('const foo = <div />;\n')
   })
+
+  it('should resolve the prettier config with the editorconfig option', async () => {
+    jest.resetModules()
+    jest.doMock('prettier')
+    /* eslint-disable global-require */
+    const prettierPlugin = require('./prettier').default
+    const { resolveConfig } = require('prettier')
+    /* eslint-enable global-require */
+
+    await prettierPlugin(`const foo = <div></div>`, { prettier: true })
+    expect(resolveConfig).toHaveBeenCalledWith(expect.any(String), {
+      editorconfig: true,
+    })
+  })
 })
