@@ -40,6 +40,10 @@ program
   .option('--config <file>', 'specify the path of the svgr config')
   .option('-d, --out-dir <dirname>', 'output files into a directory')
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
+  .option(
+    '--filename-case <case>',
+    'specify filename case (pascal, kebab, camel) (default: "pascal")',
+  )
   .option('--icon', 'use "1em" as width and height')
   .option('--native', 'add react-native support with react-native-svg')
   .option('--ref', 'add svgRef prop to svg')

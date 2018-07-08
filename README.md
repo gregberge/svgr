@@ -88,6 +88,7 @@ Options:
   --config <file>                    specify the path of the svgr config
   -d, --out-dir <dirname>            output files into a directory
   --ext <ext>                        specify a custom file extension (default: "js")
+  --filename-case <case>             specify filename case (pascal, kebab, camel) (default: "pascal")
   --icon                             use "1em" as width and height
   --native                           add react-native support with react-native-svg
   --ref                              add svgRef prop to svg
