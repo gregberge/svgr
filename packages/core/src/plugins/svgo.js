@@ -1,6 +1,6 @@
 import SVGO from 'svgo'
 import cosmiconfig from 'cosmiconfig'
-import mergeConfigs from './mergeConfigs';
+import mergeConfigs from './mergeConfigs'
 
 const explorer = cosmiconfig('svgo', {
   searchPlaces: [
