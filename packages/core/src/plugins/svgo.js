@@ -3,10 +3,13 @@ import cosmiconfig from 'cosmiconfig'
 import mergeWith from 'lodash/mergeWith'
 import isArray from 'lodash/isArray'
 
+
 function concatArrays(objValue, srcValue) {
   if (isArray(objValue)) {
     return objValue.concat(srcValue);
   }
+
+  return undefined; // default value
 }
 
 const explorer = cosmiconfig('svgo', {
