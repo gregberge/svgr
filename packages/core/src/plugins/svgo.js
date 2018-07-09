@@ -1,16 +1,6 @@
 import SVGO from 'svgo'
 import cosmiconfig from 'cosmiconfig'
-import mergeWith from 'lodash/mergeWith'
-import isArray from 'lodash/isArray'
-
-
-function concatArrays(objValue, srcValue) {
-  if (isArray(objValue)) {
-    return objValue.concat(srcValue);
-  }
-
-  return undefined; // default value
-}
+import mergeConfigs from './mergeConfigs';
 
 const explorer = cosmiconfig('svgo', {
   searchPlaces: [
@@ -36,7 +26,7 @@ export default async (code, config = {}, state = {}) => {
   const filePath = state.filePath || process.cwd()
   const svgoRcConfig = await explorer.search(filePath)
   const svgo = new SVGO(
-    mergeWith(getBaseSvgoConfig(config), svgoRcConfig, config.svgoConfig, concatArrays),
+    mergeConfigs(getBaseSvgoConfig(config), svgoRcConfig, config.svgoConfig),
   )
   const { data } = await svgo.optimize(code)
   return data
