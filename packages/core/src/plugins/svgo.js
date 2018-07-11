@@ -1,6 +1,6 @@
 import SVGO from 'svgo'
 import cosmiconfig from 'cosmiconfig'
-import merge from 'lodash/merge'
+import mergeConfigs from './mergeConfigs'
 
 const explorer = cosmiconfig('svgo', {
   searchPlaces: [
@@ -26,7 +26,7 @@ export default async (code, config = {}, state = {}) => {
   const filePath = state.filePath || process.cwd()
   const svgoRcConfig = await explorer.search(filePath)
   const svgo = new SVGO(
-    merge(getBaseSvgoConfig(config), svgoRcConfig, config.svgoConfig),
+    mergeConfigs(getBaseSvgoConfig(config), svgoRcConfig, config.svgoConfig),
   )
   const { data } = await svgo.optimize(code)
   return data

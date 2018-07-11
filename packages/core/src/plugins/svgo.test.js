@@ -31,6 +31,16 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('should support icon with config.svgoConfig plugins', async () => {
+    const result = await svgo(baseSvg, {
+      svgo: true,
+      icon: true,
+      svgoConfig: { plugins: [{ removeDesc: false }] },
+    })
+
+    expect(result).toMatchSnapshot()
+  })
+
   it('should use state.filePath to detect configuration', async () => {
     const result = await svgo(
       baseSvg,
