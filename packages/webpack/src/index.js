@@ -41,11 +41,17 @@ function svgrLoader(source) {
       )
     })
 
-  readSvg()
-    .then(svg => convert(svg, options, { webpack: { previousExport } }))
-    .then(jsCode => (babel ? pBabelTransform(jsCode) : jsCode))
-    .then(result => callback(null, result))
-    .catch(err => callback(err))
+  const tranformSvg = svg =>
+    convert(svg, options, { webpack: { previousExport } })
+      .then(jsCode => (babel ? pBabelTransform(jsCode) : jsCode))
+      .then(result => callback(null, result))
+      .catch(err => callback(err))
+
+  if (exportMatches) {
+    readSvg().then(tranformSvg)
+  } else {
+    tranformSvg(source)
+  }
 }
 
 export default svgrLoader
