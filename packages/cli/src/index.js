@@ -124,7 +124,7 @@ async function run() {
     }
   }
 
-  if(config.typescript) config.ext = "ts"
+  if (config.typescript && !config.ext) config.ext = 'ts'
 
   const command = program.outDir ? dirCommand : fileCommand
   await command(program, filenames, config)

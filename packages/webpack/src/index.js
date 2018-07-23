@@ -42,7 +42,13 @@ function svgrLoader(source) {
     })
 
   readSvg()
-    .then(svg => convert(svg, options, { webpack: { previousExport } }))
+    .then(svg =>
+      convert(
+        svg,
+        { ...options, typescript: false },
+        { webpack: { previousExport } },
+      ),
+    )
     .then(jsCode => (babel ? pBabelTransform(jsCode) : jsCode))
     .then(result => callback(null, result))
     .catch(err => callback(err))

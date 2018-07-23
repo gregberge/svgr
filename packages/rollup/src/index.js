@@ -28,9 +28,13 @@ function svgrPlugin(options = {}) {
         body: [],
       }
 
-      const jsCode = await convert(load, options, {
-        rollup: { previousExport },
-      })
+      const jsCode = await convert(
+        load,
+        { ...options, typescript: false },
+        {
+          rollup: { previousExport },
+        },
+      )
 
       const pBabelTransform = async code =>
         new Promise((resolve, reject) => {
