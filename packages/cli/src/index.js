@@ -45,6 +45,7 @@ program
     'specify filename case (pascal, kebab, camel) (default: "pascal")',
   )
   .option('--icon', 'use "1em" as width and height')
+  .option('--typescript', 'add typescript support')
   .option('--native', 'add react-native support with react-native-svg')
   .option('--ref', 'add svgRef prop to svg')
   .option('--no-dimensions', 'remove width and height from root SVG tag')
@@ -122,6 +123,8 @@ async function run() {
       process.exit(2)
     }
   }
+
+  if (config.typescript && !config.ext) config.ext = 'ts'
 
   const command = program.outDir ? dirCommand : fileCommand
   await command(program, filenames, config)

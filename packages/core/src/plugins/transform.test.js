@@ -10,4 +10,13 @@ describe('transform', () => {
 
     expect(result).toBe('bar<div />')
   })
+  it('should transform into typescript', () => {
+    const result = transform(
+      `<div />`,
+      { typescript: true },
+      { componentName: 'Svg' },
+    )
+
+    expect(result).toMatchSnapshot()
+  })
 })

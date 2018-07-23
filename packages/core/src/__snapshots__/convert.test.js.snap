@@ -285,6 +285,90 @@ export default SvgComponent
 "
 `;
 
+exports[`convert config should support options { typescript: true } 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = (props: any) => (
+  <svg width={88} height={88} {...props}>
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37L37 51M51 51L37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options { typescript: true, expandProps: false } 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = () => (
+  <svg width={88} height={88}>
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37L37 51M51 51L37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options { typescript: true, icon: true } 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = (props: any) => (
+  <svg viewBox=\\"0 0 88 88\\" width=\\"1em\\" height=\\"1em\\" {...props}>
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37L37 51M51 51L37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options { typescript: true, ref: true } 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = ({ svgRef: string, ...props }) => (
+  <svg width={88} height={88} ref={svgRef} {...props}>
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37L37 51M51 51L37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert config svgAttribute 1`] = `
 "import React from 'react'
 

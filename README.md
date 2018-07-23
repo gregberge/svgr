@@ -91,6 +91,7 @@ Options:
   --filename-case <case>             specify filename case (pascal, kebab, camel) (default: "pascal")
   --icon                             use "1em" as width and height
   --native                           add react-native support with react-native-svg
+  --typescript                       add typescript support
   --ref                              add svgRef prop to svg
   --no-dimensions                    remove width and height from root SVG tag
   --no-expand-props                  disable props expanding
@@ -154,6 +155,14 @@ It is possible to target React Native using [react-native-svg](https://github.co
 
 ```
 $ svgr --native my-icon.svg
+```
+
+#### Target Typescript
+
+It is possible to target Typescript
+
+```
+$ svgr --typescript my-icon.svg
 ```
 
 #### Use a specific template
@@ -276,6 +285,14 @@ Modify all SVG nodes with uppercase and use a specific template with
 | Default | CLI Override | API Override     |
 | ------- | ------------ | ---------------- |
 | `false` | `--native`   | `native: <bool>` |
+
+### Typescript
+
+Use Typescript instead of Javascript
+
+| Default | CLI Override   | API Override         |
+| ------- | -------------- | -------------------- |
+| `false` | `--typescript` | `typescript: <bool>` |
 
 ### Dimensions
 

@@ -105,4 +105,27 @@ describe('webpack loader', () => {
     },
     15000,
   )
+
+  it(
+    'should convert file with typescript',
+    async () => {
+      const source = await compile([
+        {
+          test: /\.svg$/, 
+          use: [
+            {
+              loader: path.resolve(__dirname, './index.js'),
+              options: {
+                expandProps: false,
+                typescript: true,
+              },
+            },
+          ],
+        },
+      ])
+
+      expect(source).toMatchSnapshot()
+    },
+    15000,
+  )
 })

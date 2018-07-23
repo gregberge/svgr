@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reactTypescriptTemplate should wrap code into a component 1`] = `
+"import * as React from 'react'
+
+const Test = () => <Svg />
+
+export default Test"
+`;
+
+exports[`reactTypescriptTemplate should wrap code into a component 2`] = `
+"import * as React from 'react'
+
+const Test = ({title: string}) => <Svg />
+
+export default Test"
+`;
+
+exports[`reactTypescriptTemplate should wrap code into a component 3`] = `
+"import * as React from 'react'
+
+const Test = ({svgRef: string}) => <Svg />
+
+export default Test"
+`;
+
+exports[`reactTypescriptTemplate should wrap code into a component 4`] = `
+"import * as React from 'react'
+
+const Test = (props: any) => <Svg />
+
+export default Test"
+`;
+
+exports[`reactTypescriptTemplate should wrap code into a component 5`] = `
+"import * as React from 'react'
+
+const Test = ({svgRef: string, title: string}) => <Svg />
+
+export default Test"
+`;
+
+exports[`reactTypescriptTemplate should wrap code into a component 6`] = `
+"import * as React from 'react'
+
+const Test = ({title: string, ...props}) => <Svg />
+
+export default Test"
+`;
+
+exports[`reactTypescriptTemplate should wrap code into a component 7`] = `
+"import * as React from 'react'
+
+const Test = ({svgRef: string, ...props}) => <Svg />
+
+export default Test"
+`;
