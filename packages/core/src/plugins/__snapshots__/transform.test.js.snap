@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transform should transform into typescript 1`] = `
+"import * as React from 'react'
+
+const Svg = () => <div />
+
+export default Svg"
+`;
