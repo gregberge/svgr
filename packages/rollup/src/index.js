@@ -8,6 +8,7 @@ function svgrPlugin(options = {}) {
   const { babel = true } = options
 
   return {
+    name: 'svgr',
     async transform(data, id) {
       if (!filter(id)) return null
       if (id.slice(-4) !== '.svg') return null
