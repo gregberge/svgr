@@ -187,6 +187,27 @@ describe('convert', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('should remove null characters', async () => {
+    const result = await convert(
+      `<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In  -->
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="25px" height="25px" viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#434A54;stroke-miterlimit:10;}
+</style>
+<defs>
+</defs>
+<path class="st0" d="M19.4,24.5H5.6c-2.8,0-5.1-2.3-5.1-5.1V5.6c0-2.8,2.3-5.1,5.1-5.1h13.8c2.8,0,5.1,2.3,5.1,5.1v13.8
+	C24.5,22.2,22.2,24.5,19.4,24.5z"/>
+</svg>
+\0`
+    )
+
+    expect(result).toMatchSnapshot()
+    expect(result).not.toContain('\0')
+  })
+
   describe('config', () => {
     const configs = [
       [{ dimensions: false }],
@@ -228,3 +249,4 @@ describe('convert', () => {
     })
   })
 })
+
