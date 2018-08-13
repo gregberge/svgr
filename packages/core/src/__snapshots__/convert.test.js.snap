@@ -379,6 +379,24 @@ export default SvgComponent
 "
 `;
 
+exports[`convert should remove null characters 1`] = `
+"import React from 'react'
+
+const SvgComponent = props => (
+  <svg width={25} height={25} {...props}>
+    <path
+      d=\\"M19.4 24.5H5.6c-2.8 0-5.1-2.3-5.1-5.1V5.6C.5 2.8 2.8.5 5.6.5h13.8c2.8 0 5.1 2.3 5.1 5.1v13.8c0 2.8-2.3 5.1-5.1 5.1z\\"
+      fill=\\"#fff\\"
+      stroke=\\"#434a54\\"
+      strokeMiterlimit={10}
+    />
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert should remove style tags 1`] = `
 "import React from 'react'
 
