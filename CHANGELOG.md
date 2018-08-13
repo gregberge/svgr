@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/smooth-code/svgr/compare/v2.1.1...v2.2.0) (2018-08-13)
+
+
+### Bug Fixes
+
+* remove null-byte characters ([#154](https://github.com/smooth-code/svgr/issues/154)) ([de7f8a7](https://github.com/smooth-code/svgr/commit/de7f8a7)), closes [#153](https://github.com/smooth-code/svgr/issues/153)
+* **webpack:** use source when possible ([#139](https://github.com/smooth-code/svgr/issues/139)) ([ae9965d](https://github.com/smooth-code/svgr/commit/ae9965d))
+
+
+### Features
+
+* **core:** pass info to SVGO ([2b2353b](https://github.com/smooth-code/svgr/commit/2b2353b)), closes [#152](https://github.com/smooth-code/svgr/issues/152)
+
+
+
+
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/smooth-code/svgr/compare/v2.1.0...v2.1.1) (2018-07-11)
 
