@@ -28,6 +28,9 @@ export default async (code, config = {}, state = {}) => {
   const svgo = new SVGO(
     mergeConfigs(getBaseSvgoConfig(config), svgoRcConfig, config.svgoConfig),
   )
-  const { data } = await svgo.optimize(code)
+  const info = state.filePath
+    ? { input: 'file', path: state.filePath }
+    : { input: 'string' }
+  const { data } = await svgo.optimize(code, info)
   return data
 }

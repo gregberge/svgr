@@ -135,7 +135,7 @@ describe('cli', () => {
       await Promise.all(
         argPresets.map(async args => {
           const result = await cli(`${args} __fixtures__/simple/file.svg`)
-          expect(result).toMatchSnapshot({}, args)
+          expect(result).toMatchSnapshot(args)
         }),
       )
     },
