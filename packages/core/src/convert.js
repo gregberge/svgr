@@ -9,8 +9,10 @@ async function convert(code, config = {}, state = {}) {
   config = { ...DEFAULT_CONFIG, ...config }
   state = expandState(state)
   let result = code
-  if (typeof result === 'string')
+  if (typeof result === 'string') {
+    // Remove null-byte character (copy/paste from Illustrator)
     result = result.split('\0').join('')
+  }
   result = await svgo(result, config, state)
   result = await h2x(result, config, state)
   result = await transform(result, config, state)
