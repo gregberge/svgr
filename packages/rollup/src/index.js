@@ -8,6 +8,7 @@ function svgrPlugin(options = {}) {
   const { babel = true } = options
 
   return {
+    name: 'svgr',
     async transform(data, id) {
       if (!filter(id)) return null
       if (id.slice(-4) !== '.svg') return null
@@ -54,9 +55,13 @@ function svgrPlugin(options = {}) {
           )
         })
 
-      const code = babel ? await pBabelTransform(jsCode) : jsCode
+      if (babel)  {
+        const code = await pBabelTransform(jsCode);
 
-      return { ast, code, map: { mappings: '' } }
+        return { code, map: { mappings: '' } }
+      }
+
+      return { ast, code: jsCode, map: { mappings: '' } }
     },
   }
 }
