@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/smooth-code/svgr/master/resources/svgr-logo.png" alt="svgr" title="svgr" width="300">
 </h1>
-<p align="center" style="font-size: 1.2rem;">Tranform SVG into React components 🦁</p>
+<p align="center" style="font-size: 1.2rem;">Transform SVGs into React components 🦁</p>
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
