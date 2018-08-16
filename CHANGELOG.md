@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/smooth-code/svgr/compare/v2.2.0...v2.2.1) (2018-08-16)
+
+
+### Bug Fixes
+
+* **rollup:** fix to work with rollup-plugin-typescript2 ([#147](https://github.com/smooth-code/svgr/issues/147)) ([4b3737e](https://github.com/smooth-code/svgr/commit/4b3737e))
+
+
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/smooth-code/svgr/compare/v2.1.1...v2.2.0) (2018-08-13)
 
