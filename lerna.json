@@ -5,10 +5,5 @@
   ],
   "version": "2.2.0",
   "npmClient": "yarn",
-  "useWorkspaces": true,
-  "command": {
-    "publish": {
-      "npmClient": "npm"
-    }
-  }
+  "useWorkspaces": true
 }
