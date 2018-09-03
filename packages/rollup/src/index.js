@@ -43,10 +43,7 @@ function svgrPlugin(options = {}) {
                 '@babel/preset-react',
                 ['@babel/preset-env', { modules: false }],
               ],
-              plugins: [
-                '@babel/plugin-transform-react-constant-elements',
-                '@babel/plugin-proposal-object-rest-spread',
-              ],
+              plugins: ['@babel/plugin-transform-react-constant-elements'],
             },
             (err, result) => {
               if (err) reject(err)
@@ -55,8 +52,8 @@ function svgrPlugin(options = {}) {
           )
         })
 
-      if (babel)  {
-        const code = await pBabelTransform(jsCode);
+      if (babel) {
+        const code = await pBabelTransform(jsCode)
 
         return { code, map: { mappings: '' } }
       }
