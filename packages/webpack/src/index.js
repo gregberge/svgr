@@ -29,10 +29,7 @@ function svgrLoader(source) {
             '@babel/preset-react',
             ['@babel/preset-env', { modules: false }],
           ],
-          plugins: [
-            '@babel/plugin-transform-react-constant-elements',
-            '@babel/plugin-proposal-object-rest-spread',
-          ],
+          plugins: ['@babel/plugin-transform-react-constant-elements'],
         },
         (err, result) => {
           if (err) reject(err)
