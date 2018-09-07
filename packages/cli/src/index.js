@@ -55,6 +55,11 @@ program
     parseObject,
   )
   .option(
+    '--svg-props <property=value>',
+    'add some dynamic props to the svg',
+    parseObject,
+  )
+  .option(
     '--replace-attr-values <old=new>',
     'replace an attribute value',
     parseObject,

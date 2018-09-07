@@ -11,6 +11,7 @@ export const DEFAULT_CONFIG = {
   ref: false,
   replaceAttrValues: null,
   svgAttributes: null,
+  svgProps: null,
   svgo: true,
   svgoConfig: null,
   template: null,

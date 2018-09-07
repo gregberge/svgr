@@ -292,6 +292,20 @@ export default File
 "
 `;
 
+exports[`cli should support various args: --svg-props "hidden=true" 1`] = `
+"import React from 'react'
+
+const File = props => (
+  <svg hidden={true} width={48} height={1} {...props}>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default File
+
+"
+`;
+
 exports[`cli should support various args: --title-prop 1`] = `
 "import React from 'react'
 

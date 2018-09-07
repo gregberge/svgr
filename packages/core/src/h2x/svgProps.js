@@ -16,20 +16,22 @@ const areAttrsAlreadyInjected = (node, attributes = {}) => {
   }, true)
 }
 
-const svgAttributes = (attributes = {}) => () => {
-  const keys = Object.keys(attributes)
+const svgProps = (props = {}) => () => {
+  const keys = Object.keys(props)
 
   return {
     visitor: {
       JSXElement: {
         enter(path) {
           if (path.node.name !== 'svg') return
-          if (areAttrsAlreadyInjected(path.node, attributes)) return
+          if (areAttrsAlreadyInjected(path.node, props)) return
 
           const parseAttributes = keys.reduce((accumulation, key) => {
             const prop = new JSXAttribute()
             prop.name = key
-            prop.value = attributes[key]
+            prop.value = props[key]
+            // TODO change after https://github.com/smooth-code/h2x/pull/13
+            prop.litteral = true
             return [...accumulation, prop]
           }, [])
 
@@ -50,4 +52,4 @@ const svgAttributes = (attributes = {}) => () => {
   }
 }
 
-export default svgAttributes
+export default svgProps
