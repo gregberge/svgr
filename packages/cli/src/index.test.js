@@ -127,6 +127,7 @@ describe('cli', () => {
     ['--ref'],
     ['--replace-attr-values "#063855=currentColor"'],
     ['--svg-attributes "focusable=false"'],
+    ['--svg-props "hidden=true"'],
     ['--no-svgo'],
     ['--no-prettier'],
     ['--title-prop'],
