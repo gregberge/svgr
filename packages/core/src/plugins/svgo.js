@@ -1,6 +1,6 @@
 import SVGO from 'svgo'
 import cosmiconfig from 'cosmiconfig'
-import mergeConfigs from './mergeConfigs'
+import mergeDeep from 'merge-deep'
 
 const explorer = cosmiconfig('svgo', {
   searchPlaces: [
@@ -26,7 +26,7 @@ export default async (code, config = {}, state = {}) => {
   const filePath = state.filePath || process.cwd()
   const svgoRcConfig = await explorer.search(filePath)
   const svgo = new SVGO(
-    mergeConfigs(getBaseSvgoConfig(config), svgoRcConfig, config.svgoConfig),
+    mergeDeep(getBaseSvgoConfig(config), svgoRcConfig, config.svgoConfig),
   )
   const info = state.filePath
     ? { input: 'file', path: state.filePath }

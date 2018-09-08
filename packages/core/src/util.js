@@ -1,11 +1,11 @@
 import path from 'path'
-import { upperFirst, camelCase } from 'lodash'
-
-export const pascalCase = str => upperFirst(camelCase(str))
+import camelcase from 'camelcase'
 
 export function getComponentName(state) {
   if (!state.filePath) return 'SvgComponent'
-  const componentName = pascalCase(path.parse(state.filePath).name)
+  const componentName = camelcase(path.parse(state.filePath).name, {
+    pascalCase: true,
+  })
   if (Number.isNaN(parseInt(componentName[0], 10))) return componentName
   return `Svg${componentName}`
 }

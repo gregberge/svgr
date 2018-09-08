@@ -2,9 +2,8 @@
 import path from 'path'
 import outputFileSync from 'output-file-sync'
 import readdir from 'recursive-readdir'
-import { pascalCase } from '@svgr/core'
-import camelCase from 'lodash/camelCase'
-import kebabCase from 'lodash/kebabCase'
+import camelcase from 'camelcase'
+import dashify from 'dashify'
 import { stat, convertFile } from './util'
 
 const CASE = {
@@ -16,11 +15,11 @@ const CASE = {
 function transformFilename(filename, filenameCase) {
   switch (filenameCase) {
     case CASE.KEBAB:
-      return kebabCase(filename)
+      return dashify(filename, { condense: true })
     case CASE.CAMEL:
-      return camelCase(filename)
+      return camelcase(filename)
     case CASE.PASCAL:
-      return pascalCase(filename)
+      return camelcase(filename, { pascalCase: true })
     default:
       throw new Error(`Unknown --filename-case ${filenameCase}`)
   }
@@ -55,7 +54,7 @@ async function dirCommand(
     const code = await convertFile(src, options, { filePath: dest })
 
     outputFileSync(dest, code)
-    console.log(`${src} -> ${dest}`)
+    console.info(`${src} -> ${dest}`)
     return true
   }
 
