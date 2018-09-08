@@ -58,6 +58,48 @@ export default File
 "
 `;
 
+exports[`cli should support custom file extension 1`] = `
+Array [
+  "File.ts",
+]
+`;
+
+exports[`cli should support different filename cases with directory output 1`] = `
+Array [
+  "CamelCase.js",
+  "KebabCase.js",
+  "MultipleDashes.js",
+  "PascalCase.js",
+]
+`;
+
+exports[`cli should support different filename cases with directory output: --filename-case=camel 1`] = `
+Array [
+  "camelCase.js",
+  "kebabCase.js",
+  "multipleDashes.js",
+  "pascalCase.js",
+]
+`;
+
+exports[`cli should support different filename cases with directory output: --filename-case=kebab 1`] = `
+Array [
+  "camel-case.js",
+  "kebab-case.js",
+  "multiple-dashes.js",
+  "pascal-case.js",
+]
+`;
+
+exports[`cli should support different filename cases with directory output: --filename-case=pascal 1`] = `
+Array [
+  "CamelCase.js",
+  "KebabCase.js",
+  "MultipleDashes.js",
+  "PascalCase.js",
+]
+`;
+
 exports[`cli should support various args: --icon 1`] = `
 "import React from 'react'
 

@@ -1,5 +1,5 @@
 import prettier from 'prettier'
-import merge from 'lodash/merge'
+import mergeDeep from 'merge-deep'
 
 export default async (code, config = {}, state = {}) => {
   if (!config.prettier) return code
@@ -9,6 +9,6 @@ export default async (code, config = {}, state = {}) => {
   })
   return prettier.format(
     code,
-    merge({ parser: 'babylon' }, prettierRcConfig, config.prettierConfig || {}),
+    mergeDeep({ parser: 'babylon' }, prettierRcConfig, config.prettierConfig || {}),
   )
 }

@@ -1,7 +1,10 @@
+import fs from 'fs'
 import path from 'path'
 import childProcess from 'child_process'
 import util from 'util'
+import del from 'del'
 
+const readdir = util.promisify(fs.readdir)
 const exec = util.promisify(childProcess.exec)
 
 const svgr = path.join(__dirname, 'index.js')
@@ -23,7 +26,7 @@ describe('cli', () => {
   )
 
   it(
-    'should not work with a directory',
+    'should not work with a directory without --out-dir option',
     async () => {
       expect.assertions(1)
       try {
@@ -38,7 +41,7 @@ describe('cli', () => {
   )
 
   it(
-    'should not work with several files',
+    'should not work with several files without destination',
     async () => {
       expect.assertions(1)
       try {
@@ -64,7 +67,7 @@ describe('cli', () => {
   it(
     'should transform a whole directory',
     async () => {
-      await cli('--out-dir __fixtures_build__ __fixtures__')
+      await cli('--out-dir __fixtures_build__/whole __fixtures__')
     },
     10000,
   )
@@ -113,32 +116,55 @@ describe('cli', () => {
     10000,
   )
 
-  const argPresets = [
-    '--no-dimensions',
-    '--no-expand-props',
-    '--icon',
-    '--native',
-    '--native --icon',
-    '--native --no-expand-props',
-    '--native --ref',
-    '--ref',
-    '--replace-attr-values "#063855=currentColor"',
-    '--svg-attributes "focusable=false"',
-    '--no-svgo',
-    '--no-prettier',
-    '--title-prop',
-  ]
+  it.each([
+    ['--no-dimensions'],
+    ['--no-expand-props'],
+    ['--icon'],
+    ['--native'],
+    ['--native --icon'],
+    ['--native --no-expand-props'],
+    ['--native --ref'],
+    ['--ref'],
+    ['--replace-attr-values "#063855=currentColor"'],
+    ['--svg-attributes "focusable=false"'],
+    ['--no-svgo'],
+    ['--no-prettier'],
+    ['--title-prop'],
+  ])(
+    'should support various args',
+    async args => {
+      const result = await cli(`${args} __fixtures__/simple/file.svg`)
+      expect(result).toMatchSnapshot(args)
+    },
+    10000,
+  )
+
+  it.each([
+    [0, ''],
+    [1, '--filename-case=camel'],
+    [2, '--filename-case=pascal'],
+    [3, '--filename-case=kebab'],
+  ])(
+    'should support different filename cases with directory output',
+    async (index, args) => {
+      const inDir = '__fixtures__/cased'
+      const outDir = `__fixtures_build__/filename-case-${index}`
+      await del(outDir)
+      await cli(`${args} ${inDir} --out-dir=${outDir}`)
+      expect(await readdir(outDir)).toMatchSnapshot(args)
+    },
+    10000,
+  )
 
   it(
-    'should support various args',
+    'should support custom file extension',
     async () => {
-      await Promise.all(
-        argPresets.map(async args => {
-          const result = await cli(`${args} __fixtures__/simple/file.svg`)
-          expect(result).toMatchSnapshot(args)
-        }),
-      )
+      const inDir = '__fixtures__/simple'
+      const outDir = '__fixtures_build__/ext'
+      await del(outDir)
+      await cli(`--ext=ts ${inDir} --out-dir=${outDir}`)
+      expect(await readdir(outDir)).toMatchSnapshot()
     },
-    30000,
+    10000,
   )
 })

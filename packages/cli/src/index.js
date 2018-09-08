@@ -36,7 +36,7 @@ const parseConfig = name => arg => {
 
 program
   .version(pkg.version)
-  .usage('[options] <file>')
+  .usage('[options] <file|directory>')
   .option('--config <file>', 'specify the path of the svgr config')
   .option('-d, --out-dir <dirname>', 'output files into a directory')
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
