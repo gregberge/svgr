@@ -22,7 +22,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.0.1",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -33,6 +33,6 @@
     "babel-loader": "^8.0.2",
     "memory-fs": "^0.4.1",
     "url-loader": "^1.1.1",
-    "webpack": "^4.17.1"
+    "webpack": "^4.19.0"
   }
 }
