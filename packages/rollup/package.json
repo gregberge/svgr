@@ -22,7 +22,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.0.1",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -30,7 +30,7 @@
     "rollup-pluginutils": "^2.3.1"
   },
   "devDependencies": {
-    "rollup": "^0.65.0",
+    "rollup": "^0.65.2",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-url": "^1.4.0"
   }

@@ -11,7 +11,7 @@ const svgRef = () => () => ({
           const props = new JSXAttribute()
           props.name = 'ref'
           props.value = 'svgRef'
-          props.litteral = true
+          props.literal = true
           path.node.attributes.push(props)
           path.replace(path.node)
         }
