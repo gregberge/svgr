@@ -4,7 +4,7 @@ const makeSizeAttr = name => {
   const attr = new JSXAttribute()
   attr.name = name
   attr.value = '1em'
-  attr.litteral = false
+  attr.literal = false
   return attr
 }
 
