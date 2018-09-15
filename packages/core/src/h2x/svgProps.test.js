@@ -4,7 +4,7 @@ import svgProps from './svgProps'
 
 describe('svgProps', () => {
   it('should add one prop to svg', () => {
-    const props = { focusable: false }
+    const attrs = { focusable: false }
     const result = transform(
       `
       <svg>
@@ -13,14 +13,14 @@ describe('svgProps', () => {
         </g>
       </svg>
     `,
-      { plugins: [jsx, svgProps(props)] },
+      { plugins: [jsx, svgProps(attrs)] },
     )
 
     expect(result).toMatchSnapshot()
   })
 
   it('should add multiple props to svg', () => {
-    const props = {
+    const attrs = {
       focusable: false,
       hidden: 'hidden',
     }
@@ -31,14 +31,14 @@ describe('svgProps', () => {
         </g>
       </svg>
     `,
-      { plugins: [jsx, svgProps(props)] },
+      { plugins: [jsx, svgProps(attrs)] },
     )
 
     expect(result).toMatchSnapshot()
   })
 
   it('should update old prop to the new prop', () => {
-    const props = { focusable: true }
+    const attrs = { focusable: true }
     const result = transform(
       `<svg focusable="false">
         <g stroke="#063855" stroke-width="2">
@@ -46,14 +46,14 @@ describe('svgProps', () => {
         </g>
       </svg>
     `,
-      { plugins: [jsx, svgProps(props)] },
+      { plugins: [jsx, svgProps(attrs)] },
     )
 
     expect(result).toMatchSnapshot()
   })
 
   it('should add a new prop', () => {
-    const props = {
+    const attrs = {
       focusable: true,
       hidden: true,
     }
@@ -64,7 +64,29 @@ describe('svgProps', () => {
         </g>
       </svg>
     `,
-      { plugins: [jsx, svgProps(props)] },
+      { plugins: [jsx, svgProps(attrs)] },
+    )
+
+    expect(result).toMatchSnapshot()
+  })
+
+  it('should interpolate prop with curly brackets', () => {
+    const attrs = {
+      // literal
+      focusable: `{true}`,
+      // variables
+      hidden: `{hidden}`,
+      // expression
+      fill: `{fill == null ? 'currentColor' : fill}`,
+    }
+    const result = transform(
+      `<svg focusable="true" color="#fff">
+        <g stroke="#063855" stroke-width="2">
+          <path d="M51,37 L37,51" id="Shape"></path>
+        </g>
+      </svg>
+    `,
+      { plugins: [jsx, svgProps(attrs)] },
     )
 
     expect(result).toMatchSnapshot()
