@@ -292,7 +292,7 @@ export default File
 "
 `;
 
-exports[`cli should support various args: --svg-props "hidden=true" 1`] = `
+exports[`cli should support various args: --svg-props "hidden={true}" 1`] = `
 "import React from 'react'
 
 const File = props => (
