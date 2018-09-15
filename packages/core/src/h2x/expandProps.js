@@ -1,6 +1,6 @@
 import { JSXAttribute } from 'h2x-plugin-jsx'
 
-const expandProps = () => () => ({
+const expandProps = (place = 'end') => () => ({
   visitor: {
     JSXElement: {
       enter(path) {
@@ -11,7 +11,12 @@ const expandProps = () => () => ({
           const props = new JSXAttribute()
           props.name = 'props'
           props.spread = true
-          path.node.attributes.push(props)
+          if (place === 'start') {
+            path.node.attributes.unshift(props)
+          }
+          if (place === 'end') {
+            path.node.attributes.push(props)
+          }
           path.replace(path.node)
         }
       },

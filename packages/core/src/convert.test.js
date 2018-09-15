@@ -212,6 +212,7 @@ describe('convert', () => {
     const configs = [
       [{ dimensions: false }],
       [{ expandProps: false }],
+      [{ expandProps: 'start' }],
       [{ icon: true }],
       [{ native: true }],
       [{ native: true, icon: true }],
