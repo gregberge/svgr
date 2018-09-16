@@ -24,8 +24,12 @@ const explorer = cosmiconfig('svgr', {
   rcExtensions: true,
 })
 
-export async function resolveConfig(filePath) {
-  const result = await explorer.search(filePath)
+export async function resolveConfig(searchFrom, configFile) {
+  if (configFile == null) {
+    const result = await explorer.search(searchFrom)
+    return result ? result.config : null
+  }
+  const result = await explorer.load(configFile)
   return result ? result.config : null
 }
 

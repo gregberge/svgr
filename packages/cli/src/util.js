@@ -9,7 +9,7 @@ export const stat = util.promisify(fs.stat)
 
 export async function convertFile(filePath, { config, ...options } = {}) {
   const code = await readFile(filePath, 'utf-8')
-  const rcConfig = await resolveConfig(config || filePath)
+  const rcConfig = await resolveConfig(filePath, config)
   return convert(code, { ...rcConfig, ...options }, { filePath })
 }
 
