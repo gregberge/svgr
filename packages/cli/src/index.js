@@ -114,6 +114,19 @@ async function run() {
 
   const config = { ...program }
 
+  if (config.expandProps === true) {
+    delete config.expandProps
+  }
+  if (config.dimensions === true) {
+    delete config.dimensions
+  }
+  if (config.svgo === true) {
+    delete config.svgo
+  }
+  if (config.prettier === true) {
+    delete config.prettier
+  }
+
   if (config.template) {
     try {
       const template = require(path.join(process.cwd(), program.template)) // eslint-disable-line global-require, import/no-dynamic-require

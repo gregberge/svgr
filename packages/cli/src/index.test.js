@@ -168,4 +168,15 @@ describe('cli', () => {
     },
     10000,
   )
+
+  it(
+    'should not override config with cli defaults',
+    async () => {
+      const result = await cli(
+        '__fixtures__/simple/file.svg --config=__fixtures__/overrides.config.js',
+      )
+      expect(result).toMatchSnapshot()
+    },
+    10000,
+  )
 })
