@@ -80,7 +80,7 @@ powerful and configurable HTML transpiler. It uses AST (like
 ## Command line usage
 
 ```
-Usage: svgr [options] <file>
+Usage: svgr [options] <file|directory>
 
 Options:
 
@@ -94,7 +94,8 @@ Options:
   --ref                              add svgRef prop to svg
   --no-dimensions                    remove width and height from root SVG tag
   --no-expand-props                  disable props expanding
-  --svg-attributes <property=value>  add some attributes to the svg
+  --svg-attributes <property=value>  add attributes to the svg element (deprecated)
+  --svg-props <property=value>       add props to the svg element
   --replace-attr-values <old=new>    replace an attribute value
   --template <file>                  specify a custom template to use
   --title-prop                       create a title element linked with props
@@ -104,8 +105,8 @@ Options:
   --no-svgo                          disable SVGO
   -h, --help                         output usage information
 
-Examples:
-  svgr --replace-attr-values "#fff=currentColor" icon.svg
+  Examples:
+    svgr --replace-attr-values "#fff=currentColor" icon.svg
 ```
 
 ### Recipes
@@ -344,13 +345,15 @@ change an icon color to "currentColor" in order to inherit from text color.
 | ------- | --------------------------------- | ------------------------------------ |
 | `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { old: 'new' }>` |
 
-### SVG attributes
+### SVG props
 
-Add attributes to the root SVG tag.
+Add props to the root SVG tag.
 
-| Default | CLI Override                    | API Override                        |
-| ------- | ------------------------------- | ----------------------------------- |
-| `[]`    | `--svg-attributes <name=value>` | `svgAttributes: { name: 'value' }>` |
+| Default | CLI Override               | API Override                   |
+| ------- | -------------------------- | ------------------------------ |
+| `[]`    | `--svg-props <name=value>` | `svgProps: { name: 'value' }>` |
+
+> You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particulary useful with a custom template.
 
 ### Template
 

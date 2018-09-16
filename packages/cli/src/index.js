@@ -3,6 +3,7 @@ import program from 'commander'
 import path from 'path'
 import glob from 'glob'
 import fs from 'fs'
+import chalk from 'chalk'
 import pkg from '../package.json'
 import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
@@ -51,12 +52,12 @@ program
   .option('--no-expand-props', 'disable props expanding')
   .option(
     '--svg-attributes <property=value>',
-    'add some attributes to the svg',
+    'add attributes to the svg element (deprecated)',
     parseObject,
   )
   .option(
     '--svg-props <property=value>',
-    'add some dynamic props to the svg',
+    'add props to the svg element',
     parseObject,
   )
   .option(
@@ -126,6 +127,15 @@ async function run() {
       console.error(error.stack)
       process.exit(2)
     }
+  }
+
+  // TODO remove in v3
+  if (program.outDir && program.svgAttributes) {
+    console.log(
+      chalk.yellow(
+        '--svg-attributes option is deprecated an will be removed in v3, please use --svg-props instead',
+      ),
+    )
   }
 
   const command = program.outDir ? dirCommand : fileCommand

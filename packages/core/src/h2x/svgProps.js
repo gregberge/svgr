@@ -45,8 +45,7 @@ const svgProps = (props = {}) => () => {
             const prop = new JSXAttribute()
             prop.name = key
             prop.value = attributes[key]
-            // TODO change after https://github.com/smooth-code/h2x/pull/13
-            prop.litteral = interpolated.has(key)
+            prop.literal = interpolated.has(key)
             return [...accumulation, prop]
           }, [])
 
