@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.4.1"></a>
+## [2.4.1](https://github.com/smooth-code/svgr/compare/v2.4.0...v2.4.1) (2018-09-16)
+
+
+### Bug Fixes
+
+* **config:** fix custom config & default options ([#176](https://github.com/smooth-code/svgr/issues/176)) ([9a6c40b](https://github.com/smooth-code/svgr/commit/9a6c40b))
+
+
+
+
+
 <a name="2.4.0"></a>
 # [2.4.0](https://github.com/smooth-code/svgr/compare/v2.3.0...v2.4.0) (2018-09-16)
 
