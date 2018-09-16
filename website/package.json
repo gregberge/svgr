@@ -1,0 +1,48 @@
+{
+  "name": "svgr-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@smooth-ui/core-sc": "^5.1.1",
+    "@svgr/core": "^2.4.0",
+    "body-parser": "^1.18.3",
+    "brace": "^0.11.1",
+    "classnames": "^2.2.6",
+    "express": "^4.16.3",
+    "next": "^6.1.2",
+    "polished": "^2.0.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.1",
+    "react-ace": "^6.1.4",
+    "react-dom": "^16.5.1",
+    "react-redux": "^5.0.7",
+    "react-redux-form": "^1.16.10",
+    "redux": "^4.0.0",
+    "smooth-ui": "^4.3.0",
+    "styled-components": "^3.4.6"
+  },
+  "scripts": {
+    "build": "next build",
+    "build:icons": "svgr --icon --out-dir components svg",
+    "lint": "eslint .",
+    "dev": "nodemon --watch server server/index.js",
+    "start": "NODE_ENV=production node server/index.js"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^2.4.0",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-styled-components": "^1.7.1",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "nodemon": "^1.18.4"
+  },
+  "now": {
+    "alias": "svgr"
+  }
+}
