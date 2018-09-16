@@ -5,3 +5,4 @@ package.json
 lerna.json
 lib/
 website/
+.next/

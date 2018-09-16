@@ -27,7 +27,6 @@
     "build:icons": "svgr --icon --out-dir components svg",
     "lint": "eslint .",
     "dev": "nodemon --watch server server/index.js",
-    "format": "prettier --write \"**/*.{js,json,md}\"",
     "start": "NODE_ENV=production node server/index.js"
   },
   "devDependencies": {
