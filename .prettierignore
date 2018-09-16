@@ -1,6 +1,7 @@
-__fixtures_build__
-__fixtures__
+__fixtures_build__/
+__fixtures__/
 CHANGELOG.md
 package.json
 lerna.json
 lib/
+website/

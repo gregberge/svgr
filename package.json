@@ -7,7 +7,7 @@
     "build": "lerna run build",
     "ci": "yarn build && yarn lint && yarn test --ci --coverage && codecov",
     "dev": "lerna run build --parallel -- --watch",
-    "format": "prettier --write \"packages/**/*.{js,json,md}\" \"*.{js,json,md}\"",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
     "lint": "eslint .",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest --runInBand"

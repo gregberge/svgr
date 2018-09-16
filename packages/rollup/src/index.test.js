@@ -10,8 +10,11 @@ const compile = (plugins = [svgr()]) =>
   })
 
 const getCode = bundler =>
-  bundler.modules.find(({ id }) => id.includes('__fixtures__/simple/file.svg') || id.includes('__fixtures__\\simple\\file.svg'))
-    .code
+  bundler.modules.find(
+    ({ id }) =>
+      id.includes('__fixtures__/simple/file.svg') ||
+      id.includes('__fixtures__\\simple\\file.svg'),
+  ).code
 
 describe('rollup loader', () => {
   it('should convert file', async () => {

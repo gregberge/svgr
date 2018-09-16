@@ -9,6 +9,10 @@ export default async (code, config = {}, state = {}) => {
   })
   return prettier.format(
     code,
-    mergeDeep({ parser: 'babylon' }, prettierRcConfig, config.prettierConfig || {}),
+    mergeDeep(
+      { parser: 'babylon' },
+      prettierRcConfig,
+      config.prettierConfig || {},
+    ),
   )
 }
