@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/smooth-code/svgr/compare/v2.3.0...v2.4.0) (2018-09-16)
+
+
+### Bug Fixes
+
+* use literal instead of litteral ([7849fd4](https://github.com/smooth-code/svgr/commit/7849fd4))
+
+
+### Features
+
+* allow to spread props at the start ([#166](https://github.com/smooth-code/svgr/issues/166)) ([cd659dc](https://github.com/smooth-code/svgr/commit/cd659dc))
+* **upgrade:** h2x@1.1.0 (jsdom@12.0.0) & others ([2d9b7bd](https://github.com/smooth-code/svgr/commit/2d9b7bd))
+* new option "svgProps" ([#172](https://github.com/smooth-code/svgr/issues/172)) ([9657110](https://github.com/smooth-code/svgr/commit/9657110))
+
+
+
+
+
 <a name="2.3.0"></a>
 # [2.3.0](https://github.com/smooth-code/svgr/compare/v2.2.1...v2.3.0) (2018-09-03)
 
