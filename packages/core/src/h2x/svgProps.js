@@ -16,8 +16,23 @@ const areAttrsAlreadyInjected = (node, attributes = {}) => {
   }, true)
 }
 
-const svgAttributes = (attributes = {}) => () => {
-  const keys = Object.keys(attributes)
+const svgProps = (props = {}) => () => {
+  const interpolated = new Set()
+  const keys = Object.keys(props)
+  const attributes = keys.reduce((acc, prop) => {
+    const value = props[prop]
+    if (
+      typeof value === 'string' &&
+      value.startsWith('{') &&
+      value.endsWith('}')
+    ) {
+      acc[prop] = value.slice(1, -1)
+      interpolated.add(prop)
+    } else {
+      acc[prop] = value
+    }
+    return acc
+  }, {})
 
   return {
     visitor: {
@@ -30,6 +45,7 @@ const svgAttributes = (attributes = {}) => () => {
             const prop = new JSXAttribute()
             prop.name = key
             prop.value = attributes[key]
+            prop.literal = interpolated.has(key)
             return [...accumulation, prop]
           }, [])
 
@@ -50,4 +66,4 @@ const svgAttributes = (attributes = {}) => () => {
   }
 }
 
-export default svgAttributes
+export default svgProps
