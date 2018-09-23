@@ -3,13 +3,18 @@
 </h1>
 <p align="center" style="font-size: 1.2rem;">Transform SVGs into React components 🦁</p>
 
-[![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package] [![MIT License][license-badge]][license]
+[![License](https://img.shields.io/npm/l/@svgr/core.svg)](https://github.com/smooth-code/svgr/blob/master/LICENSE)
+[![npm package](https://img.shields.io/npm/v/@svgr/core/latest.svg)](https://www.npmjs.com/package/@svgr/core)
+[![npm downloads](https://img.shields.io/npm/dm/@svgr/core.svg)](https://www.npmjs.com/package/@svgr/core)
+[![Build Status](https://img.shields.io/travis/smooth-code/svgr.svg)](https://travis-ci.org/smooth-code/svgr)
+[![Code Coverage](https://img.shields.io/codecov/c/github/smooth-code/svgr.svg)](https://codecov.io/github/smooth-code/svgr)
+![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+[![Dependencies](https://img.shields.io/david/smooth-code/svgr.svg?path=packages%2Fcore)](https://david-dm.org/smooth-code/svgr?path=packages/core)
+[![DevDependencies](https://img.shields.io/david/dev/smooth-code/svgr.svg)](https://david-dm.org/smooth-code/svgr?type=dev)
 
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
-[![Tweet][twitter-badge]][twitter]
+<a href="https://opencollective.com/svgr/donate" target="_blank">
+  <img src="https://opencollective.com/svgr/donate/button@2x.png?color=blue" width="200" />
+</a>
 
 [**Try it out online!**](https://svgr.now.sh)
 
@@ -76,6 +81,11 @@ There are a lot of similar projects, but I wanted something more solid and
 configurable. SVGR is based on [h2x](https://github.com/smooth-code/h2x), a
 powerful and configurable HTML transpiler. It uses AST (like
 [Babel](https://github.com/babel/babel/)) that gives a lot of power.
+
+## Supporting SVGR
+
+SVGR is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:
+- [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr).
 
 ## Command line usage
 
@@ -375,20 +385,3 @@ Output files into a directory.
 # License
 
 MIT
-
-[build-badge]: https://img.shields.io/travis/smooth-code/svgr.svg?style=flat-square
-[build]: https://travis-ci.org/smooth-code/svgr
-[coverage-badge]: https://img.shields.io/codecov/c/github/smooth-code/svgr.svg?style=flat-square
-[coverage]: https://codecov.io/github/smooth-code/svgr
-[version-badge]: https://img.shields.io/npm/v/svgr.svg?style=flat-square
-[package]: https://www.npmjs.com/package/svgr
-[license-badge]: https://img.shields.io/npm/l/svgr.svg?style=flat-square
-[license]: https://github.com/smooth-code/svgr/blob/master/LICENSE
-[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[prs]: http://makeapullrequest.com
-[github-watch-badge]: https://img.shields.io/github/watchers/smooth-code/svgr.svg?style=social
-[github-watch]: https://github.com/smooth-code/svgr/watchers
-[github-star-badge]: https://img.shields.io/github/stars/smooth-code/svgr.svg?style=social
-[github-star]: https://github.com/smooth-code/svgr/stargazers
-[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20svgr!%20https://github.com/smooth-code/svgr%20%F0%9F%91%8D
-[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/smooth-code/svgr.svg?style=social
