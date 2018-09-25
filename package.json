@@ -12,7 +12,8 @@
     "now-build": "cd website && npm install && npm run build",
     "now-start": "cd website && npm start",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "postinstall": "opencollective-postinstall"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -33,5 +34,13 @@
     "jest": "^23.6.0",
     "lerna": "^3.4.0",
     "react": "^16.5.1"
+  },
+  "dependencies": {
+    "opencollective-postinstall": "^2.0.0",
+    "opencollective": "^1.0.3"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/svgr"
   }
 }
