@@ -11,6 +11,7 @@
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 [![Dependencies](https://img.shields.io/david/smooth-code/svgr.svg?path=packages%2Fcore)](https://david-dm.org/smooth-code/svgr?path=packages/core)
 [![DevDependencies](https://img.shields.io/david/dev/smooth-code/svgr.svg)](https://david-dm.org/smooth-code/svgr?type=dev)
+[![Backers on Open Collective](https://opencollective.com/svgr/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/svgr/sponsors/badge.svg)](#sponsors) 
 
 <a href="https://opencollective.com/svgr/donate" target="_blank">
   <img src="https://opencollective.com/svgr/donate/button@2x.png?color=blue" width="200" />
@@ -381,6 +382,36 @@ Output files into a directory.
 | Default     | CLI Override          | API Override        |
 | ----------- | --------------------- | ------------------- |
 | `undefined` | `--out-dir <dirname>` | `outDir: <dirname>` |
+
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/undefined/undefinedgraphs/contributors"><img src="https://opencollective.com/svgr/contributors.svg?width=890&button=false" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/svgr#backer)]
+
+<a href="https://opencollective.com/svgr#backers" target="_blank"><img src="https://opencollective.com/svgr/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/svgr#sponsor)]
+
+<a href="https://opencollective.com/svgr/sponsor/0/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/1/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/2/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/3/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/4/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/5/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/6/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/7/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/8/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/svgr/sponsor/9/website" target="_blank"><img src="https://opencollective.com/svgr/sponsor/9/avatar.svg"></a>
+
+
 
 # License
 
