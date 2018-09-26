@@ -10,20 +10,20 @@ SVGR is an MIT-licensed open source project. Even if it has been created at Smoo
 
 Gold Sponsors are those who have pledged $200/month and more to SVGR.
 
-![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=120&width=600)
+[![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=120&width=600)](https://opencollective.com/svgr/donate)
 
 ## Silver Sponsors
 
 Silver Sponsors are those who have pledged $100/month to $200/month to SVGR.
 
-![silver-sponsors](https://opencollective.com/svgr/tiers/silver-sponsors.svg?avatarHeight=120&width=600)
+[![silver-sponsors](https://opencollective.com/svgr/tiers/silver-sponsors.svg?avatarHeight=120&width=600)](https://opencollective.com/svgr/donate)
 
 ## Bronze Sponsors
 
 Bronze Sponsors are those who have pledged $50/month to $100/month to SVGR.
 
-![bronze-sponsors](https://opencollective.com/svgr/tiers/bronze-sponsors.svg?avatarHeight=80&width=600)
+[![bronze-sponsors](https://opencollective.com/svgr/tiers/bronze-sponsors.svg?avatarHeight=80&width=600)](https://opencollective.com/svgr/donate)
 
 ## Backers
 
-![backers](https://opencollective.com/svgr/tiers/backer.svg?avatarHeight=50&width=600)
+[![backers](https://opencollective.com/svgr/tiers/backer.svg?avatarHeight=50&width=600)](https://opencollective.com/svgr/donate)

@@ -30,7 +30,7 @@ SVGR is an MIT-licensed open source project. It's an independent project with on
 
 Gold Sponsors are those who have pledged $200/month and more to SVGR.
 
-![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=120&width=600)
+[![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=120&width=600)](https://opencollective.com/svgr/donate)
 
 ## Example
 
