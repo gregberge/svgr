@@ -71,6 +71,17 @@ const SvgComponent = props => (
 export default SvgComponent
 ```
 
+## Supporting SVGR
+
+SVGR is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:
+- [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr).
+
+### Gold Sponsors
+
+Gold Sponsors are those who have pledged $200/month and more to SVGR.
+
+![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=80&width=600)
+
 ## Motivation
 
 React supports SVG out of the box, it's simpler, easier and much more powerful
@@ -81,11 +92,6 @@ There are a lot of similar projects, but I wanted something more solid and
 configurable. SVGR is based on [h2x](https://github.com/smooth-code/h2x), a
 powerful and configurable HTML transpiler. It uses AST (like
 [Babel](https://github.com/babel/babel/)) that gives a lot of power.
-
-## Supporting SVGR
-
-SVGR is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:
-- [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr).
 
 ## Command line usage
 
