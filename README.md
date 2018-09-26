@@ -24,6 +24,17 @@
 npm install @svgr/cli
 ```
 
+## Supporting SVGR
+
+SVGR is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:
+- [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr).
+
+### Gold Sponsors
+
+Gold Sponsors are those who have pledged $200/month and more to SVGR.
+
+![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=120&width=600)
+
 ## Example
 
 **Take an icon.svg**:
@@ -70,17 +81,6 @@ const SvgComponent = props => (
 
 export default SvgComponent
 ```
-
-## Supporting SVGR
-
-SVGR is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:
-- [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr).
-
-### Gold Sponsors
-
-Gold Sponsors are those who have pledged $200/month and more to SVGR.
-
-![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=80&width=600)
 
 ## Motivation
 
