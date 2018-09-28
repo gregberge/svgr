@@ -18,7 +18,7 @@
 [**Watch the talk at React Europe**](https://www.youtube.com/watch?v=geKCzi7ZPkA)
 
 ```sh
-npm install @svgr/cli
+npx @svgr/cli
 ```
 
 ## Supporting SVGR
@@ -62,7 +62,7 @@ Gold Sponsors are those who have pledged $200/month and more to SVGR.
 **Run SVGR**
 
 ```sh
-svgr --icon --replace-attr-values "#063855=currentColor" icon.svg
+npx @svgr/cli --icon --replace-attr-values "#063855=currentColor" icon.svg
 ```
 
 **Output**
@@ -93,7 +93,7 @@ powerful and configurable HTML transpiler. It uses AST (like
 ## Command line usage
 
 ```
-Usage: svgr [options] <file|directory>
+Usage: npx @svgr/cli [options] <file|directory>
 
 Options:
 
@@ -130,8 +130,8 @@ A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
 are transformed into React components.
 
 ```sh
-# Usage: svgr [-d out-dir] [src-dir]
-$ svgr -d icons icons
+# Usage: npx @svgr/cli [-d out-dir] [src-dir]
+$ npx @svgr/cli -d icons icons
 icons/web/clock-icon.svg -> icons/web/ClockIcon.js
 icons/web/wifi-icon.svg -> icons/web/WifiIcon.js
 icons/spinner/cog-icon.svg -> icons/spinner/CogIcon.js
@@ -141,13 +141,13 @@ icons/spinner/spinner-icon.svg -> icons/spinner/SpinnerIcon.js
 #### Use stdin
 
 ```
-$ svgr < icons/web/wifi-icon.svg
+$ npx @svgr/cli < icons/web/wifi-icon.svg
 ```
 
 #### Use stdin / stdout
 
 ```
-$ svgr < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
+$ npx @svgr/cli < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 ```
 
 #### Transform icons
@@ -159,7 +159,7 @@ To create icons, two options are important:
   "currentColor" and SVG inherits text color
 
 ```
-$ svgr --icon --replace-attr-values "#000000=currentColor" my-icon.svg
+$ npx @svgr/cli --icon --replace-attr-values "#000000=currentColor" my-icon.svg
 ```
 
 #### Target React Native
@@ -167,7 +167,7 @@ $ svgr --icon --replace-attr-values "#000000=currentColor" my-icon.svg
 It is possible to target React Native using [react-native-svg](https://github.com/react-native-community/react-native-svg).
 
 ```
-$ svgr --native my-icon.svg
+$ npx @svgr/cli --native my-icon.svg
 ```
 
 #### Use a specific template
@@ -175,7 +175,7 @@ $ svgr --native my-icon.svg
 You can use a specific template.
 
 ```
-$ svgr --template path/to/template.js my-icon.svg
+$ npx @svgr/cli --template path/to/template.js my-icon.svg
 ```
 
 You can find template examples in [templates folder](https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates).
