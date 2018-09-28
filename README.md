@@ -209,7 +209,7 @@ svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
 
 ### SVGR
 
-SVGR uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) for configuration file support. This means you can configure prettier via:
+SVGR uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) for configuration file support. This means you can configure SVGR via:
 
 - A `.svgrrc` file, written in YAML or JSON, with optional extensions: .yaml/.yml/.json/.js.
 - A `svgr.config.js` file that exports an object.
