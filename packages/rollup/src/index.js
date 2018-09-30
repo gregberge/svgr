@@ -30,6 +30,7 @@ function svgrPlugin(options = {}) {
       }
 
       const jsCode = await convert(load, options, {
+        filePath: id,
         rollup: { previousExport },
       })
 
