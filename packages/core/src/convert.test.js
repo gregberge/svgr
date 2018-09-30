@@ -220,7 +220,6 @@ describe('convert', () => {
       [{ native: true, ref: true }],
       [{ ref: true }],
       [{ replaceAttrValues: { none: 'black' } }],
-      [{ svgAttributes: { focusable: false } }],
       [{ svgo: false }],
       [{ prettier: false }],
       [{ template: () => 'nothing' }],
@@ -230,14 +229,6 @@ describe('convert', () => {
     test.each(configs)('should support options %o', async config => {
       const result = await convert(svgBaseCode, config)
       expect(result).toMatchSnapshot()
-    })
-
-    it('svgAttribute', async () => {
-      const svg = `<svg><path d="M0 0h24v24H0z" fill="none" /></svg>`
-
-      expect(
-        await convert(svg, { svgAttribute: { focusable: false } }),
-      ).toMatchSnapshot()
     })
 
     it('titleProp', async () => {

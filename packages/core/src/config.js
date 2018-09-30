@@ -10,7 +10,6 @@ export const DEFAULT_CONFIG = {
   prettierConfig: null,
   ref: false,
   replaceAttrValues: null,
-  svgAttributes: null,
   svgProps: null,
   svgo: true,
   svgoConfig: null,

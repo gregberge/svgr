@@ -7,7 +7,6 @@ import {
   removeDimensions,
   replaceAttrValues,
   stripAttribute,
-  svgAttributes,
   svgProps,
   svgRef,
   titleProp,
@@ -21,7 +20,6 @@ function configToPlugins(config) {
   if (!config.dimensions) plugins.push(removeDimensions())
   if (config.icon) plugins.push(emSize())
   if (config.ref) plugins.push(svgRef())
-  if (config.svgAttributes) plugins.push(svgAttributes(config.svgAttributes))
   if (config.svgProps) plugins.push(svgProps(config.svgProps))
   // TODO remove boolean value in the next major release
   if (config.expandProps)

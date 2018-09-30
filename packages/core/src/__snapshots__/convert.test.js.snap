@@ -227,27 +227,6 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { svgAttributes: { focusable: false } } 1`] = `
-"import React from 'react'
-
-const SvgComponent = props => (
-  <svg focusable=\\"false\\" width={88} height={88} {...props}>
-    <g
-      stroke=\\"#063855\\"
-      strokeWidth={2}
-      fill=\\"none\\"
-      fillRule=\\"evenodd\\"
-      strokeLinecap=\\"square\\"
-    >
-      <path d=\\"M51 37L37 51M51 51L37 37\\" />
-    </g>
-  </svg>
-)
-
-export default SvgComponent
-"
-`;
-
 exports[`convert config should support options { svgo: false } 1`] = `
 "import React from 'react'
 
@@ -303,19 +282,6 @@ const SvgComponent = ({ title, ...props }) => (
     >
       <path d=\\"M51 37L37 51M51 51L37 37\\" />
     </g>
-  </svg>
-)
-
-export default SvgComponent
-"
-`;
-
-exports[`convert config svgAttribute 1`] = `
-"import React from 'react'
-
-const SvgComponent = props => (
-  <svg {...props}>
-    <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
   </svg>
 )
 

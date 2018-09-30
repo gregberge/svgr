@@ -55,11 +55,6 @@ program
   .option('--no-dimensions', 'remove width and height from root SVG tag')
   .option('--no-expand-props', 'disable props expanding')
   .option(
-    '--svg-attributes <property=value>',
-    'add attributes to the svg element (deprecated)',
-    parseObject,
-  )
-  .option(
     '--svg-props <property=value>',
     'add props to the svg element',
     parseObject,
@@ -144,15 +139,6 @@ async function run() {
       console.error(error.stack)
       process.exit(2)
     }
-  }
-
-  // TODO remove in v3
-  if (program.outDir && program.svgAttributes) {
-    console.log(
-      chalk.yellow(
-        '--svg-attributes option is deprecated an will be removed in v3, please use --svg-props instead',
-      ),
-    )
   }
 
   const command = program.outDir ? dirCommand : fileCommand

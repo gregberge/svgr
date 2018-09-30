@@ -28,7 +28,6 @@ Options:
   --ref                              forward ref to SVG root element
   --no-dimensions                    remove width and height from root SVG tag
   --no-expand-props                  disable props expanding
-  --svg-attributes <property=value>  add attributes to the svg element (deprecated)
   --svg-props <property=value>       add props to the svg element
   --replace-attr-values <old=new>    replace an attribute value
   --template <file>                  specify a custom template to use
