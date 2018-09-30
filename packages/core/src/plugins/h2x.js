@@ -5,7 +5,6 @@ import {
   expandProps,
   removeComments,
   removeDimensions,
-  removeStyle,
   replaceAttrValues,
   stripAttribute,
   svgAttributes,
@@ -16,12 +15,7 @@ import {
 } from '..'
 
 function configToPlugins(config) {
-  const plugins = [
-    jsx,
-    stripAttribute('xmlns'),
-    removeComments(),
-    removeStyle(),
-  ]
+  const plugins = [jsx, stripAttribute('xmlns'), removeComments()]
   if (config.replaceAttrValues)
     plugins.push(replaceAttrValues(config.replaceAttrValues))
   if (!config.dimensions) plugins.push(removeDimensions())

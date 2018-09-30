@@ -428,6 +428,7 @@ const SvgComponent = props => (
         <path d=\\"M51 37L37 51\\" id=\\"Shape\\" />
         <path d=\\"M51 51L37 37\\" />
       </g>
+      <style />
     </g>
   </svg>
 )
