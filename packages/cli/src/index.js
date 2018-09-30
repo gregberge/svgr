@@ -40,19 +40,22 @@ program
   .option('--config-file <file>', 'specify the path of the svgr config')
   .option(
     '--no-runtime-config',
-    'disable runtime config (.svgrrc, .svgo.yml, .prettierrc)',
+    'disable runtime config (".svgrrc", ".svgo.yml", ".prettierrc")',
   )
   .option('-d, --out-dir <dirname>', 'output files into a directory')
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
   .option(
     '--filename-case <case>',
-    'specify filename case (pascal, kebab, camel) (default: "pascal")',
+    'specify filename case ("pascal", "kebab", "camel") (default: "pascal")',
   )
   .option('--icon', 'use "1em" as width and height')
   .option('--native', 'add react-native support with react-native-svg')
   .option('--ref', 'forward ref to SVG root element')
   .option('--no-dimensions', 'remove width and height from root SVG tag')
-  .option('--no-expand-props', 'disable props expanding')
+  .option(
+    '--expand-props [position]',
+    'disable props expanding ("start", "end", "none") (default: "end")',
+  )
   .option(
     '--svg-props <property=value>',
     'add props to the svg element',
@@ -112,15 +115,18 @@ async function run() {
 
   const config = { ...program }
 
-  if (config.expandProps === true) {
-    delete config.expandProps
+  if (config.expandProps === 'none') {
+    config.expandProps = false
   }
+
   if (config.dimensions === true) {
     delete config.dimensions
   }
+
   if (config.svgo === true) {
     delete config.svgo
   }
+
   if (config.prettier === true) {
     delete config.prettier
   }

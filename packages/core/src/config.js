@@ -3,7 +3,7 @@ import cosmiconfig from 'cosmiconfig'
 export const DEFAULT_CONFIG = {
   h2xConfig: null,
   dimensions: true,
-  expandProps: true,
+  expandProps: 'end',
   icon: false,
   native: false,
   prettier: true,

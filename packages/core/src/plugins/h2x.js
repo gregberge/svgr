@@ -21,11 +21,7 @@ function configToPlugins(config) {
   if (config.icon) plugins.push(emSize())
   if (config.ref) plugins.push(svgRef())
   if (config.svgProps) plugins.push(svgProps(config.svgProps))
-  // TODO remove boolean value in the next major release
-  if (config.expandProps)
-    plugins.push(
-      expandProps(config.expandProps === true ? 'end' : config.expandProps),
-    )
+  if (config.expandProps) plugins.push(expandProps(config.expandProps))
   if (config.native) plugins.push(toReactNative())
   if (config.titleProp) plugins.push(titleProp())
   return plugins

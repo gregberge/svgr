@@ -118,11 +118,12 @@ describe('cli', () => {
 
   it.each([
     ['--no-dimensions'],
-    ['--no-expand-props'],
+    ['--expand-props none'],
+    ['--expand-props start'],
     ['--icon'],
     ['--native'],
     ['--native --icon'],
-    ['--native --no-expand-props'],
+    ['--native --expand-props none'],
     ['--native --ref'],
     ['--ref'],
     ['--replace-attr-values "#063855=currentColor"'],

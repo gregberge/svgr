@@ -131,6 +131,34 @@ Array [
 ]
 `;
 
+exports[`cli should support various args: --expand-props none 1`] = `
+"import React from 'react'
+
+const SvgFile = () => (
+  <svg width={48} height={1}>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default SvgFile
+
+"
+`;
+
+exports[`cli should support various args: --expand-props start 1`] = `
+"import React from 'react'
+
+const SvgFile = props => (
+  <svg {...props} width={48} height={1}>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default SvgFile
+
+"
+`;
+
 exports[`cli should support various args: --icon 1`] = `
 "import React from 'react'
 
@@ -145,11 +173,11 @@ export default SvgFile
 "
 `;
 
-exports[`cli should support various args: --native --icon 1`] = `
+exports[`cli should support various args: --native --expand-props none 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
-const SvgFile = props => (
-  <Svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
+const SvgFile = () => (
+  <Svg width={48} height={1}>
     <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </Svg>
 )
@@ -159,11 +187,11 @@ export default SvgFile
 "
 `;
 
-exports[`cli should support various args: --native --no-expand-props 1`] = `
+exports[`cli should support various args: --native --icon 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
-const SvgFile = () => (
-  <Svg width={48} height={1}>
+const SvgFile = props => (
+  <Svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
     <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </Svg>
 )
@@ -206,20 +234,6 @@ exports[`cli should support various args: --no-dimensions 1`] = `
 
 const SvgFile = props => (
   <svg {...props}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
-
-export default SvgFile
-
-"
-`;
-
-exports[`cli should support various args: --no-expand-props 1`] = `
-"import React from 'react'
-
-const SvgFile = () => (
-  <svg width={48} height={1}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )

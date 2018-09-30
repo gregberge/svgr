@@ -40,7 +40,7 @@ describe('config', () => {
       expect(config).toMatchInlineSnapshot(`
 Object {
   "dimensions": false,
-  "expandProps": true,
+  "expandProps": "end",
   "h2xConfig": null,
   "icon": false,
   "native": false,
@@ -66,7 +66,7 @@ Object {
       expect(config).toMatchInlineSnapshot(`
 Object {
   "dimensions": true,
-  "expandProps": true,
+  "expandProps": "end",
   "h2xConfig": null,
   "icon": true,
   "native": false,
@@ -98,7 +98,7 @@ Object {
       expect(config).toMatchInlineSnapshot(`
 Object {
   "dimensions": true,
-  "expandProps": true,
+  "expandProps": "end",
   "h2xConfig": null,
   "icon": true,
   "native": false,
@@ -131,7 +131,7 @@ Object {
       expect(config).toMatchInlineSnapshot(`
 Object {
   "dimensions": true,
-  "expandProps": true,
+  "expandProps": "end",
   "h2xConfig": null,
   "icon": true,
   "native": false,
