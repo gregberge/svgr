@@ -51,7 +51,7 @@ program
   )
   .option('--icon', 'use "1em" as width and height')
   .option('--native', 'add react-native support with react-native-svg')
-  .option('--ref', 'add svgRef prop to svg')
+  .option('--ref', 'forward ref to SVG root element')
   .option('--no-dimensions', 'remove width and height from root SVG tag')
   .option('--no-expand-props', 'disable props expanding')
   .option(

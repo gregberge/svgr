@@ -106,7 +106,7 @@ Options:
   --filename-case <case>             specify filename case (pascal, kebab, camel) (default: "pascal")
   --icon                             use "1em" as width and height
   --native                           add react-native support with react-native-svg
-  --ref                              add svgRef prop to svg
+  --ref                              forward ref to SVG root element
   --no-dimensions                    remove width and height from root SVG tag
   --no-expand-props                  disable props expanding
   --svg-attributes <property=value>  add attributes to the svg element (deprecated)
@@ -377,7 +377,7 @@ Specify SVGO config. [See SVGO options](https://gist.github.com/pladaria/69321af
 
 ### Ref
 
-Setting this to `true` will allow you to hook into the ref of the svg components that are created by exposing a `svgRef` prop
+Setting this to `true` will forward ref to the root SVG tag.
 
 | Default | CLI Override | API Override  |
 | ------- | ------------ | ------------- |

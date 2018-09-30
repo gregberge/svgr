@@ -25,7 +25,7 @@ Options:
   --filename-case <case>             specify filename case (pascal, kebab, camel) (default: "pascal")
   --icon                             use "1em" as width and height
   --native                           add react-native support with react-native-svg
-  --ref                              add svgRef prop to svg
+  --ref                              forward ref to SVG root element
   --no-dimensions                    remove width and height from root SVG tag
   --no-expand-props                  disable props expanding
   --svg-attributes <property=value>  add attributes to the svg element (deprecated)

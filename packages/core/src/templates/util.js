@@ -9,3 +9,27 @@ export const getProps = config => {
 
   return `({ ${props.join(', ')} })`
 }
+
+export const getExport = (config, state) => {
+  const component = config.ref ? 'ForwardRef' : state.componentName
+  if (state.webpack && state.webpack.previousExport) {
+    let result = ''
+    result += `export default ${state.webpack.previousExport}\n`
+    result += `export { ${component} as ReactComponent }`
+    return result
+  }
+  if (state.rollup && state.rollup.previousExport) {
+    let result = ''
+    result += `${state.rollup.previousExport}\n`
+    result += `export { ${component} as ReactComponent }`
+    return result
+  }
+  return `export default ${component}`
+}
+
+export const getForwardRef = (config, state) => {
+  if (!config.ref) return ''
+  return `const ForwardRef = React.forwardRef((props, ref) => <${
+    state.componentName
+  } svgRef={ref} {...props} />)\n\n`
+}
