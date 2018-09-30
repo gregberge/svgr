@@ -18,7 +18,7 @@ function configToPlugins(config) {
   if (config.replaceAttrValues)
     plugins.push(replaceAttrValues(config.replaceAttrValues))
   if (!config.dimensions) plugins.push(removeDimensions())
-  if (config.icon) plugins.push(emSize())
+  if (config.icon && config.dimensions) plugins.push(emSize())
   if (config.ref) plugins.push(svgRef())
   if (config.svgProps) plugins.push(svgProps(config.svgProps))
   if (config.expandProps) plugins.push(expandProps(config.expandProps))
