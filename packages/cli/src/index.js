@@ -38,7 +38,11 @@ const parseConfig = name => arg => {
 program
   .version(pkg.version)
   .usage('[options] <file|directory>')
-  .option('--config <file>', 'specify the path of the svgr config')
+  .option('--config-file <file>', 'specify the path of the svgr config')
+  .option(
+    '--no-runtime-config',
+    'disable runtime config (.svgrrc, .svgo.yml, .prettierrc)',
+  )
   .option('-d, --out-dir <dirname>', 'output files into a directory')
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
   .option(

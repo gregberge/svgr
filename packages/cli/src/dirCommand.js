@@ -51,7 +51,7 @@ async function dirCommand(
     relative = rename(relative, ext, filenameCase)
 
     const dest = path.join(program.outDir, relative)
-    const code = await convertFile(src, options, { filePath: dest })
+    const code = await convertFile(src, options)
 
     outputFileSync(dest, code)
     console.info(`${src} -> ${dest}`)

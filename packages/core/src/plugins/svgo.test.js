@@ -17,7 +17,7 @@ const baseSvg = `<?xml version="1.0" encoding="UTF-8"?>
 
 describe('svgo', () => {
   it('should optimize svg', async () => {
-    const result = await svgo(baseSvg, { svgo: true })
+    const result = await svgo(baseSvg, { svgo: true, runtimeConfig: true })
 
     expect(result).toMatchSnapshot()
   })
@@ -25,6 +25,7 @@ describe('svgo', () => {
   it('should support config.svgoConfig', async () => {
     const result = await svgo(baseSvg, {
       svgo: true,
+      runtimeConfig: true,
       svgoConfig: { plugins: [{ removeDesc: false }] },
     })
 
@@ -35,6 +36,7 @@ describe('svgo', () => {
     const result = await svgo(baseSvg, {
       svgo: true,
       icon: true,
+      runtimeConfig: true,
       svgoConfig: { plugins: [{ removeDesc: false }] },
     })
 
@@ -44,17 +46,33 @@ describe('svgo', () => {
   it('should use state.filePath to detect configuration', async () => {
     const result = await svgo(
       baseSvg,
-      { svgo: true },
+      { svgo: true, runtimeConfig: true },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
 
-    expect(result).toMatchSnapshot()
+    // Desc should appear
+    expect(result).toMatchInlineSnapshot(
+      `"<svg width=\\"88\\" height=\\"88\\" xmlns=\\"http://www.w3.org/2000/svg\\"><desc>Created with Sketch.</desc><g stroke=\\"#063855\\" stroke-width=\\"2\\" fill=\\"none\\" fill-rule=\\"evenodd\\" stroke-linecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\"/></g></svg>"`,
+    )
+  })
+
+  it('should not load runtime configuration with `runtimeConfig: false`', async () => {
+    const result = await svgo(
+      baseSvg,
+      { svgo: true, runtimeConfig: false },
+      { filePath: path.join(__dirname, '../__fixtures__/svgo') },
+    )
+
+    // Desc should not appear
+    expect(result).toMatchInlineSnapshot(
+      `"<svg width=\\"88\\" height=\\"88\\" xmlns=\\"http://www.w3.org/2000/svg\\"><g stroke=\\"#063855\\" stroke-width=\\"2\\" fill=\\"none\\" fill-rule=\\"evenodd\\" stroke-linecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\"/></g></svg>"`,
+    )
   })
 
   it('should not remove viewBox with icon option', async () => {
     const result = await svgo(
       baseSvg,
-      { icon: true },
+      { icon: true, runtimeConfig: true },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
 

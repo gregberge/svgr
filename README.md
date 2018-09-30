@@ -24,6 +24,7 @@ npx @svgr/cli
 ## Supporting SVGR
 
 SVGR is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:
+
 - [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr).
 
 ### Gold Sponsors
@@ -93,12 +94,13 @@ powerful and configurable HTML transpiler. It uses AST (like
 ## Command line usage
 
 ```
-Usage: npx @svgr/cli [options] <file|directory>
+Usage: svgr [options] <file|directory>
 
 Options:
 
   -V, --version                      output the version number
-  --config <file>                    specify the path of the svgr config
+  --config-file <file>               specify the path of the svgr config
+  --no-runtime-config                disable runtime config (.svgrrc, .svgo.yml, .prettierrc)
   -d, --out-dir <dirname>            output files into a directory
   --ext <ext>                        specify a custom file extension (default: "js")
   --filename-case <case>             specify filename case (pascal, kebab, camel) (default: "pascal")
@@ -264,6 +266,22 @@ Even if it is not recommended, you can also use `svgoConfig` option to specify y
 
 SVGR ships with a handful of customizable options, usable in both the CLI and
 API.
+
+### Config file
+
+Specify a custom config file.
+
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--config-file` | `configFile: <string>` |
+
+### Runtime config
+
+Disable runtime config (`.svgrrc`, `.svgo.yml`, `.prettierrc`).
+
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--config-file` | `configFile: <string>` |
 
 ### File extension
 

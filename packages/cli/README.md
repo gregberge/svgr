@@ -18,7 +18,8 @@ Usage: svgr [options] <file|directory>
 Options:
 
   -V, --version                      output the version number
-  --config <file>                    specify the path of the svgr config
+  --config-file <file>               specify the path of the svgr config
+  --no-runtime-config                disable runtime config (.svgrrc, .svgo.yml, .prettierrc)
   -d, --out-dir <dirname>            output files into a directory
   --ext <ext>                        specify a custom file extension (default: "js")
   --filename-case <case>             specify filename case (pascal, kebab, camel) (default: "pascal")

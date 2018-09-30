@@ -21,5 +21,3 @@ exports[`svgo should optimize svg 1`] = `"<svg width=\\"88\\" height=\\"88\\" xm
 exports[`svgo should support config.svgoConfig 1`] = `"<svg width=\\"88\\" height=\\"88\\" xmlns=\\"http://www.w3.org/2000/svg\\"><desc>Created with Sketch.</desc><g stroke=\\"#063855\\" stroke-width=\\"2\\" fill=\\"none\\" fill-rule=\\"evenodd\\" stroke-linecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\"/></g></svg>"`;
 
 exports[`svgo should support icon with config.svgoConfig plugins 1`] = `"<svg width=\\"88\\" height=\\"88\\" viewBox=\\"0 0 88 88\\" xmlns=\\"http://www.w3.org/2000/svg\\"><desc>Created with Sketch.</desc><g stroke=\\"#063855\\" stroke-width=\\"2\\" fill=\\"none\\" fill-rule=\\"evenodd\\" stroke-linecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\"/></g></svg>"`;
-
-exports[`svgo should use state.filePath to detect configuration 1`] = `"<svg width=\\"88\\" height=\\"88\\" xmlns=\\"http://www.w3.org/2000/svg\\"><desc>Created with Sketch.</desc><g stroke=\\"#063855\\" stroke-width=\\"2\\" fill=\\"none\\" fill-rule=\\"evenodd\\" stroke-linecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\"/></g></svg>"`;

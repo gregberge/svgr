@@ -12,7 +12,7 @@ const babelNode = path.join(__dirname, '../../../node_modules/.bin/babel-node')
 
 describe('cli', () => {
   const cli = async args => {
-    const { stdout } = await exec(`${babelNode} ${svgr} ${args}`)
+    const { stdout } = await exec(`${babelNode} -- ${svgr} ${args}`)
     return stdout
   }
 
@@ -173,7 +173,7 @@ describe('cli', () => {
     'should not override config with cli defaults',
     async () => {
       const result = await cli(
-        '__fixtures__/simple/file.svg --config=__fixtures__/overrides.config.js',
+        '__fixtures__/simple/file.svg --config-file=__fixtures__/overrides.config.js',
       )
       expect(result).toMatchSnapshot()
     },

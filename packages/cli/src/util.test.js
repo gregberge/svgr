@@ -14,7 +14,7 @@ describe('util', () => {
     it('should support a custom config path', async () => {
       const file = path.join(FIXTURES, 'simple/file.svg')
       const result = await convertFile(file, {
-        config: '__fixtures__/withSvgrRc/.svgrrc',
+        configFile: '__fixtures__/withSvgrRc/.svgrrc',
       })
       expect(result).toMatchSnapshot()
     })

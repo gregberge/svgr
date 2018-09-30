@@ -16,6 +16,7 @@ export const DEFAULT_CONFIG = {
   svgoConfig: null,
   template: null,
   titleProp: false,
+  runtimeConfig: true,
 }
 
 const explorer = cosmiconfig('svgr', {
@@ -36,4 +37,12 @@ export async function resolveConfig(searchFrom, configFile) {
 export async function resolveConfigFile(filePath) {
   const result = await explorer.search(filePath)
   return result ? result.filepath : null
+}
+
+export async function loadConfig({ configFile, ...baseConfig }, state = {}) {
+  const rcConfig =
+    state.filePath && baseConfig.runtimeConfig !== false
+      ? await resolveConfig(state.filePath, configFile)
+      : {}
+  return { ...DEFAULT_CONFIG, ...rcConfig, ...baseConfig }
 }

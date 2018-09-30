@@ -3,11 +3,11 @@ import h2x from './plugins/h2x'
 import prettier from './plugins/prettier'
 import transform from './plugins/transform'
 import { expandState } from './util'
-import { DEFAULT_CONFIG } from './config'
+import { loadConfig } from './config'
 
-async function convert(code, config = {}, state = {}) {
-  config = { ...DEFAULT_CONFIG, ...config }
-  state = expandState(state)
+async function convert(code, baseConfig = {}, baseState = {}) {
+  const state = expandState(baseState)
+  const config = await loadConfig(baseConfig, baseState)
   let result = code
   // Remove null-byte character (copy/paste from Illustrator)
   result = String(result).replace('\0', '')
