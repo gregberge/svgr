@@ -28,6 +28,8 @@ svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
 })
 ```
 
+Use `svgr.sync(code, config, state)` if you would like to use sync version.
+
 ## License
 
 MIT

@@ -199,7 +199,7 @@ You can find all default templates in [templates folder](https://github.com/smoo
 
 ## Node API usage
 
-SVGR can also be used programmatically:
+### `svgr(code, config, state)`
 
 ```js
 import svgr from '@svgr/core'
@@ -217,6 +217,8 @@ svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
   console.log(jsCode)
 })
 ```
+
+Use `svgr.sync(code, config, state)` if you would like to use sync version.
 
 ## [Webpack loader](https://github.com/smooth-code/svgr/blob/master/packages/webpack)
 

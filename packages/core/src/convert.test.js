@@ -22,6 +22,12 @@ describe('convert', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('should work synchronously', async () => {
+    const syncResult = convert.sync(svgBaseCode)
+    const asyncResult = await convert(svgBaseCode)
+    expect(syncResult).toEqual(asyncResult)
+  })
+
   it('should remove style tags', async () => {
     const result = await convert(
       `

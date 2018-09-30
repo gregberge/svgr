@@ -16,61 +16,54 @@ const baseSvg = `<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 
 describe('svgo', () => {
-  it('should optimize svg', async () => {
-    const result = await svgo(baseSvg, { svgo: true, runtimeConfig: true })
-
+  it('should optimize svg', () => {
+    const result = svgo(baseSvg, { svgo: true, runtimeConfig: true })
     expect(result).toMatchSnapshot()
   })
 
-  it('should support config.svgoConfig', async () => {
-    const result = await svgo(baseSvg, {
+  it('should support config.svgoConfig', () => {
+    const result = svgo(baseSvg, {
       svgo: true,
       runtimeConfig: true,
-      svgoConfig: { plugins: [{ removeDesc: false }] },
+      svgoConfig: { svgos: [{ removeDesc: false }] },
     })
 
     expect(result).toMatchSnapshot()
   })
 
-  it('should support icon with config.svgoConfig plugins', async () => {
-    const result = await svgo(baseSvg, {
+  it('should support icon with config.svgoConfig svgos', () => {
+    const result = svgo(baseSvg, {
       svgo: true,
       icon: true,
       runtimeConfig: true,
-      svgoConfig: { plugins: [{ removeDesc: false }] },
+      svgoConfig: { svgos: [{ removeDesc: false }] },
     })
 
     expect(result).toMatchSnapshot()
   })
 
-  it('should use state.filePath to detect configuration', async () => {
-    const result = await svgo(
+  it('should use state.filePath to detect configuration', () => {
+    const result = svgo(
       baseSvg,
       { svgo: true, runtimeConfig: true },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
 
-    // Desc should appear
-    expect(result).toMatchInlineSnapshot(
-      `"<svg width=\\"88\\" height=\\"88\\" xmlns=\\"http://www.w3.org/2000/svg\\"><desc>Created with Sketch.</desc><g stroke=\\"#063855\\" stroke-width=\\"2\\" fill=\\"none\\" fill-rule=\\"evenodd\\" stroke-linecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\"/></g></svg>"`,
-    )
+    expect(result).toMatchSnapshot()
   })
 
-  it('should not load runtime configuration with `runtimeConfig: false`', async () => {
-    const result = await svgo(
+  it('should not load runtime configuration with `runtimeConfig: false`', () => {
+    const result = svgo(
       baseSvg,
       { svgo: true, runtimeConfig: false },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
 
-    // Desc should not appear
-    expect(result).toMatchInlineSnapshot(
-      `"<svg width=\\"88\\" height=\\"88\\" xmlns=\\"http://www.w3.org/2000/svg\\"><g stroke=\\"#063855\\" stroke-width=\\"2\\" fill=\\"none\\" fill-rule=\\"evenodd\\" stroke-linecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\"/></g></svg>"`,
-    )
+    expect(result).toMatchSnapshot()
   })
 
-  it('should not remove viewBox with icon option', async () => {
-    const result = await svgo(
+  it('should not remove viewBox with icon option', () => {
+    const result = svgo(
       baseSvg,
       { icon: true, runtimeConfig: true },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },

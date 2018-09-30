@@ -1,11 +1,11 @@
 import prettier from 'prettier'
 import mergeDeep from 'merge-deep'
 
-export default async (code, config = {}, state = {}) => {
+export default (code, config = {}, state = {}) => {
   if (!config.prettier) return code
   const filePath = state.filePath || process.cwd()
   const prettierRcConfig = config.runtimeConfig
-    ? await prettier.resolveConfig(filePath, {
+    ? prettier.resolveConfig.sync(filePath, {
         editorconfig: true,
       })
     : {}

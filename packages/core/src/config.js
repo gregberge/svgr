@@ -33,8 +33,22 @@ export async function resolveConfig(searchFrom, configFile) {
   return result ? result.config : null
 }
 
+resolveConfig.sync = (searchFrom, configFile) => {
+  if (configFile == null) {
+    const result = explorer.searchSync(searchFrom)
+    return result ? result.config : null
+  }
+  const result = explorer.loadSync(configFile)
+  return result ? result.config : null
+}
+
 export async function resolveConfigFile(filePath) {
   const result = await explorer.search(filePath)
+  return result ? result.filepath : null
+}
+
+resolveConfigFile.sync = filePath => {
+  const result = explorer.searchSync(filePath)
   return result ? result.filepath : null
 }
 
@@ -42,6 +56,14 @@ export async function loadConfig({ configFile, ...baseConfig }, state = {}) {
   const rcConfig =
     state.filePath && baseConfig.runtimeConfig !== false
       ? await resolveConfig(state.filePath, configFile)
+      : {}
+  return { ...DEFAULT_CONFIG, ...rcConfig, ...baseConfig }
+}
+
+loadConfig.sync = ({ configFile, ...baseConfig }, state = {}) => {
+  const rcConfig =
+    state.filePath && baseConfig.runtimeConfig !== false
+      ? resolveConfig.sync(state.filePath, configFile)
       : {}
   return { ...DEFAULT_CONFIG, ...rcConfig, ...baseConfig }
 }
