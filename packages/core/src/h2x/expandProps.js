@@ -12,12 +12,13 @@ const expandProps = (position = 'end') => () => ({
           props.name = 'props'
           props.spread = true
           if (position === 'start') {
-            path.node.attributes.unshift(props)
+            path.node.attributes = [props, ...path.node.attributes]
+            path.replace(path.node)
           }
           if (position === 'end') {
-            path.node.attributes.push(props)
+            path.node.attributes = [...path.node.attributes, props]
+            path.replace(path.node)
           }
-          path.replace(path.node)
         }
       },
     },
