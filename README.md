@@ -180,7 +180,23 @@ You can use a specific template.
 $ npx @svgr/cli --template path/to/template.js my-icon.svg
 ```
 
-You can find template examples in [templates folder](https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates).
+An example of template:
+
+```js
+const { getProps } = require('@svgr/core')
+
+const reactDomTemplate = (code, config, state) => {
+  const props = getProps(config)
+  let result = `import React from 'react'\n\n`
+  result += `const ${state.componentName} = ${props} => ${code}\n\n`
+  result += `export default ${state.componentName}`
+  return result
+}
+
+module.exports = reactDomTemplate
+```
+
+You can find all default templates in [templates folder](https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates).
 
 ## Node API usage
 

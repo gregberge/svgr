@@ -19,3 +19,4 @@ export { default as toReactNative } from './h2x/toReactNative'
 // Templates
 export { default as reactDomTemplate } from './templates/reactDomTemplate'
 export { default as reactNativeTemplate } from './templates/reactNativeTemplate'
+export * from './templates/util'
