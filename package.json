@@ -15,23 +15,23 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.1",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
     "@babel/node": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.2",
+    "babel-loader": "^8.0.4",
     "codecov": "^3.1.0",
     "conventional-github-releaser": "^3.1.2",
-    "eslint": "^5.6.0",
+    "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "jest": "^23.6.0",
     "lerna": "^3.4.0",
-    "react": "^16.5.1"
+    "react": "^16.5.2"
   }
 }
