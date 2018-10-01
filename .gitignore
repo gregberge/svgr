@@ -1,5 +1,6 @@
 node_modules/
 lib/
+!website/lib/
 __fixtures_build__/
 src/__fixtures__/dist/
 coverage/
