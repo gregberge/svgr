@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/smooth-code/svgr/compare/v2.4.1...v3.0.0) (2018-10-01)
+
+
+### Bug Fixes
+
+* fix --icon + --no-dimensions ([7535693](https://github.com/smooth-code/svgr/commit/7535693)), closes [#141](https://github.com/smooth-code/svgr/issues/141)
+* fix expandProps when position is not allowed ([45522fc](https://github.com/smooth-code/svgr/commit/45522fc))
+
+
+### Features
+
+* **config:** improve runtime config ([e52cdce](https://github.com/smooth-code/svgr/commit/e52cdce)), closes [#192](https://github.com/smooth-code/svgr/issues/192)
+* **template:** expose `getProps` util for template ([5cb238e](https://github.com/smooth-code/svgr/commit/5cb238e)), closes [#187](https://github.com/smooth-code/svgr/issues/187)
+* add synchronous API ([169eb2f](https://github.com/smooth-code/svgr/commit/169eb2f)), closes [#185](https://github.com/smooth-code/svgr/issues/185)
+* always prefix component name with "Svg" ([f71aa7a](https://github.com/smooth-code/svgr/commit/f71aa7a)), closes [#190](https://github.com/smooth-code/svgr/issues/190)
+* do not remove style tag ([a4ce09a](https://github.com/smooth-code/svgr/commit/a4ce09a)), closes [#191](https://github.com/smooth-code/svgr/issues/191)
+* new "expandProps" option ([bb95828](https://github.com/smooth-code/svgr/commit/bb95828)), closes [#170](https://github.com/smooth-code/svgr/issues/170)
+* remove "svgAttributes" option ([4e46a5d](https://github.com/smooth-code/svgr/commit/4e46a5d)), closes [#173](https://github.com/smooth-code/svgr/issues/173)
+* use forwardRef on React Native ([4bdd989](https://github.com/smooth-code/svgr/commit/4bdd989)), closes [#184](https://github.com/smooth-code/svgr/issues/184)
+* use React.forwardRef ([cbee51c](https://github.com/smooth-code/svgr/commit/cbee51c)), closes [#184](https://github.com/smooth-code/svgr/issues/184)
+
+
+### BREAKING CHANGES
+
+* "--no-expand-props" is now replaced by "--expand-props none". You can now specify a position "start" or "end" for "expandProps"
+property.
+* `svgAttributes` has been removed, please use `svgProps` instead.
+* "ref" option now uses `React.forwardRef`. You don't have to use "svgRef"
+prop, just use "ref" and it will work. `React.forwardRef` requires React
+> 16.3.
+* Style tag will no longer be automatically removed. SVGO should handle it
+correctly using "inlineStyles" plugin. If you want to remove them,
+enable "removeStyleElement" plugin in your SVGO config.
+* **config:** - Runtime configuration is always loaded (even with Node API `convert`)
+- In CLI, "--config" is now "--config-file"; this new option can be used
+everywhere
+
+
+
+
+
 <a name="2.4.1"></a>
 ## [2.4.1](https://github.com/smooth-code/svgr/compare/v2.4.0...v2.4.1) (2018-09-16)
 

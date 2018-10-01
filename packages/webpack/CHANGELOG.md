@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/smooth-code/svgr/compare/v2.4.1...v3.0.0) (2018-10-01)
+
+
+### Bug Fixes
+
+* **webpack:** forward filePath in webpack loader ([b7a108e](https://github.com/smooth-code/svgr/commit/b7a108e)), closes [#177](https://github.com/smooth-code/svgr/issues/177) [#188](https://github.com/smooth-code/svgr/issues/188)
+
+
+### Features
+
+* always prefix component name with "Svg" ([f71aa7a](https://github.com/smooth-code/svgr/commit/f71aa7a)), closes [#190](https://github.com/smooth-code/svgr/issues/190)
+
+
+### BREAKING CHANGES
+
+* **webpack:** runtime configuration is now loaded using webpack
+loader.
+
+
+
+
+
 <a name="2.4.1"></a>
 ## [2.4.1](https://github.com/smooth-code/svgr/compare/v2.4.0...v2.4.1) (2018-09-16)
 
