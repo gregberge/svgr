@@ -197,6 +197,24 @@ module.exports = reactDomTemplate
 
 You can find all default templates in [templates folder](https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates).
 
+#### Usage with Jest
+
+If you use `@svgr/webpack`, importing `.svg` files in Jest could break your code. To avoid that, add `moduleNameMapper` in your Jest configuration.
+
+```js
+// __mocks__/svgMock.js
+module.exports = 'SvgMock'
+```
+
+```js
+// jest.config.js
+module.exports = {
+  moduleNameMapper: {
+    '\\.svg': '<rootDir>/__mocks__/svgMock.js',
+  },
+}
+```
+
 ## Node API usage
 
 ### `svgr(code, config, state)`
