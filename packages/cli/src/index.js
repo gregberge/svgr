@@ -3,7 +3,6 @@ import program from 'commander'
 import path from 'path'
 import glob from 'glob'
 import fs from 'fs'
-import chalk from 'chalk'
 import pkg from '../package.json'
 import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
@@ -38,22 +37,24 @@ const parseConfig = name => arg => {
 program
   .version(pkg.version)
   .usage('[options] <file|directory>')
-  .option('--config <file>', 'specify the path of the svgr config')
+  .option('--config-file <file>', 'specify the path of the svgr config')
+  .option(
+    '--no-runtime-config',
+    'disable runtime config (".svgrrc", ".svgo.yml", ".prettierrc")',
+  )
   .option('-d, --out-dir <dirname>', 'output files into a directory')
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
   .option(
     '--filename-case <case>',
-    'specify filename case (pascal, kebab, camel) (default: "pascal")',
+    'specify filename case ("pascal", "kebab", "camel") (default: "pascal")',
   )
   .option('--icon', 'use "1em" as width and height')
   .option('--native', 'add react-native support with react-native-svg')
-  .option('--ref', 'add svgRef prop to svg')
+  .option('--ref', 'forward ref to SVG root element')
   .option('--no-dimensions', 'remove width and height from root SVG tag')
-  .option('--no-expand-props', 'disable props expanding')
   .option(
-    '--svg-attributes <property=value>',
-    'add attributes to the svg element (deprecated)',
-    parseObject,
+    '--expand-props [position]',
+    'disable props expanding ("start", "end", "none") (default: "end")',
   )
   .option(
     '--svg-props <property=value>',
@@ -114,15 +115,18 @@ async function run() {
 
   const config = { ...program }
 
-  if (config.expandProps === true) {
-    delete config.expandProps
+  if (config.expandProps === 'none') {
+    config.expandProps = false
   }
+
   if (config.dimensions === true) {
     delete config.dimensions
   }
+
   if (config.svgo === true) {
     delete config.svgo
   }
+
   if (config.prettier === true) {
     delete config.prettier
   }
@@ -140,15 +144,6 @@ async function run() {
       console.error(error.stack)
       process.exit(2)
     }
-  }
-
-  // TODO remove in v3
-  if (program.outDir && program.svgAttributes) {
-    console.log(
-      chalk.yellow(
-        '--svg-attributes option is deprecated an will be removed in v3, please use --svg-props instead',
-      ),
-    )
   }
 
   const command = program.outDir ? dirCommand : fileCommand

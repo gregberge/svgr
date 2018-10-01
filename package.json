@@ -9,8 +9,8 @@
     "dev": "lerna run build --parallel -- --watch",
     "format": "prettier --write \"**/*.{js,json,md}\"",
     "lint": "eslint .",
-    "now-build": "cd website && npm install && npm run build",
-    "now-start": "cd website && npm start",
+    "now-build": "yarn build && cd website && yarn install && yarn build",
+    "now-start": "cd website && yarn start",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest --runInBand"
   },

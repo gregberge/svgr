@@ -24,6 +24,7 @@ npx @svgr/cli
 ## Supporting SVGR
 
 SVGR is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:
+
 - [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr).
 
 ### Gold Sponsors
@@ -93,30 +94,30 @@ powerful and configurable HTML transpiler. It uses AST (like
 ## Command line usage
 
 ```
-Usage: npx @svgr/cli [options] <file|directory>
+Usage: svgr [options] <file|directory>
 
 Options:
 
-  -V, --version                      output the version number
-  --config <file>                    specify the path of the svgr config
-  -d, --out-dir <dirname>            output files into a directory
-  --ext <ext>                        specify a custom file extension (default: "js")
-  --filename-case <case>             specify filename case (pascal, kebab, camel) (default: "pascal")
-  --icon                             use "1em" as width and height
-  --native                           add react-native support with react-native-svg
-  --ref                              add svgRef prop to svg
-  --no-dimensions                    remove width and height from root SVG tag
-  --no-expand-props                  disable props expanding
-  --svg-attributes <property=value>  add attributes to the svg element (deprecated)
-  --svg-props <property=value>       add props to the svg element
-  --replace-attr-values <old=new>    replace an attribute value
-  --template <file>                  specify a custom template to use
-  --title-prop                       create a title element linked with props
-  --prettier-config <fileOrJson>     Prettier config
-  --no-prettier                      disable Prettier
-  --svgo-config <fileOrJson>         SVGO config
-  --no-svgo                          disable SVGO
-  -h, --help                         output usage information
+  -V, --version                    output the version number
+  --config-file <file>             specify the path of the svgr config
+  --no-runtime-config              disable runtime config (".svgrrc", ".svgo.yml", ".prettierrc")
+  -d, --out-dir <dirname>          output files into a directory
+  --ext <ext>                      specify a custom file extension (default: "js")
+  --filename-case <case>           specify filename case ("pascal", "kebab", "camel") (default: "pascal")
+  --icon                           use "1em" as width and height
+  --native                         add react-native support with react-native-svg
+  --ref                            forward ref to SVG root element
+  --no-dimensions                  remove width and height from root SVG tag
+  --expand-props [position]        disable props expanding ("start", "end", "none") (default: "end")
+  --svg-props <property=value>     add props to the svg element
+  --replace-attr-values <old=new>  replace an attribute value
+  --template <file>                specify a custom template to use
+  --title-prop                     create a title element linked with props
+  --prettier-config <fileOrJson>   Prettier config
+  --no-prettier                    disable Prettier
+  --svgo-config <fileOrJson>       SVGO config
+  --no-svgo                        disable SVGO
+  -h, --help                       output usage information
 
   Examples:
     svgr --replace-attr-values "#fff=currentColor" icon.svg
@@ -178,11 +179,45 @@ You can use a specific template.
 $ npx @svgr/cli --template path/to/template.js my-icon.svg
 ```
 
-You can find template examples in [templates folder](https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates).
+An example of template:
+
+```js
+const { getProps } = require('@svgr/core')
+
+const reactDomTemplate = (code, config, state) => {
+  const props = getProps(config)
+  let result = `import React from 'react'\n\n`
+  result += `const ${state.componentName} = ${props} => ${code}\n\n`
+  result += `export default ${state.componentName}`
+  return result
+}
+
+module.exports = reactDomTemplate
+```
+
+You can find all default templates in [templates folder](https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates).
+
+#### Usage with Jest
+
+If you use `@svgr/webpack`, importing `.svg` files in Jest could break your code. To avoid that, add `moduleNameMapper` in your Jest configuration.
+
+```js
+// __mocks__/svgMock.js
+module.exports = 'SvgMock'
+```
+
+```js
+// jest.config.js
+module.exports = {
+  moduleNameMapper: {
+    '\\.svg': '<rootDir>/__mocks__/svgMock.js',
+  },
+}
+```
 
 ## Node API usage
 
-SVGR can also be used programmatically:
+### `svgr(code, config, state)`
 
 ```js
 import svgr from '@svgr/core'
@@ -200,6 +235,8 @@ svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
   console.log(jsCode)
 })
 ```
+
+Use `svgr.sync(code, config, state)` if you would like to use sync version.
 
 ## [Webpack loader](https://github.com/smooth-code/svgr/blob/master/packages/webpack)
 
@@ -265,6 +302,22 @@ Even if it is not recommended, you can also use `svgoConfig` option to specify y
 SVGR ships with a handful of customizable options, usable in both the CLI and
 API.
 
+### Config file
+
+Specify a custom config file.
+
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--config-file` | `configFile: <string>` |
+
+### Runtime config
+
+Disable runtime config (`.svgrrc`, `.svgo.yml`, `.prettierrc`).
+
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--config-file` | `configFile: <string>` |
+
 ### File extension
 
 Specify a custom extension for generated files.
@@ -301,11 +354,11 @@ Remove width and height from root SVG tag.
 
 ### Expand props
 
-All properties given to component will be forwarded on SVG tag.
+All properties given to component will be forwarded on SVG tag. Possible values: `"start"`, `"end"` or `false`.
 
-| Default | CLI Override        | API Override          |
-| ------- | ------------------- | --------------------- |
-| `true`  | `--no-expand-props` | `expandProps: <bool>` |
+| Default | CLI Override     | API Override            |
+| ------- | ---------------- | ----------------------- |
+| `end`   | `--expand-props` | `expandProps: <string>` |
 
 ### Prettier
 
@@ -343,7 +396,7 @@ Specify SVGO config. [See SVGO options](https://gist.github.com/pladaria/69321af
 
 ### Ref
 
-Setting this to `true` will allow you to hook into the ref of the svg components that are created by exposing a `svgRef` prop
+Setting this to `true` will forward ref to the root SVG tag.
 
 | Default | CLI Override | API Override  |
 | ------- | ------------ | ------------- |

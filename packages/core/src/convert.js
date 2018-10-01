@@ -3,19 +3,28 @@ import h2x from './plugins/h2x'
 import prettier from './plugins/prettier'
 import transform from './plugins/transform'
 import { expandState } from './util'
-import { DEFAULT_CONFIG } from './config'
+import { loadConfig } from './config'
 
-async function convert(code, config = {}, state = {}) {
-  config = { ...DEFAULT_CONFIG, ...config }
+function applyPlugins(code, config, state) {
   state = expandState(state)
   let result = code
   // Remove null-byte character (copy/paste from Illustrator)
   result = String(result).replace('\0', '')
-  result = await svgo(result, config, state)
-  result = await h2x(result, config, state)
-  result = await transform(result, config, state)
-  result = await prettier(result, config, state)
+  result = svgo(result, config, state)
+  result = h2x(result, config, state)
+  result = transform(result, config, state)
+  result = prettier(result, config, state)
   return result
+}
+
+async function convert(code, config = {}, state = {}) {
+  config = await loadConfig(config, state)
+  return applyPlugins(code, config, state)
+}
+
+convert.sync = (code, config = {}, state = {}) => {
+  config = loadConfig.sync(config, state)
+  return applyPlugins(code, config, state)
 }
 
 export default convert

@@ -18,7 +18,7 @@ describe('reactDomTemplate', () => {
     expect(
       reactDomTemplate(
         '<Svg />',
-        { expandProps: true },
+        { expandProps: 'end' },
         { componentName: 'Test' },
       ),
     ).toMatchSnapshot()
@@ -32,14 +32,14 @@ describe('reactDomTemplate', () => {
     expect(
       reactDomTemplate(
         '<Svg />',
-        { titleProp: true, expandProps: true },
+        { titleProp: true, expandProps: 'end' },
         { componentName: 'Test' },
       ),
     ).toMatchSnapshot()
     expect(
       reactDomTemplate(
         '<Svg />',
-        { ref: true, expandProps: true },
+        { ref: true, expandProps: 'end' },
         { componentName: 'Test' },
       ),
     ).toMatchSnapshot()

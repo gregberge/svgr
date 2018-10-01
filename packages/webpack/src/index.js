@@ -39,7 +39,10 @@ function svgrLoader(source) {
     })
 
   const tranformSvg = svg =>
-    convert(svg, options, { webpack: { previousExport } })
+    convert(svg, options, {
+      webpack: { previousExport },
+      filePath: this.resourcePath,
+    })
       .then(jsCode => (babel ? pBabelTransform(jsCode) : jsCode))
       .then(result => callback(null, result))
       .catch(err => callback(err))

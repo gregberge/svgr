@@ -12,7 +12,7 @@ const babelNode = path.join(__dirname, '../../../node_modules/.bin/babel-node')
 
 describe('cli', () => {
   const cli = async args => {
-    const { stdout } = await exec(`${babelNode} ${svgr} ${args}`)
+    const { stdout } = await exec(`${babelNode} -- ${svgr} ${args}`)
     return stdout
   }
 
@@ -118,15 +118,15 @@ describe('cli', () => {
 
   it.each([
     ['--no-dimensions'],
-    ['--no-expand-props'],
+    ['--expand-props none'],
+    ['--expand-props start'],
     ['--icon'],
     ['--native'],
     ['--native --icon'],
-    ['--native --no-expand-props'],
+    ['--native --expand-props none'],
     ['--native --ref'],
     ['--ref'],
     ['--replace-attr-values "#063855=currentColor"'],
-    ['--svg-attributes "focusable=false"'],
     [`--svg-props "hidden={true}"`],
     ['--no-svgo'],
     ['--no-prettier'],
@@ -173,7 +173,7 @@ describe('cli', () => {
     'should not override config with cli defaults',
     async () => {
       const result = await cli(
-        '__fixtures__/simple/file.svg --config=__fixtures__/overrides.config.js',
+        '__fixtures__/simple/file.svg --config-file=__fixtures__/overrides.config.js',
       )
       expect(result).toMatchSnapshot()
     },

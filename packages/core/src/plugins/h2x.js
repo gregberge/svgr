@@ -5,10 +5,8 @@ import {
   expandProps,
   removeComments,
   removeDimensions,
-  removeStyle,
   replaceAttrValues,
   stripAttribute,
-  svgAttributes,
   svgProps,
   svgRef,
   titleProp,
@@ -16,24 +14,14 @@ import {
 } from '..'
 
 function configToPlugins(config) {
-  const plugins = [
-    jsx,
-    stripAttribute('xmlns'),
-    removeComments(),
-    removeStyle(),
-  ]
+  const plugins = [jsx, stripAttribute('xmlns'), removeComments()]
   if (config.replaceAttrValues)
     plugins.push(replaceAttrValues(config.replaceAttrValues))
   if (!config.dimensions) plugins.push(removeDimensions())
-  if (config.icon) plugins.push(emSize())
+  if (config.icon && config.dimensions) plugins.push(emSize())
   if (config.ref) plugins.push(svgRef())
-  if (config.svgAttributes) plugins.push(svgAttributes(config.svgAttributes))
   if (config.svgProps) plugins.push(svgProps(config.svgProps))
-  // TODO remove boolean value in the next major release
-  if (config.expandProps)
-    plugins.push(
-      expandProps(config.expandProps === true ? 'end' : config.expandProps),
-    )
+  if (config.expandProps) plugins.push(expandProps(config.expandProps))
   if (config.native) plugins.push(toReactNative())
   if (config.titleProp) plugins.push(titleProp())
   return plugins

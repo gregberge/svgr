@@ -164,7 +164,11 @@ const SvgComponent = ({ svgRef, ...props }) => (
   </Svg>
 )
 
-export default SvgComponent
+const ForwardRef = React.forwardRef((props, ref) => (
+  <SvgComponent svgRef={ref} {...props} />
+))
+
+export default ForwardRef
 "
 `;
 
@@ -198,7 +202,11 @@ const SvgComponent = ({ svgRef, ...props }) => (
   </svg>
 )
 
-export default SvgComponent
+const ForwardRef = React.forwardRef((props, ref) => (
+  <SvgComponent svgRef={ref} {...props} />
+))
+
+export default ForwardRef
 "
 `;
 
@@ -211,27 +219,6 @@ const SvgComponent = props => (
       stroke=\\"#063855\\"
       strokeWidth={2}
       fill=\\"black\\"
-      fillRule=\\"evenodd\\"
-      strokeLinecap=\\"square\\"
-    >
-      <path d=\\"M51 37L37 51M51 51L37 37\\" />
-    </g>
-  </svg>
-)
-
-export default SvgComponent
-"
-`;
-
-exports[`convert config should support options { svgAttributes: { focusable: false } } 1`] = `
-"import React from 'react'
-
-const SvgComponent = props => (
-  <svg focusable=\\"false\\" width={88} height={88} {...props}>
-    <g
-      stroke=\\"#063855\\"
-      strokeWidth={2}
-      fill=\\"none\\"
       fillRule=\\"evenodd\\"
       strokeLinecap=\\"square\\"
     >
@@ -299,19 +286,6 @@ const SvgComponent = ({ title, ...props }) => (
     >
       <path d=\\"M51 37L37 51M51 51L37 37\\" />
     </g>
-  </svg>
-)
-
-export default SvgComponent
-"
-`;
-
-exports[`convert config svgAttribute 1`] = `
-"import React from 'react'
-
-const SvgComponent = props => (
-  <svg {...props}>
-    <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
   </svg>
 )
 
@@ -428,6 +402,7 @@ const SvgComponent = props => (
         <path d=\\"M51 37L37 51\\" id=\\"Shape\\" />
         <path d=\\"M51 51L37 37\\" />
       </g>
+      <style />
     </g>
   </svg>
 )

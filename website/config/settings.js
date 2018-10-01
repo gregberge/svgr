@@ -25,13 +25,6 @@ export const settings = [
     default: false,
   },
   {
-    label: 'Expand props',
-    name: 'expandProps',
-    type: 'boolean',
-    group: 'global',
-    default: true,
-  },
-  {
     label: 'Ref',
     name: 'ref',
     type: 'boolean',
@@ -44,6 +37,15 @@ export const settings = [
     type: 'boolean',
     group: 'global',
     default: false,
+  },
+  {
+    label: 'Expand props',
+    name: 'expandProps',
+    type: 'enum',
+    values: ['start', 'end', 'none'],
+    group: 'global',
+    default: 'end',
+    transform: value => value === 'none' ? false : value,
   },
   {
     label: 'Replace attributes value',

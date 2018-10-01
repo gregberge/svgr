@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@smooth-ui/core-sc": "^5.1.1",
-    "@svgr/core": "^2.4.0",
+    "@svgr/core": "../packages/core",
     "body-parser": "^1.18.3",
     "brace": "^0.11.1",
     "classnames": "^2.2.6",
@@ -30,7 +30,7 @@
     "start": "NODE_ENV=production node server/index.js"
   },
   "devDependencies": {
-    "@svgr/cli": "^2.4.0",
+    "@svgr/cli": "../packages/cli",
     "babel-eslint": "^9.0.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-styled-components": "^1.7.1",
