@@ -1,5 +1,6 @@
 import React from 'react'
 import { injectGlobal } from 'styled-components'
+import Router from 'next/router'
 import { Box, globalStyle, theme } from '@smooth-ui/core-sc'
 import Settings from 'components/Settings'
 import svgr from 'modules/svgr'
@@ -7,6 +8,7 @@ import defaultSvg from 'config/fixtures/defaultSvg'
 import Header from 'components/Header'
 import Loading from 'components/Loading'
 import { settings, getInitialState, transformSettings } from 'config/settings'
+import * as gtag from '../lib/gtag'
 
 /* eslint-disable no-unused-expressions */
 injectGlobal`
@@ -26,6 +28,8 @@ injectGlobal`
 /* eslint-enable no-unused-expressions */
 
 const editorProps = { $blockScrolling: true }
+
+Router.events.on('routeChangeComplete', url => gtag.pageview(url))
 
 class Index extends React.Component {
   state = {
