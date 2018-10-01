@@ -22,15 +22,15 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.0.1",
+    "@babel/core": "^7.1.2",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@svgr/core": "^2.4.1",
-    "rollup-pluginutils": "^2.3.1"
+    "rollup-pluginutils": "^2.3.3"
   },
   "devDependencies": {
-    "rollup": "^0.65.2",
+    "rollup": "^0.66.2",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-url": "^1.4.0"
   }
