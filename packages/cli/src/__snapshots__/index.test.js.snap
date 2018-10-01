@@ -210,7 +210,11 @@ const SvgFile = ({ svgRef, ...props }) => (
   </Svg>
 )
 
-export default SvgFile
+const ForwardRef = React.forwardRef((props, ref) => (
+  <SvgFile svgRef={ref} {...props} />
+))
+
+export default ForwardRef
 
 "
 `;

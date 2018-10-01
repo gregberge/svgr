@@ -10,21 +10,24 @@ export const getProps = config => {
   return `({ ${props.join(', ')} })`
 }
 
+export const getExportName = (config, state) =>
+  config.ref ? 'ForwardRef' : state.componentName
+
 export const getExport = (config, state) => {
-  const component = config.ref ? 'ForwardRef' : state.componentName
+  const exportName = getExportName(config, state)
   if (state.webpack && state.webpack.previousExport) {
     let result = ''
     result += `export default ${state.webpack.previousExport}\n`
-    result += `export { ${component} as ReactComponent }`
+    result += `export { ${exportName} as ReactComponent }`
     return result
   }
   if (state.rollup && state.rollup.previousExport) {
     let result = ''
     result += `${state.rollup.previousExport}\n`
-    result += `export { ${component} as ReactComponent }`
+    result += `export { ${exportName} as ReactComponent }`
     return result
   }
-  return `export default ${component}`
+  return `export default ${exportName}`
 }
 
 export const getForwardRef = (config, state) => {

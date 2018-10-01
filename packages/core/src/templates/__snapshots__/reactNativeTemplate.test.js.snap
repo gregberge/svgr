@@ -39,7 +39,9 @@ exports[`reactNativeTemplate should wrap code into a component 3`] = `
 import Svg from 'react-native-svg';
 const Test = ({ svgRef }) => <Svg />
 
-export default Test"
+const ForwardRef = React.forwardRef((props, ref) => <Test svgRef={ref} {...props} />)
+
+export default ForwardRef"
 `;
 
 exports[`reactNativeTemplate should wrap code into a component 4`] = `
@@ -55,7 +57,9 @@ exports[`reactNativeTemplate should wrap code into a component 5`] = `
 import Svg from 'react-native-svg';
 const Test = ({ svgRef, title }) => <Svg />
 
-export default Test"
+const ForwardRef = React.forwardRef((props, ref) => <Test svgRef={ref} {...props} />)
+
+export default ForwardRef"
 `;
 
 exports[`reactNativeTemplate should wrap code into a component 6`] = `
@@ -71,5 +75,7 @@ exports[`reactNativeTemplate should wrap code into a component 7`] = `
 import Svg from 'react-native-svg';
 const Test = ({ svgRef, ...props }) => <Svg />
 
-export default Test"
+const ForwardRef = React.forwardRef((props, ref) => <Test svgRef={ref} {...props} />)
+
+export default ForwardRef"
 `;

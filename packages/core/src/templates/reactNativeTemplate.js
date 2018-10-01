@@ -1,4 +1,4 @@
-import { getProps } from './util'
+import { getProps, getForwardRef, getExportName } from './util'
 
 const getComponents = components => {
   if (!components.size) return ''
@@ -30,7 +30,8 @@ const reactNativeTemplate = (code, config, state) => {
   result += `import Svg${components} from 'react-native-svg';\n`
   result += warnLog
   result += `const ${state.componentName} = ${props} => ${code}\n\n`
-  result += `export default ${state.componentName}`
+  result += getForwardRef(config, state)
+  result += `export default ${getExportName(config, state)}`
 
   return result
 }
