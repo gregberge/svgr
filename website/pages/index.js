@@ -7,6 +7,7 @@ import svgr from 'modules/svgr'
 import defaultSvg from 'config/fixtures/defaultSvg'
 import Header from 'components/Header'
 import Loading from 'components/Loading'
+import DropArea from 'components/DropArea'
 import { settings, getInitialState, transformSettings } from 'config/settings'
 import * as gtag from '../lib/gtag'
 
@@ -96,21 +97,23 @@ class Index extends React.Component {
           <Box display="flex" flex={1}>
             {this.state.Editor ? (
               <React.Fragment>
-                <Box flex={1}>
-                  <this.state.Editor
-                    width="100%"
-                    height="100%"
-                    showPrintMargin={false}
-                    mode="xml"
-                    theme="tomorrow_night"
-                    onChange={this.handleInputChange}
-                    value={this.state.input}
-                    name="input"
-                    editorProps={editorProps}
-                    scrollMargin={[10, 0, 0, 0]}
-                    fontSize={13}
-                  />
-                </Box>
+                  <Box flex={1}>
+                    <DropArea onChange={this.handleInputChange}>
+                      <this.state.Editor
+                        width="100%"
+                        height="100%"
+                        showPrintMargin={false}
+                        mode="xml"
+                        theme="tomorrow_night"
+                        onChange={this.handleInputChange}
+                        value={this.state.input}
+                        name="input"
+                        editorProps={editorProps}
+                        scrollMargin={[10, 0, 0, 0]}
+                        fontSize={13}
+                        />
+                    </DropArea>
+                  </Box>
                 <Box flex={1} className={this.state.loading ? 'loading' : ''}>
                   <this.state.Editor
                     width="100%"
