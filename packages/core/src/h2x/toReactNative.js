@@ -19,6 +19,8 @@ const elementToComponent = {
   use: 'Use',
   defs: 'Defs',
   stop: 'Stop',
+  mask: 'Mask',
+  image: 'Image',
 }
 
 const componentToElement = Object.keys(elementToComponent).reduce(
