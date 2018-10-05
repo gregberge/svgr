@@ -1,4 +1,4 @@
-import { JSXElement, JSXText } from 'h2x-plugin-jsx'
+import { JSXElement, JSXInterpolation } from 'h2x-plugin-jsx'
 
 /**
  * Check if a classical title exist
@@ -8,7 +8,7 @@ import { JSXElement, JSXText } from 'h2x-plugin-jsx'
 const hasTitle = node =>
   node.children.reduce((accumulation, value) => {
     if (value.name !== 'title') return accumulation
-    if (value.children.some(e => e.text === '{title}')) return accumulation
+    if (value.children.some(e => e.text === 'title')) return accumulation
     return true
   }, false)
 
@@ -20,20 +20,17 @@ const titleProp = () => () => ({
           if (hasTitle(path.node)) {
             path.node.children = path.node.children.filter(element => {
               if (element.name !== 'title') return true
-              if (element.children.some(e => e.text === '{title}')) return true
+              if (element.children.some(e => e.text === 'title')) return true
               return false
             })
           }
 
           if (!path.node.children.some(children => children.name === 'title')) {
             const element = new JSXElement()
-            const text = new JSXText()
-
-            text.text = '{title}'
-
+            const interpolation = new JSXInterpolation()
+            interpolation.value = 'title'
             element.name = 'title'
-            element.children.push(text)
-
+            element.children.push(interpolation)
             path.node.children.unshift(element)
           }
         }

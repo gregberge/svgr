@@ -243,8 +243,8 @@ const SvgComponent = props => (
     xmlnsXlink=\\"http://www.w3.org/1999/xlink\\"
     {...props}
   >
-    <title>Dismiss</title>
-    <desc>Created with Sketch.</desc>
+    <title>{\`Dismiss\`}</title>
+    <desc>{\`Created with Sketch.\`}</desc>
     <defs />
     <g
       id=\\"Blocks\\"
@@ -293,7 +293,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config titleProp 1`] = `
+exports[`convert config titleProp: without title added 1`] = `
 "import React from 'react'
 
 const SvgComponent = ({ title, ...props }) => (
@@ -366,6 +366,45 @@ const SvgComponent = props => (
       <use xlinkHref=\\"#a\\" transform=\\"translate(0 16)\\" />
       <use xlinkHref=\\"#a\\" transform=\\"translate(0 24)\\" />
       <use xlinkHref=\\"#a\\" transform=\\"translate(0 32)\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert should handle special SVG attributes 1`] = `
+"import React from 'react'
+
+const SvgComponent = props => (
+  <svg {...props}>
+    <path externalResourcesRequired=\\"false\\" d=\\"M10 10h100v100H10z\\" />
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert should not remove all style tags 1`] = `
+"import React from 'react'
+
+const SvgComponent = props => (
+  <svg width={88} height={88} {...props}>
+    <style>{\`path{fill:red}\`}</style>
+    <g
+      id=\\"Blocks\\"
+      stroke=\\"none\\"
+      strokeWidth={1}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
+        <path d=\\"M51 37L37 51M51 51L37 37\\" id=\\"Shape\\" />
+      </g>
+      <style />
     </g>
   </svg>
 )
