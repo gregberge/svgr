@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/smooth-code/svgr/compare/v3.0.0...v3.1.0) (2018-10-05)
+
+
+### Bug Fixes
+
+* style & custom SVG properties ([#203](https://github.com/smooth-code/svgr/issues/203)) ([f8b2212](https://github.com/smooth-code/svgr/commit/f8b2212)), closes [#199](https://github.com/smooth-code/svgr/issues/199) [#201](https://github.com/smooth-code/svgr/issues/201)
+
+
+### Features
+
+* allow Mask & Image on React Native ([#202](https://github.com/smooth-code/svgr/issues/202)) ([0256bc0](https://github.com/smooth-code/svgr/commit/0256bc0))
+
+
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/smooth-code/svgr/compare/v2.4.1...v3.0.0) (2018-10-01)
 

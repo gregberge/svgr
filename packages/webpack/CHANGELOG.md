@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/smooth-code/svgr/compare/v3.0.0...v3.1.0) (2018-10-05)
+
+**Note:** Version bump only for package @svgr/webpack
+
+
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/smooth-code/svgr/compare/v2.4.1...v3.0.0) (2018-10-01)
 
