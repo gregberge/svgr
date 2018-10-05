@@ -58,6 +58,48 @@ describe('convert', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('should not remove all style tags', async () => {
+    const result = await convert(
+      `
+      <?xml version="1.0" encoding="UTF-8"?>
+      <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+          <title>Dismiss</title>
+          <desc>Created with Sketch.</desc>
+          <defs></defs>
+          <style>
+            path {
+              fill: red;
+            }
+          </style>
+          <g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+              <g id="Dismiss" stroke="#063855" stroke-width="2">
+                  <path d="M51,37 L37,51" id="Shape"></path>
+                  <path d="M51,51 L37,37" id="Shape"></path>
+              </g>
+              <style>
+                #Shape {}
+              </style>
+          </g>
+      </svg>
+    `,
+    )
+
+    expect(result).toMatchSnapshot()
+  })
+
+  it('should handle special SVG attributes', async () => {
+    const result = await convert(
+      `
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="100" height="100" externalResourcesRequired="false" />
+      </svg>
+    `,
+    )
+
+    expect(result).toMatchSnapshot()
+  })
+
   it('should convert style attribute', async () => {
     const result = await convert(
       `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -237,7 +279,7 @@ describe('convert', () => {
       expect(result).toMatchSnapshot()
     })
 
-    it('titleProp', async () => {
+    it('titleProp: without title added', async () => {
       const svg = `
       <svg width="0" height="0" style="position:absolute">
     <path d="M0 0h24v24H0z" fill="none" />

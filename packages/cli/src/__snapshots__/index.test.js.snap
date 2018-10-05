@@ -5,10 +5,10 @@ exports[`cli should not override config with cli defaults 1`] = `
 
 const SvgFile = () => <svg viewBox=\\"0 0 48 1\\" version={1.1} xmlnsXlink=\\"http://www.w3.org/1999/xlink\\">
   <title>
-    Rectangle 5
+    {\`Rectangle 5\`}
   </title>
   <desc>
-    Created with Sketch.
+    {\`Created with Sketch.\`}
   </desc>
   <defs />
   <g id=\\"Page-1\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\">
@@ -64,7 +64,7 @@ exports[`cli should support --svgo-config as file 1`] = `
 
 const SvgFile = props => (
   <svg width={48} height={1} {...props}>
-    <title>Rectangle 5</title>
+    <title>{\`Rectangle 5\`}</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
@@ -79,7 +79,7 @@ exports[`cli should support --svgo-config as json 1`] = `
 
 const SvgFile = props => (
   <svg width={48} height={1} {...props}>
-    <title>Rectangle 5</title>
+    <title>{\`Rectangle 5\`}</title>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
@@ -271,8 +271,8 @@ const SvgFile = props => (
     xmlnsXlink=\\"http://www.w3.org/1999/xlink\\"
     {...props}
   >
-    <title>Rectangle 5</title>
-    <desc>Created with Sketch.</desc>
+    <title>{\`Rectangle 5\`}</title>
+    <desc>{\`Created with Sketch.\`}</desc>
     <defs />
     <g id=\\"Page-1\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\">
       <g

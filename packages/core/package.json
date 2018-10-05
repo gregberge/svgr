@@ -24,8 +24,8 @@
   "dependencies": {
     "camelcase": "^5.0.0",
     "cosmiconfig": "^5.0.6",
-    "h2x-core": "^1.1.0",
-    "h2x-plugin-jsx": "^1.1.0",
+    "h2x-core": "^1.1.1",
+    "h2x-plugin-jsx": "^1.2.0",
     "merge-deep": "^3.0.2",
     "prettier": "^1.14.3",
     "svgo": "^1.1.1"
