@@ -25,6 +25,8 @@ function svgrLoader(source) {
         jsCode,
         {
           babelrc: false,
+          // Unless having this, babel will merge the config with global 'babel.config.js' which may causes some problems such as using react-hot-loader/babel in babel.config.js
+          configFile: false,
           presets: [
             '@babel/preset-react',
             ['@babel/preset-env', { modules: false }],
