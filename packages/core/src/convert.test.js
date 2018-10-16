@@ -17,7 +17,7 @@ const svgBaseCode = `
 `
 
 describe('convert', () => {
-  it('should convert', async () => {
+  it.only('should convert', async () => {
     const result = await convert(svgBaseCode)
     expect(result).toMatchSnapshot()
   })

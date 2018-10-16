@@ -1,5 +1,5 @@
 import svgo from './plugins/svgo'
-import h2x from './plugins/h2x'
+import jsx from './plugins/jsx'
 import prettier from './plugins/prettier'
 import transform from './plugins/transform'
 import { expandState } from './util'
@@ -11,7 +11,7 @@ function applyPlugins(code, config, state) {
   // Remove null-byte character (copy/paste from Illustrator)
   result = String(result).replace('\0', '')
   result = svgo(result, config, state)
-  result = h2x(result, config, state)
+  result = jsx(result, config, state)
   result = transform(result, config, state)
   result = prettier(result, config, state)
   return result
