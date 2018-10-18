@@ -31,7 +31,11 @@ function svgrPlugin(options = {}) {
 
       const jsCode = await convert(load, options, {
         filePath: id,
-        rollup: { previousExport },
+        caller: {
+          name: '@svgr/rollup',
+          previousExport,
+          defaultPlugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
+        },
       })
 
       const pBabelTransform = async code =>

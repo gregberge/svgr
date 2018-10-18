@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`webpack loader should convert file (babel: false) 1`] = `
-"import React from 'react';
+"import React from \\"react\\";
 
 const SvgIcon = () => React.createElement(\\"svg\\", {
   width: 88,
@@ -20,7 +20,7 @@ export default SvgIcon;"
 `;
 
 exports[`webpack loader should convert file 1`] = `
-"import React from 'react';
+"import React from \\"react\\";
 
 var _ref =
 /*#__PURE__*/
@@ -45,7 +45,7 @@ export default SvgIcon;"
 `;
 
 exports[`webpack loader should support url-loader 1`] = `
-"import React from 'react';
+"import React from \\"react\\";
 
 var _ref =
 /*#__PURE__*/
@@ -66,6 +66,6 @@ var SvgIcon = function SvgIcon() {
   return _ref;
 };
 
-export default 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODhweCIgaGVpZ2h0PSI4OHB4IiB2aWV3Qm94PSIwIDAgODggODgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ2LjIgKDQ0NDk2KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5EaXNtaXNzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkJsb2NrcyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSI+CiAgICAgICAgPGcgaWQ9IkRpc21pc3MiIHN0cm9rZT0iIzA2Mzg1NSIgc3Ryb2tlLXdpZHRoPSIyIj4KICAgICAgICAgICAgPHBhdGggZD0iTTUxLDM3IEwzNyw1MSIgaWQ9IlNoYXBlIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik01MSw1MSBMMzcsMzciIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==';
+export default \\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODhweCIgaGVpZ2h0PSI4OHB4IiB2aWV3Qm94PSIwIDAgODggODgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ2LjIgKDQ0NDk2KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5EaXNtaXNzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkJsb2NrcyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSI+CiAgICAgICAgPGcgaWQ9IkRpc21pc3MiIHN0cm9rZT0iIzA2Mzg1NSIgc3Ryb2tlLXdpZHRoPSIyIj4KICAgICAgICAgICAgPHBhdGggZD0iTTUxLDM3IEwzNyw1MSIgaWQ9IlNoYXBlIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik01MSw1MSBMMzcsMzciIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==\\";
 export { SvgIcon as ReactComponent };"
 `;

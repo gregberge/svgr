@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import convert from '@svgr/core'
-import { stat, convertFile, exitError } from './util'
+import { stat, convert, convertFile, exitError } from './util'
 
 async function output(promise) {
   process.stdout.write(`${await promise}\n`)

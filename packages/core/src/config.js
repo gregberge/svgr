@@ -16,6 +16,7 @@ export const DEFAULT_CONFIG = {
   template: null,
   titleProp: false,
   runtimeConfig: true,
+  plugins: null,
 }
 
 const explorer = cosmiconfig('svgr', {

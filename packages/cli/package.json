@@ -24,6 +24,9 @@
   },
   "dependencies": {
     "@svgr/core": "^3.1.0",
+    "@svgr/plugin-jsx": "^3.1.0",
+    "@svgr/plugin-prettier": "^3.1.0",
+    "@svgr/plugin-svgo": "^3.1.0",
     "camelcase": "^5.0.0",
     "chalk": "^2.4.1",
     "commander": "^2.19.0",

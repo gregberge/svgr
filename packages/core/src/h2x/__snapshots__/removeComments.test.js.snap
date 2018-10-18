@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`removeComments should remove comments 1`] = `
-"<svg>
-  <g stroke=\\"#063855\\" strokeWidth={2} />
-</svg>
-"
-`;

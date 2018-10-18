@@ -52,9 +52,8 @@ async function dirCommand(
 
     const dest = path.join(program.outDir, relative)
     const code = await convertFile(src, options)
-
     outputFileSync(dest, code)
-    console.info(`${src} -> ${dest}`)
+    process.stdout.write(`${src} -> ${dest}\n`)
     return true
   }
 
