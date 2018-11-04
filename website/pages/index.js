@@ -1,5 +1,5 @@
 import React from 'react'
-import { injectGlobal } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import Router from 'next/router'
 import { Box, globalStyle, theme } from '@smooth-ui/core-sc'
 import Settings from 'components/Settings'
@@ -11,8 +11,7 @@ import DropArea from 'components/DropArea'
 import { settings, getInitialState, transformSettings } from 'config/settings'
 import * as gtag from '../lib/gtag'
 
-/* eslint-disable no-unused-expressions */
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   ${globalStyle(theme)}
 
   body {
@@ -26,7 +25,6 @@ injectGlobal`
     opacity: 0.5;
   }
 `
-/* eslint-enable no-unused-expressions */
 
 const editorProps = { $blockScrolling: true }
 
@@ -82,21 +80,23 @@ class Index extends React.Component {
 
   render() {
     return (
-      <Box
-        display="flex"
-        flexDirection="column"
-        style={{ position: 'absolute', height: '100%', width: '100%' }}
-      >
-        <Header />
-        <Box display="flex" flex={1}>
-          <Settings
-            settings={settings}
-            onChange={this.handleSettingsChange}
-            initialState={this.state.settings}
-          />
+      <>
+        <GlobalStyle />
+        <Box
+          display="flex"
+          flexDirection="column"
+          style={{ position: 'absolute', height: '100%', width: '100%' }}
+        >
+          <Header />
           <Box display="flex" flex={1}>
-            {this.state.Editor ? (
-              <React.Fragment>
+            <Settings
+              settings={settings}
+              onChange={this.handleSettingsChange}
+              initialState={this.state.settings}
+            />
+            <Box display="flex" flex={1}>
+              {this.state.Editor ? (
+                <React.Fragment>
                   <Box flex={1}>
                     <DropArea onChange={this.handleInputChange}>
                       <this.state.Editor
@@ -111,31 +111,32 @@ class Index extends React.Component {
                         editorProps={editorProps}
                         scrollMargin={[10, 0, 0, 0]}
                         fontSize={13}
-                        />
+                      />
                     </DropArea>
                   </Box>
-                <Box flex={1} className={this.state.loading ? 'loading' : ''}>
-                  <this.state.Editor
-                    width="100%"
-                    height="100%"
-                    showPrintMargin={false}
-                    mode="jsx"
-                    theme="tomorrow_night"
-                    value={this.state.output}
-                    name="output"
-                    readOnly
-                    editorProps={editorProps}
-                    scrollMargin={[10, 0, 0, 0]}
-                    fontSize={13}
-                  />
-                </Box>
-              </React.Fragment>
-            ) : (
-              <Loading />
-            )}
+                  <Box flex={1} className={this.state.loading ? 'loading' : ''}>
+                    <this.state.Editor
+                      width="100%"
+                      height="100%"
+                      showPrintMargin={false}
+                      mode="jsx"
+                      theme="tomorrow_night"
+                      value={this.state.output}
+                      name="output"
+                      readOnly
+                      editorProps={editorProps}
+                      scrollMargin={[10, 0, 0, 0]}
+                      fontSize={13}
+                    />
+                  </Box>
+                </React.Fragment>
+              ) : (
+                <Loading />
+              )}
+            </Box>
           </Box>
         </Box>
-      </Box>
+      </>
     )
   }
 }

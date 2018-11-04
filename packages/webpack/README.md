@@ -1,8 +1,8 @@
 # @svgr/webpack
 
-[![Build Status][build-badge]][build]
-[![version][version-badge]][package]
-[![MIT License][license-badge]][license]
+[![Build Status](https://img.shields.io/travis/smooth-code/svgr.svg)](https://travis-ci.org/smooth-code/svgr)
+[![Version](https://img.shields.io/npm/v/@svgr/webpack.svg)](https://www.npmjs.com/package/@svgr/webpack)
+[![MIT License](https://img.shields.io/npm/l/@svgr/webpack.svg)](https://github.com/smooth-code/svgr/blob/master/LICENSE)
 
 Webpack loader for SVGR.
 
@@ -121,10 +121,3 @@ It is possible to detect the module that requires your SVG using [`Rule.issuer`]
 ## License
 
 MIT
-
-[build-badge]: https://img.shields.io/travis/smooth-code/svgr.svg?style=flat-square
-[build]: https://travis-ci.org/smooth-code/svgr
-[version-badge]: https://img.shields.io/npm/v/@svgr/webpack.svg?style=flat-square
-[package]: https://www.npmjs.com/package/@svgr/webpack
-[license-badge]: https://img.shields.io/npm/l/@svgr/webpack.svg?style=flat-square
-[license]: https://github.com/smooth-code/svgr/blob/master/LICENSE

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from '@smooth-ui/core-sc'
 import { LocalForm } from 'react-redux-form'
 import SettingsFieldBoolean from './SettingsFieldBoolean'
 import SettingsGroup from './SettingsGroup'

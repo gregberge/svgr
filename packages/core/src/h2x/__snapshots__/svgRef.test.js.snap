@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`svgRef should add a svg ref attribute 1`] = `
-"<svg width={20} height={20} ref={svgRef}>
-  <g stroke=\\"#063855\\" strokeWidth={2} />
-</svg>
-"
-`;

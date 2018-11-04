@@ -1,6 +1,6 @@
-import { Label } from '@smooth-ui/core-sc'
+import { Label, styled } from '@smooth-ui/core-sc'
 
-const SmallLabel = Label.extend`
+const SmallLabel = styled(Label)`
   text-transform: uppercase;
   font-size: 11px;
   font-weight: bold;

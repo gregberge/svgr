@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from '@smooth-ui/core-sc'
 import Github from 'components/icons/Github'
 
 const Container = styled.div`

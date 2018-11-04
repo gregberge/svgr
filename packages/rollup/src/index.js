@@ -2,6 +2,8 @@ import fs from 'fs'
 import convert from '@svgr/core'
 import { createFilter } from 'rollup-pluginutils'
 import { transform as babelTransform } from '@babel/core'
+import svgo from '@svgr/plugin-svgo'
+import jsx from '@svgr/plugin-jsx'
 
 function svgrPlugin(options = {}) {
   const filter = createFilter(options.include || '**/*.svg', options.exclude)
@@ -31,7 +33,11 @@ function svgrPlugin(options = {}) {
 
       const jsCode = await convert(load, options, {
         filePath: id,
-        rollup: { previousExport },
+        caller: {
+          name: '@svgr/rollup',
+          previousExport,
+          defaultPlugins: [svgo, jsx],
+        },
       })
 
       const pBabelTransform = async code =>

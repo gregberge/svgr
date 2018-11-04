@@ -17,7 +17,7 @@ exports[`util #convertFile should support a custom config path 1`] = `
 "import React from 'react'
 
 const SvgFile = props => (
-  <svg viewBox=\\"0 0 48 1\\" width=\\"1em\\" height=\\"1em\\" {...props}>
+  <svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 48 1\\" {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )

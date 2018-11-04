@@ -1,6 +1,8 @@
 import { getOptions } from 'loader-utils'
 import { transform as babelTransform } from '@babel/core'
 import convert from '@svgr/core'
+import svgo from '@svgr/plugin-svgo'
+import jsx from '@svgr/plugin-jsx'
 
 function svgrLoader(source) {
   const callback = this.async()
@@ -17,7 +19,9 @@ function svgrLoader(source) {
   const exportMatches = source
     .toString('utf-8')
     .match(/^module.exports\s*=\s*(.*)/)
-  const previousExport = exportMatches ? exportMatches[1] : null
+  const previousExport = exportMatches
+    ? `export default ${exportMatches[1]}`
+    : null
 
   const pBabelTransform = async jsCode =>
     new Promise((resolve, reject) => {
@@ -42,7 +46,11 @@ function svgrLoader(source) {
 
   const tranformSvg = svg =>
     convert(svg, options, {
-      webpack: { previousExport },
+      caller: {
+        name: '@svgr/webpack',
+        previousExport,
+        defaultPlugins: [svgo, jsx],
+      },
       filePath: this.resourcePath,
     })
       .then(jsCode => (babel ? pBabelTransform(jsCode) : jsCode))

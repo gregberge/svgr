@@ -1,6 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Box } from '@smooth-ui/core-sc'
+import { Box, styled } from '@smooth-ui/core-sc'
 import ChevronLeft from 'components/icons/ChevronLeft'
 
 const Container = styled.div`

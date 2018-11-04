@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react'
 import NextDocument, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
@@ -17,11 +18,6 @@ class Document extends NextDocument {
     return (
       <html lang="en">
         <Head>
-          <title>SVGR: The SVG to JSX transformer</title>
-          <meta
-            name="description"
-            content="Transform SVG into JSX React components with SVGR."
-          />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
@@ -34,7 +30,8 @@ class Document extends NextDocument {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_TRACKING_ID}');
-          `}}
+          `,
+            }}
           />
           {this.props.styleTags}
         </Head>

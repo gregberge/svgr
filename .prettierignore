@@ -4,5 +4,4 @@ CHANGELOG.md
 package.json
 lerna.json
 lib/
-website/
 .next/

@@ -16,7 +16,6 @@ npm install @svgr/cli
 Usage: svgr [options] <file|directory>
 
 Options:
-
   -V, --version                    output the version number
   --config-file <file>             specify the path of the svgr config
   --no-runtime-config              disable runtime config (".svgrrc", ".svgo.yml", ".prettierrc")

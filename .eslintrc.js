@@ -10,6 +10,7 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'no-plusplus': 'off',
     'class-methods-use-this': 'off',
     'no-param-reassign': 'off',
     'no-use-before-define': 'off',

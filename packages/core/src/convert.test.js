@@ -1,5 +1,35 @@
 import convert from '.'
 
+function convertWithAllPlugins(code, config, state) {
+  return convert(
+    code,
+    {
+      plugins: [
+        '@svgr/plugin-svgo',
+        '@svgr/plugin-jsx',
+        '@svgr/plugin-prettier',
+      ],
+      ...config,
+    },
+    state,
+  )
+}
+
+function convertSyncWithAllPlugins(code, config, state) {
+  return convert.sync(
+    code,
+    {
+      plugins: [
+        '@svgr/plugin-svgo',
+        '@svgr/plugin-jsx',
+        '@svgr/plugin-prettier',
+      ],
+      ...config,
+    },
+    state,
+  )
+}
+
 const svgBaseCode = `
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -18,18 +48,18 @@ const svgBaseCode = `
 
 describe('convert', () => {
   it('should convert', async () => {
-    const result = await convert(svgBaseCode)
+    const result = await convertWithAllPlugins(svgBaseCode)
     expect(result).toMatchSnapshot()
   })
 
   it('should work synchronously', async () => {
-    const syncResult = convert.sync(svgBaseCode)
-    const asyncResult = await convert(svgBaseCode)
+    const syncResult = convertSyncWithAllPlugins(svgBaseCode)
+    const asyncResult = await convertWithAllPlugins(svgBaseCode)
     expect(syncResult).toEqual(asyncResult)
   })
 
   it('should remove style tags', async () => {
-    const result = await convert(
+    const result = await convertWithAllPlugins(
       `
       <?xml version="1.0" encoding="UTF-8"?>
       <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -59,7 +89,7 @@ describe('convert', () => {
   })
 
   it('should not remove all style tags', async () => {
-    const result = await convert(
+    const result = await convertWithAllPlugins(
       `
       <?xml version="1.0" encoding="UTF-8"?>
       <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -89,7 +119,7 @@ describe('convert', () => {
   })
 
   it('should handle special SVG attributes', async () => {
-    const result = await convert(
+    const result = await convertWithAllPlugins(
       `
       <svg xmlns="http://www.w3.org/2000/svg">
         <rect x="10" y="10" width="100" height="100" externalResourcesRequired="false" />
@@ -101,7 +131,7 @@ describe('convert', () => {
   })
 
   it('should convert style attribute', async () => {
-    const result = await convert(
+    const result = await convertWithAllPlugins(
       `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
@@ -236,7 +266,7 @@ describe('convert', () => {
   })
 
   it('should remove null characters', async () => {
-    const result = await convert(
+    const result = await convertWithAllPlugins(
       `<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In  -->
 <svg version="1.1"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
@@ -258,24 +288,29 @@ describe('convert', () => {
 
   describe('config', () => {
     const configs = [
-      [{ dimensions: false }],
-      [{ expandProps: false }],
-      [{ expandProps: 'start' }],
-      [{ icon: true }],
-      [{ native: true }],
-      [{ native: true, icon: true }],
-      [{ native: true, expandProps: false }],
-      [{ native: true, ref: true }],
-      [{ ref: true }],
-      [{ replaceAttrValues: { none: 'black' } }],
-      [{ svgo: false }],
-      [{ prettier: false }],
-      [{ template: () => 'nothing' }],
-      [{ titleProp: true }],
+      { dimensions: false },
+      { expandProps: false },
+      { expandProps: 'start' },
+      { icon: true },
+      { native: true },
+      { native: true, icon: true },
+      { native: true, expandProps: false },
+      { native: true, ref: true },
+      { ref: true },
+      { svgProps: { a: 'b', b: '{props.b}' } },
+      { replaceAttrValues: { none: 'black' } },
+      { replaceAttrValues: { none: '{black}' } },
+      { svgo: false },
+      { prettier: false },
+      {
+        template: ({ template }) =>
+          template.ast`const noop = () => null; export default noop;`,
+      },
+      { titleProp: true },
     ]
 
     test.each(configs)('should support options %o', async config => {
-      const result = await convert(svgBaseCode, config)
+      const result = await convertWithAllPlugins(svgBaseCode, config)
       expect(result).toMatchSnapshot()
     })
 
@@ -285,7 +320,9 @@ describe('convert', () => {
     <path d="M0 0h24v24H0z" fill="none" />
 </svg>
 `
-      expect(await convert(svg, { titleProp: true })).toMatchSnapshot()
+      expect(
+        await convertWithAllPlugins(svg, { titleProp: true }),
+      ).toMatchSnapshot()
     })
   })
 })
