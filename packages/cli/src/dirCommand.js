@@ -4,7 +4,7 @@ import outputFileSync from 'output-file-sync'
 import readdir from 'recursive-readdir'
 import camelcase from 'camelcase'
 import dashify from 'dashify'
-import { stat, convertFile } from './util'
+import { convertFile, stat } from './util'
 
 const CASE = {
   KEBAB: 'kebab', // kebab-case
@@ -50,7 +50,7 @@ async function dirCommand(
     if (!isCompilable(relative)) return false
     relative = rename(relative, ext, filenameCase)
 
-    const dest = path.join(program.outDir, relative)
+    const dest = path.resolve(program.outDir, relative);
     const code = await convertFile(src, options)
 
     outputFileSync(dest, code)
