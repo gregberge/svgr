@@ -14,10 +14,14 @@ describe('plugin', () => {
   it('should replace attribute values', () => {
     expect(
       testPlugin('<div something="cool" />', {
-        values: {
-          cool: 'not cool',
-        },
+        values: [{ value: 'cool', newValue: 'not cool' }],
       }),
     ).toMatchInlineSnapshot(`"<div something=\\"not cool\\" />;"`)
+
+    expect(
+      testPlugin('<div something="cool" />', {
+        values: [{ value: 'cool', newValue: 'props.color', literal: true }],
+      }),
+    ).toMatchInlineSnapshot(`"<div something={props.color} />;"`)
   })
 })

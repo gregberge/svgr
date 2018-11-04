@@ -7,13 +7,23 @@ import svgEmDimensions from '@svgr/babel-plugin-svg-em-dimensions'
 import transformReactNativeSVG from '@svgr/babel-plugin-transform-react-native-svg'
 import transformSvgComponent from '@svgr/babel-plugin-transform-svg-component'
 
+function getAttributeValue(value) {
+  const literal =
+    typeof value === 'string' && value.startsWith('{') && value.endsWith('}')
+  return { value: literal ? value.slice(1, -1) : value, literal }
+}
+
 function propsToAttributes(props) {
   return Object.keys(props).map(name => {
-    const value = props[name]
-    const literal =
-      typeof value === 'string' && value.startsWith('{') && value.endsWith('}')
+    const { literal, value } = getAttributeValue(props[name])
+    return { name, literal, value }
+  })
+}
 
-    return { name, value: value.slice(1, -1), literal }
+function replaceMapToValues(replaceMap) {
+  return Object.keys(replaceMap).map(value => {
+    const { literal, value: newValue } = getAttributeValue(replaceMap[value])
+    return { value, newValue, literal }
   })
 }
 
@@ -65,7 +75,10 @@ const plugin = (api, opts) => {
   ]
 
   if (opts.replaceAttrValues) {
-    plugins.push([replaceJSXAttributeValue, { values: opts.replaceAttrValues }])
+    plugins.push([
+      replaceJSXAttributeValue,
+      { values: replaceMapToValues(opts.replaceAttrValues) },
+    ])
   }
 
   if (opts.icon && opts.dimensions) {

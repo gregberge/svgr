@@ -207,6 +207,27 @@ export default ForwardRef
 "
 `;
 
+exports[`convert config should support options { replaceAttrValues: { none: '{black}' } } 1`] = `
+"import React from 'react'
+
+const SvgComponent = props => (
+  <svg width={88} height={88} {...props}>
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill={black}
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37L37 51M51 51L37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert config should support options { replaceAttrValues: { none: 'black' } } 1`] = `
 "import React from 'react'
 
@@ -216,6 +237,27 @@ const SvgComponent = props => (
       stroke=\\"#063855\\"
       strokeWidth={2}
       fill=\\"black\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37L37 51M51 51L37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options { svgProps: { a: 'b', b: '{props.b}' } } 1`] = `
+"import React from 'react'
+
+const SvgComponent = props => (
+  <svg width={88} height={88} a=\\"b\\" b={props.b} {...props}>
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
       fillRule=\\"evenodd\\"
       strokeLinecap=\\"square\\"
     >

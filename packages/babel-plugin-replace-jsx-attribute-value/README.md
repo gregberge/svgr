@@ -15,7 +15,12 @@ npm install --save-dev @svgr/babel-plugin-replace-jsx-attribute-value
   "plugins": [
     [
       "@svgr/babel-plugin-replace-jsx-attribute-value",
-      { "values": { "#000": "currentColor" } }
+      {
+        "values": [
+          { "value": "#000", "newValue": "#fff" },
+          { "value": "blue", "newValue": "props.color", "literal": true }
+        ]
+      }
     ]
   ]
 }

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { transform } from '@babel/core'
 import preset from '.'
 
@@ -26,7 +27,7 @@ describe('preset', () => {
     ).toMatchInlineSnapshot(`
 "import React from \\"react\\";
 
-const SvgComponent = () => <svg foo=\\"a\\" x={y} />;
+const SvgComponent = () => <svg foo=\\"bar\\" x={y} />;
 
 export default SvgComponent;"
 `)
@@ -46,6 +47,26 @@ export default SvgComponent;"
 const SvgComponent = ({
   title
 }) => <svg><title>{title}</title></svg>;
+
+export default SvgComponent;"
+`)
+  })
+
+  it('should handle replaceAttrValues', () => {
+    expect(
+      testPreset('<svg a="#000" b="#fff" />', {
+        replaceAttrValues: {
+          '#000': 'black',
+          '#fff': '{props.white}',
+        },
+        state: {
+          componentName: 'SvgComponent',
+        },
+      }),
+    ).toMatchInlineSnapshot(`
+"import React from \\"react\\";
+
+const SvgComponent = () => <svg a=\\"black\\" b={props.white} />;
 
 export default SvgComponent;"
 `)

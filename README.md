@@ -397,6 +397,8 @@ change an icon color to "currentColor" in order to inherit from text color.
 | ------- | --------------------------------- | ------------------------------------ |
 | `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { old: 'new' }>` |
 
+> You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particulary useful with a custom template.
+
 ### SVG props
 
 Add props to the root SVG tag.

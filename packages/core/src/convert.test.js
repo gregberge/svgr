@@ -288,25 +288,25 @@ describe('convert', () => {
 
   describe('config', () => {
     const configs = [
-      [{ dimensions: false }],
-      [{ expandProps: false }],
-      [{ expandProps: 'start' }],
-      [{ icon: true }],
-      [{ native: true }],
-      [{ native: true, icon: true }],
-      [{ native: true, expandProps: false }],
-      [{ native: true, ref: true }],
-      [{ ref: true }],
-      [{ replaceAttrValues: { none: 'black' } }],
-      [{ svgo: false }],
-      [{ prettier: false }],
-      [
-        {
-          template: ({ template }) =>
-            template.ast`const noop = () => null; export default noop;`,
-        },
-      ],
-      [{ titleProp: true }],
+      { dimensions: false },
+      { expandProps: false },
+      { expandProps: 'start' },
+      { icon: true },
+      { native: true },
+      { native: true, icon: true },
+      { native: true, expandProps: false },
+      { native: true, ref: true },
+      { ref: true },
+      { svgProps: { a: 'b', b: '{props.b}' } },
+      { replaceAttrValues: { none: 'black' } },
+      { replaceAttrValues: { none: '{black}' } },
+      { svgo: false },
+      { prettier: false },
+      {
+        template: ({ template }) =>
+          template.ast`const noop = () => null; export default noop;`,
+      },
+      { titleProp: true },
     ]
 
     test.each(configs)('should support options %o', async config => {
