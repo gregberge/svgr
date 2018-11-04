@@ -1,7 +1,7 @@
 {
   "name": "@svgr/webpack",
   "description": "SVGR webpack loader.",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "main": "lib/index.js",
   "repository": "git@github.com:smooth-code/svgr.git",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -29,9 +29,9 @@
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "@svgr/core": "^3.1.0",
-    "@svgr/plugin-jsx": "^3.1.0",
-    "@svgr/plugin-svgo": "^3.1.0",
+    "@svgr/core": "^4.0.0",
+    "@svgr/plugin-jsx": "^4.0.0",
+    "@svgr/plugin-svgo": "^4.0.0",
     "loader-utils": "^1.1.0"
   },
   "devDependencies": {

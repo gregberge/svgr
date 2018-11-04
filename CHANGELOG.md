@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/smooth-code/svgr/compare/v3.1.0...v4.0.0) (2018-11-04)
+
+
+### Bug Fixes
+
+* prevent babel read babel.config.js ([#206](https://github.com/smooth-code/svgr/issues/206)) ([514d43d](https://github.com/smooth-code/svgr/commit/514d43d))
+* **cli:** fix --out-dir usage with absolute path ([#208](https://github.com/smooth-code/svgr/issues/208)) ([c922e2e](https://github.com/smooth-code/svgr/commit/c922e2e))
+
+
+### Features
+
+* **svgo:** prefix ids by default ([06c338d](https://github.com/smooth-code/svgr/commit/06c338d)), closes [#210](https://github.com/smooth-code/svgr/issues/210)
+* **v4:** new architecture ([ac8b8ca](https://github.com/smooth-code/svgr/commit/ac8b8ca))
+* allow dynamic properties in replaceAttrValues option ([15f55fe](https://github.com/smooth-code/svgr/commit/15f55fe)), closes [#205](https://github.com/smooth-code/svgr/issues/205)
+
+
+### BREAKING CHANGES
+
+* **v4:** - `template` option must now returns a Babel AST
+- `@svgr/core` does not include svgo & prettier by default
+
+
+
+
+
 # [3.1.0](https://github.com/smooth-code/svgr/compare/v3.0.0...v3.1.0) (2018-10-05)
 
 

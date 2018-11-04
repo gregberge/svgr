@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/smooth-code/svgr/compare/v3.1.0...v4.0.0) (2018-11-04)
+
+
+### Bug Fixes
+
+* **cli:** fix --out-dir usage with absolute path ([#208](https://github.com/smooth-code/svgr/issues/208)) ([c922e2e](https://github.com/smooth-code/svgr/commit/c922e2e))
+
+
+### Features
+
+* **v4:** new architecture ([ac8b8ca](https://github.com/smooth-code/svgr/commit/ac8b8ca))
+
+
+### BREAKING CHANGES
+
+* **v4:** - `template` option must now returns a Babel AST
+- `@svgr/core` does not include svgo & prettier by default
+
+
+
+
+
 # [3.1.0](https://github.com/smooth-code/svgr/compare/v3.0.0...v3.1.0) (2018-10-05)
 
 
