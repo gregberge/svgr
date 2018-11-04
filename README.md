@@ -86,10 +86,9 @@ React supports SVG out of the box, it's simpler, easier and much more powerful
 to have components instead of SVG files. Wrapped in a React component, your SVG
 is inlined in the page and you can style it using CSS.
 
-There are a lot of similar projects, but I wanted something more solid and
-configurable. SVGR is based on [h2x](https://github.com/smooth-code/h2x), a
-powerful and configurable HTML transpiler. It uses AST (like
-[Babel](https://github.com/babel/babel/)) that gives a lot of power.
+SVGR differs from other library by its solid architecture. It uses [rehype](https://github.com/rehypejs/rehype/) + [Babel](https://babeljs.io) to transform SVG code into JavaScript code.
+
+SVGR is included in [create-react-app v2](https://github.com/facebook/create-react-app) and gives you the power to [import SVG directly as a React component](https://facebook.github.io/create-react-app/docs/adding-images-fonts-and-files#adding-svgs).
 
 ## Command line usage
 
