@@ -11,6 +11,9 @@ const baseSvg = `<?xml version="1.0" encoding="UTF-8"?>
       <g id="Dismiss" stroke="#063855" stroke-width="2">
           <path d="M51,37 L37,51" id="Shape"></path>
           <path d="M51,51 L37,37" id="Shape"></path>
+          <style>
+            #Shape {}
+          </style>
       </g>
   </g>
 </svg>`
@@ -27,7 +30,7 @@ describe('svgo', () => {
       {
         svgo: true,
         runtimeConfig: true,
-        svgoConfig: { svgos: [{ removeDesc: false }] },
+        svgoConfig: { plugins: [{ removeDesc: false }] },
       },
       {},
     )
@@ -35,14 +38,14 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('should support icon with config.svgoConfig svgos', () => {
+  it('should support icon with config.svgoConfig plugins', () => {
     const result = svgo(
       baseSvg,
       {
         svgo: true,
         icon: true,
         runtimeConfig: true,
-        svgoConfig: { svgos: [{ removeDesc: false }] },
+        svgoConfig: { plugins: [{ removeDesc: false }] },
       },
       {},
     )
@@ -73,7 +76,22 @@ describe('svgo', () => {
   it('should not remove viewBox with icon option', () => {
     const result = svgo(
       baseSvg,
-      { icon: true, runtimeConfig: true },
+      { svgo: true, icon: true, runtimeConfig: true },
+      { filePath: path.join(__dirname, '../__fixtures__/svgo') },
+    )
+
+    expect(result).toMatchSnapshot()
+  })
+
+  it('should be possible to disable id prefixing', () => {
+    const result = svgo(
+      baseSvg,
+      {
+        svgo: true,
+        icon: true,
+        runtimeConfig: true,
+        svgoConfig: { plugins: [{ prefixIds: false }] },
+      },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
 

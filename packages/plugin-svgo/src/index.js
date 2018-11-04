@@ -84,7 +84,9 @@ function optimizeSync(svgstr, info) {
 }
 
 function getBaseSvgoConfig(config) {
-  const baseSvgoConfig = { plugins: [] }
+  const baseSvgoConfig = {
+    plugins: [{ prefixIds: true }],
+  }
   if (config.icon) baseSvgoConfig.plugins.push({ removeViewBox: false })
   return baseSvgoConfig
 }
@@ -94,9 +96,12 @@ function getFilePath(state) {
 }
 
 function createSvgo(config, rcConfig) {
-  return new SVGO(
-    mergeDeep(getBaseSvgoConfig(config), rcConfig, config.svgoConfig),
+  const mergedConfig = mergeDeep(
+    getBaseSvgoConfig(config),
+    rcConfig,
+    config.svgoConfig,
   )
+  return new SVGO(mergedConfig)
 }
 
 function getInfo(state) {

@@ -35,6 +35,6 @@
     "babel-loader": "^8.0.4",
     "memory-fs": "^0.4.1",
     "url-loader": "^1.1.2",
-    "webpack": "^4.20.2"
+    "webpack": "^4.24.0"
   }
 }

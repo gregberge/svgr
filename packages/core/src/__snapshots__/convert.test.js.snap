@@ -333,7 +333,7 @@ exports[`convert should convert style attribute 1`] = `
 const SvgComponent = props => (
   <svg width={48} height={48} {...props}>
     <g transform=\\"translate(0 -1004.362)\\">
-      <g id=\\"a\\" color=\\"#000\\" fill=\\"#a3a3a3\\" strokeWidth={8}>
+      <g id=\\"prefix__a\\" color=\\"#000\\" fill=\\"#a3a3a3\\" strokeWidth={8}>
         <rect
           style={{
             marker: 'none',
@@ -359,11 +359,11 @@ const SvgComponent = props => (
           overflow=\\"visible\\"
         />
       </g>
-      <use xlinkHref=\\"#a\\" />
-      <use xlinkHref=\\"#a\\" transform=\\"translate(0 8)\\" />
-      <use xlinkHref=\\"#a\\" transform=\\"translate(0 16)\\" />
-      <use xlinkHref=\\"#a\\" transform=\\"translate(0 24)\\" />
-      <use xlinkHref=\\"#a\\" transform=\\"translate(0 32)\\" />
+      <use xlinkHref=\\"#prefix__a\\" />
+      <use xlinkHref=\\"#prefix__a\\" transform=\\"translate(0 8)\\" />
+      <use xlinkHref=\\"#prefix__a\\" transform=\\"translate(0 16)\\" />
+      <use xlinkHref=\\"#prefix__a\\" transform=\\"translate(0 24)\\" />
+      <use xlinkHref=\\"#prefix__a\\" transform=\\"translate(0 32)\\" />
     </g>
   </svg>
 )
@@ -392,15 +392,15 @@ const SvgComponent = props => (
   <svg width={88} height={88} {...props}>
     <style>{'path{fill:red}'}</style>
     <g
-      id=\\"Blocks\\"
+      id=\\"prefix__Blocks\\"
       stroke=\\"none\\"
       strokeWidth={1}
       fill=\\"none\\"
       fillRule=\\"evenodd\\"
       strokeLinecap=\\"square\\"
     >
-      <g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
-        <path d=\\"M51 37L37 51M51 51L37 37\\" id=\\"Shape\\" />
+      <g id=\\"prefix__Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
+        <path d=\\"M51 37L37 51M51 51L37 37\\" id=\\"prefix__Shape\\" />
       </g>
       <style />
     </g>
@@ -435,8 +435,8 @@ exports[`convert should remove style tags 1`] = `
 const SvgComponent = props => (
   <svg width={88} height={88} {...props}>
     <g fill=\\"red\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\">
-      <g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
-        <path d=\\"M51 37L37 51\\" id=\\"Shape\\" />
+      <g id=\\"prefix__Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
+        <path d=\\"M51 37L37 51\\" id=\\"prefix__Shape\\" />
         <path d=\\"M51 51L37 37\\" />
       </g>
       <style />
