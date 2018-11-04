@@ -3,6 +3,9 @@ import fs from 'fs'
 import chalk from 'chalk'
 import util from 'util'
 import svgrConvert from '@svgr/core'
+import svgo from '@svgr/plugin-svgo'
+import jsx from '@svgr/plugin-jsx'
+import prettier from '@svgr/plugin-prettier'
 
 export const readFile = util.promisify(fs.readFile)
 export const stat = util.promisify(fs.stat)
@@ -12,11 +15,7 @@ export function convert(code, config, state) {
     ...state,
     caller: {
       name: '@svgr/cli',
-      defaultPlugins: [
-        '@svgr/plugin-svgo',
-        '@svgr/plugin-jsx',
-        '@svgr/plugin-prettier',
-      ],
+      defaultPlugins: [svgo, jsx, prettier],
     },
   })
 }

@@ -1,6 +1,8 @@
 import { getOptions } from 'loader-utils'
 import { transform as babelTransform } from '@babel/core'
 import convert from '@svgr/core'
+import svgo from '@svgr/plugin-svgo'
+import jsx from '@svgr/plugin-jsx'
 
 function svgrLoader(source) {
   const callback = this.async()
@@ -47,7 +49,7 @@ function svgrLoader(source) {
       caller: {
         name: '@svgr/webpack',
         previousExport,
-        defaultPlugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
+        defaultPlugins: [svgo, jsx],
       },
       filePath: this.resourcePath,
     })

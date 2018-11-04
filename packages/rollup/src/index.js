@@ -2,6 +2,8 @@ import fs from 'fs'
 import convert from '@svgr/core'
 import { createFilter } from 'rollup-pluginutils'
 import { transform as babelTransform } from '@babel/core'
+import svgo from '@svgr/plugin-svgo'
+import jsx from '@svgr/plugin-jsx'
 
 function svgrPlugin(options = {}) {
   const filter = createFilter(options.include || '**/*.svg', options.exclude)
@@ -34,7 +36,7 @@ function svgrPlugin(options = {}) {
         caller: {
           name: '@svgr/rollup',
           previousExport,
-          defaultPlugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
+          defaultPlugins: [svgo, jsx],
         },
       })
 

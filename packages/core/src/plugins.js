@@ -1,14 +1,29 @@
-const DEFAULT_PLUGINS = ['@svgr/plugin-jsx']
+import jsx from '@svgr/plugin-jsx'
 
-export function resolvePlugins(config, state) {
+const DEFAULT_PLUGINS = [jsx]
+
+export function getPlugins(config, state) {
   if (config.plugins) {
     return config.plugins
   }
+
   if (state.caller && state.caller.defaultPlugins) {
     return state.caller.defaultPlugins
   }
 
   return DEFAULT_PLUGINS
+}
+
+export function resolvePlugin(plugin) {
+  if (typeof plugin === 'function') {
+    return plugin
+  }
+
+  if (typeof plugin === 'string') {
+    return loadPlugin(plugin)
+  }
+
+  throw new Error(`Invalid plugin "${plugin}"`)
 }
 
 const pluginCache = {}
@@ -25,7 +40,6 @@ export function loadPlugin(moduleName) {
       throw new Error(`Invalid plugin "${moduleName}"`)
     }
     pluginCache[moduleName] = plugin.default || plugin
-    pluginCache[moduleName].async = plugin.async
     return pluginCache[moduleName]
   } catch (error) {
     throw new Error(

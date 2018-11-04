@@ -1,10 +1,10 @@
 import { expandState } from './state'
 import { loadConfig } from './config'
-import { loadPlugin, resolvePlugins } from './plugins'
+import { resolvePlugin, getPlugins } from './plugins'
 
 function run(code, config, state) {
   const expandedState = expandState(state)
-  const plugins = resolvePlugins(config, state).map(loadPlugin)
+  const plugins = getPlugins(config, state).map(resolvePlugin)
   let nextCode = String(code).replace('\0', '')
   // eslint-disable-next-line no-restricted-syntax
   for (const plugin of plugins) {

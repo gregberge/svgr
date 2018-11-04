@@ -27,4 +27,31 @@ const SvgComponent = () => <svg viewBox=\\"0 0 88 88\\"><title>{\\"Dismiss\\"}</
 export default SvgComponent;"
 `)
   })
+
+  it('should accept jsx config', () => {
+    const dropTitle = () => ({
+      visitor: {
+        JSXElement(path) {
+          if (
+            path.get('openingElement.name').isJSXIdentifier({ name: 'title' })
+          ) {
+            path.remove()
+          }
+        },
+      },
+    })
+
+    const result = jsx(
+      svgBaseCode,
+      { jsx: { babelConfig: { plugins: [dropTitle] } } },
+      { componentName: 'SvgComponent' },
+    )
+    expect(result).toMatchInlineSnapshot(`
+"import React from \\"react\\";
+
+const SvgComponent = () => <svg viewBox=\\"0 0 88 88\\"><desc>{\\"Created with Sketch.\\"}</desc><defs /><g id=\\"Blocks\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}><path d=\\"M51,37 L37,51\\" id=\\"Shape\\" /><path d=\\"M51,51 L37,37\\" id=\\"Shape\\" /></g></g></svg>;
+
+export default SvgComponent;"
+`)
+  })
 })

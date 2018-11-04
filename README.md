@@ -97,7 +97,6 @@ powerful and configurable HTML transpiler. It uses AST (like
 Usage: svgr [options] <file|directory>
 
 Options:
-
   -V, --version                    output the version number
   --config-file <file>             specify the path of the svgr config
   --no-runtime-config              disable runtime config (".svgrrc", ".svgo.yml", ".prettierrc")
@@ -182,20 +181,26 @@ $ npx @svgr/cli --template path/to/template.js my-icon.svg
 An example of template:
 
 ```js
-const { getProps } = require('@svgr/core')
-
-const reactDomTemplate = (code, config, state) => {
-  const props = getProps(config)
-  let result = `import React from 'react'\n\n`
-  result += `const ${state.componentName} = ${props} => ${code}\n\n`
-  result += `export default ${state.componentName}`
-  return result
+function template(
+  { template },
+  opts,
+  { imports, componentName, props, jsx, exports },
+) {
+  return template.ast`
+    ${imports}
+    const ${componentName} = (${props}) => ${jsx}
+    ${exports}
+  `
 }
 
-module.exports = reactDomTemplate
+module.exports = template
 ```
 
-You can find all default templates in [templates folder](https://github.com/smooth-code/svgr/blob/master/packages/core/src/templates).
+Template must return a Babel AST, the template function takes three arguments:
+
+- `api`: API methods provided by Babel
+- `opts`: SVGR options
+- `values`: Pre-computed values to use (or not) in your templates
 
 #### Usage with Jest
 
@@ -215,32 +220,13 @@ module.exports = {
 }
 ```
 
-## Node API usage
+## [Node API usage](packages/core/README.md)
 
-### `svgr(code, config, state)`
+## [Webpack loader](packages/webpack/README.md)
 
-```js
-import svgr from '@svgr/core'
+## [Rollup plugin](packages/rollup/README.md)
 
-const svgCode = `
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
-  <rect x="10" y="10" height="100" width="100"
-    style="stroke:#ff0000; fill: #0000ff"/>
-</svg>
-`
-
-svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
-  console.log(jsCode)
-})
-```
-
-Use `svgr.sync(code, config, state)` if you would like to use sync version.
-
-## [Webpack loader](https://github.com/smooth-code/svgr/blob/master/packages/webpack)
-
-## [Rollup plugin](https://github.com/smooth-code/svgr/blob/master/packages/rollup)
+## [Apply advanced transformations using Babel](packages/plugin-jsx/README.md)
 
 ## Configurations
 
@@ -424,19 +410,19 @@ Add props to the root SVG tag.
 ### Template
 
 Specify a template file (CLI) or a template function (API) to use. For an
-example of template, see [the default one](packages/core/src/templates/reactDomTemplate.js).
+example of template, see [the default one](packages/babel-plugin-transform-svg-component/src/index.js).
 
-| Default                                                               | CLI Override | API Override       |
-| --------------------------------------------------------------------- | ------------ | ------------------ |
-| [`reactDomTemplate`](packages/core/src/templates/reactDomTemplate.js) | `--template` | `template: <func>` |
+| Default                                                                        | CLI Override | API Override       |
+| ------------------------------------------------------------------------------ | ------------ | ------------------ |
+| [`basic template`](packages/babel-plugin-transform-svg-component/src/index.js) | `--template` | `template: <func>` |
 
 ### Output Directory
 
 Output files into a directory.
 
-| Default     | CLI Override          | API Override        |
-| ----------- | --------------------- | ------------------- |
-| `undefined` | `--out-dir <dirname>` | `outDir: <dirname>` |
+| Default     | CLI Override          | API Override          |
+| ----------- | --------------------- | --------------------- |
+| `undefined` | `--out-dir <dirname>` | Only available in CLI |
 
 # License
 

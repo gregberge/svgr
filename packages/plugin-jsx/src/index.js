@@ -33,6 +33,8 @@ export default function jsxPlugin(code, config, state) {
     code: true,
     ast: false,
     inputSourceMap: false,
+    ...(config.jsx && config.jsx.babelConfig),
   })
+
   return generatedCode
 }
