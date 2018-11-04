@@ -4,6 +4,9 @@
   "version": "3.1.0",
   "repository": "git@github.com:smooth-code/svgr.git",
   "author": "Greg Bergé <berge.greg@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "svgr",
     "svg",
