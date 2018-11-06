@@ -28,7 +28,7 @@ npm install --save-dev @svgr/plugin-jsx
 
 - Parsing the SVG code using [rehype](https://github.com/rehypejs/rehype)
 - Converting the [HAST](https://github.com/syntax-tree/hast) into a [Babel AST](https://github.com/babel/babel/blob/master/packages/babel-parser/ast/spec.md)
-- Applying [`@svgr/babel-preset`](../packages/babel-preset/README.md) transformations
+- Applying [`@svgr/babel-preset`](../babel-preset/README.md) transformations
 
 ## Applying custom transformations
 
@@ -57,14 +57,14 @@ module.exports = {
 
 Several Babel plugins are available:
 
-- [`@svgr/babel-plugin-add-jsx-attribute`](../packages/babel-plugin-add-jsx-attribute/README.md)
-- [`@svgr/babel-plugin-remove-jsx-attribute`](../packages/babel-plugin-remove-jsx-attribute/README.md)
-- [`@svgr/babel-plugin-remove-jsx-empty-expression`](../packages/babel-plugin-remove-jsx-empty-expression/README.md)
-- [`@svgr/babel-plugin-replace-jsx-attribute-value`](../packages/babel-plugin-replace-jsx-attribute-value/README.md)
-- [`@svgr/babel-plugin-svg-dynamic-title`](../packages/babel-plugin-svg-dynamic-title/README.md)
-- [`@svgr/babel-plugin-svg-em-dimensions`](../packages/babel-plugin-svg-em-dimensions/README.md)
-- [`@svgr/babel-plugin-transform-react-native-svg`](../packages/babel-plugin-transform-react-native-svg/README.md)
-- [`@svgr/babel-plugin-transform-svg-component`](../packages/babel-plugin-transform-svg-component/README.md)
+- [`@svgr/babel-plugin-add-jsx-attribute`](../babel-plugin-add-jsx-attribute/README.md)
+- [`@svgr/babel-plugin-remove-jsx-attribute`](../babel-plugin-remove-jsx-attribute/README.md)
+- [`@svgr/babel-plugin-remove-jsx-empty-expression`](../babel-plugin-remove-jsx-empty-expression/README.md)
+- [`@svgr/babel-plugin-replace-jsx-attribute-value`](../babel-plugin-replace-jsx-attribute-value/README.md)
+- [`@svgr/babel-plugin-svg-dynamic-title`](../babel-plugin-svg-dynamic-title/README.md)
+- [`@svgr/babel-plugin-svg-em-dimensions`](../babel-plugin-svg-em-dimensions/README.md)
+- [`@svgr/babel-plugin-transform-react-native-svg`](../babel-plugin-transform-react-native-svg/README.md)
+- [`@svgr/babel-plugin-transform-svg-component`](../babel-plugin-transform-svg-component/README.md)
 
 If you want to create your own, reading [Babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md) is a good start!
 
