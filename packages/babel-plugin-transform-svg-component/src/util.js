@@ -72,7 +72,9 @@ export const getExport = ({ template }, opts) => {
   if (opts.state.caller && opts.state.caller.previousExport) {
     result += `${opts.state.caller.previousExport}\n`
     result += `export { ${exportName} as ReactComponent }`
-    return template.ast(result)
+    return template.ast(result, {
+      plugins: ['jsx'],
+    })
   }
 
   result += `export default ${exportName}`
