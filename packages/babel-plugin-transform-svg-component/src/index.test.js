@@ -45,6 +45,14 @@ export default MyComponent;"
 `)
   })
 
+  it('should handle template that does not return an array', () => {
+    const { code } = testPlugin('<svg><div /></svg>', {
+      template: ({ template }, opts, { jsx }) => template.ast`${jsx}`,
+      state: { componentName: 'SvgComponent' },
+    })
+    expect(code).toMatchInlineSnapshot(`"<svg><div /></svg>;"`)
+  })
+
   it('should work with ref', () => {
     const { code } = testPlugin('<svg><div /></svg>', {
       state: { componentName: 'SvgComponent' },
