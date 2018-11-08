@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/smooth-code/svgr/compare/v4.0.1...v4.0.2) (2018-11-08)
+
+
+### Bug Fixes
+
+* **hast-util-to-babel-ast:** replace tabs by spaces in attributes ([b0f3d19](https://github.com/smooth-code/svgr/commit/b0f3d19)), closes [#219](https://github.com/smooth-code/svgr/issues/219)
+
+
+
+
+
 ## [4.0.1](https://github.com/smooth-code/svgr/compare/v4.0.0...v4.0.1) (2018-11-08)
 
 
