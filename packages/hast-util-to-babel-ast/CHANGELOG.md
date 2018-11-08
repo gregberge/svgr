@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/smooth-code/svgr/compare/v4.0.0...v4.0.1) (2018-11-08)
+
+
+### Bug Fixes
+
+* **hast-util-to-babel-ast:** correctly transforms data & aria attributes ([99711c4](https://github.com/smooth-code/svgr/commit/99711c4)), closes [#221](https://github.com/smooth-code/svgr/issues/221)
+* **hast-util-to-babel-ast:** replace line-breaks in attributes ([00a2625](https://github.com/smooth-code/svgr/commit/00a2625)), closes [#219](https://github.com/smooth-code/svgr/issues/219)
+
+
+
+
+
 # [4.0.0](https://github.com/smooth-code/svgr/compare/v3.1.0...v4.0.0) (2018-11-04)
 
 
