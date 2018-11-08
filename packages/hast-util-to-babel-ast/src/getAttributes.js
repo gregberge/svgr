@@ -1,9 +1,13 @@
 import * as t from '@babel/types'
-import { isNumeric } from './util'
+import { isNumeric, kebabCase } from './util'
 import stringToObjectStyle from './stringToObjectStyle'
 import { ATTRIBUTE_MAPPING, ELEMENT_ATTRIBUTE_MAPPING } from './mappings'
 
 function getKey(key, value, node) {
+  const kebabKey = kebabCase(key)
+  if (kebabKey.startsWith('aria-') || kebabKey.startsWith('data-')) {
+    return t.jsxIdentifier(kebabKey)
+  }
   const lowerCaseKey = key.toLowerCase()
   const mappedElementAttribute =
     ELEMENT_ATTRIBUTE_MAPPING[node.name] &&
