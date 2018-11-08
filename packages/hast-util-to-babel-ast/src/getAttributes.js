@@ -1,5 +1,5 @@
 import * as t from '@babel/types'
-import { isNumeric, kebabCase } from './util'
+import { isNumeric, kebabCase, replaceLineBreaks } from './util'
 import stringToObjectStyle from './stringToObjectStyle'
 import { ATTRIBUTE_MAPPING, ELEMENT_ATTRIBUTE_MAPPING } from './mappings'
 
@@ -19,7 +19,7 @@ function getKey(key, value, node) {
 function getValue(key, value) {
   // Handle className
   if (Array.isArray(value)) {
-    return t.stringLiteral(value.join(' '))
+    return t.stringLiteral(replaceLineBreaks(value.join(' ')))
   }
 
   if (key === 'style') {
@@ -30,7 +30,7 @@ function getValue(key, value) {
     return t.jsxExpressionContainer(t.numericLiteral(Number(value)))
   }
 
-  return t.stringLiteral(value)
+  return t.stringLiteral(replaceLineBreaks(value))
 }
 
 const getAttributes = node => {

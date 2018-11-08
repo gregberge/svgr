@@ -37,3 +37,9 @@ const KEBAB_REGEX = /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/g
 export function kebabCase(str) {
   return str.replace(KEBAB_REGEX, match => `-${match.toLowerCase()}`)
 }
+
+const LINE_BREAKS_REGEXP = /[\r\n\u0085\u2028\u2029]+/g
+
+export function replaceLineBreaks(str) {
+  return str.replace(LINE_BREAKS_REGEXP, ' ')
+}
