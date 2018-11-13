@@ -1,7 +1,7 @@
 {
   "name": "@svgr/hast-util-to-babel-ast",
   "description": "Transform HAST to Babel AST (JSX)",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "main": "lib/index.js",
   "repository": "git@github.com:smooth-code/svgr.git",
   "author": "Greg Bergé <berge.greg@gmail.com>",

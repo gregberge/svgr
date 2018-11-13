@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.3](https://github.com/smooth-code/svgr/compare/v4.0.2...v4.0.3) (2018-11-13)
+
+
+### Bug Fixes
+
+* **babel-plugin:** fix usage of spread attribute([#231](https://github.com/smooth-code/svgr/issues/231)) ([4186953](https://github.com/smooth-code/svgr/commit/4186953))
+* upgrade dependencies ([7e2195f](https://github.com/smooth-code/svgr/commit/7e2195f))
+
+
+
+
+
 ## [4.0.2](https://github.com/smooth-code/svgr/compare/v4.0.1...v4.0.2) (2018-11-08)
 
 
