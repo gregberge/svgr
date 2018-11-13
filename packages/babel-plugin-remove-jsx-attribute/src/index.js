@@ -4,7 +4,8 @@ const removeJSXAttribute = (api, opts) => ({
       if (!opts.elements.includes(path.node.name.name)) return
 
       path.get('attributes').forEach(attribute => {
-        if (opts.attributes.includes(attribute.node.name.name)) {
+        const nodeName = attribute.node.name;
+        if (nodeName && opts.attributes.includes(nodeName.name)) {
           attribute.remove()
         }
       })

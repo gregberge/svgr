@@ -19,4 +19,13 @@ describe('plugin', () => {
       }),
     ).toMatchInlineSnapshot(`"<div foo><span /></div>;"`)
   })
+
+  it('should not throw error when spread operator is used', () => {
+    expect(
+      testPlugin('<div foo><span foo {...props} /></div>', {
+        elements: ['span'],
+        attributes: ['foo'],
+      }),
+    ).toMatchInlineSnapshot(`"<div foo><span {...props} /></div>;"`)
+  })
 })
