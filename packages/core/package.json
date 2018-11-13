@@ -27,6 +27,6 @@
   "dependencies": {
     "@svgr/plugin-jsx": "^4.0.2",
     "camelcase": "^5.0.0",
-    "cosmiconfig": "^5.0.6"
+    "cosmiconfig": "^5.0.7"
   }
 }

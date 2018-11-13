@@ -25,9 +25,9 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/core": "^7.1.5",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
     "@babel/preset-react": "^7.0.0",
     "@svgr/core": "^4.0.2",
     "@svgr/plugin-jsx": "^4.0.2",
@@ -35,7 +35,7 @@
     "rollup-pluginutils": "^2.3.3"
   },
   "devDependencies": {
-    "rollup": "^0.67.0",
+    "rollup": "^0.67.1",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-url": "^2.0.1"
   }

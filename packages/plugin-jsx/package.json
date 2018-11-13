@@ -21,7 +21,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/core": "^7.1.5",
     "@svgr/babel-preset": "^4.0.1",
     "@svgr/hast-util-to-babel-ast": "^4.0.2",
     "rehype-parse": "^5.0.0",

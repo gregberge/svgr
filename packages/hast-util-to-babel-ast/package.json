@@ -26,6 +26,6 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/types": "^7.1.3"
+    "@babel/types": "^7.1.5"
   }
 }

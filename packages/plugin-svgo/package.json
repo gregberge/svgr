@@ -21,7 +21,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "cosmiconfig": "^5.0.6",
+    "cosmiconfig": "^5.0.7",
     "merge-deep": "^3.0.2",
     "svgo": "^1.1.1"
   }
