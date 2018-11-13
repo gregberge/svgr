@@ -1,0 +1,37 @@
+{
+  "name": "@svgr/parcel-plugin-svgr",
+  "description": "SVGR Parcel plugin.",
+  "version": "4.0.0",
+  "main": "lib/index.js",
+  "repository": "git@github.com:smooth-code/svgr.git",
+  "author": "Mario Pabon <me@mariopabon.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "svgr",
+    "svg",
+    "react",
+    "parcel",
+    "parcel-plugin"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf lib/",
+    "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
+    "prepublishOnly": "yarn run build"
+  },
+  "peerDependencies": {
+    "parcel-bundler": "^1.10.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@svgr/core": "^4.0.2"
+  }
+}
