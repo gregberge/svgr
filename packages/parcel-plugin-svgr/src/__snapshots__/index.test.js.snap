@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parcel plugin should convert file 1`] = `
+Array [
+  Object {
+    "js": "\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require(\\"react\\"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var _ref =
+/*#__PURE__*/
+_react.default.createElement(\\"title\\", null, \\"Dismiss\\");
+
+var _ref2 =
+/*#__PURE__*/
+_react.default.createElement(\\"desc\\", null, \\"Created with Sketch.\\");
+
+var _ref3 =
+/*#__PURE__*/
+_react.default.createElement(\\"defs\\", null);
+
+var _ref4 =
+/*#__PURE__*/
+_react.default.createElement(\\"g\\", {
+  id: \\"Blocks\\",
+  stroke: \\"none\\",
+  strokeWidth: 1,
+  fill: \\"none\\",
+  fillRule: \\"evenodd\\",
+  strokeLinecap: \\"square\\"
+}, _react.default.createElement(\\"g\\", {
+  id: \\"Dismiss\\",
+  stroke: \\"#063855\\",
+  strokeWidth: 2
+}, _react.default.createElement(\\"path\\", {
+  d: \\"M51,37 L37,51\\",
+  id: \\"Shape\\"
+}), _react.default.createElement(\\"path\\", {
+  d: \\"M51,51 L37,37\\",
+  id: \\"Shape\\"
+})));
+
+var SvgComponent = function SvgComponent(props) {
+  return _react.default.createElement(\\"svg\\", _extends({
+    width: \\"88px\\",
+    height: \\"88px\\",
+    viewBox: \\"0 0 88 88\\"
+  }, props), _ref, _ref2, _ref3, _ref4);
+};
+
+var _default = SvgComponent;
+exports.default = _default;",
+    "map": undefined,
+  },
+]
+`;
