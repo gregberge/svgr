@@ -1,14 +1,12 @@
 import Bundler from 'parcel-bundler'
 import path from 'path'
-import plugin from './index.js'
+import plugin from '.'
 
 const getCode = bundle =>
   Array.from(bundle.assets).filter(
     asset => asset.id === 'icon.svg'
   ).map(
-    asset => {
-      return asset.generated
-    }
+    asset => asset.generated
   )
 
 describe('parcel plugin', () => {
