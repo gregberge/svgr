@@ -14,7 +14,10 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express()
-  server.post('/api/svgr', cors(), bodyParser.json(), (req, res) => {
+
+  server.use(cors())
+
+  server.post('/api/svgr', bodyParser.json(), (req, res) => {
     svgr(req.body.code, { ...req.body.options, plugins: [svgo, jsx, prettier] })
       .then(output => {
         res.send({ output })
