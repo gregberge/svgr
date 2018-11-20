@@ -2,6 +2,7 @@
 const bodyParser = require('body-parser')
 const next = require('next')
 const express = require('express')
+const cors = require('cors')
 const { default: svgr } = require('@svgr/core')
 const { default: jsx } = require('@svgr/plugin-jsx')
 const { default: svgo } = require('@svgr/plugin-svgo')
@@ -13,7 +14,7 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express()
-  server.post('/api/svgr', bodyParser.json(), (req, res) => {
+  server.post('/api/svgr', cors(), bodyParser.json(), (req, res) => {
     svgr(req.body.code, { ...req.body.options, plugins: [svgo, jsx, prettier] })
       .then(output => {
         res.send({ output })
