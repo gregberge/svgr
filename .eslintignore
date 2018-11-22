@@ -4,4 +4,4 @@ __fixtures__/
 __fixtures_build__/
 coverage/
 examples/
-website/
+svgr.now.sh/

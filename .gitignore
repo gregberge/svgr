@@ -1,6 +1,6 @@
 node_modules/
 lib/
-!website/lib/
+!svgr.now.sh/lib/
 __fixtures_build__/
 src/__fixtures__/dist/
 coverage/
