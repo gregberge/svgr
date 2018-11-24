@@ -34,46 +34,24 @@ function _extends() {
 
 var _ref =
 /*#__PURE__*/
-_react.default.createElement(\\"title\\", null, \\"Dismiss\\");
-
-var _ref2 =
-/*#__PURE__*/
-_react.default.createElement(\\"desc\\", null, \\"Created with Sketch.\\");
-
-var _ref3 =
-/*#__PURE__*/
-_react.default.createElement(\\"defs\\", null);
-
-var _ref4 =
-/*#__PURE__*/
 _react.default.createElement(\\"g\\", {
-  id: \\"Blocks\\",
-  stroke: \\"none\\",
-  strokeWidth: 1,
+  stroke: \\"#063855\\",
+  strokeWidth: 2,
   fill: \\"none\\",
   fillRule: \\"evenodd\\",
   strokeLinecap: \\"square\\"
-}, _react.default.createElement(\\"g\\", {
-  id: \\"Dismiss\\",
-  stroke: \\"#063855\\",
-  strokeWidth: 2
 }, _react.default.createElement(\\"path\\", {
-  d: \\"M51,37 L37,51\\",
-  id: \\"Shape\\"
-}), _react.default.createElement(\\"path\\", {
-  d: \\"M51,51 L37,37\\",
-  id: \\"Shape\\"
-})));
+  d: \\"M51 37L37 51M51 51L37 37\\"
+}));
 
-var SvgComponent = function SvgComponent(props) {
+var SvgIcon = function SvgIcon(props) {
   return _react.default.createElement(\\"svg\\", _extends({
-    width: \\"88px\\",
-    height: \\"88px\\",
-    viewBox: \\"0 0 88 88\\"
-  }, props), _ref, _ref2, _ref3, _ref4);
+    width: 88,
+    height: 88
+  }, props), _ref);
 };
 
-var _default = SvgComponent;
+var _default = SvgIcon;
 exports.default = _default;",
     "map": undefined,
   },

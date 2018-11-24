@@ -1,7 +1,7 @@
 import fs from 'fs'
 import convert from '@svgr/core'
 import { createFilter } from 'rollup-pluginutils'
-import { transform as babelTransform, createConfigItem } from '@babel/core'
+import { transformAsync, createConfigItem } from '@babel/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
 import presetReact from '@babel/preset-react'
@@ -53,17 +53,8 @@ function svgrPlugin(options = {}) {
         },
       })
 
-      const pBabelTransform = async code =>
-        new Promise((resolve, reject) => {
-          babelTransform(code, babelOptions, (err, result) => {
-            if (err) reject(err)
-            else resolve(result.code)
-          })
-        })
-
       if (babel) {
-        const code = await pBabelTransform(jsCode)
-
+        const { code } = await transformAsync(jsCode, babelOptions)
         return { code, map: { mappings: '' } }
       }
 
