@@ -45,6 +45,27 @@ export default MyComponent;"
 `)
   })
 
+  it('should support custom typescript template', () => {
+    const { code } = testPlugin('<svg><div /></svg>', {
+      template: ({ template }, opts, { jsx }) => {
+        const typescriptTemplate = template.smart({ plugins: ['typescript'] })
+        return typescriptTemplate.ast`
+          import * as React from 'react';
+          const MyComponent = (props: React.SVGProps<SVGSVGElement>) => ${jsx};
+          export default MyComponent;
+        `
+      },
+      state: { componentName: 'SvgComponent' },
+    })
+    expect(code).toMatchInlineSnapshot(`
+"import * as React from 'react';
+
+const MyComponent = (props: React.SVGProps<SVGSVGElement>) => <svg><div /></svg>;
+
+export default MyComponent;"
+`)
+  })
+
   it('should handle template that does not return an array', () => {
     const { code } = testPlugin('<svg><div /></svg>', {
       template: ({ template }, opts, { jsx }) => template.ast`${jsx}`,
