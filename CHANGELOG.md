@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.4](https://github.com/smooth-code/svgr/compare/v4.0.3...v4.0.4) (2018-11-24)
+
+
+### Bug Fixes
+
+* **webpack:** use static babel config ([#240](https://github.com/smooth-code/svgr/issues/240)) ([d67af31](https://github.com/smooth-code/svgr/commit/d67af31)), closes [#232](https://github.com/smooth-code/svgr/issues/232)
+
+
+
+
+
 ## [4.0.3](https://github.com/smooth-code/svgr/compare/v4.0.2...v4.0.3) (2018-11-13)
 
 
