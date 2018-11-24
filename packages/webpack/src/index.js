@@ -1,8 +1,21 @@
 import { getOptions } from 'loader-utils'
-import { transform as babelTransform } from '@babel/core'
+import { transform as babelTransform, createConfigItem } from '@babel/core'
 import convert from '@svgr/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
+import presetReact from '@babel/preset-react'
+import presetEnv from '@babel/preset-env'
+import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
+
+const babelOptions = {
+  babelrc: false,
+  configFile: false,
+  presets: [
+    createConfigItem(presetReact, { type: 'preset' }),
+    createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
+  ],
+  plugins: [createConfigItem(pluginTransformReactConstantElements)],
+}
 
 function svgrLoader(source) {
   const callback = this.async()
@@ -25,23 +38,10 @@ function svgrLoader(source) {
 
   const pBabelTransform = async jsCode =>
     new Promise((resolve, reject) => {
-      babelTransform(
-        jsCode,
-        {
-          babelrc: false,
-          // Unless having this, babel will merge the config with global 'babel.config.js' which may causes some problems such as using react-hot-loader/babel in babel.config.js
-          configFile: false,
-          presets: [
-            '@babel/preset-react',
-            ['@babel/preset-env', { modules: false }],
-          ],
-          plugins: ['@babel/plugin-transform-react-constant-elements'],
-        },
-        (err, result) => {
-          if (err) reject(err)
-          else resolve(result.code)
-        },
-      )
+      babelTransform(jsCode, babelOptions, (err, result) => {
+        if (err) reject(err)
+        else resolve(result.code)
+      })
     })
 
   const tranformSvg = svg =>
