@@ -1,9 +1,9 @@
-# @svgr/parcel
+# @svgr/parcel-plugin-svgr
 
 Parcel plugin for SVGR.
 
 ```
-npm install @svgr/parcel
+npm install @svgr/parcel-plugin-svgr
 ```
 
 ## Usage
