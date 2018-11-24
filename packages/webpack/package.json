@@ -25,9 +25,9 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.1.5",
+    "@babel/core": "^7.1.6",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
-    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "@svgr/core": "^4.0.3",
     "@svgr/plugin-jsx": "^4.0.3",
@@ -38,6 +38,6 @@
     "babel-loader": "^8.0.4",
     "memory-fs": "^0.4.1",
     "url-loader": "^1.1.2",
-    "webpack": "^4.24.0"
+    "webpack": "^4.26.0"
   }
 }
