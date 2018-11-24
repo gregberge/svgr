@@ -1,5 +1,5 @@
 import { getOptions } from 'loader-utils'
-import { transform as babelTransform, createConfigItem } from '@babel/core'
+import { transformAsync, createConfigItem } from '@babel/core'
 import convert from '@svgr/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
@@ -36,14 +36,6 @@ function svgrLoader(source) {
     ? `export default ${exportMatches[1]}`
     : null
 
-  const pBabelTransform = async jsCode =>
-    new Promise((resolve, reject) => {
-      babelTransform(jsCode, babelOptions, (err, result) => {
-        if (err) reject(err)
-        else resolve(result.code)
-      })
-    })
-
   const tranformSvg = svg =>
     convert(svg, options, {
       caller: {
@@ -53,7 +45,10 @@ function svgrLoader(source) {
       },
       filePath: this.resourcePath,
     })
-      .then(jsCode => (babel ? pBabelTransform(jsCode) : jsCode))
+      .then(jsCode => {
+        if (!babel) return jsCode
+        return transformAsync(jsCode, babelOptions).then(({ code }) => code)
+      })
       .then(result => callback(null, result))
       .catch(err => callback(err))
 
