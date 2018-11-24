@@ -1,9 +1,22 @@
 import fs from 'fs'
 import convert from '@svgr/core'
 import { createFilter } from 'rollup-pluginutils'
-import { transform as babelTransform } from '@babel/core'
+import { transform as babelTransform, createConfigItem } from '@babel/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
+import presetReact from '@babel/preset-react'
+import presetEnv from '@babel/preset-env'
+import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
+
+const babelOptions = {
+  babelrc: false,
+  configFile: false,
+  presets: [
+    createConfigItem(presetReact, { type: 'preset' }),
+    createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
+  ],
+  plugins: [createConfigItem(pluginTransformReactConstantElements)],
+}
 
 function svgrPlugin(options = {}) {
   const filter = createFilter(options.include || '**/*.svg', options.exclude)
@@ -42,21 +55,10 @@ function svgrPlugin(options = {}) {
 
       const pBabelTransform = async code =>
         new Promise((resolve, reject) => {
-          babelTransform(
-            code,
-            {
-              babelrc: false,
-              presets: [
-                '@babel/preset-react',
-                ['@babel/preset-env', { modules: false }],
-              ],
-              plugins: ['@babel/plugin-transform-react-constant-elements'],
-            },
-            (err, result) => {
-              if (err) reject(err)
-              else resolve(result.code)
-            },
-          )
+          babelTransform(code, babelOptions, (err, result) => {
+            if (err) reject(err)
+            else resolve(result.code)
+          })
         })
 
       if (babel) {
