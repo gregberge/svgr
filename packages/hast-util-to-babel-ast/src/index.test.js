@@ -56,6 +56,13 @@ describe('hast-util-to-babel-ast', () => {
     )
   })
 
+  it('should correctly transform numeric font-weight to string', () => {
+    const code = `<svg><g font-weight="700" /></svg>`
+    expect(transform(code)).toMatchInlineSnapshot(
+      `"<svg><g fontWeight=\\"700\\" /></svg>;"`,
+    )
+  })
+
   it('should handle spaces and tab', () => {
     const code = `<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
     <path d="M25,5h-3V3c0-1.7-1.3-3-3-3H5C3.3,0,2,1.3,2,3v20c0,1.7,1.3,3,3,3h4v1c0,2.2,1.8,4,4,4h12c2.2,0,4-1.8,4-4V9

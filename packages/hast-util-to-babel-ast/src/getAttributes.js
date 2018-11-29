@@ -26,7 +26,7 @@ function getValue(key, value) {
     return t.jsxExpressionContainer(stringToObjectStyle(value))
   }
 
-  if (isNumeric(value)) {
+  if (isNumeric(value) && key !== 'fontWeight') {
     return t.jsxExpressionContainer(t.numericLiteral(Number(value)))
   }
 
