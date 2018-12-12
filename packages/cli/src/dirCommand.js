@@ -50,7 +50,7 @@ async function dirCommand(
     if (!isCompilable(relative)) return false
     relative = rename(relative, ext, filenameCase)
 
-    const dest = path.resolve(program.outDir, relative);
+    const dest = path.resolve(program.outDir, relative)
     const code = await convertFile(src, options)
     outputFileSync(dest, code)
     process.stdout.write(`${src} -> ${dest}\n`)

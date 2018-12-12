@@ -31,78 +31,66 @@ function compile(rules) {
 }
 
 describe('webpack loader', () => {
-  it(
-    'should convert file',
-    async () => {
-      const source = await compile([
-        {
-          test: /\.svg$/,
-          use: [
-            {
-              loader: path.resolve(__dirname, './index.js'),
-              options: {
-                expandProps: false,
-              },
+  it('should convert file', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              expandProps: false,
             },
-          ],
-        },
-      ])
+          },
+        ],
+      },
+    ])
 
-      expect(source).toMatchSnapshot()
-    },
-    15000,
-  )
+    expect(source).toMatchSnapshot()
+  }, 15000)
 
-  it(
-    'should support url-loader',
-    async () => {
-      const source = await compile([
-        {
-          test: /\.svg$/,
-          use: [
-            {
-              loader: path.resolve(__dirname, './index.js'),
-              options: {
-                expandProps: false,
-              },
+  it('should support url-loader', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              expandProps: false,
             },
-            'url-loader',
-          ],
-        },
-      ])
+          },
+          'url-loader',
+        ],
+      },
+    ])
 
-      expect(source).toMatchSnapshot()
-    },
-    15000,
-  )
+    expect(source).toMatchSnapshot()
+  }, 15000)
 
-  it(
-    'should convert file (babel: false)',
-    async () => {
-      const source = await compile([
-        {
-          test: /\.svg$/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: {
-                babelrc: false,
-                presets: ['@babel/preset-react'],
-              },
+  it('should convert file (babel: false)', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: ['@babel/preset-react'],
             },
-            {
-              loader: path.resolve(__dirname, './index.js'),
-              options: {
-                babel: false,
-                expandProps: false,
-              },
+          },
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              babel: false,
+              expandProps: false,
             },
-          ],
-        },
-      ])
+          },
+        ],
+      },
+    ])
 
-      expect(source).toMatchSnapshot()
-    },
-    15000,
-  )
+    expect(source).toMatchSnapshot()
+  }, 15000)
 })

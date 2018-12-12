@@ -1,0 +1,148 @@
+---
+menu: Configuring SVGR
+title: Options
+order: 10
+---
+
+# Options
+
+SVGR ships with a handful of customizable options, usable in both the CLI and
+API.
+
+## Config file
+
+Specify a custom config file.
+
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--config-file` | `configFile: <string>` |
+
+## Runtime config
+
+Disable runtime config (`.svgrrc`, `.svgo.yml`, `.prettierrc`).
+
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--config-file` | `configFile: <string>` |
+
+## File extension
+
+Specify a custom extension for generated files.
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `"js"`  | `--ext`      | `ext: <string>` |
+
+## Icon
+
+Replace SVG "width" and "height" value by "1em" in order to make SVG size
+inherits from text size.
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `false` | `--icon`     | `icon: <bool>` |
+
+## Native
+
+Modify all SVG nodes with uppercase and use a specific template with
+[`react-native-svg`](https://github.com/react-native-community/react-native-svg) imports. **All unsupported nodes will be removed.**
+
+| Default | CLI Override | API Override     |
+| ------- | ------------ | ---------------- |
+| `false` | `--native`   | `native: <bool>` |
+
+## Dimensions
+
+Remove width and height from root SVG tag.
+
+| Default | CLI Override      | API Override         |
+| ------- | ----------------- | -------------------- |
+| `false` | `--no-dimensions` | `dimensions: <bool>` |
+
+## Expand props
+
+All properties given to component will be forwarded on SVG tag. Possible values: `"start"`, `"end"` or `false`.
+
+| Default | CLI Override     | API Override            |
+| ------- | ---------------- | ----------------------- |
+| `end`   | `--expand-props` | `expandProps: <string>` |
+
+## Prettier
+
+Use [Prettier](https://github.com/prettier/prettier) to format JavaScript code
+output.
+
+| Default | CLI Override    | API Override       |
+| ------- | --------------- | ------------------ |
+| `true`  | `--no-prettier` | `prettier: <bool>` |
+
+## Prettier config
+
+Specify Prettier config. [See Prettier options](https://prettier.io/docs/en/options.html).
+
+| Default | CLI Override        | API Override               |
+| ------- | ------------------- | -------------------------- |
+| `null`  | `--prettier-config` | `prettierConfig: <object>` |
+
+## SVGO
+
+Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before
+transforming it into a component.
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `true`  | `--no-svgo`  | `svgo: <bool>` |
+
+## SVGO config
+
+Specify SVGO config. [See SVGO options](https://gist.github.com/pladaria/69321af86ce165c2c1fc1c718b098dd0).
+
+| Default | CLI Override    | API Override           |
+| ------- | --------------- | ---------------------- |
+| `null`  | `--svgo-config` | `svgoConfig: <object>` |
+
+## Ref
+
+Setting this to `true` will forward ref to the root SVG tag.
+
+| Default | CLI Override | API Override  |
+| ------- | ------------ | ------------- |
+| `false` | `--ref`      | `ref: <bool>` |
+
+## Replace attribute value
+
+Replace an attribute value by an other. The main usage of this option is to
+change an icon color to "currentColor" in order to inherit from text color.
+
+| Default | CLI Override                      | API Override                         |
+| ------- | --------------------------------- | ------------------------------------ |
+| `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { old: 'new' }>` |
+
+> You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particulary useful with a custom template.
+
+## SVG props
+
+Add props to the root SVG tag.
+
+| Default | CLI Override               | API Override                   |
+| ------- | -------------------------- | ------------------------------ |
+| `[]`    | `--svg-props <name=value>` | `svgProps: { name: 'value' }>` |
+
+> You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particulary useful with a custom template.
+
+## Template
+
+Specify a template file (CLI) or a template function (API) to use. For an
+example of template, see [the default one](https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-transform-svg-component/src/index.js).
+
+| Default                                                                                                                        | CLI Override | API Override       |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------ | ------------------ |
+| [`basic template`](https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-transform-svg-component/src/index.js) | `--template` | `template: <func>` |
+
+## Output Directory
+
+Output files into a directory.
+
+| Default     | CLI Override          | API Override          |
+| ----------- | --------------------- | --------------------- |
+| `undefined` | `--out-dir <dirname>` | Only available in CLI |

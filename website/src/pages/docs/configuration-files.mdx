@@ -1,0 +1,62 @@
+---
+menu: Configuring SVGR
+title: Configuration Files
+order: 20
+---
+
+# Configuration Files
+
+SVGR supports project configuration files for SVGR, SVGO and Prettier.
+
+## SVGR
+
+SVGR uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) for configuration file support. This means you can configure SVGR via:
+
+- A `.svgrrc` file, written in YAML or JSON, with optional extensions: .yaml/.yml/.json/.js.
+- A `svgr.config.js` file that exports an object.
+- A "svgr" key in your package.json file.
+
+The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found.
+
+The options to the configuration file are the same as the API options.
+
+## Example
+
+JSON:
+
+```json
+{
+  "icon": true,
+  "expandProps": false
+}
+```
+
+JS:
+
+```js
+// .svgrrc.js
+module.exports = {
+  icon: true,
+  expandProps: false,
+}
+```
+
+YAML:
+
+```yml
+# .svgrrc
+icon: true
+expandProps: false
+```
+
+## SVGO
+
+The recommended way to configure SVGO for SVGR is to use [`.svgo.yml`](https://github.com/svg/svgo/blob/master/.svgo.yml). [Several formats are suported](./packages/core/src/plugins/svgo.js) and it is relative to the transformed SVG file.
+
+Even if it is not recommended, you can also use `svgoConfig` option to specify your SVGO configuration. `svgoConfig` has precedence on `.svgo.yml`.
+
+## Prettier
+
+The recommended way to configure Prettier for SVGR is to use [`.prettierrc`](https://prettier.io/docs/en/configuration.html). It is fully supported in [all formats available](https://prettier.io/docs/en/configuration.html) and it is relative to the transformed SVG file.
+
+Even if it is not recommended, you can also use `prettierConfig` option to specify your Prettier configuration. `prettierConfig` has precedence on `.prettierrc`.
