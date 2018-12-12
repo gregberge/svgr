@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "no-plusplus": "off",
+    "no-shadow": "off",
+    "class-methods-use-this": "off",
+    "no-param-reassign": "off",
+    "no-use-before-define": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
+    "react/jsx-wrap-multilines": "off",
+    "react/no-unused-state": "off",
+    "react/destructuring-assignment": "off",
+    "react/prop-types": "off",
+    "react/sort-comp": "off"
+  }
+}

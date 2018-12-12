@@ -1,0 +1,31 @@
+---
+menu: Usage
+title: Parcel
+order: 45
+---
+
+# Parcel
+
+SVGR can be used as a [parcel](https://parceljs.org/) plugin, this way you can import your SVG directly as a React Component.
+
+## Install
+
+```bash
+npm install @svgr/parcel-plugin-svgr
+# or use yarn
+yarn add @svgr/parcel-plugin-svgr
+```
+
+## Usage
+
+Parcel automatically detects plugin, so just import SVG in your code:
+
+```js
+import Star from './star.svg'
+
+const App = () => (
+  <div>
+    <Star />
+  </div>
+)
+```

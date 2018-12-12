@@ -1,0 +1,84 @@
+---
+menu: Usage
+title: Rollup
+order: 40
+---
+
+# Rollup
+
+SVGR can be used as a [rollup](https://rollupjs.org) plugin, this way you can import your SVG directly as a React Component.
+
+## Install
+
+```bash
+npm install @svgr/rollup
+# or use yarn
+yarn add @svgr/rollup
+```
+
+## Usage
+
+In your `rollup.config.js`:
+
+```js
+const svgr = require('@svgr/rollup')
+
+{
+  plugins: [svgr()]
+}
+```
+
+In your code:
+
+```js
+import Star from './star.svg'
+
+const App = () => (
+  <div>
+    <Star />
+  </div>
+)
+```
+
+### Passing options
+
+```js
+{
+  plugins: [svgr({ native: true })]
+}
+```
+
+### Using with `url` plugin
+
+It is possible to use it with [`url`](https://github.com/rollup/rollup-plugin-url).
+
+In your `rollup.config.js`:
+
+```js
+{
+  plugins: [url(), svgr()]
+}
+```
+
+In your code:
+
+```js
+import starUrl, { ReactComponent as Star } from './star.svg'
+
+const App = () => (
+  <div>
+    <img src={starUrl} alt="star" />
+    <Star />
+  </div>
+)
+```
+
+### Use your own Babel configuration
+
+By default, `@svgr/rollup` applies a babel transformation with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/packages/rollup/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+
+```js
+{
+  plugins: [svgr({ babel: false })]
+}
+```

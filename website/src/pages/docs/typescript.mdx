@@ -1,0 +1,57 @@
+---
+menu: Advanced
+title: TypeScript
+order: 5
+---
+
+# TypeScript
+
+Every languages supported by Babel are also supported by SVGR including TypeScript and Flow.
+
+## Create a custom template
+
+To target TypeScript, you need to create a custom template:
+
+```js
+function template(
+  { template },
+  opts,
+  { imports, componentName, props, jsx, exports }
+) {
+  const typeScriptTpl = template.smart({ plugins: ['typescript'] })
+  return typeScriptTpl.ast`
+    import * as React from 'react';
+    const ${componentName} = (props: React.SVGProps<SVGSVGElement>) => ${jsx};
+    export default ${componentName};
+  `
+}
+
+module.exports = template
+```
+
+You can use this template in the CLI:
+
+```sh
+$ npx @svgr/cli --template path/to/template.js my-icon.svg
+```
+
+Or specify it in your `.svgrrc.js`:
+
+```js
+module.exports = {
+  template(
+    { template },
+    opts,
+    { imports, componentName, props, jsx, exports }
+  ) {
+    const typeScriptTpl = template.smart({ plugins: ['typescript'] })
+    return typeScriptTpl.ast`
+    import * as React from 'react';
+    const ${componentName} = (props: React.SVGProps<SVGSVGElement>) => ${jsx};
+    export default ${componentName};
+  `
+  },
+}
+```
+
+> To target flow, follow the same steps and replace `plugins: ['typescript']` by `plugins: ['flow']`

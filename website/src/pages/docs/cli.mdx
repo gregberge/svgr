@@ -1,0 +1,103 @@
+---
+menu: Usage
+title: CLI
+order: 10
+---
+
+# CLI
+
+SVGR can be run from the CLI. Run it without argument to see the [options](/docs/options).
+
+## Install
+
+```bash
+npm install @svgr/cli
+# or use yarn
+yarn add @svgr/cli
+```
+
+## Usage
+
+```bash
+npx @svgr/cli icons/clock-icon.svg
+```
+
+## Recipes
+
+### Transform a whole directory
+
+A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
+are transformed into React components.
+
+```sh
+# Usage: npx @svgr/cli [-d out-dir] [src-dir]
+$ npx @svgr/cli -d icons icons
+icons/web/clock-icon.svg -> icons/web/ClockIcon.js
+icons/web/wifi-icon.svg -> icons/web/WifiIcon.js
+icons/spinner/cog-icon.svg -> icons/spinner/CogIcon.js
+icons/spinner/spinner-icon.svg -> icons/spinner/SpinnerIcon.js
+```
+
+### Use stdin
+
+```
+$ npx @svgr/cli < icons/web/wifi-icon.svg
+```
+
+### Use stdin / stdout
+
+```
+$ npx @svgr/cli < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
+```
+
+### Transform icons
+
+To create icons, two options are important:
+
+- `--icon`: viewBox is preserved and SVG inherits text size
+- `--replace-attr-values "#000000=currentColor"`: "#000000" is replaced by
+  "currentColor" and SVG inherits text color
+
+```
+$ npx @svgr/cli --icon --replace-attr-values "#000000=currentColor" my-icon.svg
+```
+
+## Target React Native
+
+It is possible to target React Native using [react-native-svg](https://github.com/react-native-community/react-native-svg).
+
+```
+$ npx @svgr/cli --native my-icon.svg
+```
+
+## Use a specific template
+
+You can use a specific template.
+
+```
+$ npx @svgr/cli --template path/to/template.js my-icon.svg
+```
+
+An example of template:
+
+```js
+function template(
+  { template },
+  opts,
+  { imports, componentName, props, jsx, exports }
+) {
+  return template.ast`
+    ${imports}
+    const ${componentName} = (${props}) => ${jsx}
+    ${exports}
+  `
+}
+
+module.exports = template
+```
+
+Template must return a Babel AST, the template function take three arguments:
+
+- `api`: API methods provided by Babel
+- `opts`: SVGR options
+- `values`: Pre-computed values to use (or not) in your templates

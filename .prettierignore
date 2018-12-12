@@ -5,3 +5,5 @@ package.json
 lerna.json
 lib/
 .next/
+/website/.cache/
+/website/public/

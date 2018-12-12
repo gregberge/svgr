@@ -1,0 +1,49 @@
+---
+menu: Usage
+title: Node API
+order: 20
+---
+
+# Node API
+
+SVGR exposes a Node API, you can create a custom script or build another tool based on SVGR.
+
+## Install
+
+```bash
+npm install @svgr/core
+# or use yarn
+yarn add @svgr/core
+```
+
+## Usage
+
+```js
+import svgr from '@svgr/core'
+
+const svgCode = `
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="10" y="10" height="100" width="100"
+    style="stroke:#ff0000; fill: #0000ff"/>
+</svg>
+`
+
+svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
+  console.log(jsCode)
+})
+```
+
+Use `svgr.sync(code, config, state)` if you would like to use sync version.
+
+## Plugins
+
+By default `@svgr/core` doesn't include `svgo` and `prettier` plugins, if you want them, you have to install them and include them in config.
+
+```js
+svgr(svgCode, {
+  plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
+}).then(jsCode => {
+  console.log(jsCode)
+})
+```

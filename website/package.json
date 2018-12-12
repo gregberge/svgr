@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "dependencies": {
+    "@smooth-ui/core-sc": "^7.0.5",
+    "brace": "^0.11.1",
+    "final-form": "^4.11.0",
+    "gatsby": "^2.0.59",
+    "isomorphic-fetch": "^2.2.1",
+    "polished": "^2.3.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-ace": "^6.2.0",
+    "react-final-form": "^4.0.2",
+    "react-helmet": "^5.2.0",
+    "smooth-code-landers": "^1.0.0",
+    "smooth-doc": "^0.0.1-alpha.5",
+    "styled-components": "^4.1.1"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "build:pp": "gatsby build --prefix-paths",
+    "dev": "gatsby develop",
+    "serve": "gatsby serve"
+  }
+}
