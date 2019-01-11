@@ -55,11 +55,11 @@ $ npx @svgr/cli < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
 To create icons, two options are important:
 
 - `--icon`: viewBox is preserved and SVG inherits text size
-- `--replace-attr-values "#000000=currentColor"`: "#000000" is replaced by
+- `--replace-attr-values "#000=currentColor"`: "#000" is replaced by
   "currentColor" and SVG inherits text color
 
 ```
-$ npx @svgr/cli --icon --replace-attr-values "#000000=currentColor" my-icon.svg
+$ npx @svgr/cli --icon --replace-attr-values "#000=currentColor" my-icon.svg
 ```
 
 ## Target React Native
