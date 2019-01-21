@@ -763,21 +763,21 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@smooth-ui/core-sc@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@smooth-ui/core-sc/-/core-sc-8.0.0.tgz#24b97344267cdda3a554f5450d6f3d27bdfc9ef5"
-  integrity sha512-NFtElIM2jFyGcxqjSUqUnGregILqjVmrHaIJCCJ1OxGQ2g20mltmtBb9619P0m5kdccctkhlj/f0NBTtzCOSrg==
+"@smooth-ui/core-sc@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@smooth-ui/core-sc/-/core-sc-8.0.1.tgz#aa755848c70b4f3f422f0148ecefa48bee645971"
+  integrity sha512-7Vd6coC75LqceIkQu4F0+BHYywKBfAB3nkDhFhIQInVSigmrj+l273NFEJu0lTNYaDiwXeqeGPO0zr2Gnrezkw==
   dependencies:
-    "@smooth-ui/system" "^8.0.0"
+    "@smooth-ui/system" "^8.0.1"
     polished "^2.3.3"
     prop-types "^15.6.2"
     react-focus-lock "^1.17.6"
     react-transition-group "^2.5.3"
 
-"@smooth-ui/system@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@smooth-ui/system/-/system-8.0.0.tgz#723af821900e1b5fc147d7f92b5113da85146487"
-  integrity sha512-vzLToLkeQg8K4b0fMtnqLBLjyghgJSOrX76E+vzfxD64KB2pgQ7qkb6b+sdmFDts6GSVPjzzA0+Xu4afDhl0uQ==
+"@smooth-ui/system@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@smooth-ui/system/-/system-8.0.1.tgz#f4aaffd541dfccad0a44d3f4b2b99303235aba61"
+  integrity sha512-9sWBgq1zGNcANGU9HyRH1NgdwhINwYiMQC0/Ux+7Ltd+jKKIwEmYayLMpi1fa3lzUoUs43i1qqtrbxYT8cDwJQ==
   dependencies:
     deepmerge "^3.0.0"
 
@@ -10919,19 +10919,19 @@ slice-ansi@2.0.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smooth-code-landers@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/smooth-code-landers/-/smooth-code-landers-1.1.0.tgz#f89b15d160806cd6032c5890d1f41a9f0c0eea96"
-  integrity sha512-CuBZZK9ts/dSq0Ge6CEtfrpD2hxwqRMxYqrISjzvOqGeqMHrZoFEtG4rnBBjP9wwVGBMDD1ybVw7JHzAHfpweQ==
+smooth-code-landers@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/smooth-code-landers/-/smooth-code-landers-1.2.2.tgz#565597a751575ca1ea3df76c87e3f50cf98fa98d"
+  integrity sha512-r+sKGzLsIKZePRLNXFh5Mr6DbKEtvHLCbCMCenYfAQPc2v+lrRJQPk5OV1wVG2ZjP59rzbgjpwq3fLNBamgFvQ==
 
-smooth-doc@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/smooth-doc/-/smooth-doc-0.0.2.tgz#ba25a51d95446a2200584b13609dbf7ab9c25629"
-  integrity sha512-NJQlxGicGjpjWvr2XGmK9heP+oKZfn5UFtJSly8p0KLcOJJLUCPxOTWC8z0/+w5t9o7SHID5yA/HMCvaana/Dw==
+smooth-doc@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/smooth-doc/-/smooth-doc-0.1.0.tgz#9027b38243f166ad96623fc5150398f1ef0f6339"
+  integrity sha512-DwGcfvFV3c3ZaYB4/d1encYhATwfgQ1rHSMhhQsQciYyg8jKgkdrqnbllEbXvr3h5lAA8V5o+qZefm+7NBWpVA==
   dependencies:
     "@mdx-js/mdx" "^0.16.5"
     "@mdx-js/tag" "^0.16.1"
-    "@smooth-ui/core-sc" "^8.0.0"
+    "@smooth-ui/core-sc" "^8.0.1"
     babel-plugin-styled-components "^1.9.0"
     fs-extra "^7.0.1"
     gatsby-image "^2.0.20"
@@ -10954,7 +10954,6 @@ smooth-doc@^0.0.2:
     react "^16.6.3"
     react-dom "^16.6.3"
     react-helmet "^5.2.0"
-    smooth-code-landers "^1.1.0"
     styled-components "^4.1.1"
     unist-util-visit "^1.4.0"
 
