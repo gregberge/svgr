@@ -10718,10 +10718,10 @@ smooth-code-landers@^1.2.2:
   resolved "https://registry.yarnpkg.com/smooth-code-landers/-/smooth-code-landers-1.2.2.tgz#565597a751575ca1ea3df76c87e3f50cf98fa98d"
   integrity sha512-r+sKGzLsIKZePRLNXFh5Mr6DbKEtvHLCbCMCenYfAQPc2v+lrRJQPk5OV1wVG2ZjP59rzbgjpwq3fLNBamgFvQ==
 
-smooth-doc@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/smooth-doc/-/smooth-doc-0.2.2.tgz#3b1fe0901ad0f1e91029994d2e1310b7e5b94f9f"
-  integrity sha512-jvtT/aF63ynRT4Nys4MrCd9r8I/Qrw/0sUmsrmJ5bv2IPeWkv8sUT3JH2QhCG4WKV8yDqsDMeSzTM324J6jNsA==
+smooth-doc@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/smooth-doc/-/smooth-doc-1.0.0.tgz#d3d0ad31540f8277bbd61774d0a0097da201740e"
+  integrity sha512-nWuQylDa4f3JKNCz+Tx6JBodWDo/nwR/9GHDFbpjCmFV3uWpA+gUjgUtSLYHNOq0uJk4tj0PvYtGAWqNxIbcXg==
   dependencies:
     "@mdx-js/mdx" "^0.16.6"
     "@mdx-js/tag" "^0.16.6"
