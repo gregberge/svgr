@@ -3,7 +3,7 @@
   "description": "Optimize SVG",
   "version": "4.0.3",
   "main": "lib/index.js",
-  "repository": "git@github.com:smooth-code/svgr.git",
+  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/plugin-svgo",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"

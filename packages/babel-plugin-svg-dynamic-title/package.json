@@ -3,7 +3,7 @@
   "description": "Transform SVG by adding a dynamic title element",
   "version": "4.0.0",
   "main": "lib/index.js",
-  "repository": "git@github.com:smooth-code/svgr.git",
+  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-svg-dynamic-title",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"

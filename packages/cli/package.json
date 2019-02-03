@@ -2,7 +2,7 @@
   "name": "@svgr/cli",
   "description": "SVGR command line.",
   "version": "4.1.0",
-  "repository": "git@github.com:smooth-code/svgr.git",
+  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"
