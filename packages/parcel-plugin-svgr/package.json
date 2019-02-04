@@ -3,7 +3,7 @@
   "description": "SVGR Parcel plugin.",
   "version": "4.1.0",
   "main": "lib/index.js",
-  "repository": "git@github.com:smooth-code/svgr.git",
+  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/parcel-plugin-svgr",
   "author": "Mario Pabon <me@mariopabon.com>",
   "publishConfig": {
     "access": "public"
