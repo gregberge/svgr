@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { Box, styled, up, down, css, th } from '@smooth-ui/core-sc'
@@ -11,6 +12,7 @@ import {
   getInitialState,
   transformSettings,
 } from 'components/playground/config/settings'
+import { Ad, AdText, AdImg } from './Ad'
 
 const GlobalStyle = createGlobalStyle`
   .loading {
@@ -44,6 +46,14 @@ const PlaygroundEditors = styled(Box)`
   flex-direction: row;
   height: 50%;
   ${up('md', 'height: 100%;')}
+`
+
+const FloatingAd = styled.div`
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 500;
+  ${down('md', 'display: none;')}
 `
 
 class Playground extends React.Component {
@@ -143,6 +153,18 @@ class Playground extends React.Component {
           ) : (
             <Loading />
           )}
+          <FloatingAd>
+            <Ad
+              target="_blank"
+              href="https://transactions.sendowl.com/stores/9358/136644"
+            >
+              <AdImg src="https://cdn.dribbble.com/users/722246/screenshots/4812716/streamline_dribbble_1.gif" />
+              <AdText>
+                🚀Streamline 3.0 is out! 30,000 icons in three different
+                weights. The world’s largest icon library!
+              </AdText>
+            </Ad>
+          </FloatingAd>
         </PlaygroundContainer>
       </>
     )
