@@ -4,5 +4,6 @@
   "routes": [{ "src": "/(.*)", "dest": "svgr-now.js" }],
   "name": "svgr",
   "alias": ["svgr"],
-  "public": true
+  "public": true,
+  "regions": ["gru"]
 }
