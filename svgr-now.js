@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 const bodyParser = require('body-parser')
 const express = require('express')
 const cors = require('cors')
@@ -25,9 +25,4 @@ app.get('*', (req, res) => {
   res.redirect('https://www.smooth-code.com/open-source/svgr/playground/')
 })
 
-app.listen(3000, err => {
-  if (err) throw err
-  /* eslint-disable no-console */
-  console.log('> Ready on http://localhost:3000')
-  /* eslint-enable no-console */
-})
+module.exports = app

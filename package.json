@@ -9,8 +9,7 @@
     "dev": "lerna run build --parallel -- --watch",
     "format": "prettier --write \"**/*.{js,json,md}\"",
     "lint": "eslint .",
-    "now-build": "yarn build && cd svgr.now.sh && yarn",
-    "now-start": "cd svgr.now.sh && yarn start",
+    "now-build": "yarn build && yarn add -W body-parser express cors",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest --runInBand"
   },

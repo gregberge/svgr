@@ -1,5 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
+  "builds": [{ "src": "svgr-now.js", "use": "@now/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "svgr-now.js" }],
   "name": "svgr",
-  "alias": "svgr"
+  "alias": ["svgr"],
+  "public": true
 }
