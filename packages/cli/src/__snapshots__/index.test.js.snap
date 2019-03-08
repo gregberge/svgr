@@ -218,7 +218,7 @@ exports[`cli should support various args: --no-dimensions 1`] = `
 "import React from 'react'
 
 const SvgFile = props => (
-  <svg {...props}>
+  <svg viewBox=\\"0 0 48 1\\" {...props}>
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
