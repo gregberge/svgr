@@ -4,7 +4,7 @@ exports[`convert config should support options { dimensions: false } 1`] = `
 "import React from 'react'
 
 const SvgComponent = props => (
-  <svg {...props}>
+  <svg viewBox=\\"0 0 88 88\\" {...props}>
     <g
       stroke=\\"#063855\\"
       strokeWidth={2}

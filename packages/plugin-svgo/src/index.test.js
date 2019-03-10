@@ -83,6 +83,16 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('should not remove viewBox with when dimensions is false', () => {
+    const result = svgo(
+      baseSvg,
+      { svgo: true, dimensions: false, runtimeConfig: true },
+      { filePath: path.join(__dirname, '../__fixtures__/svgo') },
+    )
+
+    expect(result).toMatchSnapshot()
+  })
+
   it('should be possible to disable id prefixing', () => {
     const result = svgo(
       baseSvg,

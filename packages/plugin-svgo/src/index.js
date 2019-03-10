@@ -87,7 +87,8 @@ function getBaseSvgoConfig(config) {
   const baseSvgoConfig = {
     plugins: [{ prefixIds: true }],
   }
-  if (config.icon) baseSvgoConfig.plugins.push({ removeViewBox: false })
+  if (config.icon || config.dimensions === false)
+    baseSvgoConfig.plugins.push({ removeViewBox: false })
   return baseSvgoConfig
 }
 
