@@ -89,8 +89,8 @@ const plugin = (api, opts) => {
     plugins.push(svgDynamicTitle)
   }
 
-  if (opts.native) {
-    plugins.push(transformReactNativeSVG)
+  if (opts.native || opts.expo) {
+    plugins.push([transformReactNativeSVG, { expo: !!opts.expo }])
   }
 
   return { plugins }

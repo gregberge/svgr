@@ -55,6 +55,15 @@ export const getImport = ({ types: t }, opts) => {
     )
   }
 
+  if (opts.expo) {
+    importDeclarations.push(
+      t.importDeclaration(
+        [],
+        t.stringLiteral('expo'),
+      ),
+    )
+  }
+
   return importDeclarations
 }
 
