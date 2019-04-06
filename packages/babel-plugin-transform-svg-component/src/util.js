@@ -47,21 +47,21 @@ export const getImport = ({ types: t }, opts) => {
   ]
 
   if (opts.native) {
-    importDeclarations.push(
-      t.importDeclaration(
-        [t.importDefaultSpecifier(t.identifier('Svg'))],
-        t.stringLiteral('react-native-svg'),
-      ),
-    )
-  }
-
-  if (opts.expo) {
-    importDeclarations.push(
-      t.importDeclaration(
-        [],
-        t.stringLiteral('expo'),
-      ),
-    )
+    if (opts.native.expo) {
+      importDeclarations.push(
+        t.importDeclaration(
+          [],
+          t.stringLiteral('expo'),
+        ),
+      )
+    } else {
+      importDeclarations.push(
+        t.importDeclaration(
+          [t.importDefaultSpecifier(t.identifier('Svg'))],
+          t.stringLiteral('react-native-svg'),
+        ),
+      )
+    }
   }
 
   return importDeclarations
