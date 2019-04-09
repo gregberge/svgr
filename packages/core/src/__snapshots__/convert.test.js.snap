@@ -106,6 +106,28 @@ export default SvgComponent
 "
 `;
 
+exports[`convert config should support options { native: { expo: true } } 1`] = `
+"import React from 'react'
+import { Svg } from 'expo'
+
+const SvgComponent = props => (
+  <Svg width={88} height={88} {...props}>
+    <Svg.G
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <Svg.Path d=\\"M51 37L37 51M51 51L37 37\\" />
+    </Svg.G>
+  </Svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert config should support options { native: true, expandProps: false } 1`] = `
 "import React from 'react'
 import Svg, { G, Path } from 'react-native-svg'

@@ -293,6 +293,7 @@ describe('convert', () => {
       { expandProps: 'start' },
       { icon: true },
       { native: true },
+      { native: { expo: true } },
       { native: true, icon: true },
       { native: true, expandProps: false },
       { native: true, ref: true },
