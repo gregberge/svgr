@@ -36,7 +36,7 @@ const plugin = ({ types: t }, { expo }) => {
     const { name } = path.node.openingElement.name
 
     // Replace element by react-native-svg components
-    const component =  elementToComponent[name]
+    const component = elementToComponent[name]
 
     if (component) {
       const prefixedComponent = expoPrefix(component, expo)

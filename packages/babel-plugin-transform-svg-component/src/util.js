@@ -48,12 +48,7 @@ export const getImport = ({ types: t }, opts) => {
 
   if (opts.native) {
     if (opts.native.expo) {
-      importDeclarations.push(
-        t.importDeclaration(
-          [],
-          t.stringLiteral('expo'),
-        ),
-      )
+      importDeclarations.push(t.importDeclaration([], t.stringLiteral('expo')))
     } else {
       importDeclarations.push(
         t.importDeclaration(
