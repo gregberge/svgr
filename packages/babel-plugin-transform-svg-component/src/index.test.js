@@ -27,7 +27,7 @@ export default SvgComponent;"
   it('should add import for react-native-svg', () => {
     const { code } = testPlugin('<svg><div /></svg>', {
       state: { componentName: 'SvgComponent' },
-      native: true
+      native: true,
     })
     expect(code).toMatchInlineSnapshot(`
 "import React from \\"react\\";
@@ -42,7 +42,7 @@ export default SvgComponent;"
   it('should import for expo', () => {
     const { code } = testPlugin('<svg><div /></svg>', {
       state: { componentName: 'SvgComponent' },
-      native: { expo: true }
+      native: { expo: true },
     })
     expect(code).toMatchInlineSnapshot(`
 "import React from \\"react\\";
