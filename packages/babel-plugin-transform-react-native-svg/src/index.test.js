@@ -27,4 +27,17 @@ describe('plugin', () => {
 <Svg><G /></Svg>;"
 `)
   })
+
+  it('should transform for expo import', () => {
+    const { code } = testPlugin(`import 'expo'; <svg><g /><div /></svg>;`, {
+      expo: true,
+    })
+
+    expect(code).toMatchInlineSnapshot(`
+"import { Svg } from 'expo';
+/* SVGR has dropped some elements not supported by react-native-svg: div */
+
+<Svg><Svg.G /></Svg>;"
+`)
+  })
 })

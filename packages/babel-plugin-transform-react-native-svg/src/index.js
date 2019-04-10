@@ -23,7 +23,15 @@ const elementToComponent = {
   image: 'Image',
 }
 
-const plugin = ({ types: t }) => {
+const expoPrefix = (component, expo) => {
+  // Prefix with 'Svg.' in the case we're transforming for Expo
+  if (!expo) {
+    return component
+  }
+  return (component !== 'Svg' ? 'Svg.' : '') + component
+}
+
+const plugin = ({ types: t }, { expo }) => {
   function replaceElement(path, state) {
     const { name } = path.node.openingElement.name
 
@@ -31,13 +39,14 @@ const plugin = ({ types: t }) => {
     const component = elementToComponent[name]
 
     if (component) {
+      const prefixedComponent = expoPrefix(component, expo)
       const openingElementName = path.get('openingElement.name')
-      openingElementName.replaceWith(t.jsxIdentifier(component))
+      openingElementName.replaceWith(t.jsxIdentifier(prefixedComponent))
       if (path.has('closingElement')) {
         const closingElementName = path.get('closingElement.name')
-        closingElementName.replaceWith(t.jsxIdentifier(component))
+        closingElementName.replaceWith(t.jsxIdentifier(prefixedComponent))
       }
-      state.replacedComponents.add(component)
+      state.replacedComponents.add(prefixedComponent)
       return
     }
 
@@ -65,26 +74,31 @@ const plugin = ({ types: t }) => {
 
   const importDeclarationVisitor = {
     ImportDeclaration(path, state) {
-      if (!path.get('source').isStringLiteral({ value: 'react-native-svg' })) {
-        return
-      }
+      if (path.get('source').isStringLiteral({ value: 'react-native-svg' })) {
+        state.replacedComponents.forEach(component => {
+          if (
+            path
+              .get('specifiers')
+              .some(specifier =>
+                specifier.get('local').isIdentifier({ name: component }),
+              )
+          ) {
+            return
+          }
 
-      state.replacedComponents.forEach(component => {
-        if (
-          path
-            .get('specifiers')
-            .some(specifier =>
-              specifier.get('local').isIdentifier({ name: component }),
-            )
-        ) {
-          return
-        }
-
+          path.pushContainer(
+            'specifiers',
+            t.importSpecifier(t.identifier(component), t.identifier(component)),
+          )
+        })
+      } else if (path.get('source').isStringLiteral({ value: 'expo' })) {
         path.pushContainer(
           'specifiers',
-          t.importSpecifier(t.identifier(component), t.identifier(component)),
+          t.importSpecifier(t.identifier('Svg'), t.identifier('Svg')),
         )
-      })
+      } else {
+        return
+      }
 
       if (state.unsupportedComponents.size && !path.has('trailingComments')) {
         const componentList = [...state.unsupportedComponents].join(', ')

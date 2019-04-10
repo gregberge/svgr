@@ -90,7 +90,11 @@ const plugin = (api, opts) => {
   }
 
   if (opts.native) {
-    plugins.push(transformReactNativeSVG)
+    if (opts.native.expo) {
+      plugins.push([transformReactNativeSVG, opts.native])
+    } else {
+      plugins.push(transformReactNativeSVG)
+    }
   }
 
   return { plugins }

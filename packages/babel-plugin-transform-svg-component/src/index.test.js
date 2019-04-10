@@ -24,6 +24,36 @@ export default SvgComponent;"
 `)
   })
 
+  it('should add import for react-native-svg', () => {
+    const { code } = testPlugin('<svg><div /></svg>', {
+      state: { componentName: 'SvgComponent' },
+      native: true,
+    })
+    expect(code).toMatchInlineSnapshot(`
+"import React from \\"react\\";
+import Svg from \\"react-native-svg\\";
+
+const SvgComponent = () => <svg><div /></svg>;
+
+export default SvgComponent;"
+`)
+  })
+
+  it('should import for expo', () => {
+    const { code } = testPlugin('<svg><div /></svg>', {
+      state: { componentName: 'SvgComponent' },
+      native: { expo: true },
+    })
+    expect(code).toMatchInlineSnapshot(`
+"import React from \\"react\\";
+import \\"expo\\";
+
+const SvgComponent = () => <svg><div /></svg>;
+
+export default SvgComponent;"
+`)
+  })
+
   it('should support custom template', () => {
     const { code } = testPlugin('<svg><div /></svg>', {
       template: (

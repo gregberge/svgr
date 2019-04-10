@@ -33,6 +33,24 @@ export default SvgComponent;"
 `)
   })
 
+  it('should handle native expo option', () => {
+    expect(
+      testPreset('<svg><g><path d="M0 0h48v1H0z" /></g></svg>', {
+        native: { expo: true },
+        state: {
+          componentName: 'SvgComponent',
+        },
+      }),
+    ).toMatchInlineSnapshot(`
+"import React from \\"react\\";
+import { Svg } from \\"expo\\";
+
+const SvgComponent = () => <Svg><Svg.G><Svg.Path d=\\"M0 0h48v1H0z\\" /></Svg.G></Svg>;
+
+export default SvgComponent;"
+`)
+  })
+
   it('should handle titleProp', () => {
     expect(
       testPreset('<svg></svg>', {

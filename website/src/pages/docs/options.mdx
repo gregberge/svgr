@@ -47,9 +47,11 @@ inherits from text size.
 Modify all SVG nodes with uppercase and use a specific template with
 [`react-native-svg`](https://github.com/react-native-community/react-native-svg) imports. **All unsupported nodes will be removed.**
 
+Override using the API with `native: { expo: true }` to template SVG nodes with the [ExpoKit SVG package](https://docs.expo.io/versions/latest/sdk/svg/). This is only necessary for 'ejected' ExpoKit projects where `import 'react-native-svg'` results in an error.
+
 | Default | CLI Override | API Override     |
 | ------- | ------------ | ---------------- |
-| `false` | `--native`   | `native: <bool>` |
+| `false` | `--native`   | `native: <bool>` or `native: { expo: true }` |
 
 ## Dimensions
 
