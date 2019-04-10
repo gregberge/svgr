@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { transform } from '@babel/core'
 import preset from '.'
 

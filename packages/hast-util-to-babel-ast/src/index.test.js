@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import unified from 'unified'
 import parse from 'rehype-parse'
 import vfile from 'vfile'

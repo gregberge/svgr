@@ -28,15 +28,15 @@
     "parcel-bundler": "^1.10.0"
   },
   "dependencies": {
-    "@babel/core": "^7.1.6",
+    "@babel/core": "^7.4.3",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
-    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "@svgr/core": "^4.1.0",
     "@svgr/plugin-jsx": "^4.1.0",
     "@svgr/plugin-svgo": "^4.0.3"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.10.3"
+    "parcel-bundler": "^1.10.0"
   }
 }
