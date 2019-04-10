@@ -63,6 +63,7 @@ const plugin = (api, opts) => {
 
   const plugins = [
     [transformSvgComponent, opts],
+    ...(opts.icon && opts.dimensions ? [svgEmDimensions] : []),
     [
       removeJSXAttribute,
       { elements: ['svg', 'Svg'], attributes: toRemoveAttributes },
@@ -79,10 +80,6 @@ const plugin = (api, opts) => {
       replaceJSXAttributeValue,
       { values: replaceMapToValues(opts.replaceAttrValues) },
     ])
-  }
-
-  if (opts.icon && opts.dimensions) {
-    plugins.push(svgEmDimensions)
   }
 
   if (opts.titleProp) {
