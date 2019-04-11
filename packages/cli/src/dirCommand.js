@@ -2,28 +2,7 @@
 import path from 'path'
 import outputFileSync from 'output-file-sync'
 import readdir from 'recursive-readdir'
-import camelcase from 'camelcase'
-import dashify from 'dashify'
-import { convertFile, stat } from './util'
-
-const CASE = {
-  KEBAB: 'kebab', // kebab-case
-  CAMEL: 'camel', // camelCase
-  PASCAL: 'pascal', // PascalCase
-}
-
-function transformFilename(filename, filenameCase) {
-  switch (filenameCase) {
-    case CASE.KEBAB:
-      return dashify(filename, { condense: true })
-    case CASE.CAMEL:
-      return camelcase(filename)
-    case CASE.PASCAL:
-      return camelcase(filename, { pascalCase: true })
-    default:
-      throw new Error(`Unknown --filename-case ${filenameCase}`)
-  }
-}
+import { convertFile, stat, transformFilename, CASE } from './util'
 
 function rename(relative, ext, filenameCase) {
   const relativePath = path.parse(relative)
