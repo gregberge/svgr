@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/smooth-code/svgr/tree/master/packages/plugin-svgo/compare/v4.1.0...v4.2.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* keep viewBox when dimensions are removed ([#281](https://github.com/smooth-code/svgr/tree/master/packages/plugin-svgo/issues/281)) ([f476c8e](https://github.com/smooth-code/svgr/tree/master/packages/plugin-svgo/commit/f476c8e))
+
+
+
+
+
 ## [4.0.3](https://github.com/smooth-code/svgr/compare/v4.0.2...v4.0.3) (2018-11-13)
 
 

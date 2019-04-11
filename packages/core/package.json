@@ -1,7 +1,7 @@
 {
   "name": "@svgr/core",
   "description": "Transform SVG into React Components.",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "main": "lib/index.js",
   "repository": "https://github.com/smooth-code/svgr/tree/master/packages/core",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -25,7 +25,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@svgr/plugin-jsx": "^4.1.0",
+    "@svgr/plugin-jsx": "^4.2.0",
     "camelcase": "^5.3.1",
     "cosmiconfig": "^5.2.0"
   }

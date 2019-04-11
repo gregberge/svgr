@@ -1,7 +1,7 @@
 {
   "name": "@svgr/plugin-jsx",
   "description": "Transform SVG into JSX",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "main": "lib/index.js",
   "repository": "https://github.com/smooth-code/svgr/tree/master/packages/plugin-jsx",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.3",
-    "@svgr/babel-preset": "^4.1.0",
-    "@svgr/hast-util-to-babel-ast": "^4.1.0",
+    "@svgr/babel-preset": "^4.2.0",
+    "@svgr/hast-util-to-babel-ast": "^4.2.0",
     "rehype-parse": "^6.0.0",
     "unified": "^7.1.0",
     "vfile": "^4.0.0"

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/smooth-code/svgr/tree/master/packages/cli/compare/v4.1.0...v4.2.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* keep viewBox when dimensions are removed ([#281](https://github.com/smooth-code/svgr/tree/master/packages/cli/issues/281)) ([f476c8e](https://github.com/smooth-code/svgr/tree/master/packages/cli/commit/f476c8e))
+* **cli:** fix kebab case transformation with "_" ([39c24c5](https://github.com/smooth-code/svgr/tree/master/packages/cli/commit/39c24c5)), closes [#280](https://github.com/smooth-code/svgr/tree/master/packages/cli/issues/280)
+
+
+
+
+
 # [4.1.0](https://github.com/smooth-code/svgr/compare/v4.0.4...v4.1.0) (2018-11-24)
 
 **Note:** Version bump only for package @svgr/cli

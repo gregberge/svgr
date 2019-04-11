@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-remove-jsx-attribute/compare/v4.1.0...v4.2.0) (2019-04-11)
+
+**Note:** Version bump only for package @svgr/babel-plugin-remove-jsx-attribute
+
+
+
+
+
 ## [4.0.3](https://github.com/smooth-code/svgr/compare/v4.0.2...v4.0.3) (2018-11-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/smooth-code/svgr/tree/master/packages/plugin-prettier/compare/v4.1.0...v4.2.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* **plugin-prettier:** fix prettier warning ([d01d33f](https://github.com/smooth-code/svgr/tree/master/packages/plugin-prettier/commit/d01d33f))
+
+
+
+
+
 ## [4.0.3](https://github.com/smooth-code/svgr/compare/v4.0.2...v4.0.3) (2018-11-13)
 
 

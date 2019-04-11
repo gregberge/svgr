@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/smooth-code/svgr/compare/v4.1.0...v4.2.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* keep viewBox when dimensions are removed ([#281](https://github.com/smooth-code/svgr/issues/281)) ([f476c8e](https://github.com/smooth-code/svgr/commit/f476c8e))
+* **babel-preset:** expandProps + icon option ([ddfae22](https://github.com/smooth-code/svgr/commit/ddfae22)), closes [#277](https://github.com/smooth-code/svgr/issues/277)
+* **cli:** fix kebab case transformation with "_" ([39c24c5](https://github.com/smooth-code/svgr/commit/39c24c5)), closes [#280](https://github.com/smooth-code/svgr/issues/280)
+* **hast-util-to-babel-ast:** correctly handle aria attributes ([23d12aa](https://github.com/smooth-code/svgr/commit/23d12aa)), closes [#279](https://github.com/smooth-code/svgr/issues/279)
+* **plugin-prettier:** fix prettier warning ([d01d33f](https://github.com/smooth-code/svgr/commit/d01d33f))
+
+
+### Features
+
+* add expo option ([#289](https://github.com/smooth-code/svgr/issues/289)) ([978db3e](https://github.com/smooth-code/svgr/commit/978db3e))
+
+
+
+
+
 # [4.1.0](https://github.com/smooth-code/svgr/compare/v4.0.4...v4.1.0) (2018-11-24)
 
 

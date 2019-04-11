@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-transform-svg-component/compare/v4.1.0...v4.2.0) (2019-04-11)
+
+
+### Features
+
+* add expo option ([#289](https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-transform-svg-component/issues/289)) ([978db3e](https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-transform-svg-component/commit/978db3e))
+
+
+
+
+
 # [4.1.0](https://github.com/smooth-code/svgr/compare/v4.0.4...v4.1.0) (2018-11-24)
 
 **Note:** Version bump only for package @svgr/babel-plugin-transform-svg-component

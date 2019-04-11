@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-plugin-transform-svg-component",
   "description": "Transform SVG into component",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "main": "lib/index.js",
   "repository": "https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-transform-svg-component",
   "author": "Greg Bergé <berge.greg@gmail.com>",
