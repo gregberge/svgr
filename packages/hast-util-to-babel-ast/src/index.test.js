@@ -48,6 +48,13 @@ describe('hast-util-to-babel-ast', () => {
     )
   })
 
+  it('should correctly transform aria-xxxXxx', () => {
+    const code = `<svg aria-labelledby="foo" aria-describedat="foo" aria-describedby="foo"></svg>`
+    expect(transform(code)).toMatchInlineSnapshot(
+      `"<svg aria-labelledby=\\"foo\\" aria-describedat=\\"foo\\" aria-describedby=\\"foo\\" />;"`,
+    )
+  })
+
   it('should correctly transform data-x', () => {
     const code = `<svg data-hidden="true"></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
