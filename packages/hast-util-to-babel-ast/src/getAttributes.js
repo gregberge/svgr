@@ -3,17 +3,33 @@ import { isNumeric, kebabCase, replaceSpaces } from './util'
 import stringToObjectStyle from './stringToObjectStyle'
 import { ATTRIBUTE_MAPPING, ELEMENT_ATTRIBUTE_MAPPING } from './mappings'
 
+function convertAriaAttribute(kebabKey) {
+  const [aria, ...parts] = kebabKey.split('-')
+  return `${aria}-${parts.join('').toLowerCase()}`
+}
+
 function getKey(key, value, node) {
-  const kebabKey = kebabCase(key)
-  if (kebabKey.startsWith('aria-') || kebabKey.startsWith('data-')) {
-    return t.jsxIdentifier(kebabKey)
-  }
   const lowerCaseKey = key.toLowerCase()
   const mappedElementAttribute =
     ELEMENT_ATTRIBUTE_MAPPING[node.name] &&
     ELEMENT_ATTRIBUTE_MAPPING[node.name][lowerCaseKey]
   const mappedAttribute = ATTRIBUTE_MAPPING[lowerCaseKey]
-  return t.jsxIdentifier(mappedElementAttribute || mappedAttribute || key)
+
+  if (mappedElementAttribute || mappedAttribute) {
+    return t.jsxIdentifier(mappedElementAttribute || mappedAttribute)
+  }
+
+  const kebabKey = kebabCase(key)
+
+  if (kebabKey.startsWith('aria-')) {
+    return t.jsxIdentifier(convertAriaAttribute(kebabKey))
+  }
+
+  if (kebabKey.startsWith('data-')) {
+    return t.jsxIdentifier(kebabKey)
+  }
+
+  return t.jsxIdentifier(key)
 }
 
 function getValue(key, value) {

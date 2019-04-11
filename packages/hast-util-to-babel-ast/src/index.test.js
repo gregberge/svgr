@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import unified from 'unified'
 import parse from 'rehype-parse'
 import vfile from 'vfile'
@@ -46,6 +45,13 @@ describe('hast-util-to-babel-ast', () => {
     const code = `<svg aria-hidden="true"></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
       `"<svg aria-hidden=\\"true\\" />;"`,
+    )
+  })
+
+  it('should correctly transform aria-xxxXxx', () => {
+    const code = `<svg aria-labelledby="foo" aria-describedat="foo" aria-describedby="foo"></svg>`
+    expect(transform(code)).toMatchInlineSnapshot(
+      `"<svg aria-labelledby=\\"foo\\" aria-describedat=\\"foo\\" aria-describedby=\\"foo\\" />;"`,
     )
   })
 

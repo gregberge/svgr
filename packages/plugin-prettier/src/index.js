@@ -10,7 +10,7 @@ export default function prettierPlugin(code, config, state) {
   return prettier.format(
     code,
     mergeDeep(
-      { parser: 'babylon' },
+      { parser: 'babel' },
       prettierRcConfig,
       config.prettierConfig || {},
     ),

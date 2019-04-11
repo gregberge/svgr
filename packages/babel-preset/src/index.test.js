@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { transform } from '@babel/core'
 import preset from '.'
 
@@ -25,12 +24,12 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-"import React from \\"react\\";
-
-const SvgComponent = () => <svg foo=\\"bar\\" x={y} />;
-
-export default SvgComponent;"
-`)
+                  "import React from \\"react\\";
+                  
+                  const SvgComponent = () => <svg foo=\\"bar\\" x={y} />;
+                  
+                  export default SvgComponent;"
+            `)
   })
 
   it('should handle native expo option', () => {
@@ -42,13 +41,13 @@ export default SvgComponent;"
         },
       }),
     ).toMatchInlineSnapshot(`
-"import React from \\"react\\";
-import { Svg } from \\"expo\\";
-
-const SvgComponent = () => <Svg><Svg.G><Svg.Path d=\\"M0 0h48v1H0z\\" /></Svg.G></Svg>;
-
-export default SvgComponent;"
-`)
+                  "import React from \\"react\\";
+                  import { Svg } from \\"expo\\";
+                  
+                  const SvgComponent = () => <Svg><Svg.G><Svg.Path d=\\"M0 0h48v1H0z\\" /></Svg.G></Svg>;
+                  
+                  export default SvgComponent;"
+            `)
   })
 
   it('should handle titleProp', () => {
@@ -60,14 +59,14 @@ export default SvgComponent;"
         },
       }),
     ).toMatchInlineSnapshot(`
-"import React from \\"react\\";
-
-const SvgComponent = ({
-  title
-}) => <svg><title>{title}</title></svg>;
-
-export default SvgComponent;"
-`)
+                  "import React from \\"react\\";
+                  
+                  const SvgComponent = ({
+                    title
+                  }) => <svg><title>{title}</title></svg>;
+                  
+                  export default SvgComponent;"
+            `)
   })
 
   it('should handle replaceAttrValues', () => {
@@ -82,11 +81,30 @@ export default SvgComponent;"
         },
       }),
     ).toMatchInlineSnapshot(`
-"import React from \\"react\\";
+                  "import React from \\"react\\";
+                  
+                  const SvgComponent = () => <svg a=\\"black\\" b={props.white} />;
+                  
+                  export default SvgComponent;"
+            `)
+  })
 
-const SvgComponent = () => <svg a=\\"black\\" b={props.white} />;
-
-export default SvgComponent;"
-`)
+  it('should handle expandProps & icon & dimensions', () => {
+    expect(
+      testPreset('<svg a="#000" b="#fff" />', {
+        expandProps: 'end',
+        icon: true,
+        dimensions: true,
+        state: {
+          componentName: 'SvgComponent',
+        },
+      }),
+    ).toMatchInlineSnapshot(`
+      "import React from \\"react\\";
+      
+      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width=\\"1em\\" height=\\"1em\\" {...props} />;
+      
+      export default SvgComponent;"
+    `)
   })
 })

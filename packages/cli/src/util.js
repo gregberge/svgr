@@ -6,9 +6,30 @@ import svgrConvert from '@svgr/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
 import prettier from '@svgr/plugin-prettier'
+import camelcase from 'camelcase'
+import dashify from 'dashify'
 
 export const readFile = util.promisify(fs.readFile)
 export const stat = util.promisify(fs.stat)
+
+export const CASE = {
+  KEBAB: 'kebab', // kebab-case
+  CAMEL: 'camel', // camelCase
+  PASCAL: 'pascal', // PascalCase
+}
+
+export function transformFilename(filename, filenameCase) {
+  switch (filenameCase) {
+    case CASE.KEBAB:
+      return dashify(filename.replace(/_/g, '-'), { condense: true })
+    case CASE.CAMEL:
+      return camelcase(filename)
+    case CASE.PASCAL:
+      return camelcase(filename, { pascalCase: true })
+    default:
+      throw new Error(`Unknown --filename-case ${filenameCase}`)
+  }
+}
 
 export function convert(code, config, state) {
   return svgrConvert.sync(code, config, {
