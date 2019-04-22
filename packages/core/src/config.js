@@ -4,6 +4,7 @@ export const DEFAULT_CONFIG = {
   h2xConfig: null,
   dimensions: true,
   expandProps: 'end',
+  ext: 'js',
   icon: false,
   native: false,
   prettier: true,

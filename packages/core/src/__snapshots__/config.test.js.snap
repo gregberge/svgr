@@ -4,6 +4,7 @@ exports[`svgo async #loadConfig [async] should load config using filePath 1`] = 
 Object {
   "dimensions": true,
   "expandProps": "end",
+  "ext": "js",
   "h2xConfig": null,
   "icon": true,
   "native": false,
@@ -31,6 +32,7 @@ exports[`svgo async #loadConfig [async] should not load config with "runtimeConf
 Object {
   "dimensions": true,
   "expandProps": "end",
+  "ext": "js",
   "h2xConfig": null,
   "icon": true,
   "native": false,
@@ -59,6 +61,7 @@ exports[`svgo async #loadConfig [async] should use default config without state.
 Object {
   "dimensions": false,
   "expandProps": "end",
+  "ext": "js",
   "h2xConfig": null,
   "icon": false,
   "native": false,
@@ -80,6 +83,7 @@ exports[`svgo async #loadConfig [async] should work with custom config path 1`] 
 Object {
   "dimensions": true,
   "expandProps": "end",
+  "ext": "js",
   "h2xConfig": null,
   "icon": true,
   "native": false,
@@ -107,6 +111,7 @@ exports[`svgo sync #loadConfig [sync] should load config using filePath 1`] = `
 Object {
   "dimensions": true,
   "expandProps": "end",
+  "ext": "js",
   "h2xConfig": null,
   "icon": true,
   "native": false,
@@ -134,6 +139,7 @@ exports[`svgo sync #loadConfig [sync] should not load config with "runtimeConfig
 Object {
   "dimensions": true,
   "expandProps": "end",
+  "ext": "js",
   "h2xConfig": null,
   "icon": true,
   "native": false,
@@ -162,6 +168,7 @@ exports[`svgo sync #loadConfig [sync] should use default config without state.fi
 Object {
   "dimensions": false,
   "expandProps": "end",
+  "ext": "js",
   "h2xConfig": null,
   "icon": false,
   "native": false,
@@ -183,6 +190,7 @@ exports[`svgo sync #loadConfig [sync] should work with custom config path 1`] = 
 Object {
   "dimensions": true,
   "expandProps": "end",
+  "ext": "js",
   "h2xConfig": null,
   "icon": true,
   "native": false,

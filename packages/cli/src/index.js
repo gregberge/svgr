@@ -147,6 +147,7 @@ async function run() {
   }
 
   const command = program.outDir ? dirCommand : fileCommand
+
   await command(program, filenames, config)
 }
 

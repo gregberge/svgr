@@ -23,7 +23,7 @@ export function isCompilable(filename) {
 async function dirCommand(
   program,
   filenames,
-  { ext = 'js', filenameCase = CASE.PASCAL, ...options },
+  { filenameCase = CASE.PASCAL, ext = 'js', ...options },
 ) {
   async function write(src, relative) {
     if (!isCompilable(relative)) return false
