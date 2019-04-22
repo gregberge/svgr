@@ -8,13 +8,13 @@ SVGR is an MIT-licensed open source project. Even if it has been created at Smoo
 
 ## Gold Sponsors
 
-Gold Sponsors are those who have pledged \$200/month and more to SVGR.
+Gold Sponsors are those who have pledged \$100/month and more to SVGR.
 
 [![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=120&width=600)](https://opencollective.com/svgr/order/6010)
 
 ## Silver Sponsors
 
-Silver Sponsors are those who have pledged $100/month to$200/month to SVGR.
+Silver Sponsors are those who have pledged $50/month to$100/month to SVGR.
 
 [![silver-sponsors](https://opencollective.com/svgr/tiers/silver-sponsors.svg?avatarHeight=120&width=600)](https://opencollective.com/svgr/order/6008)
 
