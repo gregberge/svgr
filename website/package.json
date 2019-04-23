@@ -15,7 +15,7 @@
     "react-final-form": "^4.1.0",
     "react-helmet": "^5.2.0",
     "smooth-code-landers": "^1.3.2",
-    "smooth-doc": "^2.0.2",
+    "smooth-doc": "^2.1.1",
     "styled-components": "^4.2.0"
   },
   "scripts": {

@@ -11,6 +11,7 @@ module.exports = {
           { title: 'Playground', url: '/playground/' },
           { title: 'Usage', url: '/docs/' },
         ],
+        codeFundProperty: 269,
       },
     },
   ],
