@@ -12,7 +12,7 @@ import {
   getInitialState,
   transformSettings,
 } from 'components/playground/config/settings'
-import { Ad, AdText, AdImg } from './Ad'
+import CodeFund from './CodeFund'
 
 const GlobalStyle = createGlobalStyle`
   .loading {
@@ -154,16 +154,7 @@ class Playground extends React.Component {
             <Loading />
           )}
           <FloatingAd>
-            <Ad
-              target="_blank"
-              href="https://transactions.sendowl.com/stores/9358/136644"
-            >
-              <AdImg src="https://cdn.dribbble.com/users/722246/screenshots/4812716/streamline_dribbble_1.gif" />
-              <AdText>
-                🚀Streamline 3.0 is out! 30,000 icons in three different
-                weights. The world’s largest icon library!
-              </AdText>
-            </Ad>
+            <CodeFund />
           </FloatingAd>
         </PlaygroundContainer>
       </>

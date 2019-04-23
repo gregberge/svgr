@@ -1,11 +1,7 @@
-# Global settings applied to the whole site.  
-# 
-# “publish” is the directory to publish (relative to root of your repo),
-# “command” is your build command,
-# “base” is directory to change to before starting build. if you set base:
-#    that is where we will look for package.json/.nvmrc/etc not repo root!
-
 [build]
   base    = "website"
+  command = "yarn build"
   publish = "website/public"
+
+[context.production]
   command = "yarn build:pp"
