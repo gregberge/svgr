@@ -134,7 +134,8 @@ Add props to the root SVG tag.
 
 ## Title
 
-Add title tag via title property.
+Add title tag via title property. If titleProp is set to true and no title is provided (`title={undefined}`) at render time, this will
+fallback to existing title element in the svg if exists. 
 
 | Default | CLI Override | API Override        |
 | ------- | ------------ | ------------------- |
