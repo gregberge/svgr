@@ -50,7 +50,11 @@ describe('cli', () => {
 
   it('should transform a whole directory and output relative destination paths', async () => {
     const result = await cli('--out-dir __fixtures_build__/whole __fixtures__')
-    expect(result).toMatchSnapshot()
+    const sorted = result
+      .split(/\n/)
+      .sort()
+      .join('\n')
+    expect(sorted).toMatchSnapshot()
   }, 10000)
 
   it('should support --prettier-config as json', async () => {
