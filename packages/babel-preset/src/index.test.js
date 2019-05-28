@@ -81,7 +81,7 @@ describe('preset', () => {
                   
                   const SvgComponent = ({
                     title
-                  }) => <svg><title>{typeof title === \\"undefined\\" ? \\"Old\\" : title}</title></svg>;
+                  }) => <svg><title>{title === undefined ? \\"Old\\" : title}</title></svg>;
                   
                   export default SvgComponent;"
             `)

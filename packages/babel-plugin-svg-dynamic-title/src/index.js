@@ -21,14 +21,9 @@ const plugin = ({ types: t }) => ({
         if (existingTitle) {
           // if title exists
           // render as follows
-          // {typeof title === "undefined" ? existingTitle : title}
+          // {title === undefined ? existingTitle : title}
           expression = t.conditionalExpression(
-            // title === null
-            t.binaryExpression(
-              '===',
-              t.unaryExpression('typeof', expression),
-              t.stringLiteral('undefined'),
-            ),
+            t.binaryExpression('===', expression, t.identifier('undefined')),
             t.stringLiteral(existingTitle),
             expression,
           )
