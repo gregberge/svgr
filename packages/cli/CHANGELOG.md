@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/smooth-code/svgr/tree/master/packages/cli/compare/v4.2.0...v4.3.0) (2019-05-28)
+
+
+### Features
+
+* **cli:** output relative destination paths ([#312](https://github.com/smooth-code/svgr/tree/master/packages/cli/issues/312)) ([b78e471](https://github.com/smooth-code/svgr/tree/master/packages/cli/commit/b78e471))
+
+
+
+
+
 # [4.2.0](https://github.com/smooth-code/svgr/tree/master/packages/cli/compare/v4.1.0...v4.2.0) (2019-04-11)
 
 
