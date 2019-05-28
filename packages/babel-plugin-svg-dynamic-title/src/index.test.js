@@ -17,9 +17,9 @@ describe('plugin', () => {
     )
   })
 
-  it('should replace existing title by title attribute', () => {
+  it('should add title attribute and fallback to existing title', () => {
     expect(testPlugin('<svg><title>Hello</title></svg>')).toMatchInlineSnapshot(
-      `"<svg><title>{title}</title></svg>;"`,
+      `"<svg><title>{title === undefined ? \\"Hello\\" : title}</title></svg>;"`,
     )
   })
 
