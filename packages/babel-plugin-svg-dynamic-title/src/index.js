@@ -11,30 +11,35 @@ const plugin = ({ types: t }) => ({
         return
       }
 
-      function getTitleElement(existingTitleChildren = []) {
-        // create the expression for the title rendering
-        let expression = t.identifier('title')
-        // get the existing title string value
-        const existingTitle = (existingTitleChildren || [])
-          .map(c => c.value)
-          .join()
-        if (existingTitle) {
-          // if title exists
-          // render as follows
-          // {title === undefined ? existingTitle : title}
-          expression = t.conditionalExpression(
-            t.binaryExpression('===', expression, t.identifier('undefined')),
-            t.stringLiteral(existingTitle),
-            expression,
-          )
-        }
-
-        // create a title element with the given expression
+      function createTitle(children = []) {
         return t.jsxElement(
           t.jsxOpeningElement(t.jsxIdentifier('title'), []),
           t.jsxClosingElement(t.jsxIdentifier('title')),
-          [t.jsxExpressionContainer(expression)],
+          children,
         )
+      }
+      function getTitleElement(existingTitleChildren = []) {
+        const titleExpression = t.identifier('title')
+        let titleElement = createTitle([
+          t.jsxExpressionContainer(titleExpression),
+        ])
+        if (existingTitleChildren && existingTitleChildren.length) {
+          // if title already exists
+          // render as follows
+          const fallbackTitleElement = createTitle(existingTitleChildren)
+          // {title === undefined ? fallbackTitleElement : titleElement}
+          const conditionalExpressionForTitle = t.conditionalExpression(
+            t.binaryExpression(
+              '===',
+              titleExpression,
+              t.identifier('undefined'),
+            ),
+            fallbackTitleElement,
+            titleElement,
+          )
+          titleElement = t.jsxExpressionContainer(conditionalExpressionForTitle)
+        }
+        return titleElement
       }
 
       // store the title element

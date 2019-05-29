@@ -17,12 +17,22 @@ describe('plugin', () => {
     )
   })
 
-  it('should add title attribute and fallback to existing title', () => {
-    expect(testPlugin('<svg><title>Hello</title></svg>')).toMatchInlineSnapshot(
-      `"<svg><title>{title === undefined ? \\"Hello\\" : title}</title></svg>;"`,
+  it('should add title element and fallback to existing title', () => {
+    ;['Hello', '{Hello}']
+      .map(titleChildren => `<title>${titleChildren}</title>`)
+      .forEach(existingTitleElement =>
+        expect(
+          testPlugin(`<svg>${existingTitleElement}</svg>`),
+        ).toMatchInlineSnapshot(
+          `"<svg>{title === undefined ? ${existingTitleElement} : <title>{title}</title>}</svg>;"`,
+        ),
+      )
+  })
+  it('should support empty title', () => {
+    expect(testPlugin('<svg><title></title></svg>')).toMatchInlineSnapshot(
+      `"<svg><title>{title}</title></svg>;"`,
     )
   })
-
   it('should support self closing title', () => {
     expect(testPlugin('<svg><title /></svg>')).toMatchInlineSnapshot(
       `"<svg><title>{title}</title></svg>;"`,

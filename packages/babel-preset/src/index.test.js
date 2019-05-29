@@ -69,22 +69,26 @@ describe('preset', () => {
             `)
   })
   it('should handle titleProp and fallback on existing title', () => {
-    expect(
-      testPreset('<svg><title>Old</title></svg>', {
-        titleProp: true,
-        state: {
-          componentName: 'SvgComponent',
-        },
-      }),
-    ).toMatchInlineSnapshot(`
+    ;['Hello', '{Hello}']
+      .map(children => `<title>${children}</title>`)
+      .forEach(existingTitle =>
+        expect(
+          testPreset(`<svg>${existingTitle}</svg>`, {
+            titleProp: true,
+            state: {
+              componentName: 'SvgComponent',
+            },
+          }),
+        ).toMatchInlineSnapshot(`
                   "import React from \\"react\\";
                   
                   const SvgComponent = ({
                     title
-                  }) => <svg><title>{title === undefined ? \\"Old\\" : title}</title></svg>;
+                  }) => <svg>{title === undefined ? ${existingTitle} : <title>{title}</title>}</svg>;
                   
                   export default SvgComponent;"
-            `)
+            `),
+      )
   })
 
   it('should handle replaceAttrValues', () => {
