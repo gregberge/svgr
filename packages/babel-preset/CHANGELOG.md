@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/smooth-code/svgr/tree/master/packages/babel-preset/compare/v4.2.0...v4.3.0) (2019-05-28)
+
+
+### Features
+
+* titleProps fallbacks to svg's title ([#311](https://github.com/smooth-code/svgr/tree/master/packages/babel-preset/issues/311)) ([8f92366](https://github.com/smooth-code/svgr/tree/master/packages/babel-preset/commit/8f92366))
+
+
+
+
+
 # [4.2.0](https://github.com/smooth-code/svgr/tree/master/packages/babel-preset/compare/v4.1.0...v4.2.0) (2019-04-11)
 
 

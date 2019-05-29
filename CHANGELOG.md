@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/smooth-code/svgr/compare/v4.2.0...v4.3.0) (2019-05-28)
+
+
+### Features
+
+* **cli:** output relative destination paths ([#312](https://github.com/smooth-code/svgr/issues/312)) ([b78e471](https://github.com/smooth-code/svgr/commit/b78e471))
+* titleProps fallbacks to svg's title ([#311](https://github.com/smooth-code/svgr/issues/311)) ([8f92366](https://github.com/smooth-code/svgr/commit/8f92366))
+
+
+
+
+
 # [4.2.0](https://github.com/smooth-code/svgr/compare/v4.1.0...v4.2.0) (2019-04-11)
 
 

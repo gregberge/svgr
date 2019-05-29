@@ -32,7 +32,7 @@ async function dirCommand(
     const dest = path.resolve(program.outDir, relative)
     const code = await convertFile(src, options)
     outputFileSync(dest, code)
-    process.stdout.write(`${src} -> ${dest}\n`)
+    process.stdout.write(`${src} -> ${path.relative(process.cwd(), dest)}\n`)
     return true
   }
 

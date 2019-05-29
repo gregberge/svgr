@@ -1,7 +1,7 @@
 {
   "name": "@svgr/parcel-plugin-svgr",
   "description": "SVGR Parcel plugin.",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "main": "lib/index.js",
   "repository": "https://github.com/smooth-code/svgr/tree/master/packages/parcel-plugin-svgr",
   "author": "Mario Pabon <me@mariopabon.com>",
@@ -32,8 +32,8 @@
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
-    "@svgr/core": "^4.2.0",
-    "@svgr/plugin-jsx": "^4.2.0",
+    "@svgr/core": "^4.3.0",
+    "@svgr/plugin-jsx": "^4.3.0",
     "@svgr/plugin-svgo": "^4.2.0"
   },
   "devDependencies": {
