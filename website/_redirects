@@ -1,2 +1,5 @@
-https://svgr.netlify.com/* https://www.smooth-code.com/open-source/svgr/:splat
-https://svgr.smooth-code.com/* https://www.smooth-code.com/open-source/svgr/:splat
+https://svgr.netlify.com https://www.smooth-code.com
+https://svgr.netlify.com/* https://www.smooth-code.com/*
+
+https://svgr.smooth-code.com https://www.smooth-code.com
+https://svgr.smooth-code.com/* https://www.smooth-code.com/*
