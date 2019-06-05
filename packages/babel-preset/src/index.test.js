@@ -69,26 +69,40 @@ describe('preset', () => {
             `)
   })
   it('should handle titleProp and fallback on existing title', () => {
-    ;['Hello', '{Hello}']
-      .map(children => `<title>${children}</title>`)
-      .forEach(existingTitle =>
-        expect(
-          testPreset(`<svg>${existingTitle}</svg>`, {
-            titleProp: true,
-            state: {
-              componentName: 'SvgComponent',
-            },
-          }),
-        ).toMatchInlineSnapshot(`
+    // testing when existing title has string as chilren
+    expect(
+      testPreset(`<svg><title>Hello</title></svg>`, {
+        titleProp: true,
+        state: {
+          componentName: 'SvgComponent',
+        },
+      }),
+    ).toMatchInlineSnapshot(`
                   "import React from \\"react\\";
                   
                   const SvgComponent = ({
                     title
-                  }) => <svg>{title === undefined ? ${existingTitle} : <title>{title}</title>}</svg>;
+                  }) => <svg>{title === undefined ? <title>Hello</title> : <title>{title}</title>}</svg>;
                   
                   export default SvgComponent;"
-            `),
-      )
+            `)
+    // testing when existing title has JSXExpression as children
+    expect(
+      testPreset(`<svg><title>{"Hello"}</title></svg>`, {
+        titleProp: true,
+        state: {
+          componentName: 'SvgComponent',
+        },
+      }),
+    ).toMatchInlineSnapshot(`
+                  "import React from \\"react\\";
+                  
+                  const SvgComponent = ({
+                    title
+                  }) => <svg>{title === undefined ? <title>{\\"Hello\\"}</title> : <title>{title}</title>}</svg>;
+                  
+                  export default SvgComponent;"
+            `)
   })
 
   it('should handle replaceAttrValues', () => {

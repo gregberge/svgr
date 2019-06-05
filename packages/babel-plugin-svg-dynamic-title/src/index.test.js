@@ -18,15 +18,16 @@ describe('plugin', () => {
   })
 
   it('should add title element and fallback to existing title', () => {
-    ;['Hello', '{Hello}']
-      .map(titleChildren => `<title>${titleChildren}</title>`)
-      .forEach(existingTitleElement =>
-        expect(
-          testPlugin(`<svg>${existingTitleElement}</svg>`),
-        ).toMatchInlineSnapshot(
-          `"<svg>{title === undefined ? ${existingTitleElement} : <title>{title}</title>}</svg>;"`,
-        ),
-      )
+    // testing when the existing title contains a simple string
+    expect(testPlugin(`<svg><title>Hello</title></svg>`)).toMatchInlineSnapshot(
+      `"<svg>{title === undefined ? <title>Hello</title> : <title>{title}</title>}</svg>;"`,
+    )
+    // testing when the existing title contains an JSXExpression
+    expect(
+      testPlugin(`<svg><title>{"Hello"}</title></svg>`),
+    ).toMatchInlineSnapshot(
+      `"<svg>{title === undefined ? <title>{\\"Hello\\"}</title> : <title>{title}</title>}</svg>;"`,
+    )
   })
   it('should support empty title', () => {
     expect(testPlugin('<svg><title></title></svg>')).toMatchInlineSnapshot(
