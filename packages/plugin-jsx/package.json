@@ -21,11 +21,11 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.4.3",
+    "@babel/core": "^7.4.5",
     "@svgr/babel-preset": "^4.3.0",
     "@svgr/hast-util-to-babel-ast": "^4.2.0",
     "rehype-parse": "^6.0.0",
     "unified": "^7.1.0",
-    "vfile": "^4.0.0"
+    "vfile": "^4.0.1"
   }
 }
