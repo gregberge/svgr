@@ -28,9 +28,9 @@
     "parcel-bundler": "^1.10.0"
   },
   "dependencies": {
-    "@babel/core": "^7.4.3",
+    "@babel/core": "^7.4.5",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@svgr/core": "^4.3.0",
     "@svgr/plugin-jsx": "^4.3.0",

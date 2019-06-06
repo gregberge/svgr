@@ -34,11 +34,11 @@
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "dashify": "^2.0.0",
-    "glob": "^7.1.3",
+    "glob": "^7.1.4",
     "output-file-sync": "^2.0.1",
     "recursive-readdir": "^2.2.2"
   },
   "devDependencies": {
-    "del": "^4.1.0"
+    "del": "^4.1.1"
   }
 }
