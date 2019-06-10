@@ -69,8 +69,9 @@ describe('preset', () => {
             `)
   })
   it('should handle titleProp and fallback on existing title', () => {
+    // testing when existing title has string as chilren
     expect(
-      testPreset('<svg><title>Old</title></svg>', {
+      testPreset(`<svg><title>Hello</title></svg>`, {
         titleProp: true,
         state: {
           componentName: 'SvgComponent',
@@ -81,7 +82,24 @@ describe('preset', () => {
                   
                   const SvgComponent = ({
                     title
-                  }) => <svg><title>{title === undefined ? \\"Old\\" : title}</title></svg>;
+                  }) => <svg>{title === undefined ? <title>Hello</title> : <title>{title}</title>}</svg>;
+                  
+                  export default SvgComponent;"
+            `)
+    // testing when existing title has JSXExpression as children
+    expect(
+      testPreset(`<svg><title>{"Hello"}</title></svg>`, {
+        titleProp: true,
+        state: {
+          componentName: 'SvgComponent',
+        },
+      }),
+    ).toMatchInlineSnapshot(`
+                  "import React from \\"react\\";
+                  
+                  const SvgComponent = ({
+                    title
+                  }) => <svg>{title === undefined ? <title>{\\"Hello\\"}</title> : <title>{title}</title>}</svg>;
                   
                   export default SvgComponent;"
             `)
