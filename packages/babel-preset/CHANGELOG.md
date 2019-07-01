@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/smooth-code/svgr/tree/master/packages/babel-preset/compare/v4.3.0...v4.3.1) (2019-07-01)
+
+
+### Bug Fixes
+
+* **titleProp:** handle the existing title case by using element instead of value (children) ([#315](https://github.com/smooth-code/svgr/tree/master/packages/babel-preset/issues/315)) ([065e7a9](https://github.com/smooth-code/svgr/tree/master/packages/babel-preset/commit/065e7a9))
+
+
+
+
+
 # [4.3.0](https://github.com/smooth-code/svgr/tree/master/packages/babel-preset/compare/v4.2.0...v4.3.0) (2019-05-28)
 
 
