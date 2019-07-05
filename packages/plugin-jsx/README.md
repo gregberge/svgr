@@ -26,7 +26,7 @@ npm install --save-dev @svgr/plugin-jsx
 
 `@svgr/plugin-jsx` consists in three phases:
 
-- Parsing the SVG code using [rehype](https://github.com/rehypejs/rehype)
+- Parsing the SVG code using [svg-parser](https://github.com/Rich-Harris/svg-parser)
 - Converting the [HAST](https://github.com/syntax-tree/hast) into a [Babel AST](https://github.com/babel/babel/blob/master/packages/babel-parser/ast/spec.md)
 - Applying [`@svgr/babel-preset`](../babel-preset/README.md) transformations
 

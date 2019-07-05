@@ -24,6 +24,6 @@
     "@babel/core": "^7.4.5",
     "@svgr/babel-preset": "^4.3.1",
     "@svgr/hast-util-to-babel-ast": "^4.3.1",
-    "svg-parser": "^1.0.5"
+    "svg-parser": "^1.0.6"
   }
 }
