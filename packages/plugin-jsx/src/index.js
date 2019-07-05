@@ -1,20 +1,11 @@
-import unified from 'unified'
-import parse from 'rehype-parse'
-import vfile from 'vfile'
+import { parse } from 'svg-parser'
 import hastToBabelAst from '@svgr/hast-util-to-babel-ast'
 import { transformFromAstSync, createConfigItem } from '@babel/core'
 import svgrBabelPreset from '@svgr/babel-preset'
 
 export default function jsxPlugin(code, config, state) {
   const filePath = state.filePath || 'unknown'
-  const hastTree = unified()
-    .use(parse, {
-      fragment: true,
-      space: 'svg',
-      emitParseErrors: true,
-      duplicateAttribute: false,
-    })
-    .parse(vfile({ path: filePath, contents: code }))
+  const hastTree = parse(code)
 
   const babelTree = hastToBabelAst(hastTree)
 

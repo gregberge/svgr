@@ -6641,6 +6641,11 @@ loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3:
     emojis-list "^2.0.0"
     json5 "^1.0.1"
 
+locate-character@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/locate-character/-/locate-character-1.0.0.tgz#116443c23f29fae28900cac285ba0c71f2693f6d"
+  integrity sha1-EWRDwj8p+uKJAMrChboMcfJpP20=
+
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -9930,6 +9935,13 @@ supports-color@^6.1.0:
   integrity sha512-qe1jfm1Mg7Nq/NSh6XE24gPXROEVsWHxC1LIx//XNlD9iw7YZQGjZNjYN7xGaEG6iKdA8EtNFW6R0gjnVXp+wQ==
   dependencies:
     has-flag "^3.0.0"
+
+svg-parser@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/svg-parser/-/svg-parser-1.0.5.tgz#7ba73ebdaac7a542b842d68598872d0777e5b7ff"
+  integrity sha1-e6c+varHpUK4QtaFmIctB3flt/8=
+  dependencies:
+    locate-character "^1.0.0"
 
 svgo@^1.0.0, svgo@^1.0.5, svgo@^1.2.2:
   version "1.2.2"

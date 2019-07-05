@@ -8,11 +8,11 @@ function convertAriaAttribute(kebabKey) {
   return `${aria}-${parts.join('').toLowerCase()}`
 }
 
-function getKey(key, value, node) {
+function getKey(key, value, nodeName) {
   const lowerCaseKey = key.toLowerCase()
   const mappedElementAttribute =
-    ELEMENT_ATTRIBUTE_MAPPING[node.name] &&
-    ELEMENT_ATTRIBUTE_MAPPING[node.name][lowerCaseKey]
+    ELEMENT_ATTRIBUTE_MAPPING[nodeName] &&
+    ELEMENT_ATTRIBUTE_MAPPING[nodeName][lowerCaseKey]
   const mappedAttribute = ATTRIBUTE_MAPPING[lowerCaseKey]
 
   if (mappedElementAttribute || mappedAttribute) {
@@ -49,22 +49,22 @@ function getValue(key, value) {
   return t.stringLiteral(replaceSpaces(value))
 }
 
-const getAttributes = node => {
-  const keys = Object.keys(node.properties)
-  const attributes = []
+const getProperties = (nodeName, attributes) => {
+  const keys = Object.keys(attributes)
+  const properties = []
   let index = -1
 
   while (++index < keys.length) {
     const key = keys[index]
-    const value = node.properties[key]
-    const attribute = t.jsxAttribute(
-      getKey(key, value, node),
-      getValue(key, value, node),
+    const value = attributes[key]
+    const property = t.jsxAttribute(
+      getKey(key, value, nodeName),
+      getValue(key, value),
     )
-    attributes.push(attribute)
+    properties.push(property)
   }
 
-  return attributes
+  return properties
 }
 
-export default getAttributes
+export default getProperties
