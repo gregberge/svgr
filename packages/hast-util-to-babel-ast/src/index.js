@@ -20,30 +20,30 @@ function all(parent) {
 function one(node, parent) {
   if (typeof node === 'string') {
     return t.jsxExpressionContainer(t.stringLiteral(node))
-  } else {
-    const children = all(node)
-    const selfClosing = children.length === 0
-
-    const name = ELEMENT_TAG_NAME_MAPPING[node.name] || node.name
-
-    const openingElement = t.jsxOpeningElement(
-      t.jsxIdentifier(name),
-      getAttributes(node.name, node.attributes),
-      selfClosing,
-    )
-
-    const closingElement = !selfClosing
-      ? t.jsxClosingElement(t.jsxIdentifier(name))
-      : null
-
-    const jsxElement = t.jsxElement(openingElement, closingElement, children)
-
-    if (parent == null) {
-      return t.expressionStatement(jsxElement)
-    }
-
-    return jsxElement
   }
+
+  const children = all(node)
+  const selfClosing = children.length === 0
+
+  const name = ELEMENT_TAG_NAME_MAPPING[node.name] || node.name
+
+  const openingElement = t.jsxOpeningElement(
+    t.jsxIdentifier(name),
+    getAttributes(node.name, node.attributes),
+    selfClosing,
+  )
+
+  const closingElement = !selfClosing
+    ? t.jsxClosingElement(t.jsxIdentifier(name))
+    : null
+
+  const jsxElement = t.jsxElement(openingElement, closingElement, children)
+
+  if (parent == null) {
+    return t.expressionStatement(jsxElement)
+  }
+
+  return jsxElement
 }
 
 function toBabelAST(tree) {
