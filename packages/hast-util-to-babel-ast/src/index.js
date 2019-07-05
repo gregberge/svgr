@@ -1,5 +1,5 @@
 import * as t from '@babel/types'
-import getAttributes from './getAttributes'
+import getProps from './getProps'
 import { ELEMENT_TAG_NAME_MAPPING } from './mappings'
 
 /* Transform the children of `parent`. */
@@ -29,7 +29,7 @@ function one(node, parent) {
 
   const openingElement = t.jsxOpeningElement(
     t.jsxIdentifier(name),
-    getAttributes(node.name, node.attributes),
+    getProps(node.name, node.attributes),
     selfClosing,
   )
 

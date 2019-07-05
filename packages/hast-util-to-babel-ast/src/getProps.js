@@ -49,9 +49,9 @@ function getValue(key, value) {
   return t.stringLiteral(replaceSpaces(value))
 }
 
-const getProperties = (nodeName, attributes) => {
+const getProps = (nodeName, attributes) => {
   const keys = Object.keys(attributes)
-  const properties = []
+  const props = []
   let index = -1
 
   while (++index < keys.length) {
@@ -61,10 +61,10 @@ const getProperties = (nodeName, attributes) => {
       getKey(key, value, nodeName),
       getValue(key, value),
     )
-    properties.push(property)
+    props.push(property)
   }
 
-  return properties
+  return props
 }
 
-export default getProperties
+export default getProps
