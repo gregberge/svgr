@@ -9869,10 +9869,10 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-svg-parser@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/svg-parser/-/svg-parser-1.0.6.tgz#fdf104b9263b30e81e4738218bcb10293a816764"
-  integrity sha512-EPd4xbh+MnF0eaiJgQziJHCKEWnrNEYMIuvRoiyPi/XmSO+gb65gMdGid9/JrucsQ80Y84NTChxE5FW0WxuO3w==
+svg-parser@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/svg-parser/-/svg-parser-2.0.0.tgz#8252dc3252b0fcf127df22ea5d9cf3dae532ddfb"
+  integrity sha512-0vSo6x2Sm8c5CIkif/xGWpeDjzTzaR4F0QPjWOnK9zgiFZXYoK1Qvii+Sr464H1/RgKdI3usDH8EgTUBhAlKLw==
 
 svgo@^1.0.0, svgo@^1.0.5, svgo@^1.2.2:
   version "1.2.2"
