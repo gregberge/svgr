@@ -1,7 +1,7 @@
 {
   "name": "@svgr/plugin-prettier",
   "description": "Format code using Prettier",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "main": "lib/index.js",
   "repository": "https://github.com/smooth-code/svgr/tree/master/packages/plugin-prettier",
   "author": "Greg Bergé <berge.greg@gmail.com>",
