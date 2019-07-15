@@ -15,14 +15,10 @@ npm install --save-dev @svgr/hast-util-to-babel-ast
 ## Usage
 
 ```js
+import { parse } from 'svg-parser';
 import toBabelAST from '@svgr/hast-util-to-babel-ast'
 
-const hastTree = unified()
-  .use(parse, {
-    fragment: true,
-    space: 'svg',
-  })
-  .parse(vfile({ path: filePath, contents: `<svg></svg>` }))
+const hastTree = parse(`<svg></svg>`)
 
 const babelTree = hastToBabelAst(hastTree)
 ```

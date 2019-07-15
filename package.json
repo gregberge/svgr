@@ -36,9 +36,6 @@
     "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
-    "react": "^16.8.6",
-    "rehype-parse": "^6.0.0",
-    "unified": "^7.1.0",
-    "vfile": "^4.0.1"
+    "react": "^16.8.6"
   }
 }

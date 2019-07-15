@@ -1,18 +1,9 @@
-import unified from 'unified'
-import parse from 'rehype-parse'
-import vfile from 'vfile'
+import { parse } from 'svg-parser'
 import generate from '@babel/generator'
 import hastToBabelAst from './index'
 
 function transform(code) {
-  const hastTree = unified()
-    .use(parse, {
-      fragment: true,
-      space: 'svg',
-      emitParseErrors: true,
-      duplicateAttribute: false,
-    })
-    .parse(vfile({ path: 'test.svg', contents: code }))
+  const hastTree = parse(code)
 
   const babelTree = hastToBabelAst(hastTree)
 
