@@ -10,7 +10,7 @@ describe('prettier', () => {
       },
       {},
     )
-    expect(result).toBe('const foo = <div />\n')
+    expect(result).toBe('const foo = <div></div>\n')
   })
 
   it('should support config.prettierConfig', () => {
@@ -23,7 +23,7 @@ describe('prettier', () => {
       },
       {},
     )
-    expect(result).toBe('const foo = <div />;\n')
+    expect(result).toBe('const foo = <div></div>;\n')
   })
 
   it('should use state.filePath to detect configuration', () => {
@@ -32,7 +32,7 @@ describe('prettier', () => {
       { prettier: true, runtimeConfig: true },
       { filePath: '/tmp' },
     )
-    expect(result).toBe('const foo = <div />;\n')
+    expect(result).toBe('const foo = <div></div>;\n')
   })
 
   it('should resolve the prettier config with the editorconfig option', () => {
