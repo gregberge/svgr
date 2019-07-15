@@ -39,6 +39,6 @@
     "recursive-readdir": "^2.2.2"
   },
   "devDependencies": {
-    "del": "^4.1.1"
+    "del": "^5.0.0"
   }
 }
