@@ -101,6 +101,10 @@ Gold Sponsors are those who have pledged \$100/month and more to SVGR.
 
 [![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=120&width=600)](https://opencollective.com/svgr/order/6010)
 
+## Contributing
+
+Check out the [contributing guidelines](CONTRIBUTING.md)
+
 # License
 
 Licensed under the MIT License, Copyright © 2017-present Smooth Code.
