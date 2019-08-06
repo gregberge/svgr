@@ -3,9 +3,12 @@ import camelcase from 'camelcase'
 
 function getComponentName(state) {
   if (!state.filePath) return 'SvgComponent'
-  const pascalCaseFileName = camelcase(path.parse(state.filePath).name, {
-    pascalCase: true,
-  })
+  const pascalCaseFileName = camelcase(
+    path.parse(state.filePath).name.replace(/[^a-zA-Z0-9_-]/g, ''),
+    {
+      pascalCase: true,
+    },
+  )
   return `Svg${pascalCaseFileName}`
 }
 
