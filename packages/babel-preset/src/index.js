@@ -5,6 +5,7 @@ import replaceJSXAttributeValue from '@svgr/babel-plugin-replace-jsx-attribute-v
 import svgDynamicTitle from '@svgr/babel-plugin-svg-dynamic-title'
 import svgEmDimensions from '@svgr/babel-plugin-svg-em-dimensions'
 import transformReactNativeSVG from '@svgr/babel-plugin-transform-react-native-svg'
+import transformReactSketchapp from '@svgr/babel-plugin-transform-react-Sketchapp'
 import transformSvgComponent from '@svgr/babel-plugin-transform-svg-component'
 
 function getAttributeValue(value) {
@@ -91,6 +92,14 @@ const plugin = (api, opts) => {
       plugins.push([transformReactNativeSVG, opts.native])
     } else {
       plugins.push(transformReactNativeSVG)
+    }
+  }
+
+  if (opts.sketchapp) {
+    if (opts.native.expo) {
+      plugins.push([transformReactSketchapp, opts.sketchapp])
+    } else {
+      plugins.push(transformReactSketchapp)
     }
   }
 

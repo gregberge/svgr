@@ -1,0 +1,23 @@
+{
+  "name": "@svgr/babel-plugin-transform-react-sketchapp",
+  "description": "Transform DOM elements into react-sketchapp components",
+  "version": "4.2.0",
+  "main": "lib/index.js",
+  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-transform-react-sketchapp",
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "babel-plugin"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf lib/",
+    "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
+    "prepublishOnly": "yarn run build"
+  }
+}
