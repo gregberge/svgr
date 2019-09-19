@@ -63,7 +63,7 @@ describe('preset', () => {
                   
                   const SvgComponent = ({
                     title
-                  }) => <svg><title>{title}</title></svg>;
+                  }) => <svg>{title ? <title>{title}</title> : null}</svg>;
                   
                   export default SvgComponent;"
             `)
@@ -82,7 +82,7 @@ describe('preset', () => {
                   
                   const SvgComponent = ({
                     title
-                  }) => <svg>{title === undefined ? <title>Hello</title> : <title>{title}</title>}</svg>;
+                  }) => <svg>{title === undefined ? <title>Hello</title> : title ? <title>{title}</title> : null}</svg>;
                   
                   export default SvgComponent;"
             `)
@@ -99,7 +99,7 @@ describe('preset', () => {
                   
                   const SvgComponent = ({
                     title
-                  }) => <svg>{title === undefined ? <title>{\\"Hello\\"}</title> : <title>{title}</title>}</svg>;
+                  }) => <svg>{title === undefined ? <title>{\\"Hello\\"}</title> : title ? <title>{title}</title> : null}</svg>;
                   
                   export default SvgComponent;"
             `)
