@@ -332,7 +332,7 @@ exports[`convert config should support options { titleProp: true } 1`] = `
 
 const SvgComponent = ({ title, ...props }) => (
   <svg width={88} height={88} {...props}>
-    <title>{title}</title>
+    {title ? <title>{title}</title> : null}
     <g
       stroke=\\"#063855\\"
       strokeWidth={2}
@@ -361,7 +361,7 @@ const SvgComponent = ({ title, ...props }) => (
     }}
     {...props}
   >
-    <title>{title}</title>
+    {title ? <title>{title}</title> : null}
     <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
   </svg>
 )
