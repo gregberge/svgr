@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.3](https://github.com/smooth-code/svgr/compare/v4.3.2...v4.3.3) (2019-09-24)
+
+
+### Bug Fixes
+
+* **babel-plugin-svg-dynamic-title:** dont render empty title ([#341](https://github.com/smooth-code/svgr/issues/341)) ([88b24c5](https://github.com/smooth-code/svgr/commit/88b24c5)), closes [#333](https://github.com/smooth-code/svgr/issues/333)
+* invalid characters in component name ([#332](https://github.com/smooth-code/svgr/issues/332)) ([4b4bd2c](https://github.com/smooth-code/svgr/commit/4b4bd2c)), closes [#331](https://github.com/smooth-code/svgr/issues/331)
+
+
+
+
+
 ## [4.3.2](https://github.com/smooth-code/svgr/compare/v4.3.1...v4.3.2) (2019-07-15)
 
 

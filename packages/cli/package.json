@@ -1,7 +1,7 @@
 {
   "name": "@svgr/cli",
   "description": "SVGR command line.",
-  "version": "4.3.2",
+  "version": "4.3.3",
   "repository": "https://github.com/smooth-code/svgr/tree/master/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
@@ -26,8 +26,8 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@svgr/core": "^4.3.2",
-    "@svgr/plugin-jsx": "^4.3.2",
+    "@svgr/core": "^4.3.3",
+    "@svgr/plugin-jsx": "^4.3.3",
     "@svgr/plugin-prettier": "^4.3.2",
     "@svgr/plugin-svgo": "^4.3.1",
     "camelcase": "^5.3.1",
