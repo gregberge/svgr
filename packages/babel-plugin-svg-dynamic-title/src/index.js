@@ -11,22 +11,31 @@ const plugin = ({ types: t }) => ({
         return
       }
 
-      function createTitle(children = []) {
+      function createTitle(children = [], attributes = []) {
         return t.jsxElement(
-          t.jsxOpeningElement(t.jsxIdentifier('title'), []),
+          t.jsxOpeningElement(t.jsxIdentifier('title'), attributes),
           t.jsxClosingElement(t.jsxIdentifier('title')),
           children,
         )
       }
-      function getTitleElement(existingTitleChildren = []) {
+      function getTitleElement(existingTitle) {
         const titleExpression = t.identifier('title')
-        let titleElement = createTitle([
-          t.jsxExpressionContainer(titleExpression),
-        ])
-        if (existingTitleChildren && existingTitleChildren.length) {
+        let titleElement = t.conditionalExpression(
+          titleExpression,
+          createTitle(
+            [t.jsxExpressionContainer(titleExpression)],
+            existingTitle ? existingTitle.openingElement.attributes : [],
+          ),
+          t.nullLiteral(),
+        )
+        if (
+          existingTitle &&
+          existingTitle.children &&
+          existingTitle.children.length
+        ) {
           // if title already exists
           // render as follows
-          const fallbackTitleElement = createTitle(existingTitleChildren)
+          const fallbackTitleElement = existingTitle
           // {title === undefined ? fallbackTitleElement : titleElement}
           const conditionalExpressionForTitle = t.conditionalExpression(
             t.binaryExpression(
@@ -38,6 +47,8 @@ const plugin = ({ types: t }) => ({
             titleElement,
           )
           titleElement = t.jsxExpressionContainer(conditionalExpressionForTitle)
+        } else {
+          titleElement = t.jsxExpressionContainer(titleElement)
         }
         return titleElement
       }
@@ -49,7 +60,7 @@ const plugin = ({ types: t }) => ({
         if (!childPath.isJSXElement()) return false
         if (childPath.node === titleElement) return false
         if (childPath.node.openingElement.name.name !== 'title') return false
-        titleElement = getTitleElement(childPath.node.children)
+        titleElement = getTitleElement(childPath.node)
         childPath.replaceWith(titleElement)
         return true
       })

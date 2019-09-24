@@ -320,7 +320,7 @@ exports[`cli should support various args: --title-prop 1`] = `
 
 const SvgFile = ({ title, ...props }) => (
   <svg width={48} height={1} {...props}>
-    <title>{title}</title>
+    {title ? <title>{title}</title> : null}
     <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
   </svg>
 )
