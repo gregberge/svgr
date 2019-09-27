@@ -36,7 +36,7 @@ const PlaygroundContainer = styled(Box)`
   display: flex;
   flex: 1;
   flex-direction: column;
-  height: calc(100vh - ${th('headerHeight')});
+  height: calc(100vh - ${th('sizes.header-height')}px);
   ${up('md', 'flex-direction: row;')}
 `
 
@@ -109,7 +109,11 @@ class Playground extends React.Component {
     return (
       <>
         <GlobalStyle />
-        <PlaygroundContainer display="flex" flex={1}>
+        <PlaygroundContainer
+          display="flex"
+          flex="1 0 auto"
+          backgroundColor="white"
+        >
           <Settings
             settings={settings}
             onChange={this.handleSettingsChange}
