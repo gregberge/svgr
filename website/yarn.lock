@@ -1552,7 +1552,7 @@
     "@babel/runtime" "^7.5.5"
     "@xstyled/system" "^1.11.0"
 
-"@xstyled/styled-components@^1.13.0":
+"@xstyled/styled-components@^1.13.1":
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.13.1.tgz#1718c4fad653edb3abf4bdae61d40bc38afb82b2"
   integrity sha512-WSqRJ9FVNPhNQ7gBbxJwldMWn0gYc8bFCWL5WZmuRc+SuFoWtkUzEPNqKgqyHlFMwr3aV7phTOV6tNLH0whJSg==
@@ -10190,10 +10190,15 @@ pretty-error@^2.1.1:
     renderkid "^2.0.1"
     utila "~0.4"
 
-prism-react-renderer@^0.1.0, prism-react-renderer@^0.1.6:
+prism-react-renderer@^0.1.0:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-0.1.7.tgz#dc273d0cb6e4a498ba0775094e9a8b01a3ad2eaa"
   integrity sha512-EhnM0sYfLK103ASK0ViSv0rta//ZGB0dBA9TiFyOvA+zOj5peLmGEG01sLEDwl9sMe+gSqncInafBe1VFTCMvA==
+
+prism-react-renderer@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.0.1.tgz#98a437b01a5e48f140ae2321a95fa6693d4fe9de"
+  integrity sha512-EDdbBEoG9xD1zhN3pKYxTc10ifpTV2rqJBKpCTKRVAxNE3YP1XVp6Ewa+ydTnYALQOmHWsNVVJC0zzA9fafbew==
 
 prismjs@^1.16.0, prismjs@^1.17.1:
   version "1.17.1"
@@ -10509,15 +10514,15 @@ react-dev-utils@^4.2.3:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@^16.9.0:
-  version "16.9.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
-  integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
+react-dom@^16.10.1:
+  version "16.10.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.10.1.tgz#479a6511ba34a429273c213cbc2a9ac4d296dac1"
+  integrity sha512-SmM4ZW0uug0rn95U8uqr52I7UdNf6wdGLeXDmNLfg3y5q5H9eAbdjF5ubQc3bjDyRrvdAB2IKG7X0GzSpnn5Mg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.15.0"
+    scheduler "^0.16.1"
 
 react-error-overlay@^3.0.0:
   version "3.0.0"
@@ -10649,6 +10654,15 @@ react-transition-group@^4.0.0:
     "@babel/runtime" "^7.5.5"
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+
+react@^16.10.1:
+  version "16.10.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.10.1.tgz#967c1e71a2767dfa699e6ba702a00483e3b0573f"
+  integrity sha512-2bisHwMhxQ3XQz4LiJJwG3360pY965pTl/MRrZYxIBKVj4fOHoDs5aZAkYXGxDRO1Li+SyjTAilQEbOmtQJHzA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
     prop-types "^15.6.2"
 
 react@^16.9.0:
@@ -11307,6 +11321,14 @@ scheduler@^0.15.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
+scheduler@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.16.1.tgz#a6fb6ddec12dc2119176e6eb54ecfe69a9eba8df"
+  integrity sha512-MIuie7SgsqMYOdCXVFZa8SKoNorJZUWHW8dPgto7uEHn1lX3fg2Gu0TzgK8USj76uxV7vB5eRMnZs/cdEHg+cg==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
 schema-utils@^0.4.0, schema-utils@^0.4.5:
   version "0.4.7"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.7.tgz#ba74f597d2be2ea880131746ee17d0a093c68187"
@@ -11610,15 +11632,15 @@ smooth-code-landers@^1.3.2:
   resolved "https://registry.yarnpkg.com/smooth-code-landers/-/smooth-code-landers-1.3.2.tgz#71e606f140e4668bd9b30dc20a992b695ca3471d"
   integrity sha512-LeIvPo86MQBdh5xVntlcem8La4IdVA9klkPZYpPjxFyK3c1BzNaitm2Gm70MhNk4Gc+zMATDwxqZ1gZZRlatQA==
 
-smooth-doc@^2.12.3:
-  version "2.12.3"
-  resolved "https://registry.yarnpkg.com/smooth-doc/-/smooth-doc-2.12.3.tgz#276282555e63c898d5bb9d9adaa4a4baf2d84f5e"
-  integrity sha512-pIaxyS95Y2b7nXG0BgF+ZuvdNBtLXOrnmjV7Fvs7MPxvvdZ8gZwcfKzkBjNNx21evEtomRSyp1+Y0CDvRxkTYQ==
+smooth-doc@^2.14.2:
+  version "2.14.2"
+  resolved "https://registry.yarnpkg.com/smooth-doc/-/smooth-doc-2.14.2.tgz#07be24295193e208c3e9437d5f9c790ba24664a9"
+  integrity sha512-AiAjK+ltIdrnhW6RLQjjIcNzHQh4z9qm1e7IaUc3eqTA5ho3mf2Sl7xmoDQQNUZgg3z3OGTPve4NeQWDggOqTQ==
   dependencies:
     "@mdx-js/mdx" "^1.5.0"
     "@mdx-js/react" "^1.5.0"
     "@smooth-ui/core-sc" "^10.0.7"
-    "@xstyled/styled-components" "^1.13.0"
+    "@xstyled/styled-components" "^1.13.1"
     "@xstyled/system" "^1.11.0"
     babel-plugin-styled-components "^1.10.0"
     deepmerge "^4.0.0"
@@ -11640,7 +11662,7 @@ smooth-doc@^2.12.3:
     github-slugger "^1.2.1"
     mdast-util-to-string "^1.0.5"
     polished "^3.2.0"
-    prism-react-renderer "^0.1.6"
+    prism-react-renderer "^1.0.1"
     prismjs "^1.16.0"
     react-helmet "^5.2.0"
     react-live "^2.1.2"
