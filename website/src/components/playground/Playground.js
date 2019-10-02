@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { Box, styled, up, down, css, th } from '@smooth-ui/core-sc'
+import { Box, styled, up, down, css } from '@smooth-ui/core-sc'
 import Settings from 'components/playground/Settings'
 import svgr from 'components/playground/modules/svgr'
 import defaultSvg from 'components/playground/defaultSVG'
@@ -36,7 +36,7 @@ const PlaygroundContainer = styled(Box)`
   display: flex;
   flex: 1;
   flex-direction: column;
-  height: calc(100vh - ${th('sizes.header-height')}px);
+  height: calc(100vh - 122px);
   ${up('md', 'flex-direction: row;')}
 `
 
