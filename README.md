@@ -89,52 +89,6 @@ const SvgComponent = props => (
 export default SvgComponent
 ```
 
-## Testing with Jest
-
-Create a simple mock for the svgr loader and map this in the jest config:
-
-### Mock file -  `svgrMock.js`
-
-```jsx
-import React from 'react';
-
-export default 'SvgrURL';
-const SvgrMock = React.forwardRef((props, ref) => <span ref={ref} {...props} />);
-
-export const ReactComponent = SvgrMock;
-```
-
-The above mock would supports the following import syntax and also works for styled-components
-```js
-import logoURL from '../assets/logo.svg'
-// and
-import { ReactComponent as Logo } from '../assets/logo.svg'
-```
-
-### Jest config setup
-
-In your `package.json`
-
-```json
-"jest": {
-  "moduleNameMapper": {
-    "\\.svg": "<rootDir>/__mocks__/svgrMock.js"
-  }
-}
-```
-
-or in your `jest.config,js`
-
-```js
-module.exports = {
-  moduleNameMapper: {
-    '\\.svg$': '<rootDir>/__mocks__/svgrMock.js',
-  },
-};
-```
-
-Your snapshots will include all properties on the icon components, so they will be tested.
-
 ## Supporting SVGR
 
 SVGR is a MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:

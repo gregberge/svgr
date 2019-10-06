@@ -1,6 +1,6 @@
 ---
 menu: Advanced
-title: Jest
+title: Testing with Jest
 order: 4
 ---
 
@@ -8,18 +8,18 @@ order: 4
 
 Create a simple mock for the svgr loader and map this in the jest config:
 
-## Mock file - `svgrMock.js`
+## 1. Create a mock file
+
+Create a mock file `__mocks__/svgrMock.js`:
 
 ```jsx
-import React from 'react';
+import React from 'react'
 
-export default 'SvgrURL';
-const SvgrMock = React.forwardRef((props, ref) => <span ref={ref} {...props} />);
-
-export const ReactComponent = SvgrMock;
+export default 'SvgrURL'
+export const ReactComponent = 'div'
 ```
 
-The above mock would supports the following import syntax and also works for styled-components
+The above mock would supports the following import syntaxes:
 ```js
 import logoURL from '../assets/logo.svg'
 // and
@@ -27,7 +27,7 @@ import { ReactComponent as Logo } from '../assets/logo.svg'
 ```
 
 
-## Jest config setup
+## 2. Configure Jest
 
 In your `package.json`
 
