@@ -2,7 +2,7 @@
 import path from 'path'
 import outputFileSync from 'output-file-sync'
 import readdir from 'recursive-readdir'
-import { convertFile, stat, transformFilename, CASE } from './util'
+import { convertFile, stat, transformFilename, CASE, politeWrite } from './util'
 
 function rename(relative, ext, filenameCase) {
   const relativePath = path.parse(relative)
@@ -32,7 +32,7 @@ async function dirCommand(
     const dest = path.resolve(program.outDir, relative)
     const code = await convertFile(src, options)
     outputFileSync(dest, code)
-    process.stdout.write(`${src} -> ${path.relative(process.cwd(), dest)}\n`)
+    politeWrite(program, `${src} -> ${path.relative(process.cwd(), dest)}\n`)
     return true
   }
 

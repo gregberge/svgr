@@ -80,6 +80,7 @@ program
     parseConfig('--svgo-config'),
   )
   .option('--no-svgo', 'disable SVGO')
+  .option('--silent', 'suppress output')
 
 program.on('--help', () => {
   console.log(`

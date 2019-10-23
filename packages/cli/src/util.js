@@ -50,3 +50,9 @@ export function exitError(error) {
   console.error(chalk.red(error))
   process.exit(1)
 }
+
+export function politeWrite(program, data) {
+  if (!program.silent) {
+    process.stdout.write(data);
+  }
+}
