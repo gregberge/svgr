@@ -1,0 +1,52 @@
+---
+menu: Advanced
+title: Testing with Jest
+order: 4
+---
+
+# Testing with Jest
+
+Create a simple mock for the svgr loader and map this in the jest config:
+
+## 1. Create a mock file
+
+Create a mock file `__mocks__/svgrMock.js`:
+
+```jsx
+import React from 'react'
+
+export default 'SvgrURL'
+export const ReactComponent = 'div'
+```
+
+The above mock would supports the following import syntaxes:
+```js
+import logoURL from '../assets/logo.svg'
+// and
+import { ReactComponent as Logo } from '../assets/logo.svg'
+```
+
+
+## 2. Configure Jest
+
+In your `package.json`
+
+```json
+"jest": {
+  "moduleNameMapper": {
+    "\\.svg": "<rootDir>/__mocks__/svgrMock.js"
+  }
+}
+```
+
+or in your `jest.config,js`
+
+```js
+module.exports = {
+  moduleNameMapper: {
+    '\\.svg$': '<rootDir>/__mocks__/svgrMock.js',
+  },
+};
+```
+
+Your snapshots will include all properties on the icon components, so they will be tested.
