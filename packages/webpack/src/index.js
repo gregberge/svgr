@@ -34,7 +34,11 @@ function svgrLoader(source) {
     .match(/^module.exports\s*=\s*(.*)/)
   const previousExport = exportMatches
     ? `export default ${exportMatches[1]}`
-    : null
+    : source
+      .toString('utf-8')
+      .startsWith('export ')
+      ? source
+      : null
 
   const tranformSvg = svg =>
     convert(svg, options, {
