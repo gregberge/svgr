@@ -330,6 +330,8 @@ export default SvgFile
 "
 `;
 
+exports[`cli should suppress output when transforming a directory with a --silent option 1`] = `""`;
+
 exports[`cli should transform a whole directory and output relative destination paths 1`] = `
 "
 __fixtures__/cased/PascalCase.svg -> __fixtures_build__/whole/cased/PascalCase.js

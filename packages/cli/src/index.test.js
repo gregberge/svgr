@@ -57,6 +57,15 @@ describe('cli', () => {
     expect(sorted).toMatchSnapshot()
   }, 10000)
 
+  it('should suppress output when transforming a directory with a --silent option', async () => {
+    const result = await cli('--silent --out-dir __fixtures_build__/whole __fixtures__')
+    const sorted = result
+      .split(/\n/)
+      .sort()
+      .join('\n')
+    expect(sorted).toMatchSnapshot()
+  }, 10000)
+
   it('should support --prettier-config as json', async () => {
     const result = await cli(
       `--prettier-config '{"tabWidth": 5}' __fixtures__/simple/file.svg`,
