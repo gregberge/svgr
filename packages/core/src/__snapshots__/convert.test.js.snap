@@ -84,28 +84,6 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { native: true } 1`] = `
-"import React from 'react'
-import Svg, { G, Path } from 'react-native-svg'
-
-const SvgComponent = props => (
-  <Svg width={88} height={88} {...props}>
-    <G
-      stroke=\\"#063855\\"
-      strokeWidth={2}
-      fill=\\"none\\"
-      fillRule=\\"evenodd\\"
-      strokeLinecap=\\"square\\"
-    >
-      <Path d=\\"M51 37L37 51M51 51L37 37\\" />
-    </G>
-  </Svg>
-)
-
-export default SvgComponent
-"
-`;
-
 exports[`convert config should support options { native: { expo: true } } 1`] = `
 "import React from 'react'
 import { Svg } from 'expo'
@@ -121,6 +99,28 @@ const SvgComponent = props => (
     >
       <Svg.Path d=\\"M51 37L37 51M51 51L37 37\\" />
     </Svg.G>
+  </Svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options { native: true } 1`] = `
+"import React from 'react'
+import Svg, { G, Path } from 'react-native-svg'
+
+const SvgComponent = props => (
+  <Svg width={88} height={88} {...props}>
+    <G
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <Path d=\\"M51 37L37 51M51 51L37 37\\" />
+    </G>
   </Svg>
 )
 
@@ -320,7 +320,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { template: { [Function: template] [length]: 1, [name]: 'template' } } 1`] = `
+exports[`convert config should support options { template: [Function: template] { [length]: 1, [name]: 'template' } } 1`] = `
 "const noop = () => null
 
 export default noop
