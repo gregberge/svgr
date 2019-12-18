@@ -13,11 +13,14 @@
     "no-use-before-define": "off",
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
     "react/jsx-wrap-multilines": "off",
     "react/no-unused-state": "off",
     "react/destructuring-assignment": "off",
     "react/prop-types": "off",
-    "react/sort-comp": "off"
+    "react/sort-comp": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/state-in-constructor": "off"
   }
 }
