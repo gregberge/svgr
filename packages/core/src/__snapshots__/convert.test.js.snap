@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`convert config should support options { dimensions: false } 1`] = `
+exports[`convert config should support options 0 1`] = `
 "import React from 'react'
 
 function SvgComponent(props) {
@@ -23,30 +23,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { expandProps: 'start' } 1`] = `
-"import React from 'react'
-
-function SvgComponent(props) {
-  return (
-    <svg {...props} width={88} height={88}>
-      <g
-        stroke=\\"#063855\\"
-        strokeWidth={2}
-        fill=\\"none\\"
-        fillRule=\\"evenodd\\"
-        strokeLinecap=\\"square\\"
-      >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
-      </g>
-    </svg>
-  )
-}
-
-export default SvgComponent
-"
-`;
-
-exports[`convert config should support options { expandProps: false } 1`] = `
+exports[`convert config should support options 1 1`] = `
 "import React from 'react'
 
 function SvgComponent() {
@@ -69,7 +46,30 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { icon: true } 1`] = `
+exports[`convert config should support options 2 1`] = `
+"import React from 'react'
+
+function SvgComponent(props) {
+  return (
+    <svg {...props} width={88} height={88}>
+      <g
+        stroke=\\"#063855\\"
+        strokeWidth={2}
+        fill=\\"none\\"
+        fillRule=\\"evenodd\\"
+        strokeLinecap=\\"square\\"
+      >
+        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+      </g>
+    </svg>
+  )
+}
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options 3 1`] = `
 "import React from 'react'
 
 function SvgComponent(props) {
@@ -92,7 +92,31 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { native: { expo: true } } 1`] = `
+exports[`convert config should support options 4 1`] = `
+"import React from 'react'
+import Svg, { G, Path } from 'react-native-svg'
+
+function SvgComponent(props) {
+  return (
+    <Svg width={88} height={88} {...props}>
+      <G
+        stroke=\\"#063855\\"
+        strokeWidth={2}
+        fill=\\"none\\"
+        fillRule=\\"evenodd\\"
+        strokeLinecap=\\"square\\"
+      >
+        <Path d=\\"M51 37L37 51M51 51L37 37\\" />
+      </G>
+    </Svg>
+  )
+}
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options 5 1`] = `
 "import React from 'react'
 import { Svg } from 'expo'
 
@@ -116,55 +140,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { native: true } 1`] = `
-"import React from 'react'
-import Svg, { G, Path } from 'react-native-svg'
-
-function SvgComponent(props) {
-  return (
-    <Svg width={88} height={88} {...props}>
-      <G
-        stroke=\\"#063855\\"
-        strokeWidth={2}
-        fill=\\"none\\"
-        fillRule=\\"evenodd\\"
-        strokeLinecap=\\"square\\"
-      >
-        <Path d=\\"M51 37L37 51M51 51L37 37\\" />
-      </G>
-    </Svg>
-  )
-}
-
-export default SvgComponent
-"
-`;
-
-exports[`convert config should support options { native: true, expandProps: false } 1`] = `
-"import React from 'react'
-import Svg, { G, Path } from 'react-native-svg'
-
-function SvgComponent() {
-  return (
-    <Svg width={88} height={88}>
-      <G
-        stroke=\\"#063855\\"
-        strokeWidth={2}
-        fill=\\"none\\"
-        fillRule=\\"evenodd\\"
-        strokeLinecap=\\"square\\"
-      >
-        <Path d=\\"M51 37L37 51M51 51L37 37\\" />
-      </G>
-    </Svg>
-  )
-}
-
-export default SvgComponent
-"
-`;
-
-exports[`convert config should support options { native: true, icon: true } 1`] = `
+exports[`convert config should support options 6 1`] = `
 "import React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
@@ -188,7 +164,31 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { native: true, ref: true } 1`] = `
+exports[`convert config should support options 7 1`] = `
+"import React from 'react'
+import Svg, { G, Path } from 'react-native-svg'
+
+function SvgComponent() {
+  return (
+    <Svg width={88} height={88}>
+      <G
+        stroke=\\"#063855\\"
+        strokeWidth={2}
+        fill=\\"none\\"
+        fillRule=\\"evenodd\\"
+        strokeLinecap=\\"square\\"
+      >
+        <Path d=\\"M51 37L37 51M51 51L37 37\\" />
+      </G>
+    </Svg>
+  )
+}
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options 8 1`] = `
 "import React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
@@ -215,17 +215,7 @@ export default ForwardRef
 "
 `;
 
-exports[`convert config should support options { prettier: false } 1`] = `
-"import React from \\"react\\";
-
-function SvgComponent(props) {
-  return <svg width={88} height={88} {...props}><g stroke=\\"#063855\\" strokeWidth={2} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\" /></g></svg>;
-}
-
-export default SvgComponent;"
-`;
-
-exports[`convert config should support options { ref: true } 1`] = `
+exports[`convert config should support options 9 1`] = `
 "import React from 'react'
 
 function SvgComponent({ svgRef, ...props }) {
@@ -251,53 +241,7 @@ export default ForwardRef
 "
 `;
 
-exports[`convert config should support options { replaceAttrValues: { none: '{black}' } } 1`] = `
-"import React from 'react'
-
-function SvgComponent(props) {
-  return (
-    <svg width={88} height={88} {...props}>
-      <g
-        stroke=\\"#063855\\"
-        strokeWidth={2}
-        fill={black}
-        fillRule=\\"evenodd\\"
-        strokeLinecap=\\"square\\"
-      >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
-      </g>
-    </svg>
-  )
-}
-
-export default SvgComponent
-"
-`;
-
-exports[`convert config should support options { replaceAttrValues: { none: 'black' } } 1`] = `
-"import React from 'react'
-
-function SvgComponent(props) {
-  return (
-    <svg width={88} height={88} {...props}>
-      <g
-        stroke=\\"#063855\\"
-        strokeWidth={2}
-        fill=\\"black\\"
-        fillRule=\\"evenodd\\"
-        strokeLinecap=\\"square\\"
-      >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
-      </g>
-    </svg>
-  )
-}
-
-export default SvgComponent
-"
-`;
-
-exports[`convert config should support options { svgProps: { a: 'b', b: '{props.b}' } } 1`] = `
+exports[`convert config should support options 10 1`] = `
 "import React from 'react'
 
 function SvgComponent(props) {
@@ -320,7 +264,53 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { svgo: false } 1`] = `
+exports[`convert config should support options 11 1`] = `
+"import React from 'react'
+
+function SvgComponent(props) {
+  return (
+    <svg width={88} height={88} {...props}>
+      <g
+        stroke=\\"#063855\\"
+        strokeWidth={2}
+        fill=\\"black\\"
+        fillRule=\\"evenodd\\"
+        strokeLinecap=\\"square\\"
+      >
+        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+      </g>
+    </svg>
+  )
+}
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options 12 1`] = `
+"import React from 'react'
+
+function SvgComponent(props) {
+  return (
+    <svg width={88} height={88} {...props}>
+      <g
+        stroke=\\"#063855\\"
+        strokeWidth={2}
+        fill={black}
+        fillRule=\\"evenodd\\"
+        strokeLinecap=\\"square\\"
+      >
+        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+      </g>
+    </svg>
+  )
+}
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config should support options 13 1`] = `
 "import React from 'react'
 
 function SvgComponent(props) {
@@ -350,14 +340,24 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options { template: [Function: template] { [length]: 1, [name]: 'template' } } 1`] = `
+exports[`convert config should support options 14 1`] = `
+"import React from \\"react\\";
+
+function SvgComponent(props) {
+  return <svg width={88} height={88} {...props}><g stroke=\\"#063855\\" strokeWidth={2} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\" /></g></svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`convert config should support options 15 1`] = `
 "const noop = () => null
 
 export default noop
 "
 `;
 
-exports[`convert config should support options { titleProp: true } 1`] = `
+exports[`convert config should support options 16 1`] = `
 "import React from 'react'
 
 function SvgComponent({ title, ...props }) {

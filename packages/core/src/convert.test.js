@@ -310,7 +310,7 @@ describe('convert', () => {
       { titleProp: true },
     ]
 
-    test.each(configs)('should support options %o', async config => {
+    test.each(configs)('should support options %#', async config => {
       const result = await convertWithAllPlugins(svgBaseCode, config)
       expect(result).toMatchSnapshot()
     })
