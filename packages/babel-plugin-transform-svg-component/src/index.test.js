@@ -16,12 +16,14 @@ describe('plugin', () => {
       state: { componentName: 'SvgComponent' },
     })
     expect(code).toMatchInlineSnapshot(`
-"import React from \\"react\\";
+      "import React from \\"react\\";
 
-const SvgComponent = () => <svg><div /></svg>;
+      function SvgComponent() {
+        return <svg><div /></svg>;
+      }
 
-export default SvgComponent;"
-`)
+      export default SvgComponent;"
+    `)
   })
 
   it('should add import for react-native-svg', () => {
@@ -30,13 +32,15 @@ export default SvgComponent;"
       native: true,
     })
     expect(code).toMatchInlineSnapshot(`
-"import React from \\"react\\";
-import Svg from \\"react-native-svg\\";
+      "import React from \\"react\\";
+      import Svg from \\"react-native-svg\\";
 
-const SvgComponent = () => <svg><div /></svg>;
+      function SvgComponent() {
+        return <svg><div /></svg>;
+      }
 
-export default SvgComponent;"
-`)
+      export default SvgComponent;"
+    `)
   })
 
   it('should import for expo', () => {
@@ -45,13 +49,15 @@ export default SvgComponent;"
       native: { expo: true },
     })
     expect(code).toMatchInlineSnapshot(`
-"import React from \\"react\\";
-import \\"expo\\";
+      "import React from \\"react\\";
+      import \\"expo\\";
 
-const SvgComponent = () => <svg><div /></svg>;
+      function SvgComponent() {
+        return <svg><div /></svg>;
+      }
 
-export default SvgComponent;"
-`)
+      export default SvgComponent;"
+    `)
   })
 
   it('should support custom template', () => {
@@ -67,12 +73,12 @@ export default SvgComponent;"
       state: { componentName: 'SvgComponent' },
     })
     expect(code).toMatchInlineSnapshot(`
-"import React from 'react';
+      "import React from 'react';
 
-const MyComponent = () => <svg><div /></svg>;
+      const MyComponent = () => <svg><div /></svg>;
 
-export default MyComponent;"
-`)
+      export default MyComponent;"
+    `)
   })
 
   it('should support custom typescript template', () => {
@@ -88,12 +94,12 @@ export default MyComponent;"
       state: { componentName: 'SvgComponent' },
     })
     expect(code).toMatchInlineSnapshot(`
-"import * as React from 'react';
+      "import * as React from 'react';
 
-const MyComponent = (props: React.SVGProps<SVGSVGElement>) => <svg><div /></svg>;
+      const MyComponent = (props: React.SVGProps<SVGSVGElement>) => <svg><div /></svg>;
 
-export default MyComponent;"
-`)
+      export default MyComponent;"
+    `)
   })
 
   it('should handle template that does not return an array', () => {
@@ -110,14 +116,16 @@ export default MyComponent;"
       ref: true,
     })
     expect(code).toMatchInlineSnapshot(`
-"import React from \\"react\\";
+      "import React from \\"react\\";
 
-const SvgComponent = ({
-  svgRef
-}) => <svg><div /></svg>;
+      function SvgComponent({
+        svgRef
+      }) {
+        return <svg><div /></svg>;
+      }
 
-const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
-export default ForwardRef;"
-`)
+      const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
+      export default ForwardRef;"
+    `)
   })
 })

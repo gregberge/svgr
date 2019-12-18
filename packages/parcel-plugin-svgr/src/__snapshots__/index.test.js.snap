@@ -44,12 +44,12 @@ _react.default.createElement(\\"g\\", {
   d: \\"M51 37L37 51M51 51L37 37\\"
 }));
 
-var SvgIcon = function SvgIcon(props) {
+function SvgIcon(props) {
   return _react.default.createElement(\\"svg\\", _extends({
     width: 88,
     height: 88
   }, props), _ref);
-};
+}
 
 var _default = SvgIcon;
 exports.default = _default;",
