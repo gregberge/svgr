@@ -1,4 +1,4 @@
-import cosmiconfig from 'cosmiconfig'
+import { cosmiconfig, cosmiconfigSync } from 'cosmiconfig'
 
 export const DEFAULT_CONFIG = {
   h2xConfig: null,
@@ -25,6 +25,12 @@ const explorer = cosmiconfig('svgr', {
   rcExtensions: true,
 })
 
+const explorerSync = cosmiconfigSync('svgr', {
+  sync: true,
+  cache: true,
+  rcExtensions: true,
+})
+
 export async function resolveConfig(searchFrom, configFile) {
   if (configFile == null) {
     const result = await explorer.search(searchFrom)
@@ -36,10 +42,10 @@ export async function resolveConfig(searchFrom, configFile) {
 
 resolveConfig.sync = (searchFrom, configFile) => {
   if (configFile == null) {
-    const result = explorer.searchSync(searchFrom)
+    const result = explorerSync.search(searchFrom)
     return result ? result.config : null
   }
-  const result = explorer.loadSync(configFile)
+  const result = explorerSync.load(configFile)
   return result ? result.config : null
 }
 
@@ -49,7 +55,7 @@ export async function resolveConfigFile(filePath) {
 }
 
 resolveConfigFile.sync = filePath => {
-  const result = explorer.searchSync(filePath)
+  const result = explorerSync.search(filePath)
   return result ? result.filepath : null
 }
 
