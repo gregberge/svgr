@@ -35,8 +35,7 @@
     "commander": "^4.0.1",
     "dashify": "^2.0.0",
     "glob": "^7.1.4",
-    "output-file-sync": "^2.0.1",
-    "recursive-readdir": "^2.2.2"
+    "output-file-sync": "^2.0.1"
   },
   "devDependencies": {
     "del": "^5.0.0"
