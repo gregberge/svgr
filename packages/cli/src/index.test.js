@@ -58,7 +58,9 @@ describe('cli', () => {
   }, 10000)
 
   it('should suppress output when transforming a directory with a --silent option', async () => {
-    const result = await cli('--silent --out-dir __fixtures_build__/whole __fixtures__')
+    const result = await cli(
+      '--silent --out-dir __fixtures_build__/whole __fixtures__',
+    )
     const sorted = result
       .split(/\n/)
       .sort()
@@ -141,6 +143,14 @@ describe('cli', () => {
     await del(outDir)
     await cli(`--ext=ts ${inDir} --out-dir=${outDir}`)
     expect(await readdir(outDir)).toMatchSnapshot()
+  }, 10000)
+
+  it('should support "--ignore-existing"', async () => {
+    const inDir = '__fixtures__/simple'
+    const outDir = '__fixtures__/simple-existing'
+    await cli(`${inDir} --out-dir=${outDir} --ignore-existing`)
+    const content = fs.readFileSync(path.join(outDir, 'File.js'), 'utf-8')
+    expect(content).toBe('// nothing')
   }, 10000)
 
   it('should not override config with cli defaults', async () => {

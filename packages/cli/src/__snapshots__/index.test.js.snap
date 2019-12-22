@@ -377,19 +377,19 @@ export default SvgFile
 exports[`cli should suppress output when transforming a directory with a --silent option 1`] = `""`;
 
 exports[`cli should transform a whole directory and output relative destination paths 1`] = `
-"
-__fixtures__/cased/PascalCase.svg -> __fixtures_build__/whole/cased/PascalCase.js
-__fixtures__/cased/camelCase.svg -> __fixtures_build__/whole/cased/CamelCase.js
-__fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/KebabCase.js
-__fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/MultipleDashes.js
-__fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/Skype.js
-__fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/Telegram.js
-__fixtures__/nesting/a/two.svg -> __fixtures_build__/whole/nesting/a/Two.js
-__fixtures__/nesting/one.svg -> __fixtures_build__/whole/nesting/One.js
-__fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/File.js
-__fixtures__/withPrettierRc/file.svg -> __fixtures_build__/whole/withPrettierRc/File.js
-__fixtures__/withSvgoYml/file.svg -> __fixtures_build__/whole/withSvgoYml/File.js
-__fixtures__/withSvgrRc/file.svg -> __fixtures_build__/whole/withSvgrRc/File.js"
+"[37m[39m
+[37m[39m[37m__fixtures__/cased/camelCase.svg -> __fixtures_build__/whole/cased/CamelCase.js[39m
+[37m[39m[37m__fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/KebabCase.js[39m
+[37m[39m[37m__fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/MultipleDashes.js[39m
+[37m[39m[37m__fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/Skype.js[39m
+[37m[39m[37m__fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/Telegram.js[39m
+[37m[39m[37m__fixtures__/nesting/a/two.svg -> __fixtures_build__/whole/nesting/a/Two.js[39m
+[37m[39m[37m__fixtures__/nesting/one.svg -> __fixtures_build__/whole/nesting/One.js[39m
+[37m[39m[37m__fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/File.js[39m
+[37m[39m[37m__fixtures__/withPrettierRc/file.svg -> __fixtures_build__/whole/withPrettierRc/File.js[39m
+[37m[39m[37m__fixtures__/withSvgoYml/file.svg -> __fixtures_build__/whole/withSvgoYml/File.js[39m
+[37m[39m[37m__fixtures__/withSvgrRc/file.svg -> __fixtures_build__/whole/withSvgrRc/File.js[39m
+[37m__fixtures__/cased/PascalCase.svg -> __fixtures_build__/whole/cased/PascalCase.js[39m"
 `;
 
 exports[`cli should work with a simple file 1`] = `

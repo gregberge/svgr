@@ -1,8 +1,22 @@
 /* eslint-disable no-underscore-dangle, no-console */
+import fs from 'fs'
+import { promisify } from 'util'
 import path from 'path'
+import chalk from 'chalk'
 import outputFileSync from 'output-file-sync'
 import readdir from 'recursive-readdir'
 import { convertFile, stat, transformFilename, CASE, politeWrite } from './util'
+
+const access = promisify(fs.access)
+
+async function exists(file) {
+  try {
+    await access(file)
+    return true
+  } catch (error) {
+    return false
+  }
+}
 
 function rename(relative, ext, filenameCase) {
   const relativePath = path.parse(relative)
@@ -26,14 +40,25 @@ async function dirCommand(
   { ext = 'js', filenameCase = CASE.PASCAL, ...options },
 ) {
   async function write(src, relative) {
-    if (!isCompilable(relative)) return false
+    if (!isCompilable(relative)) return
     relative = rename(relative, ext, filenameCase)
 
     const dest = path.resolve(program.outDir, relative)
     const code = await convertFile(src, options)
+
+    if (program.ignoreExisting && (await exists(dest))) {
+      politeWrite(
+        program,
+        chalk.grey(`${src} -> ${path.relative(process.cwd(), dest)}\n`),
+      )
+      return
+    }
+
     outputFileSync(dest, code)
-    politeWrite(program, `${src} -> ${path.relative(process.cwd(), dest)}\n`)
-    return true
+    politeWrite(
+      program,
+      chalk.white(`${src} -> ${path.relative(process.cwd(), dest)}\n`),
+    )
   }
 
   async function handle(filename) {

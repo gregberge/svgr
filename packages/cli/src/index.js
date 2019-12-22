@@ -43,6 +43,7 @@ program
     'disable runtime config (".svgrrc", ".svgo.yml", ".prettierrc")',
   )
   .option('-d, --out-dir <dirname>', 'output files into a directory')
+  .option('--ignore-existing', 'ignore existing files in output directory')
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
   .option(
     '--filename-case <case>',
