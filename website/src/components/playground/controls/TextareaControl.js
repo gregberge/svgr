@@ -2,11 +2,13 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import { Textarea } from '@smooth-ui/core-sc'
 
-const TextareaControl = props => (
-  <Field
-    render={({ input, ...props }) => <Textarea {...input} {...props} />}
-    {...props}
-  />
-)
-
-export default TextareaControl
+export function TextareaControl(props) {
+  return (
+    <Field
+      render={({ input, ...props }) => (
+        <Textarea fontSize={12} rows={4} {...input} {...props} />
+      )}
+      {...props}
+    />
+  )
+}

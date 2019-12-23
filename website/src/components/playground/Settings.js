@@ -1,17 +1,17 @@
 import React from 'react'
-import { styled, up, css } from '@smooth-ui/core-sc'
+import styled, { up, css } from '@xstyled/styled-components'
 import { Form, FormSpy } from 'react-final-form'
-import SettingsFieldBoolean from './SettingsFieldBoolean'
-import SettingsGroup from './SettingsGroup'
-import SettingsFieldString from './SettingsFieldString'
-import SettingsFieldEnum from './SettingsFieldEnum'
-import SettingsFieldInteger from './SettingsFieldInteger'
+import { SettingsFieldBoolean } from './SettingsFieldBoolean'
+import { SettingsGroup } from './SettingsGroup'
+import { SettingsFieldString } from './SettingsFieldString'
+import { SettingsFieldEnum } from './SettingsFieldEnum'
+import { SettingsFieldInteger } from './SettingsFieldInteger'
 
 const SettingsContainer = styled.div`
   width: 100%;
-  font-size: 14px;
-  background-color: #22252b;
-  color: #9ea5b3;
+  font-size: 14;
+  background-color: light100;
+  color: light800;
   user-select: none;
   overflow: auto;
   max-height: 50%;
@@ -42,28 +42,30 @@ const renderSetting = setting => {
   return <SettingComponent key={setting.name} setting={setting} />
 }
 
-const Settings = ({ settings, initialValues, onChange }) => (
-  <Form onSubmit={() => {}} initialValues={initialValues}>
-    {() => (
-      <>
-        <FormSpy
-          subscription={{ values: true }}
-          onChange={({ values }) => onChange(values)}
-        />
-        <SettingsContainer direction="column">
-          <SettingsGroup title="Global">
-            {getGroupSettings('global', settings).map(renderSetting)}
-          </SettingsGroup>
-          <SettingsGroup title="SVGO">
-            {getGroupSettings('svgo', settings).map(renderSetting)}
-          </SettingsGroup>
-          <SettingsGroup title="Prettier">
-            {getGroupSettings('prettier', settings).map(renderSetting)}
-          </SettingsGroup>
-        </SettingsContainer>
-      </>
-    )}
-  </Form>
-)
+const noop = () => {}
 
-export default Settings
+export function Settings({ settings, initialValues, onChange }) {
+  return (
+    <Form onSubmit={noop} initialValues={initialValues}>
+      {() => (
+        <>
+          <FormSpy
+            subscription={{ values: true }}
+            onChange={({ values }) => onChange(values)}
+          />
+          <SettingsContainer direction="column">
+            <SettingsGroup title="Global">
+              {getGroupSettings('global', settings).map(renderSetting)}
+            </SettingsGroup>
+            <SettingsGroup title="SVGO">
+              {getGroupSettings('svgo', settings).map(renderSetting)}
+            </SettingsGroup>
+            <SettingsGroup title="Prettier">
+              {getGroupSettings('prettier', settings).map(renderSetting)}
+            </SettingsGroup>
+          </SettingsContainer>
+        </>
+      )}
+    </Form>
+  )
+}

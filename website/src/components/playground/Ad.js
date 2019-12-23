@@ -1,24 +1,24 @@
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 
 export const Ad = styled.a`
   display: block;
-  background-color: white;
-  border-radius: 3px;
-  padding: 8px;
+  background-color: darker;
+  border-radius: 3;
+  padding: 8;
   display: flex;
 `
 
 export const AdImg = styled.img`
-  width: 130px;
-  height: 100px;
-  margin-right: 8px;
+  width: 130;
+  height: 100;
+  margin-right: 8;
   flex-shrink: 0;
 `
 
 export const AdText = styled.div`
-  font-size: 14px;
+  font-size: 14;
+  line-height: 1.4;
   font-weight: 400;
-  line-height: 21px;
-  color: black;
-  width: 200px;
+  color: lighter;
+  width: 200;
 `

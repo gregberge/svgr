@@ -26,13 +26,13 @@ const Loader = styled.div`
   background-size: 30%;
 `
 
-const Loading = () => (
-  <StaticQuery
-    query={QUERY}
-    render={data => (
-      <Loader backgroundImage={data.logo.childImageSharp.fluid.src} />
-    )}
-  />
-)
-
-export default Loading
+export function Loading() {
+  return (
+    <StaticQuery
+      query={QUERY}
+      render={data => (
+        <Loader backgroundImage={data.logo.childImageSharp.fluid.src} />
+      )}
+    />
+  )
+}
