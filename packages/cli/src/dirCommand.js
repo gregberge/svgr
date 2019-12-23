@@ -69,7 +69,7 @@ export default async function dirCommand(
   async function handle(filename, root) {
     const stats = await stat(filename)
 
-    if (stats.isDirectory(filename)) {
+    if (stats.isDirectory()) {
       const dirname = filename
       const files = await readdir(dirname)
       const results = await Promise.all(
@@ -90,5 +90,11 @@ export default async function dirCommand(
     return write(filename, dest)
   }
 
-  await Promise.all(filenames.map(file => handle(file, file)))
+  await Promise.all(
+    filenames.map(async file => {
+      const stats = await stat(file)
+      const root = stats.isDirectory() ? file : path.dirname(file)
+      return handle(file, root)
+    }),
+  )
 }
