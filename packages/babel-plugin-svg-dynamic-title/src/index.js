@@ -18,13 +18,46 @@ const plugin = ({ types: t }) => ({
           children,
         )
       }
+
+      function createTitleIdAttribute() {
+        return t.jsxAttribute(
+          t.jsxIdentifier('id'),
+          t.jsxExpressionContainer(t.identifier('titleId')),
+        )
+      }
+
+      function enhanceAttributes(attributes) {
+        const existingId = attributes.find(
+          attribute => attribute.name.name === 'id',
+        )
+        if (!existingId) {
+          return [...attributes, createTitleIdAttribute()]
+        }
+        existingId.value = t.jsxExpressionContainer(
+          t.logicalExpression('||', t.identifier('titleId'), existingId.value),
+        )
+        return attributes
+      }
+
       function getTitleElement(existingTitle) {
         const titleExpression = t.identifier('title')
+        if (existingTitle) {
+          existingTitle.openingElement.attributes = enhanceAttributes(
+            existingTitle.openingElement.attributes,
+          )
+        }
         let titleElement = t.conditionalExpression(
           titleExpression,
           createTitle(
             [t.jsxExpressionContainer(titleExpression)],
-            existingTitle ? existingTitle.openingElement.attributes : [],
+            existingTitle
+              ? existingTitle.openingElement.attributes
+              : [
+                  t.jsxAttribute(
+                    t.jsxIdentifier('id'),
+                    t.jsxExpressionContainer(t.identifier('titleId')),
+                  ),
+                ],
           ),
           t.nullLiteral(),
         )

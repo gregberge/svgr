@@ -53,6 +53,6 @@ export function exitError(error) {
 
 export function politeWrite(program, data) {
   if (!program.silent) {
-    process.stdout.write(data);
+    process.stdout.write(data)
   }
 }

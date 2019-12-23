@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 import SVGO from 'svgo'
-import cosmiconfig from 'cosmiconfig'
+import { cosmiconfigSync } from 'cosmiconfig'
 import mergeDeep from 'merge-deep'
 
-const explorer = cosmiconfig('svgo', {
+const explorer = cosmiconfigSync('svgo', {
   searchPlaces: [
     'package.json',
     '.svgorc',
@@ -114,7 +114,7 @@ function getInfo(state) {
 export default function svgoPlugin(code, config, state) {
   if (!config.svgo) return code
   const filePath = getFilePath(state)
-  const svgoRcConfig = config.runtimeConfig ? explorer.searchSync(filePath) : {}
+  const svgoRcConfig = config.runtimeConfig ? explorer.search(filePath) : {}
   const svgo = createSvgo(config, svgoRcConfig)
   const { data } = optimizeSync.call(svgo, code, getInfo(state))
   return data

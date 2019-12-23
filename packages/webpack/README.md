@@ -7,7 +7,7 @@
 Webpack loader for SVGR.
 
 ```
-npm install @svgr/webpack
+npm install @svgr/webpack --save-dev
 ```
 
 ## Usage

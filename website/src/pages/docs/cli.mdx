@@ -11,9 +11,9 @@ SVGR can be run from the CLI. Run it without argument to see the [options](/docs
 ## Install
 
 ```bash
-npm install @svgr/cli
+npm install @svgr/cli --save-dev
 # or use yarn
-yarn add @svgr/cli
+yarn add @svgr/cli --dev
 ```
 
 ## Usage
@@ -30,13 +30,15 @@ A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
 are transformed into React components.
 
 ```sh
-# Usage: npx @svgr/cli [-d out-dir] [src-dir]
+# Usage: npx @svgr/cli [-d out-dir] [--keep-existing] [src-dir]
 $ npx @svgr/cli -d icons icons
 icons/web/clock-icon.svg -> icons/web/ClockIcon.js
 icons/web/wifi-icon.svg -> icons/web/WifiIcon.js
 icons/spinner/cog-icon.svg -> icons/spinner/CogIcon.js
 icons/spinner/spinner-icon.svg -> icons/spinner/SpinnerIcon.js
 ```
+
+> Add `--keep-existing` to avoid overriding existing files.
 
 ### Use stdin
 
@@ -62,6 +64,8 @@ To create icons, two options are important:
 $ npx @svgr/cli --icon --replace-attr-values "#000=currentColor" my-icon.svg
 ```
 
+> You can replace several values using `,` as separator: `--replace-attr-values "#000=currentColor,#fff=currentColor"`
+
 ## Target React Native
 
 It is possible to target React Native using [react-native-svg](https://github.com/react-native-community/react-native-svg).
@@ -84,7 +88,7 @@ An example of template:
 function template(
   { template },
   opts,
-  { imports, componentName, props, jsx, exports }
+  { imports, componentName, props, jsx, exports },
 ) {
   return template.ast`
     ${imports}

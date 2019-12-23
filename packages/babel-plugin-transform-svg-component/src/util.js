@@ -21,6 +21,15 @@ export const getProps = ({ types: t }, opts) => {
         true,
       ),
     )
+
+    props.push(
+      t.objectProperty(
+        t.identifier('titleId'),
+        t.identifier('titleId'),
+        false,
+        true,
+      ),
+    )
   }
 
   if (opts.expandProps) {
@@ -66,11 +75,16 @@ export const getExport = ({ template }, opts) => {
   let result = ''
   let exportName = opts.state.componentName
 
+  if (opts.memo) {
+    const nextExportName = `Memo${exportName}`
+    result += `const ${nextExportName} = React.memo(${exportName})\n\n`
+    exportName = nextExportName
+  }
+
   if (opts.ref) {
-    exportName = 'ForwardRef'
-    result += `const ForwardRef = React.forwardRef((props, ref) => <${
-      opts.state.componentName
-    } svgRef={ref} {...props} />)\n\n`
+    const nextExportName = `ForwardRef`
+    result += `const ${nextExportName} = React.forwardRef((props, ref) => <${exportName} svgRef={ref} {...props} />)\n\n`
+    exportName = nextExportName
   }
 
   if (opts.state.caller && opts.state.caller.previousExport) {

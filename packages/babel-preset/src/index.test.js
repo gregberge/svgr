@@ -24,12 +24,14 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-                  "import React from \\"react\\";
-                  
-                  const SvgComponent = () => <svg foo=\\"bar\\" x={y} />;
-                  
-                  export default SvgComponent;"
-            `)
+      "import React from \\"react\\";
+
+      function SvgComponent() {
+        return <svg foo=\\"bar\\" x={y} />;
+      }
+
+      export default SvgComponent;"
+    `)
   })
 
   it('should handle native expo option', () => {
@@ -41,13 +43,15 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-                  "import React from \\"react\\";
-                  import { Svg } from \\"expo\\";
-                  
-                  const SvgComponent = () => <Svg><Svg.G><Svg.Path d=\\"M0 0h48v1H0z\\" /></Svg.G></Svg>;
-                  
-                  export default SvgComponent;"
-            `)
+      "import React from \\"react\\";
+      import { Svg } from \\"expo\\";
+
+      function SvgComponent() {
+        return <Svg><Svg.G><Svg.Path d=\\"M0 0h48v1H0z\\" /></Svg.G></Svg>;
+      }
+
+      export default SvgComponent;"
+    `)
   })
 
   it('should handle titleProp', () => {
@@ -59,14 +63,17 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-                  "import React from \\"react\\";
-                  
-                  const SvgComponent = ({
-                    title
-                  }) => <svg>{title ? <title>{title}</title> : null}</svg>;
-                  
-                  export default SvgComponent;"
-            `)
+      "import React from \\"react\\";
+
+      function SvgComponent({
+        title,
+        titleId
+      }) {
+        return <svg aria-labelledby={titleId}>{title ? <title id={titleId}>{title}</title> : null}</svg>;
+      }
+
+      export default SvgComponent;"
+    `)
   })
   it('should handle titleProp and fallback on existing title', () => {
     // testing when existing title has string as chilren
@@ -78,14 +85,17 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-                  "import React from \\"react\\";
-                  
-                  const SvgComponent = ({
-                    title
-                  }) => <svg>{title === undefined ? <title>Hello</title> : title ? <title>{title}</title> : null}</svg>;
-                  
-                  export default SvgComponent;"
-            `)
+      "import React from \\"react\\";
+
+      function SvgComponent({
+        title,
+        titleId
+      }) {
+        return <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>Hello</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
+      }
+
+      export default SvgComponent;"
+    `)
     // testing when existing title has JSXExpression as children
     expect(
       testPreset(`<svg><title>{"Hello"}</title></svg>`, {
@@ -95,14 +105,17 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-                  "import React from \\"react\\";
-                  
-                  const SvgComponent = ({
-                    title
-                  }) => <svg>{title === undefined ? <title>{\\"Hello\\"}</title> : title ? <title>{title}</title> : null}</svg>;
-                  
-                  export default SvgComponent;"
-            `)
+      "import React from \\"react\\";
+
+      function SvgComponent({
+        title,
+        titleId
+      }) {
+        return <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>{\\"Hello\\"}</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
+      }
+
+      export default SvgComponent;"
+    `)
   })
 
   it('should handle replaceAttrValues', () => {
@@ -117,12 +130,14 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-                  "import React from \\"react\\";
-                  
-                  const SvgComponent = () => <svg a=\\"black\\" b={props.white} />;
-                  
-                  export default SvgComponent;"
-            `)
+      "import React from \\"react\\";
+
+      function SvgComponent() {
+        return <svg a=\\"black\\" b={props.white} />;
+      }
+
+      export default SvgComponent;"
+    `)
   })
 
   it('should handle expandProps & icon & dimensions', () => {
@@ -137,9 +152,11 @@ describe('preset', () => {
       }),
     ).toMatchInlineSnapshot(`
       "import React from \\"react\\";
-      
-      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width=\\"1em\\" height=\\"1em\\" {...props} />;
-      
+
+      function SvgComponent(props) {
+        return <svg a=\\"#000\\" b=\\"#fff\\" width=\\"1em\\" height=\\"1em\\" {...props} />;
+      }
+
       export default SvgComponent;"
     `)
   })

@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@svgr/parcel-plugin-svgr": "^4.3.3",
+    "parcel-bundler": "^1.12.4"
+  }
+}

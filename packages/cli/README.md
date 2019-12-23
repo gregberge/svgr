@@ -7,7 +7,7 @@
 Command Line Interface for SVGR.
 
 ```
-npm install @svgr/cli
+npm install @svgr/cli --save-dev
 ```
 
 ## Usage

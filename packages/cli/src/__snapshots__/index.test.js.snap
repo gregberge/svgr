@@ -3,7 +3,9 @@
 exports[`cli should not override config with cli defaults 1`] = `
 "import React from \\"react\\";
 
-const SvgFile = () => <svg viewBox=\\"0 0 48 1\\"><title>{\\"Rectangle 5\\"}</title><desc>{\\"Created with Sketch.\\"}</desc><defs /><g id=\\"Page-1\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\"><g id=\\"19-Separator\\" transform=\\"translate(-129.000000, -156.000000)\\" fill=\\"#063855\\"><g id=\\"Controls/Settings\\" transform=\\"translate(80.000000, 0.000000)\\"><g id=\\"Content\\" transform=\\"translate(0.000000, 64.000000)\\"><g id=\\"Group\\" transform=\\"translate(24.000000, 56.000000)\\"><g id=\\"Group-2\\"><rect id=\\"Rectangle-5\\" x={25} y={36} width={48} height={1} /></g></g></g></g></g></g></svg>;
+function SvgFile() {
+  return <svg viewBox=\\"0 0 48 1\\"><title>{\\"Rectangle 5\\"}</title><desc>{\\"Created with Sketch.\\"}</desc><defs /><g id=\\"Page-1\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\"><g id=\\"19-Separator\\" transform=\\"translate(-129.000000, -156.000000)\\" fill=\\"#063855\\"><g id=\\"Controls/Settings\\" transform=\\"translate(80.000000, 0.000000)\\"><g id=\\"Content\\" transform=\\"translate(0.000000, 64.000000)\\"><g id=\\"Group\\" transform=\\"translate(24.000000, 56.000000)\\"><g id=\\"Group-2\\"><rect id=\\"Rectangle-5\\" x={25} y={36} width={48} height={1} /></g></g></g></g></g></g></svg>;
+}
 
 export default SvgFile;
 "
@@ -12,11 +14,13 @@ export default SvgFile;
 exports[`cli should support --prettier-config as file 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-     <svg width={48} height={1} {...props}>
-          <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-     </svg>
-)
+function SvgFile(props) {
+     return (
+          <svg width={48} height={1} {...props}>
+               <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+          </svg>
+     )
+}
 
 export default SvgFile
 
@@ -26,11 +30,13 @@ export default SvgFile
 exports[`cli should support --prettier-config as json 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-     <svg width={48} height={1} {...props}>
-          <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-     </svg>
-)
+function SvgFile(props) {
+     return (
+          <svg width={48} height={1} {...props}>
+               <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+          </svg>
+     )
+}
 
 export default SvgFile
 
@@ -40,12 +46,14 @@ export default SvgFile
 exports[`cli should support --svgo-config as file 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg width={48} height={1} {...props}>
-    <title>{'Rectangle 5'}</title>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile(props) {
+  return (
+    <svg width={48} height={1} {...props}>
+      <title>{'Rectangle 5'}</title>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -55,12 +63,14 @@ export default SvgFile
 exports[`cli should support --svgo-config as json 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg width={48} height={1} {...props}>
-    <title>{'Rectangle 5'}</title>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile(props) {
+  return (
+    <svg width={48} height={1} {...props}>
+      <title>{'Rectangle 5'}</title>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -70,6 +80,7 @@ export default SvgFile
 exports[`cli should support custom file extension 1`] = `
 Array [
   "File.ts",
+  "index.ts",
 ]
 `;
 
@@ -79,12 +90,14 @@ Array [
   "KebabCase.js",
   "MultipleDashes.js",
   "PascalCase.js",
+  "index.js",
 ]
 `;
 
 exports[`cli should support different filename cases with directory output: --filename-case=camel 1`] = `
 Array [
   "camelCase.js",
+  "index.js",
   "kebabCase.js",
   "multipleDashes.js",
   "pascalCase.js",
@@ -94,6 +107,7 @@ Array [
 exports[`cli should support different filename cases with directory output: --filename-case=kebab 1`] = `
 Array [
   "camel-case.js",
+  "index.js",
   "kebab-case.js",
   "multiple-dashes.js",
   "pascal-case.js",
@@ -106,17 +120,36 @@ Array [
   "KebabCase.js",
   "MultipleDashes.js",
   "PascalCase.js",
+  "index.js",
 ]
+`;
+
+exports[`cli should support stdin filepath 1`] = `
+"import React from 'react'
+
+function SvgFile(props) {
+  return (
+    <svg width={48} height={1} {...props}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
+
+export default SvgFile
+
+"
 `;
 
 exports[`cli should support various args: --expand-props none 1`] = `
 "import React from 'react'
 
-const SvgFile = () => (
-  <svg width={48} height={1}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile() {
+  return (
+    <svg width={48} height={1}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -126,11 +159,13 @@ export default SvgFile
 exports[`cli should support various args: --expand-props start 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg {...props} width={48} height={1}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile(props) {
+  return (
+    <svg {...props} width={48} height={1}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -140,11 +175,13 @@ export default SvgFile
 exports[`cli should support various args: --icon 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 48 1\\" {...props}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile(props) {
+  return (
+    <svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 48 1\\" {...props}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -155,11 +192,13 @@ exports[`cli should support various args: --native --expand-props none 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
 
-const SvgFile = () => (
-  <Svg width={48} height={1}>
-    <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </Svg>
-)
+function SvgFile() {
+  return (
+    <Svg width={48} height={1}>
+      <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </Svg>
+  )
+}
 
 export default SvgFile
 
@@ -170,11 +209,13 @@ exports[`cli should support various args: --native --icon 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
 
-const SvgFile = props => (
-  <Svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 48 1\\" {...props}>
-    <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </Svg>
-)
+function SvgFile(props) {
+  return (
+    <Svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 48 1\\" {...props}>
+      <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </Svg>
+  )
+}
 
 export default SvgFile
 
@@ -185,11 +226,13 @@ exports[`cli should support various args: --native --ref 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
 
-const SvgFile = ({ svgRef, ...props }) => (
-  <Svg width={48} height={1} ref={svgRef} {...props}>
-    <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </Svg>
-)
+function SvgFile({ svgRef, ...props }) {
+  return (
+    <Svg width={48} height={1} ref={svgRef} {...props}>
+      <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </Svg>
+  )
+}
 
 const ForwardRef = React.forwardRef((props, ref) => (
   <SvgFile svgRef={ref} {...props} />
@@ -203,11 +246,13 @@ exports[`cli should support various args: --native 1`] = `
 "import React from 'react'
 import Svg, { Path } from 'react-native-svg'
 
-const SvgFile = props => (
-  <Svg width={48} height={1} {...props}>
-    <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </Svg>
-)
+function SvgFile(props) {
+  return (
+    <Svg width={48} height={1} {...props}>
+      <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </Svg>
+  )
+}
 
 export default SvgFile
 
@@ -217,11 +262,13 @@ export default SvgFile
 exports[`cli should support various args: --no-dimensions 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg viewBox=\\"0 0 48 1\\" {...props}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile(props) {
+  return (
+    <svg viewBox=\\"0 0 48 1\\" {...props}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -231,7 +278,9 @@ export default SvgFile
 exports[`cli should support various args: --no-prettier 1`] = `
 "import React from \\"react\\";
 
-const SvgFile = props => <svg width={48} height={1} {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
+function SvgFile(props) {
+  return <svg width={48} height={1} {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
+}
 
 export default SvgFile;
 "
@@ -240,30 +289,38 @@ export default SvgFile;
 exports[`cli should support various args: --no-svgo 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg width=\\"48px\\" height=\\"1px\\" viewBox=\\"0 0 48 1\\" {...props}>
-    <title>{'Rectangle 5'}</title>
-    <desc>{'Created with Sketch.'}</desc>
-    <defs />
-    <g id=\\"Page-1\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\">
+function SvgFile(props) {
+  return (
+    <svg width=\\"48px\\" height=\\"1px\\" viewBox=\\"0 0 48 1\\" {...props}>
+      <title>{'Rectangle 5'}</title>
+      <desc>{'Created with Sketch.'}</desc>
+      <defs />
       <g
-        id=\\"19-Separator\\"
-        transform=\\"translate(-129.000000, -156.000000)\\"
-        fill=\\"#063855\\"
+        id=\\"Page-1\\"
+        stroke=\\"none\\"
+        strokeWidth={1}
+        fill=\\"none\\"
+        fillRule=\\"evenodd\\"
       >
-        <g id=\\"Controls/Settings\\" transform=\\"translate(80.000000, 0.000000)\\">
-          <g id=\\"Content\\" transform=\\"translate(0.000000, 64.000000)\\">
-            <g id=\\"Group\\" transform=\\"translate(24.000000, 56.000000)\\">
-              <g id=\\"Group-2\\">
-                <rect id=\\"Rectangle-5\\" x={25} y={36} width={48} height={1} />
+        <g
+          id=\\"19-Separator\\"
+          transform=\\"translate(-129.000000, -156.000000)\\"
+          fill=\\"#063855\\"
+        >
+          <g id=\\"Controls/Settings\\" transform=\\"translate(80.000000, 0.000000)\\">
+            <g id=\\"Content\\" transform=\\"translate(0.000000, 64.000000)\\">
+              <g id=\\"Group\\" transform=\\"translate(24.000000, 56.000000)\\">
+                <g id=\\"Group-2\\">
+                  <rect id=\\"Rectangle-5\\" x={25} y={36} width={48} height={1} />
+                </g>
               </g>
             </g>
           </g>
         </g>
       </g>
-    </g>
-  </svg>
-)
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -273,11 +330,13 @@ export default SvgFile
 exports[`cli should support various args: --ref 1`] = `
 "import React from 'react'
 
-const SvgFile = ({ svgRef, ...props }) => (
-  <svg width={48} height={1} ref={svgRef} {...props}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile({ svgRef, ...props }) {
+  return (
+    <svg width={48} height={1} ref={svgRef} {...props}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 const ForwardRef = React.forwardRef((props, ref) => (
   <SvgFile svgRef={ref} {...props} />
@@ -290,25 +349,29 @@ export default ForwardRef
 exports[`cli should support various args: --replace-attr-values "#063855=currentColor" 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg width={48} height={1} {...props}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"currentColor\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile(props) {
+  return (
+    <svg width={48} height={1} {...props}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"currentColor\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
 "
 `;
 
-exports[`cli should support various args: --svg-props "hidden={true}" 1`] = `
+exports[`cli should support various args: --svg-props "hidden={true},id=hello" 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg width={48} height={1} hidden={true} {...props}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile(props) {
+  return (
+    <svg width={48} height={1} hidden={true} id=\\"hello\\" {...props}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -318,12 +381,14 @@ export default SvgFile
 exports[`cli should support various args: --title-prop 1`] = `
 "import React from 'react'
 
-const SvgFile = ({ title, ...props }) => (
-  <svg width={48} height={1} {...props}>
-    {title ? <title>{title}</title> : null}
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile({ title, titleId, ...props }) {
+  return (
+    <svg width={48} height={1} aria-labelledby={titleId} {...props}>
+      {title ? <title id={titleId}>{title}</title> : null}
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -340,6 +405,7 @@ __fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/KebabCase.js
 __fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/MultipleDashes.js
 __fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/Skype.js
 __fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/Telegram.js
+__fixtures__/nesting/a/c/three.svg -> __fixtures_build__/whole/nesting/a/c/Three.js
 __fixtures__/nesting/a/two.svg -> __fixtures_build__/whole/nesting/a/Two.js
 __fixtures__/nesting/one.svg -> __fixtures_build__/whole/nesting/One.js
 __fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/File.js
@@ -351,11 +417,13 @@ __fixtures__/withSvgrRc/file.svg -> __fixtures_build__/whole/withSvgrRc/File.js"
 exports[`cli should work with a simple file 1`] = `
 "import React from 'react'
 
-const SvgFile = props => (
-  <svg width={48} height={1} {...props}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgFile(props) {
+  return (
+    <svg width={48} height={1} {...props}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgFile
 
@@ -365,11 +433,13 @@ export default SvgFile
 exports[`cli should work with stdin 1`] = `
 "import React from 'react'
 
-const SvgComponent = props => (
-  <svg width={48} height={1} {...props}>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
+function SvgComponent(props) {
+  return (
+    <svg width={48} height={1} {...props}>
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
 
 export default SvgComponent
 

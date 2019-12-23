@@ -1,0 +1,32 @@
+---
+menu: Configuring SVGR
+title: Testing
+order: 30
+---
+
+# Testing
+
+This section helps you to integrate SVGR with your test framework.
+
+## Use with Jest
+
+Create a mock file:
+
+```js
+import React from 'react'
+
+export default 'SvgrURL'
+
+const SvgrMock = React.forwardRef((props, ref) => <span ref={ref} {...props} />)
+export const ReactComponent = SvgrMock
+```
+
+Then specify it in your Jest configuration:
+
+```json
+{
+  "moduleNameMapper": {
+    "\\.svg": "<rootDir>/__mocks__/svgrMock.js"
+  }
+}
+```

@@ -29,12 +29,16 @@ function svgrLoader(source) {
       })
     })
 
-  const exportMatches = source
-    .toString('utf-8')
-    .match(/^module.exports\s*=\s*(.*)/)
-  const previousExport = exportMatches
-    ? `export default ${exportMatches[1]}`
-    : null
+  const previousExport = (() => {
+    if (source.toString('utf-8').startsWith('export ')) {
+      return source
+    }
+
+    const exportMatches = source
+      .toString('utf-8')
+      .match(/^module.exports\s*=\s*(.*)/)
+    return exportMatches ? `export default ${exportMatches[1]}` : null
+  })()
 
   const tranformSvg = svg =>
     convert(svg, options, {
@@ -52,7 +56,7 @@ function svgrLoader(source) {
       .then(result => callback(null, result))
       .catch(err => callback(err))
 
-  if (exportMatches) {
+  if (previousExport) {
     readSvg().then(tranformSvg)
   } else {
     tranformSvg(source)

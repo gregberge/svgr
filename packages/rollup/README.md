@@ -7,7 +7,7 @@
 Rollup plugin for SVGR.
 
 ```
-npm install @svgr/rollup
+npm install @svgr/rollup --save-dev
 ```
 
 In your `rollup.config.js`:

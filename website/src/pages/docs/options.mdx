@@ -49,8 +49,8 @@ Modify all SVG nodes with uppercase and use a specific template with
 
 Override using the API with `native: { expo: true }` to template SVG nodes with the [ExpoKit SVG package](https://docs.expo.io/versions/latest/sdk/svg/). This is only necessary for 'ejected' ExpoKit projects where `import 'react-native-svg'` results in an error.
 
-| Default | CLI Override | API Override     |
-| ------- | ------------ | ---------------- |
+| Default | CLI Override | API Override                                 |
+| ------- | ------------ | -------------------------------------------- |
 | `false` | `--native`   | `native: <bool>` or `native: { expo: true }` |
 
 ## Dimensions
@@ -59,11 +59,11 @@ Remove width and height from root SVG tag.
 
 | Default | CLI Override      | API Override         |
 | ------- | ----------------- | -------------------- |
-| `true` | `--no-dimensions` | `dimensions: <bool>` |
+| `true`  | `--no-dimensions` | `dimensions: <bool>` |
 
 ## Expand props
 
-All properties given to component will be forwarded on SVG tag. Possible values: `"start"`, `"end"` or `false`.
+All properties given to component will be forwarded on SVG tag. Possible values: `"start"`, `"end"` or `false` (`"none"` in CLI).
 
 | Default | CLI Override     | API Override            |
 | ------- | ---------------- | ----------------------- |
@@ -111,14 +111,22 @@ Setting this to `true` will forward ref to the root SVG tag.
 | ------- | ------------ | ------------- |
 | `false` | `--ref`      | `ref: <bool>` |
 
+## Memo
+
+Setting this to `true` will wrap the exported component in [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo).
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `false` | `--memo`     | `memo: <bool>` |
+
 ## Replace attribute value
 
 Replace an attribute value by an other. The main usage of this option is to
 change an icon color to "currentColor" in order to inherit from text color.
 
-| Default | CLI Override                      | API Override                         |
-| ------- | --------------------------------- | ------------------------------------ |
-| `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { old: 'new' }`  |
+| Default | CLI Override                      | API Override                        |
+| ------- | --------------------------------- | ----------------------------------- |
+| `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { old: 'new' }` |
 
 > You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particularly useful with a custom template.
 
@@ -126,21 +134,20 @@ change an icon color to "currentColor" in order to inherit from text color.
 
 Add props to the root SVG tag.
 
-| Default | CLI Override               | API Override                   |
-| ------- | -------------------------- | ------------------------------ |
-| `[]`    | `--svg-props <name=value>` | `svgProps: { name: 'value' }`  |
+| Default | CLI Override               | API Override                  |
+| ------- | -------------------------- | ----------------------------- |
+| `[]`    | `--svg-props <name=value>` | `svgProps: { name: 'value' }` |
 
 > You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particularly useful with a custom template.
 
 ## Title
 
 Add title tag via title property. If titleProp is set to true and no title is provided (`title={undefined}`) at render time, this will
-fallback to existing title element in the svg if exists. 
+fallback to existing title element in the svg if exists.
 
 | Default | CLI Override | API Override        |
 | ------- | ------------ | ------------------- |
 | `false` | `title-prop` | `titleProp: <bool>` |
-
 
 ## Template
 
@@ -158,3 +165,11 @@ Output files into a directory.
 | Default     | CLI Override          | API Override          |
 | ----------- | --------------------- | --------------------- |
 | `undefined` | `--out-dir <dirname>` | Only available in CLI |
+
+## Keep existing
+
+When used with `--out-dir`, it does not override already existing files.
+
+| Default | CLI Override      | API Override          |
+| ------- | ----------------- | --------------------- |
+| `false` | `--keep-existing` | Only available in CLI |

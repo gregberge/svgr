@@ -6,7 +6,9 @@ function defaultTemplate(
   { imports, componentName, props, jsx, exports },
 ) {
   return template.ast`${imports}
-const ${componentName} = (${props}) => ${jsx}
+function ${componentName}(${props}) {
+  return ${jsx};
+}
 ${exports}
 `
 }
