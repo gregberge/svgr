@@ -17,12 +17,18 @@ async function fileCommand(program, filenames, config) {
     })
 
     process.stdin.on('end', () => {
-      output(convert(code, config))
+      output(convert(code, config, { filePath: program.stdinFilepath }))
     })
   }
 
-  if (filenames.length === 0) {
+  if (program.stdin || (filenames.length === 0 && !process.stdin.isTTY)) {
     stdin()
+    return
+  }
+
+  if (filenames.length === 0) {
+    // eslint-disable-next-line no-console
+    console.log(program.helpInformation())
     return
   }
 

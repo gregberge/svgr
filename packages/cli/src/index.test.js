@@ -48,6 +48,13 @@ describe('cli', () => {
     expect(result).toMatchSnapshot()
   }, 10000)
 
+  it('should support stdin filepath', async () => {
+    const result = await cli(
+      '--stdin-filepath __fixtures__/simple/file.svg < __fixtures__/simple/file.svg',
+    )
+    expect(result).toMatchSnapshot()
+  }, 10000)
+
   it('should transform a whole directory and output relative destination paths', async () => {
     const result = await cli('--out-dir __fixtures_build__/whole __fixtures__')
     const sorted = result

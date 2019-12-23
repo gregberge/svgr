@@ -88,6 +88,11 @@ program
   )
   .option('--no-svgo', 'disable SVGO')
   .option('--silent', 'suppress output')
+  .option('--stdin', 'force reading input from stdin')
+  .option(
+    '--stdin-filepath',
+    'path to the file to pretend that stdin comes from',
+  )
 
 program.on('--help', () => {
   console.log(`
