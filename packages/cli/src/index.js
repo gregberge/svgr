@@ -51,6 +51,7 @@ program
   )
   .option('--icon', 'use "1em" as width and height')
   .option('--native', 'add react-native support with react-native-svg')
+  .option('--memo', 'add React.memo into the result component')
   .option('--ref', 'forward ref to SVG root element')
   .option('--no-dimensions', 'remove width and height from root SVG tag')
   .option(

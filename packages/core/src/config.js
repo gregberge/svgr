@@ -8,6 +8,7 @@ export const DEFAULT_CONFIG = {
   native: false,
   prettier: true,
   prettierConfig: null,
+  memo: false,
   ref: false,
   replaceAttrValues: null,
   svgProps: null,

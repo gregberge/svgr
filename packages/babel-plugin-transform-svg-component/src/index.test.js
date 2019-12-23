@@ -128,4 +128,42 @@ describe('plugin', () => {
       export default ForwardRef;"
     `)
   })
+
+  it('should work with memo', () => {
+    const { code } = testPlugin('<svg><div /></svg>', {
+      state: { componentName: 'SvgComponent' },
+      memo: true,
+    })
+    expect(code).toMatchInlineSnapshot(`
+      "import React from \\"react\\";
+
+      function SvgComponent() {
+        return <svg><div /></svg>;
+      }
+
+      const MemoSvgComponent = React.memo(SvgComponent);
+      export default MemoSvgComponent;"
+    `)
+  })
+
+  it('should work with memo + ref', () => {
+    const { code } = testPlugin('<svg><div /></svg>', {
+      state: { componentName: 'SvgComponent' },
+      memo: true,
+      ref: true,
+    })
+    expect(code).toMatchInlineSnapshot(`
+      "import React from \\"react\\";
+
+      function SvgComponent({
+        svgRef
+      }) {
+        return <svg><div /></svg>;
+      }
+
+      const MemoSvgComponent = React.memo(SvgComponent);
+      const ForwardRef = React.forwardRef((props, ref) => <MemoSvgComponent svgRef={ref} {...props} />);
+      export default ForwardRef;"
+    `)
+  })
 })
