@@ -66,9 +66,10 @@ describe('preset', () => {
       "import React from \\"react\\";
 
       function SvgComponent({
-        title
+        title,
+        titleId
       }) {
-        return <svg>{title ? <title>{title}</title> : null}</svg>;
+        return <svg aria-labelledby={titleId}>{title ? <title id={titleId}>{title}</title> : null}</svg>;
       }
 
       export default SvgComponent;"
@@ -87,9 +88,10 @@ describe('preset', () => {
       "import React from \\"react\\";
 
       function SvgComponent({
-        title
+        title,
+        titleId
       }) {
-        return <svg>{title === undefined ? <title>Hello</title> : title ? <title>{title}</title> : null}</svg>;
+        return <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>Hello</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
       }
 
       export default SvgComponent;"
@@ -106,9 +108,10 @@ describe('preset', () => {
       "import React from \\"react\\";
 
       function SvgComponent({
-        title
+        title,
+        titleId
       }) {
-        return <svg>{title === undefined ? <title>{\\"Hello\\"}</title> : title ? <title>{title}</title> : null}</svg>;
+        return <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>{\\"Hello\\"}</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
       }
 
       export default SvgComponent;"

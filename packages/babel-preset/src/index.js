@@ -46,6 +46,17 @@ const plugin = (api, opts) => {
     ]
   }
 
+  if (opts.titleProp) {
+    toAddAttributes = [
+      ...toAddAttributes,
+      {
+        name: 'aria-labelledby',
+        value: 'titleId',
+        literal: true,
+      },
+    ]
+  }
+
   if (opts.expandProps) {
     toAddAttributes = [
       ...toAddAttributes,

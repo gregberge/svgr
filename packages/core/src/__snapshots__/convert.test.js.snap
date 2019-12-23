@@ -360,10 +360,10 @@ export default noop
 exports[`convert config should support options 16 1`] = `
 "import React from 'react'
 
-function SvgComponent({ title, ...props }) {
+function SvgComponent({ title, titleId, ...props }) {
   return (
-    <svg width={88} height={88} {...props}>
-      {title ? <title>{title}</title> : null}
+    <svg width={88} height={88} aria-labelledby={titleId} {...props}>
+      {title ? <title id={titleId}>{title}</title> : null}
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -408,7 +408,7 @@ export default MemoSvgComponent
 exports[`convert config titleProp: without title added 1`] = `
 "import React from 'react'
 
-function SvgComponent({ title, ...props }) {
+function SvgComponent({ title, titleId, ...props }) {
   return (
     <svg
       width={0}
@@ -416,9 +416,10 @@ function SvgComponent({ title, ...props }) {
       style={{
         position: 'absolute',
       }}
+      aria-labelledby={titleId}
       {...props}
     >
-      {title ? <title>{title}</title> : null}
+      {title ? <title id={titleId}>{title}</title> : null}
       <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
     </svg>
   )

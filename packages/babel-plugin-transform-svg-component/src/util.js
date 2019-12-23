@@ -21,6 +21,15 @@ export const getProps = ({ types: t }, opts) => {
         true,
       ),
     )
+
+    props.push(
+      t.objectProperty(
+        t.identifier('titleId'),
+        t.identifier('titleId'),
+        false,
+        true,
+      ),
+    )
   }
 
   if (opts.expandProps) {

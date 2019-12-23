@@ -381,10 +381,10 @@ export default SvgFile
 exports[`cli should support various args: --title-prop 1`] = `
 "import React from 'react'
 
-function SvgFile({ title, ...props }) {
+function SvgFile({ title, titleId, ...props }) {
   return (
-    <svg width={48} height={1} {...props}>
-      {title ? <title>{title}</title> : null}
+    <svg width={48} height={1} aria-labelledby={titleId} {...props}>
+      {title ? <title id={titleId}>{title}</title> : null}
       <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
     </svg>
   )
