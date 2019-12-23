@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-plugin-remove-jsx-empty-expression",
   "description": "Remove JSX empty expression",
-  "version": "4.2.0",
+  "version": "5.0.0",
   "main": "lib/index.js",
   "repository": "https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-remove-jsx-empty-expression",
   "author": "Greg Bergé <berge.greg@gmail.com>",
