@@ -111,6 +111,14 @@ Setting this to `true` will forward ref to the root SVG tag.
 | ------- | ------------ | ------------- |
 | `false` | `--ref`      | `ref: <bool>` |
 
+## Memo
+
+Setting this to `true` will wrap the exported component in [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo).
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `false` | `--memo`     | `memo: <bool>` |
+
 ## Replace attribute value
 
 Replace an attribute value by an other. The main usage of this option is to
@@ -157,3 +165,11 @@ Output files into a directory.
 | Default     | CLI Override          | API Override          |
 | ----------- | --------------------- | --------------------- |
 | `undefined` | `--out-dir <dirname>` | Only available in CLI |
+
+## Keep existing
+
+When used with `--out-dir`, it does not override already existing files.
+
+| Default | CLI Override      | API Override          |
+| ------- | ----------------- | --------------------- |
+| `false` | `--keep-existing` | Only available in CLI |
