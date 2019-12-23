@@ -107,7 +107,7 @@ describe('cli', () => {
     ['--native --ref'],
     ['--ref'],
     ['--replace-attr-values "#063855=currentColor"'],
-    [`--svg-props "hidden={true}"`],
+    [`--svg-props "hidden={true},id=hello"`],
     ['--no-svgo'],
     ['--no-prettier'],
     ['--title-prop'],

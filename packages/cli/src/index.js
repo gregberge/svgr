@@ -8,12 +8,17 @@ import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
 import { stat, exitError } from './util'
 
-const parseObject = (arg, accumulation = {}) => {
+function parseObject(arg, accumulation = {}) {
   const [name, value] = arg.split('=')
   return { ...accumulation, [name]: value }
 }
 
-const isFile = filePath => {
+function parseObjectList(arg, accumulation = {}) {
+  const args = arg.split(',').map(str => str.trim())
+  return args.reduce((acc, arg) => parseObject(arg, acc), accumulation)
+}
+
+function isFile(filePath) {
   try {
     const stats = fs.statSync(filePath)
     return stats.isFile()
@@ -61,12 +66,12 @@ program
   .option(
     '--svg-props <property=value>',
     'add props to the svg element',
-    parseObject,
+    parseObjectList,
   )
   .option(
     '--replace-attr-values <old=new>',
     'replace an attribute value',
-    parseObject,
+    parseObjectList,
   )
   .option('--template <file>', 'specify a custom template to use')
   .option('--title-prop', 'create a title element linked with props')
