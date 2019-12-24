@@ -15,6 +15,7 @@ module.exports = {
           { title: 'Usage', url: '/docs/' },
         ],
         codeFundProperty: 269,
+        googleAnalytics: 'UA-154496255-2',
         algoliaDocSearch: {
           apiKey: '0c7343afd83c189413499c62c1df6853',
           indexName: 'smooth-code-svgr',
