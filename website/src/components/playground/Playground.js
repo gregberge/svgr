@@ -218,13 +218,21 @@ function CopyFeedback(props) {
 
 const Editor = React.lazy(() => import('components/playground/Editor'))
 
+function ClientOnly({ children }) {
+  const [visible, setVisible] = React.useState(false)
+  React.useEffect(() => {
+    setVisible(true)
+  })
+  return visible && children
+}
+
 export function Playground() {
   const [input, setInput] = React.useState(defaultSvg)
   const [output, setOutput] = React.useState('')
   const [loading, setLoading] = React.useState(false)
   const [state, setState] = React.useState(getInitialState)
 
-  const dialog = useDialogState({ visible: true })
+  const dialog = useDialogState({ visible: false })
 
   const transformIdRef = React.useRef(0)
 
@@ -261,54 +269,56 @@ export function Playground() {
   return (
     <>
       <GlobalStyle />
-      <PlaygroundContainer>
-        <Settings
-          settings={settings}
-          initialValues={state}
-          onChange={setState}
-        />
-        <React.Suspense fallback={<Loading />}>
-          <PlaygroundEditors>
-            <Box flex={1} display="flex" flexDirection="column">
-              <EditorTitle>SVG input</EditorTitle>
-              <Box flex={1} position="relative">
-                <DropArea onChange={handleInputChange}>
-                  <Editor
-                    name="input"
-                    mode="xml"
-                    onChange={handleInputChange}
-                    value={input}
-                  />
-                </DropArea>
+      <ClientOnly>
+        <PlaygroundContainer>
+          <Settings
+            settings={settings}
+            initialValues={state}
+            onChange={setState}
+          />
+          <React.Suspense fallback={<Loading />}>
+            <PlaygroundEditors>
+              <Box flex={1} display="flex" flexDirection="column">
+                <EditorTitle>SVG input</EditorTitle>
+                <Box flex={1} position="relative">
+                  <DropArea onChange={handleInputChange}>
+                    <Editor
+                      name="input"
+                      mode="xml"
+                      onChange={handleInputChange}
+                      value={input}
+                    />
+                  </DropArea>
+                </Box>
               </Box>
-            </Box>
-            <Box
-              flex={1}
-              display="flex"
-              flexDirection="column"
-              className={loading ? 'loading' : ''}
-            >
-              <EditorTitle>JSX output</EditorTitle>
               <Box
                 flex={1}
-                position="relative"
-                onKeyDown={event => {
-                  // Detect copy
-                  if ((event.metaKey || event.ctrlKey) && event.key === 'c') {
-                    dialog.show()
-                  }
-                }}
+                display="flex"
+                flexDirection="column"
+                className={loading ? 'loading' : ''}
               >
-                <Editor name="output" mode="jsx" readOnly value={output} />
+                <EditorTitle>JSX output</EditorTitle>
+                <Box
+                  flex={1}
+                  position="relative"
+                  onKeyDown={event => {
+                    // Detect copy
+                    if ((event.metaKey || event.ctrlKey) && event.key === 'c') {
+                      dialog.show()
+                    }
+                  }}
+                >
+                  <Editor name="output" mode="jsx" readOnly value={output} />
+                </Box>
               </Box>
-            </Box>
-          </PlaygroundEditors>
-        </React.Suspense>
-        <CopyFeedback {...dialog} />
-        <FloatingAd>
-          <CodeFund />
-        </FloatingAd>
-      </PlaygroundContainer>
+            </PlaygroundEditors>
+          </React.Suspense>
+          <CopyFeedback {...dialog} />
+          <FloatingAd>
+            <CodeFund />
+          </FloatingAd>
+        </PlaygroundContainer>
+      </ClientOnly>
     </>
   )
 }
