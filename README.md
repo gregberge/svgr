@@ -21,7 +21,7 @@ SVGR transforms SVG into ready to use components. It is part of create-react-app
 
 ## [Docs](https://react-svgr.com)
 
-**See the documentation at [gregberge.com/open-source/svgr](https://react-svgr.com)** for more information about using `svgr`!
+**See the documentation at [react-svgr.com](https://react-svgr.com)** for more information about using `svgr`!
 
 Quicklinks to some of the most-visited pages:
 
