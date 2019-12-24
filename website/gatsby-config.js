@@ -12,7 +12,7 @@ module.exports = {
         menu: ['About', 'Usage', 'Configuring SVGR', 'Advanced'],
         nav: [
           { title: 'Playground', url: '/playground/' },
-          { title: 'Usage', url: '/docs/' },
+          { title: 'Usage', url: '/docs/getting-started/' },
         ],
         codeFundProperty: 269,
         googleAnalytics: 'UA-154496255-2',
