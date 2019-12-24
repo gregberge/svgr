@@ -8,5 +8,16 @@
       "source": "/",
       "destination": "https://react-svgr.com/playground"
     }
+  ],
+  "headers": [
+    {
+      "source": "/api/svgr",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
   ]
 }
