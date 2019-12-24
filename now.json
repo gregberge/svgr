@@ -2,7 +2,7 @@
   "name": "svgr",
   "version": 2,
   "public": true,
-  "alias": "svgr",
+  "alias": ["svgr.now.sh", "svgr"],
   "redirects": [
     {
       "source": "/",
