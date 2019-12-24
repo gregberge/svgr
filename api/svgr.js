@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const { default: svgr } = require('../packages/core')
-const { default: jsx } = require('../packages/plugin-jsx')
-const { default: svgo } = require('../packages/plugin-svgo')
-const { default: prettier } = require('../packages/plugin-prettier')
+const { default: svgr } = require('@svgr/core')
+const { default: jsx } = require('@svgr/plugin-jsx')
+const { default: svgo } = require('@svgr/plugin-svgo')
+const { default: prettier } = require('@svgr/plugin-prettier')
 
 module.exports = (req, res) => {
   if (!req.body) {
