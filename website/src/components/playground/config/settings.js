@@ -116,8 +116,9 @@ export const getInitialState = () =>
     {},
   )
 
-export const transformSettings = state =>
-  Object.entries(state).reduce((newState, [key, value]) => {
+export function stateToSettings(state) {
+  return Object.entries(state).reduce((newState, [key, value]) => {
     const { transform } = settings.find(({ name }) => name === key)
     return { ...newState, [key]: transform ? transform(value) : value }
   }, {})
+}

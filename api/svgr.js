@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 const { default: svgr } = require('@svgr/core')
 const { default: jsx } = require('@svgr/plugin-jsx')

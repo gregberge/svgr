@@ -19,7 +19,7 @@ import { svgr } from './modules/svgr'
 import defaultSvg from './defaultSVG'
 import { DropArea } from './DropArea'
 import { Loading } from './Loading'
-import { settings, getInitialState, transformSettings } from './config/settings'
+import { settings, getInitialState, stateToSettings } from './config/settings'
 import { CodeFund } from './CodeFund'
 
 const GlobalStyle = createGlobalStyle`
@@ -231,40 +231,34 @@ export function Playground() {
   const [output, setOutput] = React.useState('')
   const [loading, setLoading] = React.useState(false)
   const [state, setState] = React.useState(getInitialState)
-
   const dialog = useDialogState({ visible: false })
 
   const transformIdRef = React.useRef(0)
 
-  async function transform(input) {
-    if (input.trim() === '') {
-      setOutput('')
-      return
-    }
-
-    setLoading(true)
-
-    try {
-      /* eslint-disable-next-line no-plusplus */
-      const transformId = ++transformIdRef.current
-      const output = await svgr(input, transformSettings(state))
-      if (transformId === transformIdRef.current) {
-        setOutput(output)
-        setLoading(false)
-      }
-    } catch (error) {
-      // We do nothing and assume that provided code is not correct
-    }
-  }
-
-  function handleInputChange(input) {
-    setInput(input)
-    transform(input)
-  }
-
   React.useEffect(() => {
-    transform(input)
-  }, [])
+    async function transform() {
+      if (input.trim() === '') {
+        setOutput('')
+        return
+      }
+
+      setLoading(true)
+
+      try {
+        /* eslint-disable-next-line no-plusplus */
+        const transformId = ++transformIdRef.current
+        const output = await svgr(input, stateToSettings(state))
+        if (transformId === transformIdRef.current) {
+          setOutput(output)
+          setLoading(false)
+        }
+      } catch (error) {
+        // We do nothing and assume that provided code is not correct
+      }
+    }
+
+    transform()
+  }, [input, JSON.stringify(state)])
 
   return (
     <>
@@ -281,11 +275,11 @@ export function Playground() {
               <Box flex={1} display="flex" flexDirection="column">
                 <EditorTitle>SVG input</EditorTitle>
                 <Box flex={1} position="relative">
-                  <DropArea onChange={handleInputChange}>
+                  <DropArea onChange={setInput}>
                     <Editor
                       name="input"
                       mode="xml"
-                      onChange={handleInputChange}
+                      onChange={setInput}
                       value={input}
                     />
                   </DropArea>
