@@ -1,4 +1,4 @@
-## 👉 [Please follow one of these issue templates](https://github.com/smooth-code/svgr/issues/new/choose) 👈
+## 👉 [Please follow one of these issue templates](https://github.com/gregberge/svgr/issues/new/choose) 👈
 
 <!-- Love SVGR? Please consider supporting our collective: 👉  https://opencollective.com/svgr/donate -->
 

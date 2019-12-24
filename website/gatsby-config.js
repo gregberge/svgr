@@ -7,8 +7,8 @@ module.exports = {
         slug: 'svgr',
         author: 'Greg Bergé',
         description: 'Transforms SVG into React Components.',
-        siteUrl: 'https://www.smooth-code.com/open-source/svgr',
-        github: 'https://github.com/smooth-code/svgr',
+        siteUrl: 'https://react-svgr.com',
+        github: 'https://github.com/gregberge/svgr',
         menu: ['About', 'Usage', 'Configuring SVGR', 'Advanced'],
         nav: [
           { title: 'Playground', url: '/playground/' },

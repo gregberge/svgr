@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 function useScript(src) {
-  useEffect(() => {
+  React.useEffect(() => {
     const script = document.createElement('script')
     script.src = src
     script.async = true
@@ -12,7 +12,7 @@ function useScript(src) {
   }, [src])
 }
 
-export default function CodeFund() {
+export function CodeFund() {
   useScript('https://codefund.io/properties/267/funder.js')
   return <div id="codefund" />
 }

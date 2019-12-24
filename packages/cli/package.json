@@ -2,7 +2,7 @@
   "name": "@svgr/cli",
   "description": "SVGR command line.",
   "version": "5.0.0",
-  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/cli",
+  "repository": "https://github.com/gregberge/svgr/tree/master/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"
@@ -14,7 +14,11 @@
     "cli"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
   },
   "license": "MIT",
   "bin": {

@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [4.3.2](https://github.com/smooth-code/svgr/tree/master/packages/plugin-prettier/compare/v4.3.1...v4.3.2) (2019-07-15)
+## [4.3.2](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v4.3.1...v4.3.2) (2019-07-15)
 
 **Note:** Version bump only for package @svgr/plugin-prettier
 
@@ -11,7 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.3.1](https://github.com/smooth-code/svgr/tree/master/packages/plugin-prettier/compare/v4.3.0...v4.3.1) (2019-07-01)
+## [4.3.1](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v4.3.0...v4.3.1) (2019-07-01)
 
 **Note:** Version bump only for package @svgr/plugin-prettier
 
@@ -19,34 +19,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [4.2.0](https://github.com/smooth-code/svgr/tree/master/packages/plugin-prettier/compare/v4.1.0...v4.2.0) (2019-04-11)
+# [4.2.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v4.1.0...v4.2.0) (2019-04-11)
 
 
 ### Bug Fixes
 
-* **plugin-prettier:** fix prettier warning ([d01d33f](https://github.com/smooth-code/svgr/tree/master/packages/plugin-prettier/commit/d01d33f))
+* **plugin-prettier:** fix prettier warning ([d01d33f](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/commit/d01d33f))
 
 
 
 
 
-## [4.0.3](https://github.com/smooth-code/svgr/compare/v4.0.2...v4.0.3) (2018-11-13)
+## [4.0.3](https://github.com/gregberge/svgr/compare/v4.0.2...v4.0.3) (2018-11-13)
 
 
 ### Bug Fixes
 
-* upgrade dependencies ([7e2195f](https://github.com/smooth-code/svgr/commit/7e2195f))
+* upgrade dependencies ([7e2195f](https://github.com/gregberge/svgr/commit/7e2195f))
 
 
 
 
 
-# [4.0.0](https://github.com/smooth-code/svgr/compare/v3.1.0...v4.0.0) (2018-11-04)
+# [4.0.0](https://github.com/gregberge/svgr/compare/v3.1.0...v4.0.0) (2018-11-04)
 
 
 ### Features
 
-* **v4:** new architecture ([ac8b8ca](https://github.com/smooth-code/svgr/commit/ac8b8ca))
+* **v4:** new architecture ([ac8b8ca](https://github.com/gregberge/svgr/commit/ac8b8ca))
 
 
 ### BREAKING CHANGES

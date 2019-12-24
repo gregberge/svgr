@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
 
 /* eslint-env browser */
-async function svgr(code, options = {}) {
+export async function svgr(code, options = {}) {
   const res = await fetch('https://svgr.now.sh/api/svgr', {
     headers: {
       'content-type': 'application/json',
@@ -13,5 +13,3 @@ async function svgr(code, options = {}) {
   if (json.error) throw new Error(json.error)
   return json.output
 }
-
-export default svgr

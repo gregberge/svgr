@@ -3,7 +3,7 @@
   "description": "SVGR Parcel plugin.",
   "version": "5.0.0",
   "main": "lib/index.js",
-  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/parcel-plugin-svgr",
+  "repository": "https://github.com/gregberge/svgr/tree/master/packages/parcel-plugin-svgr",
   "author": "Mario Pabon <me@mariopabon.com>",
   "publishConfig": {
     "access": "public"
@@ -16,7 +16,11 @@
     "parcel-plugin"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
   },
   "license": "MIT",
   "scripts": {

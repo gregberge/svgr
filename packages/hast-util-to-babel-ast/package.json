@@ -3,7 +3,7 @@
   "description": "Transform HAST to Babel AST (JSX)",
   "version": "5.0.0",
   "main": "lib/index.js",
-  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/hast-util-to-babel-ast",
+  "repository": "https://github.com/gregberge/svgr/tree/master/packages/hast-util-to-babel-ast",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"
@@ -17,7 +17,11 @@
     "unist"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
   },
   "license": "MIT",
   "scripts": {

@@ -32,6 +32,13 @@ export const settings = [
     default: false,
   },
   {
+    label: 'Memo',
+    name: 'memo',
+    type: 'boolean',
+    group: 'global',
+    default: false,
+  },
+  {
     label: 'Title prop',
     name: 'titleProp',
     type: 'boolean',
@@ -78,7 +85,8 @@ export const settings = [
     placeholder: '{ "plugins": [{ "removeTitle": false }] }',
     type: 'string',
     group: 'svgo',
-    default: '{ "plugins": [{ "removeTitle": false }] }',
+    default:
+      '{ "plugins": [{ "removeTitle": false }, { "removeViewBox": false }] }',
     transform: parseJson,
   },
   {

@@ -1,6 +1,12 @@
 {
-  "version": 1,
-  "public": true,
   "name": "svgr",
-  "alias": "svgr"
+  "version": 2,
+  "public": true,
+  "alias": "svgr",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://react-svgr.com/playground"
+    }
+  ]
 }

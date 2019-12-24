@@ -3,7 +3,7 @@
   "description": "Transform SVG into React Components.",
   "version": "5.0.0",
   "main": "lib/index.js",
-  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/core",
+  "repository": "https://github.com/gregberge/svgr/tree/master/packages/core",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"
@@ -16,7 +16,11 @@
     "api"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
   },
   "license": "MIT",
   "scripts": {

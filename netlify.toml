@@ -1,7 +1,4 @@
-[build]
-  base    = "website"
-  command = "yarn build"
+[build]	
+  base    = "website"	
+  command = "yarn build"	
   publish = "website/public"
-
-[context.production]
-  command = "yarn build:pp"

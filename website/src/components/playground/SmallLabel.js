@@ -1,8 +1,8 @@
-import { Label, styled } from '@smooth-ui/core-sc'
+import { FormFieldLabel } from '@smooth-ui/core-sc'
+import styled from '@xstyled/styled-components'
 
-const SmallLabel = styled(Label)`
+export const SmallLabel = styled(FormFieldLabel)`
   text-transform: uppercase;
   font-size: 11px;
   font-weight: bold;
 `
-export default SmallLabel

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ChevronLeft = props => (
+export const ChevronLeft = props => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -16,5 +16,3 @@ const ChevronLeft = props => (
     <path d="M15 18l-6-6 6-6" />
   </svg>
 )
-
-export default ChevronLeft
