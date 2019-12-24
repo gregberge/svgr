@@ -1,8 +1,8 @@
 # @svgr/webpack
 
-[![Build Status](https://img.shields.io/travis/smooth-code/svgr.svg)](https://travis-ci.org/smooth-code/svgr)
+[![Build Status](https://img.shields.io/travis/gregberge/svgr.svg)](https://travis-ci.org/gregberge/svgr)
 [![Version](https://img.shields.io/npm/v/@svgr/webpack.svg)](https://www.npmjs.com/package/@svgr/webpack)
-[![MIT License](https://img.shields.io/npm/l/@svgr/webpack.svg)](https://github.com/smooth-code/svgr/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/npm/l/@svgr/webpack.svg)](https://github.com/gregberge/svgr/blob/master/LICENSE)
 
 Webpack loader for SVGR.
 
@@ -77,7 +77,7 @@ const App = () => (
 
 ### Use your own Babel configuration
 
-By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configuration](https://github.com/smooth-code/svgr/blob/master/packages/webpack/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configuration](https://github.com/gregberge/svgr/blob/master/packages/webpack/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
 
 ```js
 // Example using preact

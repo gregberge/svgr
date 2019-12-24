@@ -3,7 +3,7 @@
   "description": "SVGR preset that apply transformations from config",
   "version": "5.0.0",
   "main": "lib/index.js",
-  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/babel-preset",
+  "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-preset",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"

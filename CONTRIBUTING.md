@@ -2,9 +2,9 @@
 
 SVGR is a small project, it is widely used but has not a lot of contributors. We're still working out the kinks to make contributing to this project as easy and transparent as possible, but we're not quite there yet. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
 
-## [Code of Conduct](https://github.com/smooth-code/svgr/blob/master/CODE_OF_CONDUCT.md)
+## [Code of Conduct](https://github.com/gregberge/svgr/blob/master/CODE_OF_CONDUCT.md)
 
-We expect project participants to adhere to our Code of Conduct. Please read [the full text](https://github.com/smooth-code/svgr/blob/master/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+We expect project participants to adhere to our Code of Conduct. Please read [the full text](https://github.com/gregberge/svgr/blob/master/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
 ## Open Development
 

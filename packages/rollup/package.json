@@ -3,7 +3,7 @@
   "description": "SVGR Rollup plugin.",
   "version": "5.0.0",
   "main": "lib/index.js",
-  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/rollup",
+  "repository": "https://github.com/gregberge/svgr/tree/master/packages/rollup",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"

@@ -1,35 +1,35 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/smooth-code/svgr/master/resources/svgr-logo.png" alt="svgr" title="svgr" width="300">
+  <img src="https://raw.githubusercontent.com/gregberge/svgr/master/resources/svgr-logo.png" alt="svgr" title="svgr" width="300">
 </h1>
 <p align="center" style="font-size: 1.2rem;">Transform SVGs into React components 🦁</p>
 
-[![License](https://img.shields.io/npm/l/@svgr/core.svg)](https://github.com/smooth-code/svgr/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/l/@svgr/core.svg)](https://github.com/gregberge/svgr/blob/master/LICENSE)
 [![Donate](https://opencollective.com/svgr/backers/badge.svg)](https://opencollective.com/svgr/donate)
 [![npm package](https://img.shields.io/npm/v/@svgr/core/latest.svg)](https://www.npmjs.com/package/@svgr/core)
 [![npm downloads](https://img.shields.io/npm/dm/@svgr/core.svg)](https://www.npmjs.com/package/@svgr/core)
-[![Build Status](https://img.shields.io/travis/smooth-code/svgr.svg)](https://travis-ci.org/smooth-code/svgr)
-[![Code Coverage](https://img.shields.io/codecov/c/github/smooth-code/svgr.svg)](https://codecov.io/github/smooth-code/svgr)
+[![Build Status](https://img.shields.io/travis/gregberge/svgr.svg)](https://travis-ci.org/gregberge/svgr)
+[![Code Coverage](https://img.shields.io/codecov/c/github/gregberge/svgr.svg)](https://codecov.io/github/gregberge/svgr)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-[![Dependencies](https://img.shields.io/david/smooth-code/svgr.svg?path=packages%2Fcore)](https://david-dm.org/smooth-code/svgr?path=packages/core)
-[![DevDependencies](https://img.shields.io/david/dev/smooth-code/svgr.svg)](https://david-dm.org/smooth-code/svgr?type=dev)
+[![Dependencies](https://img.shields.io/david/gregberge/svgr.svg?path=packages%2Fcore)](https://david-dm.org/gregberge/svgr?path=packages/core)
+[![DevDependencies](https://img.shields.io/david/dev/gregberge/svgr.svg)](https://david-dm.org/gregberge/svgr?type=dev)
 
-[**Try it out online!**](https://svgr.now.sh)
+[**Try it out online!**](https://react-svgr.com/playground)
 
 [**Watch the talk at React Europe**](https://www.youtube.com/watch?v=geKCzi7ZPkA)
 
 SVGR transforms SVG into ready to use components. It is part of create-react-app and makes SVG integration into your React projects easy.
 
-## [Docs](https://www.smooth-code.com/open-source/svgr)
+## [Docs](https://react-svgr.com)
 
-**See the documentation at [smooth-code.com/open-source/svgr](https://www.smooth-code.com/open-source/svgr)** for more information about using `svgr`!
+**See the documentation at [gregberge.com/open-source/svgr](https://react-svgr.com)** for more information about using `svgr`!
 
 Quicklinks to some of the most-visited pages:
 
-- [**Playground**](https://www.smooth-code.com/open-source/svgr/playground/)
-- [**Getting started**](https://www.smooth-code.com/open-source/svgr/docs/getting-started/)
-- [CLI usage](https://www.smooth-code.com/open-source/svgr/docs/cli/)
-- [Webpack usage](https://www.smooth-code.com/open-source/svgr/docs/webpack/)
-- [Node usage](https://www.smooth-code.com/open-source/svgr/docs/node-api/)
+- [**Playground**](https://react-svgr.com/playground/)
+- [**Getting started**](https://react-svgr.com/docs/getting-started/)
+- [CLI usage](https://react-svgr.com/docs/cli/)
+- [Webpack usage](https://react-svgr.com/docs/webpack/)
+- [Node usage](https://react-svgr.com/docs/node-api/)
 
 ## Example
 

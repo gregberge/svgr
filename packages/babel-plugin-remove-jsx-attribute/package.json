@@ -3,7 +3,7 @@
   "description": "Remove JSX attribute",
   "version": "5.0.0",
   "main": "lib/index.js",
-  "repository": "https://github.com/smooth-code/svgr/tree/master/packages/babel-plugin-remove-jsx-attribute",
+  "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-remove-jsx-attribute",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"
