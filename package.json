@@ -5,6 +5,7 @@
   ],
   "scripts": {
     "build": "lerna run build",
+    "now-build": "lerna run build",
     "ci": "yarn build && yarn lint && yarn test --ci --coverage && codecov",
     "dev": "lerna run build --parallel -- --watch",
     "format": "prettier --write \"**/*.{js,json,md}\"",
