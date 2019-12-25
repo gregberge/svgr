@@ -21,6 +21,7 @@ import { DropArea } from './DropArea'
 import { Loading } from './Loading'
 import { settings, getInitialState, stateToSettings } from './config/settings'
 import { CodeFund } from './CodeFund'
+import { useQuery } from './Query'
 
 const GlobalStyle = createGlobalStyle`
   .loading {
@@ -158,7 +159,6 @@ const SponsorButton = styled(Button)`
 `
 
 function trackLink(event) {
-  console.log(event.currentTarget.href)
   if (window.ga) {
     event.preventDefault()
     const url = event.currentTarget.href
@@ -248,7 +248,7 @@ export function Playground() {
   const [input, setInput] = React.useState(defaultSvg)
   const [output, setOutput] = React.useState('')
   const [loading, setLoading] = React.useState(false)
-  const [state, setState] = React.useState(getInitialState)
+  const [state, setState] = useQuery(getInitialState)
   const dialog = useDialogState({ visible: false })
 
   const transformIdRef = React.useRef(0)
@@ -261,6 +261,10 @@ export function Playground() {
       }
 
       setLoading(true)
+
+      if (window.ga) {
+        window.ga('send', 'event', 'playground', 'transform')
+      }
 
       try {
         /* eslint-disable-next-line no-plusplus */
