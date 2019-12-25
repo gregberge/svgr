@@ -146,16 +146,30 @@ const ThankBody = styled.div`
 
 const SponsorButton = styled(Button)`
   font-weight: 500;
-  color: white;
+  color: white !important;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 0 3px rgba(0, 0, 0, 0.2);
   min-width: 300;
   text-decoration: none !important;
 
   &:hover {
     color: white !important;
-    transform: scale(1.2);
+    transform: scale(1.08);
   }
 `
+
+function trackLink(event) {
+  console.log(event.currentTarget.href)
+  if (window.ga) {
+    event.preventDefault()
+    const url = event.currentTarget.href
+    window.ga('send', 'event', 'outbound', 'click', url, {
+      transport: 'beacon',
+      hitCallback() {
+        document.location = url
+      },
+    })
+  }
+}
 
 function CopyFeedback(props) {
   return (
@@ -166,6 +180,7 @@ function CopyFeedback(props) {
           <h2>
             SVGR is made with ❤️ by{' '}
             <a
+              onClick={trackLink}
               href="https://gregberge.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -180,6 +195,7 @@ function CopyFeedback(props) {
           <Box my={24}>
             <SponsorButton
               forwardedAs="a"
+              onClick={trackLink}
               href="https://github.com/sponsors/gregberge"
               target="_blank"
               rel="noopener noreferrer"
@@ -191,6 +207,7 @@ function CopyFeedback(props) {
           <Box my={24}>
             <SponsorButton
               forwardedAs="a"
+              onClick={trackLink}
               href="https://opencollective.com/svgr"
               target="_blank"
               rel="noopener noreferrer"
@@ -202,6 +219,7 @@ function CopyFeedback(props) {
           <Box my={24}>
             <SponsorButton
               forwardedAs="a"
+              onClick={trackLink}
               href="https://twitter.com/neoziro"
               target="_blank"
               rel="noopener noreferrer"
