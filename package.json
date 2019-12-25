@@ -36,21 +36,5 @@
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
     "react": "^16.8.6"
-  },
-  "dependencies": {
-    "@svgr/babel-plugin-add-jsx-attribute": "latest",
-    "@svgr/babel-plugin-remove-jsx-attribute": "latest",
-    "@svgr/babel-plugin-remove-jsx-empty-expression": "latest",
-    "@svgr/babel-plugin-replace-jsx-attribute-value": "latest",
-    "@svgr/babel-plugin-svg-dynamic-title": "latest",
-    "@svgr/babel-plugin-svg-em-dimensions": "latest",
-    "@svgr/babel-plugin-transform-react-native-svg": "latest",
-    "@svgr/babel-plugin-transform-svg-component": "latest",
-    "@svgr/babel-preset": "latest",
-    "@svgr/core": "latest",
-    "@svgr/hast-util-to-babel-ast": "latest",
-    "@svgr/plugin-jsx": "latest",
-    "@svgr/plugin-prettier": "latest",
-    "@svgr/plugin-svgo": "latest"
   }
 }
