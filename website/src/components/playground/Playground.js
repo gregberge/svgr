@@ -263,7 +263,11 @@ export function Playground() {
       setLoading(true)
 
       if (window.ga) {
-        window.ga('send', 'event', 'playground', 'transform')
+        window.ga('send', {
+          hitType: 'event',
+          eventCategory: 'Playground',
+          eventAction: 'transform',
+        })
       }
 
       try {
