@@ -2,8 +2,6 @@ import React from 'react'
 import qs from 'query-string'
 import { createBrowserHistory } from 'history'
 
-const history = createBrowserHistory()
-
 function formatQuery(state, initialState) {
   const lightState = Object.entries(state).reduce(
     (lightState, [key, value]) => {
@@ -26,7 +24,19 @@ function getLocation() {
   return window.location
 }
 
+let browserHistory
+
+function useHistory() {
+  if (typeof window === 'undefined') return null
+  if (browserHistory) {
+    return browserHistory
+  }
+  browserHistory = createBrowserHistory()
+  return browserHistory
+}
+
 function useLocation() {
+  const history = useHistory()
   const [location, setLocation] = React.useState(getLocation)
   React.useEffect(() => {
     return history.listen(location => setLocation(location))
@@ -35,6 +45,7 @@ function useLocation() {
 }
 
 export function useQuery(getInitialState = {}) {
+  const history = useHistory()
   const [initialState] = React.useState(getInitialState)
   const location = useLocation()
   const locationRef = React.useRef(location)
