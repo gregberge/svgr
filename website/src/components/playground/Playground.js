@@ -324,7 +324,9 @@ export function Playground() {
                   onKeyDown={event => {
                     // Detect copy
                     if ((event.metaKey || event.ctrlKey) && event.key === 'c') {
-                      dialog.show()
+                      setTimeout(() => {
+                        dialog.show()
+                      }, 50)
                     }
                   }}
                 >
