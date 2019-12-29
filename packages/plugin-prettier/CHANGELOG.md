@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v5.0.0...v5.0.1) (2019-12-29)
+
+
+### Bug Fixes
+
+* fix engines in package.json ([a45d6fc](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/commit/a45d6fc8b43402bec60ed4e9273f90fdc65a23a7))
+
+
+
+
+
 ## [4.3.2](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v4.3.1...v4.3.2) (2019-07-15)
 
 **Note:** Version bump only for package @svgr/plugin-prettier

@@ -1,7 +1,7 @@
 {
   "name": "@svgr/webpack",
   "description": "SVGR webpack loader.",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "main": "lib/index.js",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/webpack",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -34,9 +34,9 @@
     "@babel/plugin-transform-react-constant-elements": "^7.0.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
-    "@svgr/core": "^5.0.0",
-    "@svgr/plugin-jsx": "^5.0.0",
-    "@svgr/plugin-svgo": "^5.0.0",
+    "@svgr/core": "^5.0.1",
+    "@svgr/plugin-jsx": "^5.0.1",
+    "@svgr/plugin-svgo": "^5.0.1",
     "loader-utils": "^1.2.3"
   },
   "devDependencies": {

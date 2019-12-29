@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-plugin-svg-dynamic-title",
   "description": "Transform SVG by adding a dynamic title element",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "main": "lib/index.js",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-svg-dynamic-title",
   "author": "Greg Bergé <berge.greg@gmail.com>",

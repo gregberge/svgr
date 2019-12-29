@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-plugin-add-jsx-attribute",
   "description": "Add JSX attribute",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "main": "lib/index.js",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-add-jsx-attribute",
   "author": "Greg Bergé <berge.greg@gmail.com>",
