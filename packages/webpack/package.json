@@ -18,6 +18,7 @@
   "engines": {
     "node": ">=10"
   },
+  "homepage": "https://react-svgr.com",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"
