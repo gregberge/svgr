@@ -84,6 +84,8 @@ Array [
 ]
 `;
 
+exports[`cli should support custom index.js with directory output 1`] = `"export { File } from './File'"`;
+
 exports[`cli should support different filename cases with directory output 1`] = `
 Array [
   "CamelCase.js",

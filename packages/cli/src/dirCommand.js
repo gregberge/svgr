@@ -4,6 +4,7 @@ import { promisify } from 'util'
 import path from 'path'
 import chalk from 'chalk'
 import outputFileSync from 'output-file-sync'
+import { loadConfig } from '@svgr/core'
 import { convertFile, stat, transformFilename, CASE, politeWrite } from './util'
 
 const access = promisify(fs.access)
@@ -34,6 +35,14 @@ export function isCompilable(filename) {
   return COMPILABLE_EXTENSIONS.includes(ext)
 }
 
+function defaultIndexTemplate(files) {
+  const exportEntries = files.map(file => {
+    const basename = path.basename(file, path.extname(file))
+    return `export { default as ${basename} } from './${basename}'`
+  })
+  return exportEntries.join('\n')
+}
+
 export default async function dirCommand(
   program,
   filenames,
@@ -59,11 +68,9 @@ export default async function dirCommand(
 
   async function generateIndex(dest, files) {
     const indexFile = path.join(dest, `index.${ext}`)
-    const exportEntries = files.map(file => {
-      const basename = path.basename(file, path.extname(file))
-      return `export { default as ${basename} } from './${basename}'`
-    })
-    fs.writeFileSync(indexFile, exportEntries.join('\n'))
+    const config = loadConfig.sync(options, { filePath: indexFile })
+    const indexTemplate = config.indexTemplate || defaultIndexTemplate
+    fs.writeFileSync(indexFile, indexTemplate(files))
   }
 
   async function handle(filename, root) {
