@@ -1,0 +1,15 @@
+collective: svgr
+tiers:
+  - tiers: '*'
+    labels: ['backer']
+    message: |
+      Hey <author> :wave:,
+      Thank you so much for supporting us on [Open Collective](<link>) :heart:.
+      We'll give a special attention to this issue.
+      <link>
+invitation: |
+  Hey <author> :wave:,
+  Thank you for opening an issue. We'll get back to you as soon as we can.
+  Please, consider supporting us on [Open Collective](<link>). We give a special attention to issues opened by backers.
+  If you use Loadable at work, you can also ask your company to sponsor us :heart:.
+  <link>
