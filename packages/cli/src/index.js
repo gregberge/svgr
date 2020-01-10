@@ -150,7 +150,8 @@ async function run() {
 
   if (config.template) {
     try {
-      const template = require(path.join(process.cwd(), program.template)) // eslint-disable-line global-require, import/no-dynamic-require
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      const template = require(path.join(process.cwd(), program.template))
       if (template.default) config.template = template.default
       else config.template = template
 
@@ -165,10 +166,11 @@ async function run() {
 
   if (config.indexTemplate) {
     try {
+      // eslint-disable-next-line global-require, import/no-dynamic-require
       const indexTemplate = require(path.join(
         process.cwd(),
         program.indexTemplate,
-      )) // eslint-disable-line global-require, import/no-dynamic-require
+      ))
       if (indexTemplate.default) config.indexTemplate = indexTemplate.default
       else config.indexTemplate = indexTemplate
 
