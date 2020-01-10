@@ -175,4 +175,13 @@ describe('cli', () => {
     const content = fs.readFileSync(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
   }, 10000)
+
+  it('should support --index-template in cli', async () => {
+    const inDir = '__fixtures__/simple'
+    const outDir = `__fixtures_build__/custom-index-arg`
+    await del(outDir)
+    await cli(`${inDir} --out-dir=${outDir} --index-template=__fixtures__/custom-index-template.js`)
+    const content = fs.readFileSync(path.join(outDir, 'index.js'), 'utf-8')
+    expect(content).toMatchSnapshot()
+  }, 10000)
 })

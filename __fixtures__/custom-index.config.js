@@ -1,4 +1,4 @@
-const path = require('path')
+const indexTemplate = require('./custom-index-template.js')
 
 function template(
   { template },
@@ -10,14 +10,6 @@ export function ${componentName}(${props}) {
   return ${jsx};
 }
 `
-}
-
-function indexTemplate(files) {
-  const exportEntries = files.map(file => {
-    const basename = path.basename(file, path.extname(file))
-    return `export { ${basename} } from './${basename}'`
-  })
-  return exportEntries.join('\n')
 }
 
 module.exports = {

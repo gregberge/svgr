@@ -74,6 +74,10 @@ program
     parseObjectList,
   )
   .option('--template <file>', 'specify a custom template to use')
+  .option(
+    '--index-template <file>',
+    'specify a custom index.js template to use',
+  )
   .option('--title-prop', 'create a title element linked with props')
   .option(
     '--prettier-config <fileOrJson>',
@@ -154,6 +158,26 @@ async function run() {
         throw new Error('Template must be a function')
     } catch (error) {
       console.error(`Error when loading template: ${program.template}\n`)
+      console.error(error.stack)
+      process.exit(2)
+    }
+  }
+
+  if (config.indexTemplate) {
+    try {
+      const indexTemplate = require(path.join(
+        process.cwd(),
+        program.indexTemplate,
+      )) // eslint-disable-line global-require, import/no-dynamic-require
+      if (indexTemplate.default) config.indexTemplate = indexTemplate.default
+      else config.indexTemplate = indexTemplate
+
+      if (typeof config.indexTemplate !== 'function')
+        throw new Error('indexTemplate must be a function')
+    } catch (error) {
+      console.error(
+        `Error when loading indexTemplate: ${program.indexTemplate}\n`,
+      )
       console.error(error.stack)
       process.exit(2)
     }

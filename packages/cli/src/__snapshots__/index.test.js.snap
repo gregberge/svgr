@@ -11,6 +11,8 @@ export default SvgFile;
 "
 `;
 
+exports[`cli should support --index-template in cli 1`] = `"export { File } from './File'"`;
+
 exports[`cli should support --prettier-config as file 1`] = `
 "import React from 'react'
 
