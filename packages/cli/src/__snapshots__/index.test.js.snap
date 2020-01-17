@@ -11,6 +11,8 @@ export default SvgFile;
 "
 `;
 
+exports[`cli should support --index-template in cli 1`] = `"export { File } from './File'"`;
+
 exports[`cli should support --prettier-config as file 1`] = `
 "import React from 'react'
 
@@ -83,6 +85,8 @@ Array [
   "index.ts",
 ]
 `;
+
+exports[`cli should support custom index.js with directory output 1`] = `"export { File } from './File'"`;
 
 exports[`cli should support different filename cases with directory output 1`] = `
 Array [

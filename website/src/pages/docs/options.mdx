@@ -166,6 +166,15 @@ Output files into a directory.
 | ----------- | --------------------- | --------------------- |
 | `undefined` | `--out-dir <dirname>` | Only available in CLI |
 
+## index.js template
+
+Specify a template function (API) to change default index.js output (when --out-dir is used).
+
+| Default            | CLI Override          | API Override               |
+| ------------------ | ------------------ | -------------------------- |
+| [`basic template`](https://github.com/gregberge/svgr/blob/master/packages/cli/src/dirCommand.js) | `--index-template` | indexTemplate: files => '' |
+
+
 ## Keep existing
 
 When used with `--out-dir`, it does not override already existing files.
