@@ -167,8 +167,8 @@ describe('cli', () => {
     expect(result).toMatchSnapshot()
   }, 10000)
 
-  it('should add Svg prefix to index.js exports by default', async () => {
-    const inDir = '__fixtures__/simple'
+  it('should add Svg prefix to index.js exports staring with number', async () => {
+    const inDir = '__fixtures__/numeric'
     const outDir = `__fixtures_build__/prefix-exports`
     await del(outDir)
     await cli(`${inDir} --out-dir=${outDir}`)
