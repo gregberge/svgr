@@ -38,7 +38,7 @@ export function isCompilable(filename) {
 function defaultIndexTemplate(files) {
   const exportEntries = files.map(file => {
     const basename = path.basename(file, path.extname(file))
-    return `export { default as ${basename} } from './${basename}'`
+    return `export { default as Svg${basename} } from './${basename}'`
   })
   return exportEntries.join('\n')
 }

@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`cli should add Svg prefix to index.js exports by default 1`] = `"export { default as SvgFile } from './File'"`;
+
 exports[`cli should not override config with cli defaults 1`] = `
 "import React from \\"react\\";
 
