@@ -96,12 +96,35 @@ function getFilePath(state) {
   return state.filePath || process.cwd()
 }
 
+function getPlugins(config) {
+  return config && Array.isArray(config.plugins) ? config.plugins : []
+}
+
+function extendPlugins(...configs) {
+  const init = [];
+  let i = configs.length;
+
+  while (i-- > 0) {
+    const plugins = configs[i];
+    for (let j = 0; j < plugins.length; j++) {
+      const plugin = plugins[j];
+      if (!init.some(item => Object.keys(item)[0] === Object.keys(plugin)[0])) {
+        init.push(plugin);
+      }
+    }
+  }
+  return init;
+}
+
 function createSvgo(config, rcConfig) {
+  const baseSvgoConfig = getBaseSvgoConfig(config);
+  const plugins = extendPlugins(getPlugins(baseSvgoConfig), getPlugins(rcConfig), getPlugins(config.svgoConfig));
   const mergedConfig = mergeDeep(
-    getBaseSvgoConfig(config),
+    baseSvgoConfig,
     rcConfig,
     config.svgoConfig,
   )
+  mergedConfig.plugins = plugins
   return new SVGO(mergedConfig)
 }
 
