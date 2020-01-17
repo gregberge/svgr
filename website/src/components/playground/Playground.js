@@ -250,6 +250,7 @@ export function Playground() {
   const [loading, setLoading] = React.useState(false)
   const [state, setState] = useQuery(getInitialState)
   const dialog = useDialogState({ visible: false })
+  const [dialogDisplayed, setDialogDisplayed] = React.useState(false)
 
   const transformIdRef = React.useRef(0)
 
@@ -321,11 +322,12 @@ export function Playground() {
                 <Box
                   flex={1}
                   position="relative"
-                  onKeyDown={event => {
+                  onKeyDown={dialogDisplayed ? null : event => {
                     // Detect copy
                     if ((event.metaKey || event.ctrlKey) && event.key === 'c') {
                       setTimeout(() => {
                         dialog.show()
+                        setDialogDisplayed(true)
                       }, 50)
                     }
                   }}
