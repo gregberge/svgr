@@ -7,7 +7,7 @@ const baseSvg = `<?xml version="1.0" encoding="UTF-8"?>
   <title>Dismiss</title>
   <desc>Created with Sketch.</desc>
   <defs></defs>
-  <g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+  <g id="Blocks" class="blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
       <g id="Dismiss" stroke="#063855" stroke-width="2">
           <path d="M51,37 L37,51" id="Shape"></path>
           <path d="M51,51 L37,37" id="Shape"></path>
@@ -101,6 +101,21 @@ describe('svgo', () => {
         icon: true,
         runtimeConfig: true,
         svgoConfig: { plugins: [{ prefixIds: false }] },
+      },
+      { filePath: path.join(__dirname, '../__fixtures__/svgo') },
+    )
+
+    expect(result).toMatchSnapshot()
+  })
+
+  it('should be possible to enable id prefixing as the only optimization', () => {
+    const result = svgo(
+      baseSvg,
+      {
+        svgo: true,
+        icon: true,
+        runtimeConfig: true,
+        svgoConfig: { full: true, plugins: [{ prefixIds: {prefixIds: true, prefixClassNames: false} }] },
       },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
