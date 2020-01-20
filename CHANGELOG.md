@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/smooth-code/svgr/compare/v5.0.1...v5.1.0) (2020-01-20)
+
+
+### Bug Fixes
+
+* fix merging svgo plugins in config ([#384](https://github.com/smooth-code/svgr/issues/384)) ([c9d2dfc](https://github.com/smooth-code/svgr/commit/c9d2dfcb8d4da55eb21a13507c87d9e549a86e7e))
+
+
+### Features
+
+* add Svg prefix to exports that starts with a number ([#383](https://github.com/smooth-code/svgr/issues/383)) ([fd120d1](https://github.com/smooth-code/svgr/commit/fd120d11c81395353f300da487295b769f6b9501)), closes [#379](https://github.com/smooth-code/svgr/issues/379)
+* allow to provide custom index.js template ([#378](https://github.com/smooth-code/svgr/issues/378)) ([f734dda](https://github.com/smooth-code/svgr/commit/f734ddac8e639ad213a3ce09689e46226fd5c1e0))
+
+
+
+
+
 ## [5.0.1](https://github.com/smooth-code/svgr/compare/v5.0.0...v5.0.1) (2019-12-29)
 
 

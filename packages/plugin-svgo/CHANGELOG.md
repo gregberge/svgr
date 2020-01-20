@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-svgo/compare/v5.0.1...v5.1.0) (2020-01-20)
+
+
+### Bug Fixes
+
+* fix merging svgo plugins in config ([#384](https://github.com/gregberge/svgr/tree/master/packages/plugin-svgo/issues/384)) ([c9d2dfc](https://github.com/gregberge/svgr/tree/master/packages/plugin-svgo/commit/c9d2dfcb8d4da55eb21a13507c87d9e549a86e7e))
+
+
+
+
+
 ## [5.0.1](https://github.com/gregberge/svgr/tree/master/packages/plugin-svgo/compare/v5.0.0...v5.0.1) (2019-12-29)
 
 
