@@ -1,4 +1,4 @@
-import Bundler from 'parcel-bundler'
+import Bundler from 'parcel'
 import path from 'path'
 import plugin from '.'
 
