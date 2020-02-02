@@ -77,7 +77,7 @@ Please follow the `.prettierrc` in the project.
 
 ## Credits
 
-This project exists thanks to all the people who [contribute](CONTRIBUTING.md). <a href="graphs/contributors"><img src="https://opencollective.com/svgr/contributors.svg?width=890&button=false" /></a>
+This project exists thanks to all the people who [contribute](CONTRIBUTING.md). <a href="https://github.com/gregberge/svgr/graphs/contributors"><img src="https://opencollective.com/svgr/contributors.svg?width=890&button=false" /></a>
 
 ### [Backers](https://opencollective.com/svgr#backer)
 
