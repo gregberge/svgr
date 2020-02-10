@@ -97,7 +97,13 @@ function getFilePath(state) {
 }
 
 function getPlugins(config) {
-  return config && Array.isArray(config.plugins) ? config.plugins : []
+  if (!config || !config.plugins) {
+    return []
+  }
+  if (!Array.isArray(config.plugins)) {
+    throw Error("`svgoConfig.plugins` must be an array")
+  }
+  return config.plugins
 }
 
 function extendPlugins(...configs) {
