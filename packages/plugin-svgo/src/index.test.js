@@ -38,6 +38,20 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('should throw error for invalid config.svgoConfig', () => {
+    const svgoOptions = [
+      baseSvg,
+      {
+        svgo: true,
+        runtimeConfig: true,
+        svgoConfig: { plugins: { removeDesc: false } },
+      },
+      {},
+    ]
+
+    expect(() => svgo(...svgoOptions)).toThrow()
+  })
+
   it('should support icon with config.svgoConfig plugins', () => {
     const result = svgo(
       baseSvg,
