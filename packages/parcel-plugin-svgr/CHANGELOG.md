@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/gregberge/svgr/tree/master/packages/parcel-plugin-svgr/compare/v5.1.0...v5.2.0) (2020-02-23)
+
+
+### Features
+
+* **parcel-plugin:** replace `parcel-bundler` with `parcel` ([#387](https://github.com/gregberge/svgr/tree/master/packages/parcel-plugin-svgr/issues/387)) ([d09bcd5](https://github.com/gregberge/svgr/tree/master/packages/parcel-plugin-svgr/commit/d09bcd5d7ba21c8845c6042928bbdf14165e787b))
+
+
+
+
+
 # [5.1.0](https://github.com/gregberge/svgr/tree/master/packages/parcel-plugin-svgr/compare/v5.0.1...v5.1.0) (2020-01-20)
 
 **Note:** Version bump only for package @svgr/parcel-plugin-svgr

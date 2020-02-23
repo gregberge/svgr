@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-preset",
   "description": "SVGR preset that apply transformations from config",
-  "version": "5.0.1",
+  "version": "5.2.0",
   "main": "lib/index.js",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-preset",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -34,6 +34,6 @@
     "@svgr/babel-plugin-svg-dynamic-title": "^5.0.1",
     "@svgr/babel-plugin-svg-em-dimensions": "^5.0.1",
     "@svgr/babel-plugin-transform-react-native-svg": "^5.0.1",
-    "@svgr/babel-plugin-transform-svg-component": "^5.0.1"
+    "@svgr/babel-plugin-transform-svg-component": "^5.2.0"
   }
 }
