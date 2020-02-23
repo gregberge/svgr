@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { useColorMode } from '@xstyled/styled-components'
 
 import AceEditor from 'react-ace'

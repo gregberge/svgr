@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled, { up, css } from '@xstyled/styled-components'
 import { Form, FormSpy } from 'react-final-form'
 import { SettingsFieldBoolean } from './SettingsFieldBoolean'

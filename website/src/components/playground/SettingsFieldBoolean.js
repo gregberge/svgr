@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Box } from '@xstyled/styled-components'
 import { FormCheck, FormCheckLabel } from '@smooth-ui/core-sc'
 import { CheckboxControl } from './controls/CheckboxControl'

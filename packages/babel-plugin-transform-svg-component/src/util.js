@@ -50,7 +50,7 @@ export const getProps = ({ types: t }, opts) => {
 export const getImport = ({ types: t }, opts) => {
   const importDeclarations = [
     t.importDeclaration(
-      [t.importDefaultSpecifier(t.identifier('React'))],
+      [t.importNamespaceSpecifier(t.identifier('React'))],
       t.stringLiteral('react'),
     ),
   ]

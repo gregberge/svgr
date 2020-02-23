@@ -16,7 +16,7 @@ describe('plugin', () => {
       state: { componentName: 'SvgComponent' },
     })
     expect(code).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent() {
         return <svg><div /></svg>;
@@ -32,7 +32,7 @@ describe('plugin', () => {
       native: true,
     })
     expect(code).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
       import Svg from \\"react-native-svg\\";
 
       function SvgComponent() {
@@ -49,7 +49,7 @@ describe('plugin', () => {
       native: { expo: true },
     })
     expect(code).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
       import \\"expo\\";
 
       function SvgComponent() {
@@ -66,14 +66,14 @@ describe('plugin', () => {
         { template },
         opts,
         { jsx },
-      ) => template.ast`import React from 'react';
+      ) => template.ast`import * as React from 'react';
   const MyComponent = () => ${jsx}
   export default MyComponent
 `,
       state: { componentName: 'SvgComponent' },
     })
     expect(code).toMatchInlineSnapshot(`
-      "import React from 'react';
+      "import * as React from 'react';
 
       const MyComponent = () => <svg><div /></svg>;
 
@@ -116,7 +116,7 @@ describe('plugin', () => {
       ref: true,
     })
     expect(code).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent({
         svgRef
@@ -135,7 +135,7 @@ describe('plugin', () => {
       memo: true,
     })
     expect(code).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent() {
         return <svg><div /></svg>;
@@ -153,7 +153,7 @@ describe('plugin', () => {
       ref: true,
     })
     expect(code).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent({
         svgRef
