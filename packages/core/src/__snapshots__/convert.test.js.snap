@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`convert config should support options 0 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -24,7 +24,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 1 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent() {
   return (
@@ -47,7 +47,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 2 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -70,7 +70,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 3 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -93,7 +93,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 4 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
 function SvgComponent(props) {
@@ -117,7 +117,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 5 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 import { Svg } from 'expo'
 
 function SvgComponent(props) {
@@ -141,7 +141,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 6 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
 function SvgComponent(props) {
@@ -165,7 +165,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 7 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
 function SvgComponent() {
@@ -189,7 +189,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 8 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
 function SvgComponent({ svgRef, ...props }) {
@@ -216,7 +216,7 @@ export default ForwardRef
 `;
 
 exports[`convert config should support options 9 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent({ svgRef, ...props }) {
   return (
@@ -242,7 +242,7 @@ export default ForwardRef
 `;
 
 exports[`convert config should support options 10 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -265,7 +265,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 11 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -288,7 +288,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 12 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -311,7 +311,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 13 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -341,7 +341,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 14 1`] = `
-"import React from \\"react\\";
+"import * as React from \\"react\\";
 
 function SvgComponent(props) {
   return <svg width={88} height={88} {...props}><g stroke=\\"#063855\\" strokeWidth={2} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\" /></g></svg>;
@@ -358,7 +358,7 @@ export default noop
 `;
 
 exports[`convert config should support options 16 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent({ title, titleId, ...props }) {
   return (
@@ -382,7 +382,7 @@ export default SvgComponent
 `;
 
 exports[`convert config should support options 17 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -406,7 +406,7 @@ export default MemoSvgComponent
 `;
 
 exports[`convert config titleProp: without title added 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent({ title, titleId, ...props }) {
   return (
@@ -430,7 +430,7 @@ export default SvgComponent
 `;
 
 exports[`convert should convert 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -453,7 +453,7 @@ export default SvgComponent
 `;
 
 exports[`convert should convert style attribute 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -500,7 +500,7 @@ export default SvgComponent
 `;
 
 exports[`convert should handle special SVG attributes 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -515,7 +515,7 @@ export default SvgComponent
 `;
 
 exports[`convert should not remove all style tags 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -543,7 +543,7 @@ export default SvgComponent
 `;
 
 exports[`convert should remove null characters 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (
@@ -563,7 +563,7 @@ export default SvgComponent
 `;
 
 exports[`convert should remove style tags 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgComponent(props) {
   return (

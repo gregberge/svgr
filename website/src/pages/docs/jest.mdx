@@ -13,7 +13,7 @@ Create a simple mock for the svgr loader and map this in the jest config:
 Create a mock file `__mocks__/svgrMock.js`:
 
 ```jsx
-import React from 'react'
+import * as React from 'react'
 
 export default 'SvgrURL'
 export const ReactComponent = 'div'

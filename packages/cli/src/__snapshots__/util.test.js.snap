@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`util #convertFile should convert a file 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgFile(props) {
   return (
@@ -16,7 +16,7 @@ export default SvgFile
 `;
 
 exports[`util #convertFile should support a custom config path 1`] = `
-"import React from 'react'
+"import * as React from 'react'
 
 function SvgFile(props) {
   return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import qs from 'query-string'
 import { createBrowserHistory } from 'history'
 

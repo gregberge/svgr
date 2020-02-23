@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Box } from '@xstyled/styled-components'
 import { FormField } from '@smooth-ui/core-sc'
 import { TextareaControl } from 'components/playground/controls/TextareaControl'

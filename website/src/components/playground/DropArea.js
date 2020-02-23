@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@xstyled/styled-components'
 
 const FullWidth = styled.div`

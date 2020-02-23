@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Field } from 'react-final-form'
 import { Radio } from '@smooth-ui/core-sc'
 

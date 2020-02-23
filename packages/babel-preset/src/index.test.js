@@ -24,7 +24,7 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent() {
         return <svg foo=\\"bar\\" x={y} />;
@@ -43,7 +43,7 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
       import { Svg } from \\"expo\\";
 
       function SvgComponent() {
@@ -63,7 +63,7 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent({
         title,
@@ -85,7 +85,7 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent({
         title,
@@ -105,7 +105,7 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent({
         title,
@@ -130,7 +130,7 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent() {
         return <svg a=\\"black\\" b={props.white} />;
@@ -151,7 +151,7 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent(props) {
         return <svg a=\\"#000\\" b=\\"#fff\\" width=\\"1em\\" height=\\"1em\\" {...props} />;

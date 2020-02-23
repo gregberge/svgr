@@ -20,7 +20,7 @@ describe('plugin', () => {
   it('should transform code', () => {
     const result = jsx(svgBaseCode, {}, { componentName: 'SvgComponent' })
     expect(result).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent() {
         return <svg viewBox=\\"0 0 88 88\\"><title>{\\"Dismiss\\"}</title><desc>{\\"Created with Sketch.\\"}</desc><defs /><g id=\\"Blocks\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}><path d=\\"M51,37 L37,51\\" id=\\"Shape\\" /><path d=\\"M51,51 L37,37\\" id=\\"Shape\\" /></g></g></svg>;
@@ -49,7 +49,7 @@ describe('plugin', () => {
       { componentName: 'SvgComponent' },
     )
     expect(result).toMatchInlineSnapshot(`
-      "import React from \\"react\\";
+      "import * as React from \\"react\\";
 
       function SvgComponent() {
         return <svg viewBox=\\"0 0 88 88\\"><desc>{\\"Created with Sketch.\\"}</desc><defs /><g id=\\"Blocks\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}><path d=\\"M51,37 L37,51\\" id=\\"Shape\\" /><path d=\\"M51,51 L37,37\\" id=\\"Shape\\" /></g></g></svg>;

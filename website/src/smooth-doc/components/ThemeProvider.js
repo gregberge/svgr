@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { ThemeProvider as SCThemeProvider } from '@xstyled/styled-components'
 import deepmerge from 'deepmerge'
 import { theme as suiTheme } from '@smooth-ui/core-sc'

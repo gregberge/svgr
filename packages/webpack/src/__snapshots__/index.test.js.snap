@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`webpack loader should convert file (babel: false) 1`] = `
-"import React from \\"react\\";
+"import * as React from \\"react\\";
 
 function SvgIcon() {
   return React.createElement(\\"svg\\", {
@@ -22,7 +22,7 @@ export default SvgIcon;"
 `;
 
 exports[`webpack loader should convert file 1`] = `
-"import React from \\"react\\";
+"import * as React from \\"react\\";
 
 var _ref =
 /*#__PURE__*/
@@ -47,7 +47,7 @@ export default SvgIcon;"
 `;
 
 exports[`webpack loader should support url-loader 1`] = `
-"import React from \\"react\\";
+"import * as React from \\"react\\";
 
 var _ref =
 /*#__PURE__*/

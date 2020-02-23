@@ -1,5 +1,5 @@
 module.exports = () => (code, state) => `
-import React from 'react'
+import * as React from 'react'
 
 export default function ${state.componentName}() {
   return ${code}

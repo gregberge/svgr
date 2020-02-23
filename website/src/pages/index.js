@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React from 'react'
+import * as React from 'react'
 import { Box } from '@xstyled/styled-components'
 import Helmet from 'react-helmet'
 import { HomeHero, ShowCase, BaseLayout } from 'smooth-doc/components'

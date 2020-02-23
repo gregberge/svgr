@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled, { up, css, Box } from '@xstyled/styled-components'
 import { useHiddenState, Hidden, HiddenDisclosure } from 'reakit/Hidden'
 import { ChevronLeft } from 'components/playground/icons/ChevronLeft'
