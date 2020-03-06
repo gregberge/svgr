@@ -1,4 +1,4 @@
-import { Asset } from 'parcel'
+import { Asset } from 'parcel-bundler'
 import { transformAsync, createConfigItem } from '@babel/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
