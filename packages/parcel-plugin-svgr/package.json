@@ -1,7 +1,7 @@
 {
   "name": "@svgr/parcel-plugin-svgr",
   "description": "SVGR Parcel plugin.",
-  "version": "5.2.0",
+  "version": "6.0.0",
   "main": "lib/index.js",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/parcel-plugin-svgr",
   "author": "Mario Pabon <me@mariopabon.com>",
@@ -30,9 +30,10 @@
     "prepublishOnly": "yarn run build"
   },
   "peerDependencies": {
-    "parcel": "^1.10.0"
+    "parcel-bundler": "^1.10.0"
   },
   "dependencies": {
+    "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
     "@babel/plugin-transform-react-constant-elements": "^7.7.4",
     "@babel/preset-env": "^7.7.6",
@@ -42,6 +43,6 @@
     "@svgr/plugin-svgo": "^5.2.0"
   },
   "devDependencies": {
-    "parcel": "^1.10.0"
+    "parcel-bundler": "^1.10.0"
   }
 }
