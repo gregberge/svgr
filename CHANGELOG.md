@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/gregberge/svgr/compare/v5.2.0...v5.3.0) (2020-03-22)
+
+
+### Bug Fixes
+
+* **cli:** remove confusion between {keep,ignore}-existing ([#413](https://github.com/gregberge/svgr/issues/413)) ([c5430f9](https://github.com/gregberge/svgr/commit/c5430f97b053a7d2d85c85c56b87dfc8c9c1f09a)), closes [#390](https://github.com/gregberge/svgr/issues/390)
+* **parcel-plugin:** support "parcel" and "parcel-bundler" ([853db4e](https://github.com/gregberge/svgr/commit/853db4ef0e9da4952e8189e3f86fb62e6c506693)), closes [#410](https://github.com/gregberge/svgr/issues/410)
+* **svgo:** support any SVGO config format ([#412](https://github.com/gregberge/svgr/issues/412)) ([f2b2367](https://github.com/gregberge/svgr/commit/f2b2367389fda20baba6e0a5e884e7f7fe29a3ed)), closes [#400](https://github.com/gregberge/svgr/issues/400)
+
+
+### Features
+
+* add typescript option ([4596d7b](https://github.com/gregberge/svgr/commit/4596d7bb470babb5ec4b87f5281174fb182bd9c7)), closes [#373](https://github.com/gregberge/svgr/issues/373)
+
+
+
+
+
 # [5.2.0](https://github.com/smooth-code/svgr/compare/v5.1.0...v5.2.0) (2020-02-23)
 
 

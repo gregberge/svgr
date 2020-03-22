@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/gregberge/svgr/tree/master/packages/core/compare/v5.2.0...v5.3.0) (2020-03-22)
+
+
+### Features
+
+* add typescript option ([4596d7b](https://github.com/gregberge/svgr/tree/master/packages/core/commit/4596d7bb470babb5ec4b87f5281174fb182bd9c7)), closes [#373](https://github.com/gregberge/svgr/tree/master/packages/core/issues/373)
+
+
+
+
+
 # [5.2.0](https://github.com/gregberge/svgr/tree/master/packages/core/compare/v5.1.0...v5.2.0) (2020-02-23)
 
 **Note:** Version bump only for package @svgr/core
