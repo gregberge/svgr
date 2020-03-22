@@ -30,7 +30,7 @@ A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
 are transformed into React components.
 
 ```sh
-# Usage: npx @svgr/cli [-d out-dir] [--keep-existing] [src-dir]
+# Usage: npx @svgr/cli [-d out-dir] [--ignore-existing] [src-dir]
 $ npx @svgr/cli -d icons icons
 icons/web/clock-icon.svg -> icons/web/ClockIcon.js
 icons/web/wifi-icon.svg -> icons/web/WifiIcon.js
@@ -38,7 +38,7 @@ icons/spinner/cog-icon.svg -> icons/spinner/CogIcon.js
 icons/spinner/spinner-icon.svg -> icons/spinner/SpinnerIcon.js
 ```
 
-> Add `--keep-existing` to avoid overriding existing files.
+> Add `--ignore-existing` to avoid overriding existing files.
 
 ### Use stdin
 
