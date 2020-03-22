@@ -1,9 +1,12 @@
 import { transform } from '@babel/core'
 import plugin from '.'
 
-const testPlugin = (code, options) => {
+const testPlugin = language => (code, options) => {
   const result = transform(code, {
-    plugins: ['@babel/plugin-syntax-jsx', [plugin, options]],
+    plugins: [
+      '@babel/plugin-syntax-jsx',
+      [plugin, { ...options, typescript: language === 'typescript' }],
+    ],
     configFile: false,
   })
 
@@ -11,159 +14,150 @@ const testPlugin = (code, options) => {
 }
 
 describe('plugin', () => {
-  it('should transform whole program', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      state: { componentName: 'SvgComponent' },
+  describe.each(['javascript', 'typescript'])('%s', language => {
+    it('transforms whole program', () => {
+      const { code } = testPlugin(language)('<svg><g /></svg>', {
+        state: { componentName: 'SvgComponent' },
+      })
+      expect(code).toMatchSnapshot()
     })
-    expect(code).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
 
-      function SvgComponent() {
-        return <svg><div /></svg>;
-      }
-
-      export default SvgComponent;"
-    `)
-  })
-
-  it('should add import for react-native-svg', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      state: { componentName: 'SvgComponent' },
-      native: true,
+    describe('with "native" option', () => {
+      it('adds import from "react-native-svg"', () => {
+        const { code } = testPlugin(language)('<Svg><g /></Svg>', {
+          state: { componentName: 'SvgComponent' },
+          native: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
-    expect(code).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-      import Svg from \\"react-native-svg\\";
 
-      function SvgComponent() {
-        return <svg><div /></svg>;
-      }
-
-      export default SvgComponent;"
-    `)
-  })
-
-  it('should import for expo', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      state: { componentName: 'SvgComponent' },
-      native: { expo: true },
+    describe('with "native.expo" option', () => {
+      it('adds import from "react-native-svg" & from "expo"', () => {
+        const { code } = testPlugin(language)('<Svg><g /></Svg>', {
+          state: { componentName: 'SvgComponent' },
+          native: { expo: true },
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
-    expect(code).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-      import \\"expo\\";
 
-      function SvgComponent() {
-        return <svg><div /></svg>;
-      }
-
-      export default SvgComponent;"
-    `)
-  })
-
-  it('should support custom template', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      template: (
-        { template },
-        opts,
-        { jsx },
-      ) => template.ast`import * as React from 'react';
-  const MyComponent = () => ${jsx}
-  export default MyComponent
-`,
-      state: { componentName: 'SvgComponent' },
+    describe('with "ref" option', () => {
+      it('adds ForwardRef component', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: { componentName: 'SvgComponent' },
+          ref: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
-    expect(code).toMatchInlineSnapshot(`
-      "import * as React from 'react';
 
-      const MyComponent = () => <svg><div /></svg>;
-
-      export default MyComponent;"
-    `)
-  })
-
-  it('should support custom typescript template', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      template: ({ template }, opts, { jsx }) => {
-        const typescriptTemplate = template.smart({ plugins: ['typescript'] })
-        return typescriptTemplate.ast`
-          import * as React from 'react';
-          const MyComponent = (props: React.SVGProps<SVGSVGElement>) => ${jsx};
-          export default MyComponent;
-        `
-      },
-      state: { componentName: 'SvgComponent' },
+    describe('with "titleProp"', () => {
+      it('adds "titleProp" and "titleId" prop', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: { componentName: 'SvgComponent' },
+          titleProp: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
-    expect(code).toMatchInlineSnapshot(`
-      "import * as React from 'react';
 
-      const MyComponent = (props: React.SVGProps<SVGSVGElement>) => <svg><div /></svg>;
-
-      export default MyComponent;"
-    `)
-  })
-
-  it('should handle template that does not return an array', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      template: ({ template }, opts, { jsx }) => template.ast`${jsx}`,
-      state: { componentName: 'SvgComponent' },
+    describe('with "expandProps"', () => {
+      it('add props', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: { componentName: 'SvgComponent' },
+          expandProps: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
-    expect(code).toMatchInlineSnapshot(`"<svg><div /></svg>;"`)
-  })
 
-  it('should work with ref', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      state: { componentName: 'SvgComponent' },
-      ref: true,
+    describe('with "ref" and "expandProps" option', () => {
+      it('expands props', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: { componentName: 'SvgComponent' },
+          expandProps: true,
+          ref: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
-    expect(code).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
 
-      function SvgComponent({
-        svgRef
-      }) {
-        return <svg><div /></svg>;
-      }
-
-      const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
-      export default ForwardRef;"
-    `)
-  })
-
-  it('should work with memo', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      state: { componentName: 'SvgComponent' },
-      memo: true,
+    describe('with "memo" option', () => {
+      it('wrap component in "React.memo"', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: { componentName: 'SvgComponent' },
+          memo: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
-    expect(code).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
 
-      function SvgComponent() {
-        return <svg><div /></svg>;
-      }
-
-      const MemoSvgComponent = React.memo(SvgComponent);
-      export default MemoSvgComponent;"
-    `)
-  })
-
-  it('should work with memo + ref', () => {
-    const { code } = testPlugin('<svg><div /></svg>', {
-      state: { componentName: 'SvgComponent' },
-      memo: true,
-      ref: true,
+    describe('with both "memo" and "ref" option', () => {
+      it('wrap component in "React.memo" and "React.forwardRef"', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: { componentName: 'SvgComponent' },
+          memo: true,
+          ref: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
-    expect(code).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
 
-      function SvgComponent({
-        svgRef
-      }) {
-        return <svg><div /></svg>;
-      }
+    describe('custom templates', () => {
+      it('support basic template', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          template: (
+            { template },
+            opts,
+            { jsx },
+          ) => template.ast`import * as React from 'react';
+      const MyComponent = () => ${jsx}
+      export default MyComponent
+    `,
+          state: { componentName: 'SvgComponent' },
+        })
+        expect(code).toMatchSnapshot()
+      })
 
-      const MemoSvgComponent = React.memo(SvgComponent);
-      const ForwardRef = React.forwardRef((props, ref) => <MemoSvgComponent svgRef={ref} {...props} />);
-      export default ForwardRef;"
-    `)
+      describe('it supports JSX template', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          template: ({ template }, opts, { jsx }) => {
+            const jsxTemplate = template.smart({ plugins: ['jsx'] })
+            return jsxTemplate.ast`import * as React from 'react';
+            const MyComponent = () => <main>{${jsx}}</main>
+            export default MyComponent
+          `
+          },
+          state: { componentName: 'SvgComponent' },
+        })
+        expect(code).toMatchSnapshot()
+      })
+
+      it('supports TypeScript template', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          template: ({ template }, opts, { jsx }) => {
+            const typescriptTemplate = template.smart({
+              plugins: ['typescript'],
+            })
+            return typescriptTemplate.ast`
+              import * as React from 'react';
+              const MyComponent = (props: React.SVGProps<SVGSVGElement>) => ${jsx};
+              export default MyComponent;
+            `
+          },
+          state: { componentName: 'SvgComponent' },
+        })
+        expect(code).toMatchSnapshot()
+      })
+
+      it('supports template that does not return an array', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          template: ({ template }, opts, { jsx }) => template.ast`${jsx}`,
+          state: { componentName: 'SvgComponent' },
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
   })
 })

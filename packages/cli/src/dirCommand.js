@@ -35,23 +35,28 @@ export function isCompilable(filename) {
   return COMPILABLE_EXTENSIONS.includes(ext)
 }
 
-function defaultIndexTemplate(files) {
-  const exportEntries = files.map(file => {
-    const basename = path.basename(file, path.extname(file))
+function defaultIndexTemplate(filePaths) {
+  const exportEntries = filePaths.map(filePath => {
+    const basename = path.basename(filePath, path.extname(filePath))
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     return `export { default as ${exportName} } from './${basename}'`
   })
   return exportEntries.join('\n')
 }
 
+function getDefaultExtension(options) {
+  return options.typescript ? 'tsx' : 'js'
+}
+
 export default async function dirCommand(
   program,
   filenames,
-  { ext = 'js', filenameCase = CASE.PASCAL, ...options },
+  { ext, filenameCase = CASE.PASCAL, ...options },
 ) {
   async function write(src, dest) {
     if (!isCompilable(src)) return null
 
+    ext = ext || getDefaultExtension(options)
     dest = rename(dest, ext, filenameCase)
     const code = await convertFile(src, options)
     const cwdRelative = path.relative(process.cwd(), dest)

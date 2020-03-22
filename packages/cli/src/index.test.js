@@ -64,6 +64,17 @@ describe('cli', () => {
     expect(sorted).toMatchSnapshot()
   }, 10000)
 
+  it('should transform a whole directory with --typescript', async () => {
+    const result = await cli(
+      '--typescript --out-dir __fixtures_build__/whole __fixtures__',
+    )
+    const sorted = result
+      .split(/\n/)
+      .sort()
+      .join('\n')
+    expect(sorted).toMatchSnapshot()
+  }, 10000)
+
   it('should suppress output when transforming a directory with a --silent option', async () => {
     const result = await cli(
       '--silent --out-dir __fixtures_build__/whole __fixtures__',
@@ -118,6 +129,8 @@ describe('cli', () => {
     ['--no-svgo'],
     ['--no-prettier'],
     ['--title-prop'],
+    ['--typescript'],
+    ['--typescript --ref'],
   ])(
     'should support various args',
     async args => {

@@ -1,16 +1,24 @@
-import { getProps, getImport, getExport } from './util'
+import { getProps, getImport, getExport, getInterface } from './util'
 
 function defaultTemplate(
   { template },
   opts,
-  { imports, componentName, props, jsx, exports },
+  { imports, interfaces, componentName, props, jsx, exports },
 ) {
-  return template.ast`${imports}
+  const plugins = ['jsx']
+  if (opts.typescript) {
+    plugins.push('typescript')
+  }
+  const typeScriptTpl = template.smart({ plugins })
+  return typeScriptTpl.ast`${imports}
+
+${interfaces}
+
 function ${componentName}(${props}) {
   return ${jsx};
 }
 ${exports}
-`
+  `
 }
 
 const plugin = (api, opts) => ({
@@ -20,6 +28,7 @@ const plugin = (api, opts) => ({
       const template = opts.template || defaultTemplate
       const body = template(api, opts, {
         componentName: t.identifier(opts.state.componentName),
+        interfaces: getInterface(api, opts),
         props: getProps(api, opts),
         imports: getImport(api, opts),
         exports: getExport(api, opts),
