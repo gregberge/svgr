@@ -5,16 +5,14 @@ exports[`rollup loader should convert file 1`] = `
 
 import * as React from \\"react\\";
 
-var _ref =
-/*#__PURE__*/
-React.createElement(\\"path\\", {
+var _ref = /*#__PURE__*/React.createElement(\\"path\\", {
   d: \\"M0 0h48v1H0z\\",
   fill: \\"#063855\\",
   fillRule: \\"evenodd\\"
 });
 
 function SvgFile(props) {
-  return React.createElement(\\"svg\\", _extends({
+  return /*#__PURE__*/React.createElement(\\"svg\\", _extends({
     width: 48,
     height: 1
   }, props), _ref);

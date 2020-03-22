@@ -34,20 +34,18 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-var _ref =
-/*#__PURE__*/
-React.createElement(\\"g\\", {
+var _ref = /*#__PURE__*/React.createElement(\\"g\\", {
   stroke: \\"#063855\\",
   strokeWidth: 2,
   fill: \\"none\\",
   fillRule: \\"evenodd\\",
   strokeLinecap: \\"square\\"
-}, React.createElement(\\"path\\", {
+}, /*#__PURE__*/React.createElement(\\"path\\", {
   d: \\"M51 37L37 51M51 51L37 37\\"
 }));
 
 function SvgIcon(props) {
-  return React.createElement(\\"svg\\", _extends({
+  return /*#__PURE__*/React.createElement(\\"svg\\", _extends({
     width: 88,
     height: 88
   }, props), _ref);
