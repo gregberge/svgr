@@ -1,4 +1,3 @@
-import { Asset } from 'parcel'
 import { transformAsync, createConfigItem } from '@babel/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
@@ -6,6 +5,18 @@ import convert from '@svgr/core'
 import presetReact from '@babel/preset-react'
 import presetEnv from '@babel/preset-env'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
+
+/* eslint-disable global-require, import/no-unresolved */
+function requireParcel() {
+  try {
+    return require('parcel')
+  } catch (error) {
+    return require('parcel-bundler')
+  }
+}
+/* eslint-enable global-require, import/no-unresolved */
+
+const { Asset } = requireParcel()
 
 const babelOptions = {
   babelrc: false,
