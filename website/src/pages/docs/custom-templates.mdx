@@ -8,7 +8,7 @@ order: 6
 
 Custom templates give you the opportunity to personalize the final generated component by SVGR. In most of case you don't need it, only advanced use-cases require templates.
 
-## Create a custom template
+## Custom Component template
 
 A custom template takes place in a file that exports a "template function".
 
@@ -30,14 +30,22 @@ The following template is the default template used by SVGR. It is a good idea t
 function defaultTemplate(
   { template },
   opts,
-  { imports, componentName, props, jsx, exports },
+  { imports, interfaces, componentName, props, jsx, exports },
 ) {
-  return template.ast`${imports}
+  const plugins = ['jsx']
+  if (opts.typescript) {
+    plugins.push('typescript')
+  }
+  const typeScriptTpl = template.smart({ plugins })
+  return typeScriptTpl.ast`${imports}
+
+${interfaces}
+
 function ${componentName}(${props}) {
   return ${jsx};
 }
 ${exports}
-`
+  `
 }
 
 module.exports = defaultTemplate
@@ -51,10 +59,16 @@ Let's try something very simple. You want to add some PropTypes to your componen
 function propTypesTemplate(
   { template },
   opts,
-  { imports, componentName, props, jsx, exports },
+  { imports, interfaces, componentName, props, jsx, exports },
 ) {
-  return template.ast`${imports}
+  const plugins = ['jsx']
+  if (opts.typescript) {
+    plugins.push('typescript')
+  }
+  const typeScriptTpl = template.smart({ plugins })
+  return typeScriptTpl.ast`${imports}
 import PropTypes from 'prop-types';
+${interfaces}
 
 function ${componentName}(${props}) {
   return ${jsx};
@@ -65,7 +79,7 @@ ${componentName}.propTypes = {
 };
 
 ${exports}
-`
+  `
 }
 
 module.exports = propTypesTemplate
@@ -73,21 +87,48 @@ module.exports = propTypesTemplate
 
 As you can see it is very natural, we just add code and use AST parts in the template.
 
-## Use template with CLI
+### Use with CLI
 
-You can use this template in the CLI, along the `--ext` argument:
+You can use component template in the CLI:
 
 ```sh
-$ npx @svgr/cli --template my/template.js --ext .ts my-icon.svg
+$ npx @svgr/cli --template template.js my-icon.svg
 ```
 
-## Use template in config
+### Use with config
 
-Specify `.svgrrc.js`:
+Specify the template in `.svgrrc.js`:
 
 ```js
 // .svgrrc.js
 module.exports = {
   template: require('./my-template'),
 }
+```
+
+## Custom index template
+
+When you use the CLI with `--out-dir` option, an index file is automatically generated.
+
+The customization is the same, a file that exports a function:
+
+```js
+function defaultIndexTemplate(filePaths) {
+  const exportEntries = filePaths.map(filePath => {
+    const basename = path.basename(filePath, path.extname(filePath))
+    const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
+    return `export { default as ${exportName} } from './${basename}'`
+  })
+  return exportEntries.join('\n')
+}
+
+module.exports = defaultIndexTemplate
+```
+
+### Use with CLI
+
+You can use component template in the CLI:
+
+```sh
+$ npx @svgr/cli --index-template index-template.js my-icon.svg
 ```
