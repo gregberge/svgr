@@ -25,6 +25,13 @@ export const settings = [
     default: false,
   },
   {
+    label: 'TypeScript',
+    name: 'typescript',
+    type: 'boolean',
+    group: 'global',
+    default: false,
+  },
+  {
     label: 'Ref',
     name: 'ref',
     type: 'boolean',
