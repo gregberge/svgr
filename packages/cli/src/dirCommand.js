@@ -44,14 +44,19 @@ function defaultIndexTemplate(files) {
   return exportEntries.join('\n')
 }
 
+function getDefaultExtension(options) {
+  return options.typescript ? 'tsx' : 'js'
+}
+
 export default async function dirCommand(
   program,
   filenames,
-  { ext = 'js', filenameCase = CASE.PASCAL, ...options },
+  { ext, filenameCase = CASE.PASCAL, ...options },
 ) {
   async function write(src, dest) {
     if (!isCompilable(src)) return null
 
+    ext = ext || getDefaultExtension(options)
     dest = rename(dest, ext, filenameCase)
     const code = await convertFile(src, options)
     const cwdRelative = path.relative(process.cwd(), dest)

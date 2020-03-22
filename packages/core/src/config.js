@@ -6,6 +6,7 @@ export const DEFAULT_CONFIG = {
   expandProps: 'end',
   icon: false,
   native: false,
+  typescript: false,
   prettier: true,
   prettierConfig: null,
   memo: false,

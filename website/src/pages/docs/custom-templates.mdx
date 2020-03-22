@@ -1,0 +1,93 @@
+---
+menu: Advanced
+title: Custom Templates
+order: 6
+---
+
+# Custom Templates
+
+Custom templates give you the opportunity to personalize the final generated component by SVGR. In most of case you don't need it, only advanced use-cases require templates.
+
+## Create a custom template
+
+A custom template takes place in a file that exports a "template function".
+
+This function is called in a babel plugin: `babel-plugin-transform-svg-component` and must returns a Babel AST. If you are not familiar with all Babel stuff, you should read [this guide](https://github.com/jamiebuilds/babel-handbook).
+
+- `api`: The API object returned by Babel
+- `opts`: Options passed to `babel-plugin-transform-svg-component`
+- `astParts`: All pre-compiled parts by SVGR
+  - `componentName`: The component name
+  - `props`: The properties
+  - `interfaces`: All necessary interfaces (typescript)
+  - `imports`: All necessary imports
+  - `exports`: The export of the component
+  - `jsx`: The JSX part of the component
+
+The following template is the default template used by SVGR. It is a good idea to start with it:
+
+```js
+function defaultTemplate(
+  { template },
+  opts,
+  { imports, componentName, props, jsx, exports },
+) {
+  return template.ast`${imports}
+function ${componentName}(${props}) {
+  return ${jsx};
+}
+${exports}
+`
+}
+
+module.exports = defaultTemplate
+```
+
+As you can see, we use [the `template.ast` helper of Babel](https://babeljs.io/docs/en/babel-template#template). This function have to return an AST.
+
+Let's try something very simple. You want to add some PropTypes to your component:
+
+```js
+function propTypesTemplate(
+  { template },
+  opts,
+  { imports, componentName, props, jsx, exports },
+) {
+  return template.ast`${imports}
+import PropTypes from 'prop-types';
+
+function ${componentName}(${props}) {
+  return ${jsx};
+}
+
+${componentName}.propTypes = {
+  title: PropTypes.string,
+};
+
+${exports}
+`
+}
+
+module.exports = propTypesTemplate
+```
+
+As you can see it is very natural, we just add code and use AST parts in the template.
+
+## Use template with CLI
+
+You can use this template in the CLI, along the `--ext` argument:
+
+```sh
+$ npx @svgr/cli --template my/template.js --ext .ts my-icon.svg
+```
+
+## Use template in config
+
+Specify `.svgrrc.js`:
+
+```js
+// .svgrrc.js
+module.exports = {
+  template: require('./my-template'),
+}
+```

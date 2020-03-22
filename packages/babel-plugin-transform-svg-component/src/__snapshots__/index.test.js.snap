@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+"import * as React from 'react';
+
+const MyComponent = () => <main>{<svg><g /></svg>}</main>;
+
+export default MyComponent;"
+`;
+
+exports[` 2`] = `
+"import * as React from 'react';
+
+const MyComponent = () => <main>{<svg><g /></svg>}</main>;
+
+export default MyComponent;"
+`;
+
+exports[`plugin javascript custom templates support basic template 1`] = `
+"import * as React from 'react';
+
+const MyComponent = () => <svg><g /></svg>;
+
+export default MyComponent;"
+`;
+
+exports[`plugin javascript custom templates supports TypeScript template 1`] = `
+"import * as React from 'react';
+
+const MyComponent = (props: React.SVGProps<SVGSVGElement>) => <svg><g /></svg>;
+
+export default MyComponent;"
+`;
+
+exports[`plugin javascript custom templates supports template that does not return an array 1`] = `"<svg><g /></svg>;"`;
+
+exports[`plugin javascript transforms whole program 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent() {
+  return <svg><g /></svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript with "expandProps" add props 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent(props) {
+  return <svg><g /></svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript with "memo" option wrap component in "React.memo" 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent() {
+  return <svg><g /></svg>;
+}
+
+const MemoSvgComponent = React.memo(SvgComponent);
+export default MemoSvgComponent;"
+`;
+
+exports[`plugin javascript with "native" option adds import from "react-native-svg" 1`] = `
+"import * as React from \\"react\\";
+import Svg from \\"react-native-svg\\";
+
+function SvgComponent() {
+  return <Svg><g /></Svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript with "native.expo" option adds import from "react-native-svg" & from "expo" 1`] = `
+"import * as React from \\"react\\";
+import \\"expo\\";
+
+function SvgComponent() {
+  return <Svg><g /></Svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript with "ref" and "expandProps" option expands props 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent({
+  svgRef,
+  ...props
+}) {
+  return <svg><g /></svg>;
+}
+
+const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
+export default ForwardRef;"
+`;
+
+exports[`plugin javascript with "ref" option adds ForwardRef component 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent({
+  svgRef
+}) {
+  return <svg><g /></svg>;
+}
+
+const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
+export default ForwardRef;"
+`;
+
+exports[`plugin javascript with "titleProp" adds "titleProp" and "titleId" prop 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent({
+  title,
+  titleId
+}) {
+  return <svg><g /></svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript with both "memo" and "ref" option wrap component in "React.memo" and "React.forwardRef" 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent({
+  svgRef
+}) {
+  return <svg><g /></svg>;
+}
+
+const MemoSvgComponent = React.memo(SvgComponent);
+const ForwardRef = React.forwardRef((props, ref) => <MemoSvgComponent svgRef={ref} {...props} />);
+export default ForwardRef;"
+`;
+
+exports[`plugin typescript custom templates support basic template 1`] = `
+"import * as React from 'react';
+
+const MyComponent = () => <svg><g /></svg>;
+
+export default MyComponent;"
+`;
+
+exports[`plugin typescript custom templates supports TypeScript template 1`] = `
+"import * as React from 'react';
+
+const MyComponent = (props: React.SVGProps<SVGSVGElement>) => <svg><g /></svg>;
+
+export default MyComponent;"
+`;
+
+exports[`plugin typescript custom templates supports template that does not return an array 1`] = `"<svg><g /></svg>;"`;
+
+exports[`plugin typescript transforms whole program 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent() {
+  return <svg><g /></svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "expandProps" add props 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
+  return <svg><g /></svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "memo" option wrap component in "React.memo" 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent() {
+  return <svg><g /></svg>;
+}
+
+const MemoSvgComponent = React.memo(SvgComponent);
+export default MemoSvgComponent;"
+`;
+
+exports[`plugin typescript with "native" option adds import from "react-native-svg" 1`] = `
+"import * as React from \\"react\\";
+import Svg from \\"react-native-svg\\";
+
+function SvgComponent() {
+  return <Svg><g /></Svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "native.expo" option adds import from "react-native-svg" & from "expo" 1`] = `
+"import * as React from \\"react\\";
+import \\"expo\\";
+
+function SvgComponent() {
+  return <Svg><g /></Svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "ref" and "expandProps" option expands props 1`] = `
+"import * as React from \\"react\\";
+interface SVGRProps {
+  svgRef?: React.Ref<SVGSVGElement>
+}
+
+function SvgComponent({
+  svgRef,
+  ...props
+}: React.SVGProps<SVGSVGElement> & SVGRProps) {
+  return <svg><g /></svg>;
+}
+
+const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
+export default ForwardRef;"
+`;
+
+exports[`plugin typescript with "ref" option adds ForwardRef component 1`] = `
+"import * as React from \\"react\\";
+interface SVGRProps {
+  svgRef?: React.Ref<SVGSVGElement>
+}
+
+function SvgComponent({
+  svgRef
+}: SVGRProps) {
+  return <svg><g /></svg>;
+}
+
+const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
+export default ForwardRef;"
+`;
+
+exports[`plugin typescript with "titleProp" adds "titleProp" and "titleId" prop 1`] = `
+"import * as React from \\"react\\";
+interface SVGRProps {
+  title?: String,
+  titleId?: String,
+}
+
+function SvgComponent({
+  title,
+  titleId
+}: SVGRProps) {
+  return <svg><g /></svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with both "memo" and "ref" option wrap component in "React.memo" and "React.forwardRef" 1`] = `
+"import * as React from \\"react\\";
+interface SVGRProps {
+  svgRef?: React.Ref<SVGSVGElement>
+}
+
+function SvgComponent({
+  svgRef
+}: SVGRProps) {
+  return <svg><g /></svg>;
+}
+
+const MemoSvgComponent = React.memo(SvgComponent);
+const ForwardRef = React.forwardRef((props, ref) => <MemoSvgComponent svgRef={ref} {...props} />);
+export default ForwardRef;"
+`;
