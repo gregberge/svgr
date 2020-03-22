@@ -145,8 +145,8 @@ Add props to the root SVG tag.
 Add title tag via title property. If titleProp is set to true and no title is provided (`title={undefined}`) at render time, this will
 fallback to existing title element in the svg if exists.
 
-| Default | CLI Override | API Override        |
-| ------- | ------------ | ------------------- |
+| Default | CLI Override   | API Override        |
+| ------- | -------------- | ------------------- |
 | `false` | `--title-prop` | `titleProp: <bool>` |
 
 ## Template
@@ -170,15 +170,14 @@ Output files into a directory.
 
 Specify a template function (API) to change default index.js output (when --out-dir is used).
 
-| Default            | CLI Override          | API Override               |
-| ------------------ | ------------------ | -------------------------- |
+| Default                                                                                          | CLI Override       | API Override               |
+| ------------------------------------------------------------------------------------------------ | ------------------ | -------------------------- |
 | [`basic template`](https://github.com/gregberge/svgr/blob/master/packages/cli/src/dirCommand.js) | `--index-template` | indexTemplate: files => '' |
 
+## Ignore existing
 
-## Keep existing
+When used with `--out-dir`, it ignores already existing files.
 
-When used with `--out-dir`, it does not override already existing files.
-
-| Default | CLI Override      | API Override          |
-| ------- | ----------------- | --------------------- |
-| `false` | `--keep-existing` | Only available in CLI |
+| Default | CLI Override        | API Override          |
+| ------- | ------------------- | --------------------- |
+| `false` | `--ignore-existing` | Only available in CLI |

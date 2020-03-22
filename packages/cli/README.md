@@ -20,8 +20,7 @@ Options:
   --config-file <file>             specify the path of the svgr config
   --no-runtime-config              disable runtime config (".svgrrc", ".svgo.yml", ".prettierrc")
   -d, --out-dir <dirname>          output files into a directory
-  --ignore-existing                ignore existing files in output directory
-  --keep-existing                  do not override already existing files when used with --out-dir
+  --ignore-existing                ignore existing files when used with --out-dir
   --ext <ext>                      specify a custom file extension (default: "js")
   --filename-case <case>           specify filename case ("pascal", "kebab", "camel") (default: "pascal")
   --icon                           use "1em" as width and height
