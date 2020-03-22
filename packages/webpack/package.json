@@ -30,19 +30,19 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-transform-react-constant-elements": "^7.0.0",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-react-constant-elements": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
     "@svgr/core": "^5.2.0",
     "@svgr/plugin-jsx": "^5.2.0",
     "@svgr/plugin-svgo": "^5.2.0",
-    "loader-utils": "^1.2.3"
+    "loader-utils": "^2.0.0"
   },
   "devDependencies": {
     "babel-loader": "^8.0.6",
     "memory-fs": "^0.5.0",
-    "url-loader": "^3.0.0",
+    "url-loader": "^4.0.0",
     "webpack": "^4.33.0"
   }
 }

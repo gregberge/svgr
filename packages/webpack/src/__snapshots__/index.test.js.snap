@@ -4,16 +4,16 @@ exports[`webpack loader should convert file (babel: false) 1`] = `
 "import * as React from \\"react\\";
 
 function SvgIcon() {
-  return React.createElement(\\"svg\\", {
+  return /*#__PURE__*/React.createElement(\\"svg\\", {
     width: 88,
     height: 88
-  }, React.createElement(\\"g\\", {
+  }, /*#__PURE__*/React.createElement(\\"g\\", {
     stroke: \\"#063855\\",
     strokeWidth: 2,
     fill: \\"none\\",
     fillRule: \\"evenodd\\",
     strokeLinecap: \\"square\\"
-  }, React.createElement(\\"path\\", {
+  }, /*#__PURE__*/React.createElement(\\"path\\", {
     d: \\"M51 37L37 51M51 51L37 37\\"
   })));
 }
@@ -24,18 +24,16 @@ export default SvgIcon;"
 exports[`webpack loader should convert file 1`] = `
 "import * as React from \\"react\\";
 
-var _ref =
-/*#__PURE__*/
-React.createElement(\\"svg\\", {
+var _ref = /*#__PURE__*/React.createElement(\\"svg\\", {
   width: 88,
   height: 88
-}, React.createElement(\\"g\\", {
+}, /*#__PURE__*/React.createElement(\\"g\\", {
   stroke: \\"#063855\\",
   strokeWidth: 2,
   fill: \\"none\\",
   fillRule: \\"evenodd\\",
   strokeLinecap: \\"square\\"
-}, React.createElement(\\"path\\", {
+}, /*#__PURE__*/React.createElement(\\"path\\", {
   d: \\"M51 37L37 51M51 51L37 37\\"
 })));
 
@@ -49,18 +47,16 @@ export default SvgIcon;"
 exports[`webpack loader should support url-loader 1`] = `
 "import * as React from \\"react\\";
 
-var _ref =
-/*#__PURE__*/
-React.createElement(\\"svg\\", {
+var _ref = /*#__PURE__*/React.createElement(\\"svg\\", {
   width: 88,
   height: 88
-}, React.createElement(\\"g\\", {
+}, /*#__PURE__*/React.createElement(\\"g\\", {
   stroke: \\"#063855\\",
   strokeWidth: 2,
   fill: \\"none\\",
   fillRule: \\"evenodd\\",
   strokeLinecap: \\"square\\"
-}, React.createElement(\\"path\\", {
+}, /*#__PURE__*/React.createElement(\\"path\\", {
   d: \\"M51 37L37 51M51 51L37 37\\"
 })));
 

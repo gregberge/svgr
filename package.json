@@ -24,7 +24,7 @@
     "@now/node": "^1.3.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.8.0",
+    "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "codecov": "^3.5.0",
     "conventional-github-releaser": "^3.1.3",
@@ -34,7 +34,7 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
-    "jest": "^24.8.0",
+    "jest": "^25.1.0",
     "lerna": "^3.14.1",
     "react": "^16.8.6"
   }

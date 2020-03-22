@@ -40,7 +40,7 @@
     "rollup-pluginutils": "^2.8.2"
   },
   "devDependencies": {
-    "rollup": "^1.14.2",
+    "rollup": "^2.1.0",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-url": "^3.0.1"
   }
