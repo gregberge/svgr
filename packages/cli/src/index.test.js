@@ -60,6 +60,7 @@ describe('cli', () => {
     const sorted = result
       .split(/\n/)
       .sort()
+      .map(x => x.toLowerCase())
       .join('\n')
     expect(sorted).toMatchSnapshot()
   }, 10000)
@@ -71,6 +72,7 @@ describe('cli', () => {
     const sorted = result
       .split(/\n/)
       .sort()
+      .map(x => x.toLowerCase())
       .join('\n')
     expect(sorted).toMatchSnapshot()
   }, 10000)
