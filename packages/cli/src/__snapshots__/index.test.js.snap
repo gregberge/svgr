@@ -448,41 +448,41 @@ export default SvgFile
 exports[`cli should suppress output when transforming a directory with a --silent option 1`] = `""`;
 
 exports[`cli should transform a whole directory and output relative destination paths 1`] = `
-"[37m[39m
-[37m[39m[37m__fixtures__/cased/camelCase.svg -> __fixtures_build__/whole/cased/CamelCase.js[39m
-[37m[39m[37m__fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/KebabCase.js[39m
-[37m[39m[37m__fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/MultipleDashes.js[39m
-[37m[39m[37m__fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/Skype.js[39m
-[37m[39m[37m__fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/Telegram.js[39m
-[37m[39m[37m__fixtures__/nesting/a/c/three.svg -> __fixtures_build__/whole/nesting/a/c/Three.js[39m
-[37m[39m[37m__fixtures__/nesting/a/two.svg -> __fixtures_build__/whole/nesting/a/Two.js[39m
-[37m[39m[37m__fixtures__/nesting/one.svg -> __fixtures_build__/whole/nesting/One.js[39m
-[37m[39m[37m__fixtures__/numeric/2.file.svg -> __fixtures_build__/whole/numeric/2File.js[39m
-[37m[39m[37m__fixtures__/numeric/file.svg -> __fixtures_build__/whole/numeric/File.js[39m
-[37m[39m[37m__fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/File.js[39m
-[37m[39m[37m__fixtures__/withPrettierRc/file.svg -> __fixtures_build__/whole/withPrettierRc/File.js[39m
-[37m[39m[37m__fixtures__/withSvgoYml/file.svg -> __fixtures_build__/whole/withSvgoYml/File.js[39m
-[37m[39m[37m__fixtures__/withSvgrRc/file.svg -> __fixtures_build__/whole/withSvgrRc/File.js[39m
-[37m__fixtures__/cased/PascalCase.svg -> __fixtures_build__/whole/cased/PascalCase.js[39m"
+"
+__fixtures__/cased/PascalCase.svg -> __fixtures_build__/whole/cased/PascalCase.js
+__fixtures__/cased/camelCase.svg -> __fixtures_build__/whole/cased/CamelCase.js
+__fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/KebabCase.js
+__fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/MultipleDashes.js
+__fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/Skype.js
+__fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/Telegram.js
+__fixtures__/nesting/a/c/three.svg -> __fixtures_build__/whole/nesting/a/c/Three.js
+__fixtures__/nesting/a/two.svg -> __fixtures_build__/whole/nesting/a/Two.js
+__fixtures__/nesting/one.svg -> __fixtures_build__/whole/nesting/One.js
+__fixtures__/numeric/2.file.svg -> __fixtures_build__/whole/numeric/2File.js
+__fixtures__/numeric/file.svg -> __fixtures_build__/whole/numeric/File.js
+__fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/File.js
+__fixtures__/withPrettierRc/file.svg -> __fixtures_build__/whole/withPrettierRc/File.js
+__fixtures__/withSvgoYml/file.svg -> __fixtures_build__/whole/withSvgoYml/File.js
+__fixtures__/withSvgrRc/file.svg -> __fixtures_build__/whole/withSvgrRc/File.js"
 `;
 
 exports[`cli should transform a whole directory with --typescript 1`] = `
-"[37m[39m
-[37m[39m[37m__fixtures__/cased/camelCase.svg -> __fixtures_build__/whole/cased/CamelCase.tsx[39m
-[37m[39m[37m__fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/KebabCase.tsx[39m
-[37m[39m[37m__fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/MultipleDashes.tsx[39m
-[37m[39m[37m__fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/Skype.tsx[39m
-[37m[39m[37m__fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/Telegram.tsx[39m
-[37m[39m[37m__fixtures__/nesting/a/c/three.svg -> __fixtures_build__/whole/nesting/a/c/Three.tsx[39m
-[37m[39m[37m__fixtures__/nesting/a/two.svg -> __fixtures_build__/whole/nesting/a/Two.tsx[39m
-[37m[39m[37m__fixtures__/nesting/one.svg -> __fixtures_build__/whole/nesting/One.tsx[39m
-[37m[39m[37m__fixtures__/numeric/2.file.svg -> __fixtures_build__/whole/numeric/2File.tsx[39m
-[37m[39m[37m__fixtures__/numeric/file.svg -> __fixtures_build__/whole/numeric/File.tsx[39m
-[37m[39m[37m__fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/File.tsx[39m
-[37m[39m[37m__fixtures__/withPrettierRc/file.svg -> __fixtures_build__/whole/withPrettierRc/File.tsx[39m
-[37m[39m[37m__fixtures__/withSvgoYml/file.svg -> __fixtures_build__/whole/withSvgoYml/File.tsx[39m
-[37m[39m[37m__fixtures__/withSvgrRc/file.svg -> __fixtures_build__/whole/withSvgrRc/File.tsx[39m
-[37m__fixtures__/cased/PascalCase.svg -> __fixtures_build__/whole/cased/PascalCase.tsx[39m"
+"
+__fixtures__/cased/PascalCase.svg -> __fixtures_build__/whole/cased/PascalCase.tsx
+__fixtures__/cased/camelCase.svg -> __fixtures_build__/whole/cased/CamelCase.tsx
+__fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/KebabCase.tsx
+__fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/MultipleDashes.tsx
+__fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/Skype.tsx
+__fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/Telegram.tsx
+__fixtures__/nesting/a/c/three.svg -> __fixtures_build__/whole/nesting/a/c/Three.tsx
+__fixtures__/nesting/a/two.svg -> __fixtures_build__/whole/nesting/a/Two.tsx
+__fixtures__/nesting/one.svg -> __fixtures_build__/whole/nesting/One.tsx
+__fixtures__/numeric/2.file.svg -> __fixtures_build__/whole/numeric/2File.tsx
+__fixtures__/numeric/file.svg -> __fixtures_build__/whole/numeric/File.tsx
+__fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/File.tsx
+__fixtures__/withPrettierRc/file.svg -> __fixtures_build__/whole/withPrettierRc/File.tsx
+__fixtures__/withSvgoYml/file.svg -> __fixtures_build__/whole/withSvgoYml/File.tsx
+__fixtures__/withSvgrRc/file.svg -> __fixtures_build__/whole/withSvgrRc/File.tsx"
 `;
 
 exports[`cli should work with a simple file 1`] = `

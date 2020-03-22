@@ -25,6 +25,7 @@ Object {
   "svgoConfig": null,
   "template": null,
   "titleProp": false,
+  "typescript": false,
 }
 `;
 
@@ -53,6 +54,7 @@ Object {
   "svgoConfig": null,
   "template": null,
   "titleProp": false,
+  "typescript": false,
   "useRuntimeConfig": false,
 }
 `;
@@ -76,6 +78,7 @@ Object {
   "svgoConfig": null,
   "template": null,
   "titleProp": false,
+  "typescript": false,
 }
 `;
 
@@ -104,6 +107,7 @@ Object {
   "svgoConfig": null,
   "template": null,
   "titleProp": false,
+  "typescript": false,
 }
 `;
 
@@ -132,6 +136,7 @@ Object {
   "svgoConfig": null,
   "template": null,
   "titleProp": false,
+  "typescript": false,
 }
 `;
 
@@ -160,6 +165,7 @@ Object {
   "svgoConfig": null,
   "template": null,
   "titleProp": false,
+  "typescript": false,
   "useRuntimeConfig": false,
 }
 `;
@@ -183,6 +189,7 @@ Object {
   "svgoConfig": null,
   "template": null,
   "titleProp": false,
+  "typescript": false,
 }
 `;
 
@@ -211,5 +218,6 @@ Object {
   "svgoConfig": null,
   "template": null,
   "titleProp": false,
+  "typescript": false,
 }
 `;
