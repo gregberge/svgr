@@ -19,12 +19,12 @@ const baseSvg = `<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 
 describe('svgo', () => {
-  it('should optimize svg', () => {
+  it('optimizes svg', () => {
     const result = svgo(baseSvg, { svgo: true, runtimeConfig: true }, {})
     expect(result).toMatchSnapshot()
   })
 
-  it('should support config.svgoConfig', () => {
+  it('supports `config.svgoConfig`', () => {
     const result = svgo(
       baseSvg,
       {
@@ -38,21 +38,21 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('should throw error for invalid config.svgoConfig', () => {
-    const svgoOptions = [
+  it('supports `config.svgoConfig.multipass`', () => {
+    const result = svgo(
       baseSvg,
       {
         svgo: true,
         runtimeConfig: true,
-        svgoConfig: { plugins: { removeDesc: false } },
+        svgoConfig: { multipass: true },
       },
       {},
-    ]
+    )
 
-    expect(() => svgo(...svgoOptions)).toThrow()
+    expect(result).toMatchSnapshot()
   })
 
-  it('should support icon with config.svgoConfig plugins', () => {
+  it('supports `config.icon` with `config.svgoConfig` plugins', () => {
     const result = svgo(
       baseSvg,
       {
@@ -67,7 +67,7 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('should use state.filePath to detect configuration', () => {
+  it('users `state.filePath` to detect configuration', () => {
     const result = svgo(
       baseSvg,
       { svgo: true, runtimeConfig: true },
@@ -77,7 +77,7 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('should not load runtime configuration with `runtimeConfig: false`', () => {
+  it('does not load runtime configuration with `runtimeConfig: false`', () => {
     const result = svgo(
       baseSvg,
       { svgo: true, runtimeConfig: false },
@@ -87,7 +87,7 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('should not remove viewBox with icon option', () => {
+  it('does not remove viewBox with `icon` option', () => {
     const result = svgo(
       baseSvg,
       { svgo: true, icon: true, runtimeConfig: true },
@@ -97,7 +97,7 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('should not remove viewBox with when dimensions is false', () => {
+  it('does not remove viewBox with when `dimensions` is false', () => {
     const result = svgo(
       baseSvg,
       { svgo: true, dimensions: false, runtimeConfig: true },
@@ -107,7 +107,7 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('should be possible to disable id prefixing', () => {
+  it('disables id prefixing using svgo config', () => {
     const result = svgo(
       baseSvg,
       {
@@ -122,14 +122,19 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('should be possible to enable id prefixing as the only optimization', () => {
+  it('is possible to enable id prefixing as the only optimization', () => {
     const result = svgo(
       baseSvg,
       {
         svgo: true,
         icon: true,
         runtimeConfig: true,
-        svgoConfig: { full: true, plugins: [{ prefixIds: {prefixIds: true, prefixClassNames: false} }] },
+        svgoConfig: {
+          full: true,
+          plugins: [
+            { prefixIds: { prefixIds: true, prefixClassNames: false } },
+          ],
+        },
       },
       { filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
