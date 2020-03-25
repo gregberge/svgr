@@ -404,6 +404,42 @@ export default SvgFile
 "
 `;
 
+exports[`cli should support various args: --typescript --ref --title-prop 1`] = `
+"import * as React from 'react'
+interface SVGRProps {
+  svgRef?: React.Ref<SVGSVGElement>;
+  title?: string;
+  titleId?: string;
+}
+
+function SvgFile({
+  svgRef,
+  title,
+  titleId,
+  ...props
+}: React.SVGProps<SVGSVGElement> & SVGRProps) {
+  return (
+    <svg
+      width={48}
+      height={1}
+      ref={svgRef}
+      aria-labelledby={titleId}
+      {...props}
+    >
+      {title ? <title id={titleId}>{title}</title> : null}
+      <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    </svg>
+  )
+}
+
+const ForwardRef = React.forwardRef((props, ref: React.Ref<SVGSVGElement>) => (
+  <SvgFile svgRef={ref} {...props} />
+))
+export default ForwardRef
+
+"
+`;
+
 exports[`cli should support various args: --typescript --ref 1`] = `
 "import * as React from 'react'
 interface SVGRProps {
@@ -421,7 +457,7 @@ function SvgFile({
   )
 }
 
-const ForwardRef = React.forwardRef((props, ref) => (
+const ForwardRef = React.forwardRef((props, ref: React.Ref<SVGSVGElement>) => (
   <SvgFile svgRef={ref} {...props} />
 ))
 export default ForwardRef

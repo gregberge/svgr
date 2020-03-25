@@ -225,7 +225,7 @@ function SvgComponent({
   return <svg><g /></svg>;
 }
 
-const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
+const ForwardRef = React.forwardRef((props, ref: React.Ref<SVGSVGElement>) => <SvgComponent svgRef={ref} {...props} />);
 export default ForwardRef;"
 `;
 
@@ -241,15 +241,15 @@ function SvgComponent({
   return <svg><g /></svg>;
 }
 
-const ForwardRef = React.forwardRef((props, ref) => <SvgComponent svgRef={ref} {...props} />);
+const ForwardRef = React.forwardRef((props, ref: React.Ref<SVGSVGElement>) => <SvgComponent svgRef={ref} {...props} />);
 export default ForwardRef;"
 `;
 
 exports[`plugin typescript with "titleProp" adds "titleProp" and "titleId" prop 1`] = `
 "import * as React from \\"react\\";
 interface SVGRProps {
-  title?: String,
-  titleId?: String,
+  title?: string,
+  titleId?: string,
 }
 
 function SvgComponent({
@@ -275,6 +275,6 @@ function SvgComponent({
 }
 
 const MemoSvgComponent = React.memo(SvgComponent);
-const ForwardRef = React.forwardRef((props, ref) => <MemoSvgComponent svgRef={ref} {...props} />);
+const ForwardRef = React.forwardRef((props, ref: React.Ref<SVGSVGElement>) => <MemoSvgComponent svgRef={ref} {...props} />);
 export default ForwardRef;"
 `;

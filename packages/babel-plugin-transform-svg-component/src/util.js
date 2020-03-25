@@ -152,10 +152,10 @@ export const getInterface = ({ types: t }, opts) => {
   }
   if (opts.titleProp) {
     properties.push(
-      objectTypeProperty(t.identifier('title'), t.identifier('String'), true),
+      objectTypeProperty(t.identifier('title'), t.identifier('string'), true),
     )
     properties.push(
-      objectTypeProperty(t.identifier('titleId'), t.identifier('String'), true),
+      objectTypeProperty(t.identifier('titleId'), t.identifier('string'), true),
     )
   }
   if (properties.length === 0) return null
@@ -192,6 +192,11 @@ export const getImport = ({ types: t }, opts) => {
 export const getExport = ({ template }, opts) => {
   let result = ''
   let exportName = opts.state.componentName
+  const plugins = ['jsx']
+
+  if (opts.typescript) {
+    plugins.push('typescript')
+  }
 
   if (opts.memo) {
     const nextExportName = `Memo${exportName}`
@@ -201,7 +206,13 @@ export const getExport = ({ template }, opts) => {
 
   if (opts.ref) {
     const nextExportName = `ForwardRef`
-    result += `const ${nextExportName} = React.forwardRef((props, ref) => <${exportName} svgRef={ref} {...props} />)\n\n`
+    let refType = ''
+
+    if (opts.typescript) {
+      refType = ': React.Ref<SVGSVGElement>'
+    }
+
+    result += `const ${nextExportName} = React.forwardRef((props, ref${refType}) => <${exportName} svgRef={ref} {...props} />)\n\n`
     exportName = nextExportName
   }
 
@@ -209,12 +220,12 @@ export const getExport = ({ template }, opts) => {
     result += `${opts.state.caller.previousExport}\n`
     result += `export { ${exportName} as ReactComponent }`
     return template.ast(result, {
-      plugins: ['jsx'],
+      plugins,
     })
   }
 
   result += `export default ${exportName}`
   return template.ast(result, {
-    plugins: ['jsx'],
+    plugins,
   })
 }
