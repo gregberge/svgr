@@ -133,6 +133,7 @@ describe('cli', () => {
     ['--title-prop'],
     ['--typescript'],
     ['--typescript --ref'],
+    ['--typescript --ref --title-prop'],
   ])(
     'should support various args',
     async args => {
