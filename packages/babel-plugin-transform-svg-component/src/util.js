@@ -120,7 +120,7 @@ export const getProps = ({ types: t }, opts) => {
     opts,
   )
 
-  let args = []
+  const args = []
   if (opts.expandProps || props.length > 0 || opts.ref)
     args.push(typedPropsArgument)
 
