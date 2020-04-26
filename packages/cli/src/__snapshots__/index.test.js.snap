@@ -235,7 +235,7 @@ exports[`cli should support various args: --native --ref 1`] = `
 "import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
 
-function SvgFile({ svgRef, ...props }) {
+function SvgFile(props, svgRef) {
   return (
     <Svg width={48} height={1} ref={svgRef} {...props}>
       <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
@@ -243,9 +243,7 @@ function SvgFile({ svgRef, ...props }) {
   )
 }
 
-const ForwardRef = React.forwardRef((props, ref) => (
-  <SvgFile svgRef={ref} {...props} />
-))
+const ForwardRef = React.forwardRef(SvgFile)
 export default ForwardRef
 
 "
@@ -339,7 +337,7 @@ export default SvgFile
 exports[`cli should support various args: --ref 1`] = `
 "import * as React from 'react'
 
-function SvgFile({ svgRef, ...props }) {
+function SvgFile(props, svgRef) {
   return (
     <svg width={48} height={1} ref={svgRef} {...props}>
       <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
@@ -347,9 +345,7 @@ function SvgFile({ svgRef, ...props }) {
   )
 }
 
-const ForwardRef = React.forwardRef((props, ref) => (
-  <SvgFile svgRef={ref} {...props} />
-))
+const ForwardRef = React.forwardRef(SvgFile)
 export default ForwardRef
 
 "
@@ -407,17 +403,14 @@ export default SvgFile
 exports[`cli should support various args: --typescript --ref --title-prop 1`] = `
 "import * as React from 'react'
 interface SVGRProps {
-  svgRef?: React.Ref<SVGSVGElement>;
   title?: string;
   titleId?: string;
 }
 
-function SvgFile({
-  svgRef,
-  title,
-  titleId,
-  ...props
-}: React.SVGProps<SVGSVGElement> & SVGRProps) {
+function SvgFile(
+  { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
+  svgRef?: React.Ref<SVGSVGElement>,
+) {
   return (
     <svg
       width={48}
@@ -432,9 +425,7 @@ function SvgFile({
   )
 }
 
-const ForwardRef = React.forwardRef((props, ref: React.Ref<SVGSVGElement>) => (
-  <SvgFile svgRef={ref} {...props} />
-))
+const ForwardRef = React.forwardRef(SvgFile)
 export default ForwardRef
 
 "
@@ -442,14 +433,11 @@ export default ForwardRef
 
 exports[`cli should support various args: --typescript --ref 1`] = `
 "import * as React from 'react'
-interface SVGRProps {
-  svgRef?: React.Ref<SVGSVGElement>;
-}
 
-function SvgFile({
-  svgRef,
-  ...props
-}: React.SVGProps<SVGSVGElement> & SVGRProps) {
+function SvgFile(
+  props: React.SVGProps<SVGSVGElement>,
+  svgRef?: React.Ref<SVGSVGElement>,
+) {
   return (
     <svg width={48} height={1} ref={svgRef} {...props}>
       <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
@@ -457,9 +445,7 @@ function SvgFile({
   )
 }
 
-const ForwardRef = React.forwardRef((props, ref: React.Ref<SVGSVGElement>) => (
-  <SvgFile svgRef={ref} {...props} />
-))
+const ForwardRef = React.forwardRef(SvgFile)
 export default ForwardRef
 
 "
