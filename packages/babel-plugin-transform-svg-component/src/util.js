@@ -72,17 +72,6 @@ function getSvgPropsTypeAnnotation(t) {
 export const getProps = ({ types: t }, opts) => {
   const props = []
 
-  if (opts.ref) {
-    props.push(
-      t.objectProperty(
-        t.identifier('svgRef'),
-        t.identifier('svgRef'),
-        false,
-        true,
-      ),
-    )
-  }
-
   if (opts.titleProp) {
     props.push(
       t.objectProperty(
@@ -103,53 +92,62 @@ export const getProps = ({ types: t }, opts) => {
     )
   }
 
-  if (opts.expandProps) {
+  if (opts.expandProps && props.length > 0) {
     props.push(t.restElement(t.identifier('props')))
   }
 
-  if (props.length === 0) {
-    return null
+  const propsArgument =
+    props.length > 0 ? t.objectPattern(props) : t.identifier('props')
+  let propsTypeAnnotation
+  if (props.length > 0) {
+    propsTypeAnnotation = genericTypeAnnotation(t.identifier('SVGRProps'))
+
+    if (opts.expandProps) {
+      propsTypeAnnotation = intersectionTypeAnnotation([
+        getSvgPropsTypeAnnotation(t),
+        propsTypeAnnotation,
+      ])
+    }
+  } else {
+    propsTypeAnnotation = opts.expandProps
+      ? getSvgPropsTypeAnnotation(t)
+      : t.objectPattern([])
   }
 
-  if (props.length === 1 && opts.expandProps) {
-    return addTypeAnotation(
-      t.identifier('props'),
-      typeAnnotation(getSvgPropsTypeAnnotation(t)),
-      opts,
-    )
-  }
-
-  return addTypeAnotation(
-    t.objectPattern(props),
-    typeAnnotation(
-      opts.expandProps
-        ? intersectionTypeAnnotation([
-            getSvgPropsTypeAnnotation(t),
-            genericTypeAnnotation(t.identifier('SVGRProps')),
-          ])
-        : genericTypeAnnotation(t.identifier('SVGRProps')),
-    ),
+  const typedPropsArgument = addTypeAnotation(
+    propsArgument,
+    typeAnnotation(propsTypeAnnotation),
     opts,
   )
-}
 
-export const getInterface = ({ types: t }, opts) => {
-  if (!opts.typescript) return null
-  const properties = []
+  let args = []
+  if (opts.expandProps || props.length > 0 || opts.ref)
+    args.push(typedPropsArgument)
+
   if (opts.ref) {
-    properties.push(
-      objectTypeProperty(
-        t.identifier('svgRef'),
+    const refArgument = t.identifier(opts.typescript ? 'svgRef?' : 'svgRef')
+    const typedRefArgument = addTypeAnotation(
+      refArgument,
+      typeAnnotation(
         genericTypeAnnotation(
           qualifiedTypeIdentifier(t.identifier('React'), t.identifier('Ref')),
           typeParameters([
             genericTypeAnnotation(t.identifier('SVGSVGElement')),
           ]),
         ),
-        true,
       ),
+      opts,
     )
+
+    args.push(typedRefArgument)
   }
+
+  return args
+}
+
+export const getInterface = ({ types: t }, opts) => {
+  if (!opts.typescript) return null
+  const properties = []
   if (opts.titleProp) {
     properties.push(
       objectTypeProperty(t.identifier('title'), t.identifier('string'), true),
@@ -198,21 +196,15 @@ export const getExport = ({ template }, opts) => {
     plugins.push('typescript')
   }
 
-  if (opts.memo) {
-    const nextExportName = `Memo${exportName}`
-    result += `const ${nextExportName} = React.memo(${exportName})\n\n`
+  if (opts.ref) {
+    const nextExportName = `ForwardRef`
+    result += `const ${nextExportName} = React.forwardRef(${exportName})\n\n`
     exportName = nextExportName
   }
 
-  if (opts.ref) {
-    const nextExportName = `ForwardRef`
-    let refType = ''
-
-    if (opts.typescript) {
-      refType = ': React.Ref<SVGSVGElement>'
-    }
-
-    result += `const ${nextExportName} = React.forwardRef((props, ref${refType}) => <${exportName} svgRef={ref} {...props} />)\n\n`
+  if (opts.memo) {
+    const nextExportName = `Memo${exportName}`
+    result += `const ${nextExportName} = React.memo(${exportName})\n\n`
     exportName = nextExportName
   }
 
