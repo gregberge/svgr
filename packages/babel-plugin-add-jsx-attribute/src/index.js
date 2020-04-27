@@ -52,7 +52,7 @@ const addJSXAttribute = ({ types: t, template }, opts) => {
             const newAttribute = getAttribute({ spread, name, value, literal })
             const attributes = path.get('attributes')
 
-            const isEqualAttribute = attribute => {
+            const isEqualAttribute = (attribute) => {
               if (spread) {
                 return attribute.get('argument').isIdentifier({ name })
               }
@@ -60,7 +60,7 @@ const addJSXAttribute = ({ types: t, template }, opts) => {
               return attribute.get('name').isJSXIdentifier({ name })
             }
 
-            const replaced = attributes.some(attribute => {
+            const replaced = attributes.some((attribute) => {
               if (!isEqualAttribute(attribute)) return false
               attribute.replaceWith(newAttribute)
               return true

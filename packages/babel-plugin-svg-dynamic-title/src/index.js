@@ -4,7 +4,7 @@ const plugin = ({ types: t }) => ({
   visitor: {
     JSXElement(path) {
       if (
-        !elements.some(element =>
+        !elements.some((element) =>
           path.get('openingElement.name').isJSXIdentifier({ name: element }),
         )
       ) {
@@ -28,7 +28,7 @@ const plugin = ({ types: t }) => ({
 
       function enhanceAttributes(attributes) {
         const existingId = attributes.find(
-          attribute => attribute.name.name === 'id',
+          (attribute) => attribute.name.name === 'id',
         )
         if (!existingId) {
           return [...attributes, createTitleIdAttribute()]
@@ -89,7 +89,7 @@ const plugin = ({ types: t }) => ({
       // store the title element
       let titleElement
 
-      const hasTitle = path.get('children').some(childPath => {
+      const hasTitle = path.get('children').some((childPath) => {
         if (!childPath.isJSXElement()) return false
         if (childPath.node === titleElement) return false
         if (childPath.node.openingElement.name.name !== 'title') return false

@@ -322,15 +322,22 @@ export function Playground() {
                 <Box
                   flex={1}
                   position="relative"
-                  onKeyDown={dialogDisplayed ? null : event => {
-                    // Detect copy
-                    if ((event.metaKey || event.ctrlKey) && event.key === 'c') {
-                      setTimeout(() => {
-                        dialog.show()
-                        setDialogDisplayed(true)
-                      }, 50)
-                    }
-                  }}
+                  onKeyDown={
+                    dialogDisplayed
+                      ? null
+                      : (event) => {
+                          // Detect copy
+                          if (
+                            (event.metaKey || event.ctrlKey) &&
+                            event.key === 'c'
+                          ) {
+                            setTimeout(() => {
+                              dialog.show()
+                              setDialogDisplayed(true)
+                            }, 50)
+                          }
+                        }
+                  }
                 >
                   <Editor name="output" mode="jsx" readOnly value={output} />
                 </Box>

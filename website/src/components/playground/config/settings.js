@@ -1,4 +1,4 @@
-const parseObject = value =>
+const parseObject = (value) =>
   value.split(',').reduce((obj, assignment) => {
     const [left, right] = assignment.split('=')
     return {
@@ -7,7 +7,7 @@ const parseObject = value =>
     }
   }, {})
 
-const parseJson = value => value && JSON.parse(value)
+const parseJson = (value) => value && JSON.parse(value)
 
 export const settings = [
   {
@@ -59,7 +59,7 @@ export const settings = [
     values: ['start', 'end', 'none'],
     group: 'global',
     default: 'end',
-    transform: value => (value === 'none' ? false : value),
+    transform: (value) => (value === 'none' ? false : value),
   },
   {
     label: 'Replace attributes value',

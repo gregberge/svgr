@@ -1,7 +1,6 @@
 import { cosmiconfig, cosmiconfigSync } from 'cosmiconfig'
 
 export const DEFAULT_CONFIG = {
-  h2xConfig: null,
   dimensions: true,
   expandProps: 'end',
   icon: false,
@@ -56,7 +55,7 @@ export async function resolveConfigFile(filePath) {
   return result ? result.filepath : null
 }
 
-resolveConfigFile.sync = filePath => {
+resolveConfigFile.sync = (filePath) => {
   const result = explorerSync.search(filePath)
   return result ? result.filepath : null
 }

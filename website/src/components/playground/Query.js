@@ -39,7 +39,7 @@ function useLocation() {
   const history = useHistory()
   const [location, setLocation] = React.useState(getLocation)
   React.useEffect(() => {
-    return history.listen(location => setLocation(location))
+    return history.listen((location) => setLocation(location))
   }, [])
   return location
 }
@@ -53,7 +53,7 @@ export function useQuery(getInitialState = {}) {
     locationRef.current = location
   })
   const setState = React.useCallback(
-    state => {
+    (state) => {
       const search = formatQuery({ ...initialState, ...state }, initialState)
       if (locationRef.current.search !== search) {
         history.push({

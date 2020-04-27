@@ -12,7 +12,7 @@ function all(h, parent) {
     values.push(result)
   }
 
-  return values.filter(node => node)
+  return values.filter((node) => node)
 }
 
 export default all

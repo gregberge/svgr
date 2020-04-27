@@ -2,10 +2,10 @@ import Bundler from 'parcel'
 import path from 'path'
 import plugin from '.'
 
-const getCode = bundle =>
+const getCode = (bundle) =>
   Array.from(bundle.assets)
-    .filter(asset => asset.id === 'icon.svg')
-    .map(asset => asset.generated)
+    .filter((asset) => asset.id === 'icon.svg')
+    .map((asset) => asset.generated)
 
 describe('parcel plugin', () => {
   it('should convert file', async () => {

@@ -9,7 +9,7 @@ export function SettingsFieldEnum({ setting }) {
     <Box m={16}>
       <FormField>
         <SmallLabel htmlFor={setting.name}>{setting.label}</SmallLabel>
-        {setting.values.map(value => (
+        {setting.values.map((value) => (
           <FormCheck key={value}>
             <RadioControl
               scale="sm"

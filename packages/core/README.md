@@ -23,9 +23,11 @@ const svgCode = `
 </svg>
 `
 
-svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(jsCode => {
-  console.log(jsCode)
-})
+svgr(svgCode, { icon: true }, { componentName: 'MyComponent' }).then(
+  (jsCode) => {
+    console.log(jsCode)
+  },
+)
 ```
 
 Use `svgr.sync(code, config, state)` if you would like to use sync version.
@@ -37,7 +39,7 @@ By default `@svgr/core` doesn't include `svgo` and `prettier` plugins, if you wa
 ```js
 svgr(svgCode, {
   plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
-}).then(jsCode => {
+}).then((jsCode) => {
   console.log(jsCode)
 })
 ```

@@ -22,7 +22,7 @@ const fadeIn = keyframes`
 const Loader = styled.div`
   flex: 1;
   animation: ${fadeIn} 1000ms ease-in infinite alternate;
-  background: url(${p => p.backgroundImage}) center no-repeat;
+  background: url(${(p) => p.backgroundImage}) center no-repeat;
   background-size: 30%;
 `
 
@@ -30,7 +30,7 @@ export function Loading() {
   return (
     <StaticQuery
       query={QUERY}
-      render={data => (
+      render={(data) => (
         <Loader backgroundImage={data.logo.childImageSharp.fluid.src} />
       )}
     />

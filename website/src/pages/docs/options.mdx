@@ -170,9 +170,9 @@ example of template, see [the default one](https://github.com/gregberge/svgr/tre
 
 Output files into a directory.
 
-| Default     | CLI Override          | API Override          |
-| ----------- | --------------------- | --------------------- |
-| `undefined` | `--out-dir <dirname>` | Only available in CLI |
+| Default     | CLI Override          | API Override       |
+| ----------- | --------------------- | ------------------ |
+| `undefined` | `--out-dir <dirname>` | `outDir: <string>` |
 
 ## index.js template
 
@@ -186,6 +186,6 @@ Specify a template function (API) to change default index.js output (when --out-
 
 When used with `--out-dir`, it ignores already existing files.
 
-| Default | CLI Override        | API Override          |
-| ------- | ------------------- | --------------------- |
-| `false` | `--ignore-existing` | Only available in CLI |
+| Default | CLI Override        | API Override             |
+| ------- | ------------------- | ------------------------ |
+| `false` | `--ignore-existing` | `ignoreExisting: <bool>` |
