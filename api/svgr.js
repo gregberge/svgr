@@ -11,10 +11,10 @@ module.exports = (req, res) => {
     return
   }
   svgr(req.body.code, { ...req.body.options, plugins: [svgo, jsx, prettier] })
-    .then(output => {
+    .then((output) => {
       res.status(200).json({ output })
     })
-    .catch(error => {
+    .catch((error) => {
       res.status(400).json({ error: error.message })
     })
 }

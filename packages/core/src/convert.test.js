@@ -311,7 +311,7 @@ describe('convert', () => {
       { memo: true },
     ]
 
-    test.each(configs)('should support options %#', async config => {
+    test.each(configs)('should support options %#', async (config) => {
       const result = await convertWithAllPlugins(svgBaseCode, config)
       expect(result).toMatchSnapshot()
     })

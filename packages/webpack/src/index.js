@@ -40,7 +40,7 @@ function svgrLoader(source) {
     return exportMatches ? `export default ${exportMatches[1]}` : null
   })()
 
-  const tranformSvg = svg =>
+  const tranformSvg = (svg) =>
     convert(svg, options, {
       caller: {
         name: '@svgr/webpack',
@@ -49,12 +49,12 @@ function svgrLoader(source) {
       },
       filePath: this.resourcePath,
     })
-      .then(jsCode => {
+      .then((jsCode) => {
         if (!babel) return jsCode
         return transformAsync(jsCode, babelOptions).then(({ code }) => code)
       })
-      .then(result => callback(null, result))
-      .catch(err => callback(err))
+      .then((result) => callback(null, result))
+      .catch((err) => callback(err))
 
   if (previousExport) {
     readSvg().then(tranformSvg)

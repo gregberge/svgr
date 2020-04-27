@@ -81,7 +81,7 @@ npx @svgr/cli --icon --replace-attr-values "#063855=currentColor" icon.svg
 ```js
 import * as React from 'react'
 
-const SvgComponent = props => (
+const SvgComponent = (props) => (
   <svg width="1em" height="1em" viewBox="0 0 48 1" {...props}>
     <path d="M0 0h48v1H0z" fill="currentColor" fillRule="evenodd" />
   </svg>

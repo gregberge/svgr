@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const ChevronLeft = props => (
+export const ChevronLeft = (props) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"

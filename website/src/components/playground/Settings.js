@@ -27,7 +27,7 @@ const SettingsContainer = styled.div`
 `
 
 const getGroupSettings = (group, settings) =>
-  settings.filter(setting => setting.group === group)
+  settings.filter((setting) => setting.group === group)
 
 const settingComponents = {
   boolean: SettingsFieldBoolean,
@@ -36,7 +36,7 @@ const settingComponents = {
   integer: SettingsFieldInteger,
 }
 
-const renderSetting = setting => {
+const renderSetting = (setting) => {
   const SettingComponent = settingComponents[setting.type]
   if (!SettingComponent) throw new Error(`Unknown setting type ${setting.type}`)
   return <SettingComponent key={setting.name} setting={setting} />

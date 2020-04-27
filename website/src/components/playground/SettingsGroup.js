@@ -62,7 +62,7 @@ export function SettingsGroup({ title, children }) {
   return (
     <Container>
       <HiddenDisclosure {...hidden}>
-        {hiddenDisclosureProps => (
+        {(hiddenDisclosureProps) => (
           <Button row {...hiddenDisclosureProps}>
             <Box col>{title}</Box>
             <Box col="auto">

@@ -14,14 +14,14 @@ function getAttributeValue(value) {
 }
 
 function propsToAttributes(props) {
-  return Object.keys(props).map(name => {
+  return Object.keys(props).map((name) => {
     const { literal, value } = getAttributeValue(props[name])
     return { name, literal, value }
   })
 }
 
 function replaceMapToValues(replaceMap) {
-  return Object.keys(replaceMap).map(value => {
+  return Object.keys(replaceMap).map((value) => {
     const { literal, value: newValue } = getAttributeValue(replaceMap[value])
     return { value, newValue, literal }
   })

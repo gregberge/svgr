@@ -13,7 +13,7 @@ const explorer = cosmiconfigSync('svgo', {
     'svgo.config.js',
     '.svgo.yml',
   ],
-  transform: result => result && result.config,
+  transform: (result) => result && result.config,
   cache: true,
 })
 
@@ -58,7 +58,7 @@ function optimizeSync(svgstr, info) {
 
   let result
 
-  const optimizeOnceCallback = svgjs => {
+  const optimizeOnceCallback = (svgjs) => {
     if (svgjs.error) {
       throw svgjs.error
     }

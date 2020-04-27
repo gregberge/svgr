@@ -9,7 +9,7 @@ const compile = (plugins = [svgr()]) =>
     plugins,
   })
 
-const getCode = bundler =>
+const getCode = (bundler) =>
   bundler.cache.modules.find(
     ({ id }) =>
       id.includes('__fixtures__/simple/file.svg') ||

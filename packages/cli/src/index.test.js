@@ -11,7 +11,7 @@ const svgr = path.join(__dirname, 'index.js')
 const babelNode = path.join(__dirname, '../../../node_modules/.bin/babel-node')
 
 describe('cli', () => {
-  const cli = async args => {
+  const cli = async (args) => {
     const { stdout } = await exec(`${babelNode} -- ${svgr} ${args}`)
     return stdout
   }
@@ -60,7 +60,7 @@ describe('cli', () => {
     const sorted = result
       .split(/\n/)
       .sort()
-      .map(x => x.toLowerCase())
+      .map((x) => x.toLowerCase())
       .join('\n')
     expect(sorted).toMatchSnapshot()
   }, 10000)
@@ -72,7 +72,7 @@ describe('cli', () => {
     const sorted = result
       .split(/\n/)
       .sort()
-      .map(x => x.toLowerCase())
+      .map((x) => x.toLowerCase())
       .join('\n')
     expect(sorted).toMatchSnapshot()
   }, 10000)
@@ -81,10 +81,7 @@ describe('cli', () => {
     const result = await cli(
       '--silent --out-dir __fixtures_build__/whole __fixtures__',
     )
-    const sorted = result
-      .split(/\n/)
-      .sort()
-      .join('\n')
+    const sorted = result.split(/\n/).sort().join('\n')
     expect(sorted).toMatchSnapshot()
   }, 10000)
 
@@ -136,7 +133,7 @@ describe('cli', () => {
     ['--typescript --ref --title-prop'],
   ])(
     'should support various args',
-    async args => {
+    async (args) => {
       const result = await cli(`${args} __fixtures__/simple/file.svg`)
       expect(result).toMatchSnapshot(args)
     },

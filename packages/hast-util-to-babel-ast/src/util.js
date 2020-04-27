@@ -35,7 +35,7 @@ export function trimEnd(haystack, needle) {
 const KEBAB_REGEX = /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/g
 
 export function kebabCase(str) {
-  return str.replace(KEBAB_REGEX, match => `-${match.toLowerCase()}`)
+  return str.replace(KEBAB_REGEX, (match) => `-${match.toLowerCase()}`)
 }
 
 const SPACES_REGEXP = /[\t\r\n\u0085\u2028\u2029]+/g

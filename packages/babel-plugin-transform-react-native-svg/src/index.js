@@ -76,11 +76,11 @@ const plugin = ({ types: t }, { expo }) => {
   const importDeclarationVisitor = {
     ImportDeclaration(path, state) {
       if (path.get('source').isStringLiteral({ value: 'react-native-svg' })) {
-        state.replacedComponents.forEach(component => {
+        state.replacedComponents.forEach((component) => {
           if (
             path
               .get('specifiers')
-              .some(specifier =>
+              .some((specifier) =>
                 specifier.get('local').isIdentifier({ name: component }),
               )
           ) {

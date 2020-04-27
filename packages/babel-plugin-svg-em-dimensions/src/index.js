@@ -5,7 +5,7 @@ const plugin = ({ types: t }) => ({
     JSXOpeningElement: {
       enter(path) {
         if (
-          !elements.some(element =>
+          !elements.some((element) =>
             path.get('name').isJSXIdentifier({ name: element }),
           )
         )
@@ -14,7 +14,7 @@ const plugin = ({ types: t }) => ({
         const requiredAttributes = ['width', 'height']
         const attributeValue = '1em'
 
-        path.get('attributes').forEach(attributePath => {
+        path.get('attributes').forEach((attributePath) => {
           if (!attributePath.isJSXAttribute()) return
           const index = requiredAttributes.indexOf(attributePath.node.name.name)
 
@@ -25,7 +25,7 @@ const plugin = ({ types: t }) => ({
           requiredAttributes.splice(index, 1)
         })
 
-        requiredAttributes.forEach(attribute => {
+        requiredAttributes.forEach((attribute) => {
           path.pushContainer(
             'attributes',
             t.jsxAttribute(

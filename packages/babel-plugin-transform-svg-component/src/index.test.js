@@ -1,7 +1,7 @@
 import { transform } from '@babel/core'
 import plugin from '.'
 
-const testPlugin = language => (code, options) => {
+const testPlugin = (language) => (code, options) => {
   const result = transform(code, {
     plugins: [
       '@babel/plugin-syntax-jsx',
@@ -14,7 +14,7 @@ const testPlugin = language => (code, options) => {
 }
 
 describe('plugin', () => {
-  describe.each(['javascript', 'typescript'])('%s', language => {
+  describe.each(['javascript', 'typescript'])('%s', (language) => {
     it('transforms whole program', () => {
       const { code } = testPlugin(language)('<svg><g /></svg>', {
         state: { componentName: 'SvgComponent' },

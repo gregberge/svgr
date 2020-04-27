@@ -4,7 +4,7 @@ import { resolveConfig, resolveConfigFile, loadConfig } from './config'
 const getMethod = (method, mode) => (mode === 'sync' ? method.sync : method)
 
 describe('svgo', () => {
-  describe.each([['sync'], ['async']])('%s', mode => {
+  describe.each([['sync'], ['async']])('%s', (mode) => {
     describe(`#resolveConfig [${mode}]`, () => {
       it('should return null if no config found', async () => {
         const config = await getMethod(resolveConfig, mode)('/tmp')
@@ -12,9 +12,10 @@ describe('svgo', () => {
       })
 
       it('should return config if found', async () => {
-        const config = await getMethod(resolveConfig, mode)(
-          path.join(__dirname, '__fixtures__/svgr'),
-        )
+        const config = await getMethod(
+          resolveConfig,
+          mode,
+        )(path.join(__dirname, '__fixtures__/svgr'))
         expect(config).toEqual({
           icon: true,
           noSemi: true,
@@ -30,9 +31,10 @@ describe('svgo', () => {
       })
 
       it('should return config path if found', async () => {
-        const config = await getMethod(resolveConfigFile, mode)(
-          path.join(__dirname, '__fixtures__/svgr'),
-        )
+        const config = await getMethod(
+          resolveConfigFile,
+          mode,
+        )(path.join(__dirname, '__fixtures__/svgr'))
         expect(config).toMatch(/__fixtures__(\/|\\)svgr(\/|\\)\.svgrrc$/)
       })
     })

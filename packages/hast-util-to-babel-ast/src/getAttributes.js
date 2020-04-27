@@ -49,7 +49,7 @@ function getValue(key, value) {
   return t.stringLiteral(replaceSpaces(value))
 }
 
-const getAttributes = node => {
+const getAttributes = (node) => {
   const keys = Object.keys(node.properties)
   const attributes = []
   let index = -1
