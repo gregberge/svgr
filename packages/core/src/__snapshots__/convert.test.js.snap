@@ -192,7 +192,7 @@ exports[`convert config should support options 8 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
-function SvgComponent({ svgRef, ...props }) {
+function SvgComponent(props, svgRef) {
   return (
     <Svg width={88} height={88} ref={svgRef} {...props}>
       <G
@@ -208,9 +208,7 @@ function SvgComponent({ svgRef, ...props }) {
   )
 }
 
-const ForwardRef = React.forwardRef((props, ref) => (
-  <SvgComponent svgRef={ref} {...props} />
-))
+const ForwardRef = React.forwardRef(SvgComponent)
 export default ForwardRef
 "
 `;
@@ -218,7 +216,7 @@ export default ForwardRef
 exports[`convert config should support options 9 1`] = `
 "import * as React from 'react'
 
-function SvgComponent({ svgRef, ...props }) {
+function SvgComponent(props, svgRef) {
   return (
     <svg width={88} height={88} ref={svgRef} {...props}>
       <g
@@ -234,9 +232,7 @@ function SvgComponent({ svgRef, ...props }) {
   )
 }
 
-const ForwardRef = React.forwardRef((props, ref) => (
-  <SvgComponent svgRef={ref} {...props} />
-))
+const ForwardRef = React.forwardRef(SvgComponent)
 export default ForwardRef
 "
 `;
