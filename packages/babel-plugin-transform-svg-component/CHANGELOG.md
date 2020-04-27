@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/compare/v5.3.1...v5.4.0) (2020-04-27)
+
+
+### Bug Fixes
+
+* wrap svg component directly with memo/forwardRef ([#440](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/issues/440)) ([#441](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/issues/441)) ([a6de2da](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/commit/a6de2dacb63e36572a2167b928418bdc39f3a9c2))
+
+
+
+
+
 ## [5.3.1](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/compare/v5.3.0...v5.3.1) (2020-04-05)
 
 

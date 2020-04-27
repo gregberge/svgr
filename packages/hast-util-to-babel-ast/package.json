@@ -1,7 +1,7 @@
 {
   "name": "@svgr/hast-util-to-babel-ast",
   "description": "Transform HAST to Babel AST (JSX)",
-  "version": "5.0.1",
+  "version": "5.4.0",
   "main": "lib/index.js",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/hast-util-to-babel-ast",
   "author": "Greg Bergé <berge.greg@gmail.com>",

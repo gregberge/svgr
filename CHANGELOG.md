@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/gregberge/svgr/compare/v5.3.1...v5.4.0) (2020-04-27)
+
+
+### Bug Fixes
+
+* wrap svg component directly with memo/forwardRef ([#440](https://github.com/gregberge/svgr/issues/440)) ([#441](https://github.com/gregberge/svgr/issues/441)) ([a6de2da](https://github.com/gregberge/svgr/commit/a6de2dacb63e36572a2167b928418bdc39f3a9c2))
+* **cli:** fix index generation ([#443](https://github.com/gregberge/svgr/issues/443)) ([7c46ad7](https://github.com/gregberge/svgr/commit/7c46ad73695c42e6153761c931377d65b71835ea)), closes [#433](https://github.com/gregberge/svgr/issues/433)
+
+
+### Features
+
+* add `ForeignObject` support for react native ([#430](https://github.com/gregberge/svgr/issues/430)) ([1b56b85](https://github.com/gregberge/svgr/commit/1b56b851478803d40105ce63c70e457bd3183da6))
+* **cli:** make all CLI options available in config ([a23a186](https://github.com/gregberge/svgr/commit/a23a18675c0dd4a461d2fcbdc72a305cabd32a13)), closes [#431](https://github.com/gregberge/svgr/issues/431) [#437](https://github.com/gregberge/svgr/issues/437)
+
+
+
+
+
 ## [5.3.1](https://github.com/gregberge/svgr/compare/v5.3.0...v5.3.1) (2020-04-05)
 
 

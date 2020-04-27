@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v5.3.1...v5.4.0) (2020-04-27)
+
+**Note:** Version bump only for package @svgr/plugin-prettier
+
+
+
+
+
 ## [5.3.1](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v5.3.0...v5.3.1) (2020-04-05)
 
 **Note:** Version bump only for package @svgr/plugin-prettier
