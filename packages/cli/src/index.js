@@ -3,10 +3,20 @@ import program from 'commander'
 import path from 'path'
 import glob from 'glob'
 import fs from 'fs'
+import { loadConfig } from '@svgr/core'
 import pkg from '../package.json'
 import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
 import { stat, exitError } from './util'
+
+function noUndefinedKeys(obj) {
+  return Object.entries(obj).reduce((obj, [key, value]) => {
+    if (value !== undefined) {
+      obj[key] = value
+    }
+    return obj
+  }, {})
+}
 
 function parseObject(arg, accumulation = {}) {
   const [name, value] = arg.split('=')
@@ -14,7 +24,7 @@ function parseObject(arg, accumulation = {}) {
 }
 
 function parseObjectList(arg, accumulation = {}) {
-  const args = arg.split(',').map(str => str.trim())
+  const args = arg.split(',').map((str) => str.trim())
   return args.reduce((acc, arg) => parseObject(arg, acc), accumulation)
 }
 
@@ -27,7 +37,7 @@ function isFile(filePath) {
   }
 }
 
-const parseConfig = name => arg => {
+const parseConfig = (name) => (arg) => {
   const json = isFile(arg) ? fs.readFileSync(arg) : arg
   try {
     return JSON.parse(json)
@@ -117,7 +127,7 @@ async function run() {
   }, [])
 
   await Promise.all(
-    filenames.map(async filename => {
+    filenames.map(async (filename) => {
       try {
         await stat(filename)
       } catch (error) {
@@ -131,25 +141,30 @@ async function run() {
     process.exit(2)
   }
 
-  const config = { ...program }
+  const opts = noUndefinedKeys(program.opts())
 
-  if (config.expandProps === 'none') {
+  const config = await loadConfig(opts, { filePath: process.cwd() })
+
+  // Back config file
+  config.configFile = opts.configFile
+
+  if (program.expandProps === 'none') {
     config.expandProps = false
   }
 
-  if (config.dimensions === true) {
+  if (program.dimensions === true) {
     delete config.dimensions
   }
 
-  if (config.svgo === true) {
+  if (program.svgo === true) {
     delete config.svgo
   }
 
-  if (config.prettier === true) {
+  if (program.prettier === true) {
     delete config.prettier
   }
 
-  if (config.template) {
+  if (program.template) {
     try {
       // eslint-disable-next-line global-require, import/no-dynamic-require
       const template = require(path.join(process.cwd(), program.template))
@@ -165,7 +180,7 @@ async function run() {
     }
   }
 
-  if (config.indexTemplate) {
+  if (program.indexTemplate) {
     try {
       // eslint-disable-next-line global-require, import/no-dynamic-require
       const indexTemplate = require(path.join(
@@ -187,10 +202,11 @@ async function run() {
   }
 
   const command = program.outDir ? dirCommand : fileCommand
+
   await command(program, filenames, config)
 }
 
-run().catch(error => {
+run().catch((error) => {
   setTimeout(() => {
     throw error
   })

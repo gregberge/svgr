@@ -1,7 +1,6 @@
 import { cosmiconfig, cosmiconfigSync } from 'cosmiconfig'
 
 export const DEFAULT_CONFIG = {
-  h2xConfig: null,
   dimensions: true,
   expandProps: 'end',
   icon: false,
