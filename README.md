@@ -30,6 +30,7 @@ Quicklinks to some of the most-visited pages:
 - [CLI usage](https://react-svgr.com/docs/cli/)
 - [Webpack usage](https://react-svgr.com/docs/webpack/)
 - [Node usage](https://react-svgr.com/docs/node-api/)
+- [VS-Code Extension](https://marketplace.visualstudio.com/items?itemName=NathHorrigan.code-svgr)
 
 ## Example
 
