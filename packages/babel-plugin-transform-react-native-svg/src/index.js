@@ -21,6 +21,7 @@ const elementToComponent = {
   stop: 'Stop',
   mask: 'Mask',
   image: 'Image',
+  foreignObject: 'ForeignObject',
 }
 
 const expoPrefix = (component, expo) => {
