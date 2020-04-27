@@ -36,7 +36,7 @@ export function isCompilable(filename) {
 }
 
 function defaultIndexTemplate(filePaths) {
-  const exportEntries = filePaths.map(filePath => {
+  const exportEntries = filePaths.map((filePath) => {
     const basename = path.basename(filePath, path.extname(filePath))
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     return `export { default as ${exportName} } from './${basename}'`
@@ -54,7 +54,7 @@ export default async function dirCommand(
   { ext, filenameCase = CASE.PASCAL, ...options },
 ) {
   async function write(src, dest) {
-    if (!isCompilable(src)) return null
+    if (!isCompilable(src)) return { transformed: false, dest: null }
 
     ext = ext || getDefaultExtension(options)
     dest = rename(dest, ext, filenameCase)
@@ -64,12 +64,12 @@ export default async function dirCommand(
 
     if (program.ignoreExisting && (await exists(dest))) {
       politeWrite(program, chalk.grey(logOutput))
-      return null
+      return { transformed: false, dest }
     }
 
     outputFileSync(dest, code)
     politeWrite(program, chalk.white(logOutput))
-    return dest
+    return { transformed: true, dest }
   }
 
   async function generateIndex(dest, files) {
@@ -86,17 +86,18 @@ export default async function dirCommand(
       const dirname = filename
       const files = await readdir(dirname)
       const results = await Promise.all(
-        files.map(async relativeFile => {
+        files.map(async (relativeFile) => {
           const absFile = path.join(dirname, relativeFile)
           return handle(absFile, root)
         }),
       )
-      const transformed = results.filter(Boolean)
+      const transformed = results.filter((result) => result.transformed)
       if (transformed.length) {
+        const destFiles = results.map((result) => result.dest).filter(Boolean)
         const dest = path.resolve(program.outDir, path.relative(root, dirname))
-        await generateIndex(dest, transformed)
+        await generateIndex(dest, destFiles)
       }
-      return null
+      return { transformed: false, dest: null }
     }
 
     const dest = path.resolve(program.outDir, path.relative(root, filename))
@@ -104,10 +105,10 @@ export default async function dirCommand(
   }
 
   await Promise.all(
-    filenames.map(async file => {
+    filenames.map(async (file) => {
       const stats = await stat(file)
       const root = stats.isDirectory() ? file : path.dirname(file)
-      return handle(file, root)
+      await handle(file, root)
     }),
   )
 }
