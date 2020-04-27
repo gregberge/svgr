@@ -62,6 +62,17 @@ describe('plugin', () => {
       })
     })
 
+    describe('with "titleProp" and "expandProps"', () => {
+      it('adds "titleProp", "titleId" props and expands props', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: { componentName: 'SvgComponent' },
+          expandProps: true,
+          titleProp: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
     describe('with "expandProps"', () => {
       it('add props', () => {
         const { code } = testPlugin(language)('<svg><g /></svg>', {

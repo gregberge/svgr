@@ -122,6 +122,20 @@ function SvgComponent({
 export default SvgComponent;"
 `;
 
+exports[`plugin javascript with "titleProp" and "expandProps" adds "titleProp", "titleId" props and expands props 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent({
+  title,
+  titleId,
+  ...props
+}) {
+  return <svg><g /></svg>;
+}
+
+export default SvgComponent;"
+`;
+
 exports[`plugin javascript with both "memo" and "ref" option wrap component in "React.memo" and "React.forwardRef" 1`] = `
 "import * as React from \\"react\\";
 
@@ -238,6 +252,24 @@ function SvgComponent({
   title,
   titleId
 }: SVGRProps) {
+  return <svg><g /></svg>;
+}
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "titleProp" and "expandProps" adds "titleProp", "titleId" props and expands props 1`] = `
+"import * as React from \\"react\\";
+interface SVGRProps {
+  title?: string,
+  titleId?: string,
+}
+
+function SvgComponent({
+  title,
+  titleId,
+  ...props
+}: React.SVGProps<SVGSVGElement> & SVGRProps) {
   return <svg><g /></svg>;
 }
 
