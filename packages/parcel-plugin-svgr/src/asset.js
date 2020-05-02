@@ -29,7 +29,7 @@ const babelOptions = {
 }
 
 class ReactSVGAsset extends Asset {
-  type = 'js'
+  type = 'svg'
 
   async parse(contents) {
     const code = await convert(
@@ -50,7 +50,10 @@ class ReactSVGAsset extends Asset {
   }
 
   async generate() {
-    return [{ type: 'js', value: this.ast }]
+    return [
+      { type: 'svg', value: this.contents },  // original SVG (for CSS imports)
+      { type: 'js', value: this.ast }         // transformed AST (for JS imports)
+    ]
   }
 }
 
