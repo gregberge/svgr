@@ -7,6 +7,7 @@ import { loadConfig } from '@svgr/core'
 import pkg from '../package.json'
 import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
+import { exitError } from './util'
 
 function noUndefinedKeys(obj) {
   return Object.entries(obj).reduce((obj, [key, value]) => {

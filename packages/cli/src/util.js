@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import { promises as fs } from 'fs'
 import chalk from 'chalk'
-import util from 'util'
 import svgrConvert from '@svgr/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
