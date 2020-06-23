@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-import { stat, convert, convertFile, exitError } from './util'
+import { promises as fs } from 'fs'
+import { convert, convertFile, exitError } from './util'
 
 async function output(promise) {
   process.stdout.write(`${await promise}\n`)
@@ -38,7 +39,7 @@ async function fileCommand(program, filenames, config) {
   }
 
   const [filename] = filenames
-  const stats = await stat(filename)
+  const stats = await fs.stat(filename)
 
   if (stats.isDirectory()) {
     exitError('Directory are not supported without `--out-dir` option instead.')

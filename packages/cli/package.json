@@ -39,8 +39,7 @@
     "chalk": "^4.0.0",
     "commander": "^5.1.0",
     "dashify": "^2.0.0",
-    "glob": "^7.1.4",
-    "output-file-sync": "^2.0.1"
+    "glob": "^7.1.4"
   },
   "devDependencies": {
     "del": "^5.0.0"

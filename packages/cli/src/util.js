@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import fs from 'fs'
+import { promises as fs } from 'fs'
 import chalk from 'chalk'
 import util from 'util'
 import svgrConvert from '@svgr/core'
@@ -8,9 +8,6 @@ import jsx from '@svgr/plugin-jsx'
 import prettier from '@svgr/plugin-prettier'
 import camelcase from 'camelcase'
 import dashify from 'dashify'
-
-export const readFile = util.promisify(fs.readFile)
-export const stat = util.promisify(fs.stat)
 
 export const CASE = {
   KEBAB: 'kebab', // kebab-case
@@ -42,7 +39,7 @@ export function convert(code, config, state) {
 }
 
 export async function convertFile(filePath, config = {}) {
-  const code = await readFile(filePath, 'utf-8')
+  const code = await fs.readFile(filePath, 'utf-8')
   return convert(code, config, { filePath })
 }
 
