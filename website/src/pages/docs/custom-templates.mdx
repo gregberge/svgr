@@ -113,6 +113,8 @@ When you use the CLI with `--out-dir` option, an index file is automatically gen
 The customization is the same, a file that exports a function:
 
 ```js
+const path = require('path')
+
 function defaultIndexTemplate(filePaths) {
   const exportEntries = filePaths.map(filePath => {
     const basename = path.basename(filePath, path.extname(filePath))
