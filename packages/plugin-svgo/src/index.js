@@ -7,6 +7,7 @@ const explorer = cosmiconfigSync('svgo', {
   searchPlaces: [
     'package.json',
     '.svgorc',
+    '.svgorc.js',
     '.svgorc.json',
     '.svgorc.yaml',
     '.svgorc.yml',
