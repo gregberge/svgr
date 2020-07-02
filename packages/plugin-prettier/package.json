@@ -26,7 +26,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "merge-deep": "^3.0.2",
+    "deepmerge": "^4.2.2",
     "prettier": "^2.0.5"
   }
 }
