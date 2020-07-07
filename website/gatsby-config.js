@@ -14,7 +14,8 @@ module.exports = {
           { title: 'Playground', url: '/playground/' },
           { title: 'Usage', url: '/docs/getting-started/' },
         ],
-        codeFundProperty: 269,
+        carbonAdUrl:
+          '//cdn.carbonads.com/carbon.js?serve=CE7I5K3N&placement=react-svgrcom',
         googleAnalytics: 'UA-154496255-2',
         algoliaDocSearch: {
           apiKey: '0c7343afd83c189413499c62c1df6853',

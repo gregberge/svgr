@@ -12,6 +12,7 @@ import {
   Dialog as ReakitDialog,
   DialogBackdrop as ReakitDialogBackdrop,
 } from 'reakit/Dialog'
+import { CarbonAd } from 'smooth-doc/components'
 import { lighten } from 'polished'
 import { Button } from '@smooth-ui/core-sc'
 import { Settings } from './Settings'
@@ -20,7 +21,6 @@ import defaultSvg from './defaultSVG'
 import { DropArea } from './DropArea'
 import { Loading } from './Loading'
 import { settings, getInitialState, stateToSettings } from './config/settings'
-import { CodeFund } from './CodeFund'
 import { useQuery } from './Query'
 
 const GlobalStyle = createGlobalStyle`
@@ -346,7 +346,7 @@ export function Playground() {
           </React.Suspense>
           <CopyFeedback {...dialog} />
           <FloatingAd>
-            <CodeFund />
+            <CarbonAd />
           </FloatingAd>
         </PlaygroundContainer>
       </ClientOnly>

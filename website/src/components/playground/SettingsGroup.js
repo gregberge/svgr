@@ -1,6 +1,10 @@
 import * as React from 'react'
 import styled, { up, css, Box } from '@xstyled/styled-components'
-import { useHiddenState, Hidden, HiddenDisclosure } from 'reakit/Hidden'
+import {
+  useDisclosureState,
+  DisclosureContent,
+  Disclosure,
+} from 'reakit/Disclosure'
 import { ChevronLeft } from 'components/playground/icons/ChevronLeft'
 
 const Container = styled.div`
@@ -58,22 +62,22 @@ const Content = styled.div`
 `
 
 export function SettingsGroup({ title, children }) {
-  const hidden = useHiddenState({ visible: true })
+  const disclosure = useDisclosureState({ visible: true })
   return (
     <Container>
-      <HiddenDisclosure {...hidden}>
-        {(hiddenDisclosureProps) => (
-          <Button row {...hiddenDisclosureProps}>
+      <Disclosure {...disclosure}>
+        {(DisclosureProps) => (
+          <Button row {...DisclosureProps}>
             <Box col>{title}</Box>
             <Box col="auto">
               <Marker />
             </Box>
           </Button>
         )}
-      </HiddenDisclosure>
-      <Hidden as={Content} {...hidden}>
+      </Disclosure>
+      <DisclosureContent as={Content} {...disclosure}>
         {children}
-      </Hidden>
+      </DisclosureContent>
     </Container>
   )
 }
