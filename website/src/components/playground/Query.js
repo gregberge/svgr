@@ -12,7 +12,8 @@ function formatQuery(state, initialState) {
     },
     {},
   )
-  return qs.stringify(lightState, { arrayFormat: 'bracket' })
+  const qsStr = qs.stringify(lightState, { arrayFormat: 'bracket' })
+  return qsStr ? `?${qsStr}` : ''
 }
 
 function parseQuery(query) {
@@ -20,8 +21,9 @@ function parseQuery(query) {
 }
 
 function getLocation() {
-  if (typeof window === 'undefined') return { search: '', pathname: '' }
-  return window.location
+  if (typeof window === 'undefined')
+    return { location: { search: '', pathname: '' } }
+  return { location: window.location }
 }
 
 let browserHistory
@@ -47,7 +49,7 @@ function useLocation() {
 export function useQuery(getInitialState = {}) {
   const history = useHistory()
   const [initialState] = React.useState(getInitialState)
-  const location = useLocation()
+  const { location } = useLocation()
   const locationRef = React.useRef(location)
   React.useEffect(() => {
     locationRef.current = location
