@@ -1,10 +1,9 @@
-import fs from 'fs'
+import { promises as fs } from 'fs'
 import path from 'path'
 import childProcess from 'child_process'
 import util from 'util'
 import del from 'del'
 
-const readdir = util.promisify(fs.readdir)
 const exec = util.promisify(childProcess.exec)
 
 const svgr = path.join(__dirname, 'index.js')
@@ -152,7 +151,7 @@ describe('cli', () => {
       const outDir = `__fixtures_build__/filename-case-${index}`
       await del(outDir)
       await cli(`${args} ${inDir} --out-dir=${outDir}`)
-      expect(await readdir(outDir)).toMatchSnapshot(args)
+      expect(await fs.readdir(outDir)).toMatchSnapshot(args)
     },
     10000,
   )
@@ -162,14 +161,14 @@ describe('cli', () => {
     const outDir = '__fixtures_build__/ext'
     await del(outDir)
     await cli(`--ext=ts ${inDir} --out-dir=${outDir}`)
-    expect(await readdir(outDir)).toMatchSnapshot()
+    expect(await fs.readdir(outDir)).toMatchSnapshot()
   }, 10000)
 
   it('should support "--ignore-existing"', async () => {
     const inDir = '__fixtures__/simple'
     const outDir = '__fixtures__/simple-existing'
     await cli(`${inDir} --out-dir=${outDir} --ignore-existing`)
-    const content = fs.readFileSync(path.join(outDir, 'File.js'), 'utf-8')
+    const content = await fs.readFile(path.join(outDir, 'File.js'), 'utf-8')
     expect(content).toBe('// nothing')
   }, 10000)
 
@@ -185,7 +184,7 @@ describe('cli', () => {
     const outDir = `__fixtures_build__/prefix-exports`
     await del(outDir)
     await cli(`${inDir} --out-dir=${outDir}`)
-    const content = fs.readFileSync(path.join(outDir, 'index.js'), 'utf-8')
+    const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
   }, 10000)
 
@@ -196,7 +195,7 @@ describe('cli', () => {
     await cli(
       `${inDir} --out-dir=${outDir} --config-file=__fixtures__/custom-index.config.js`,
     )
-    const content = fs.readFileSync(path.join(outDir, 'index.js'), 'utf-8')
+    const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
   }, 10000)
 
@@ -207,7 +206,7 @@ describe('cli', () => {
     await cli(
       `${inDir} --out-dir=${outDir} --index-template=__fixtures__/custom-index-template.js`,
     )
-    const content = fs.readFileSync(path.join(outDir, 'index.js'), 'utf-8')
+    const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
   }, 10000)
 })

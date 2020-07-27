@@ -2,12 +2,12 @@
 import program from 'commander'
 import path from 'path'
 import glob from 'glob'
-import fs from 'fs'
+import fs, { promises as fsPromises } from 'fs'
 import { loadConfig } from '@svgr/core'
 import pkg from '../package.json'
 import fileCommand from './fileCommand'
 import dirCommand from './dirCommand'
-import { stat, exitError } from './util'
+import { exitError } from './util'
 
 function noUndefinedKeys(obj) {
   return Object.entries(obj).reduce((obj, [key, value]) => {
@@ -129,7 +129,7 @@ async function run() {
   await Promise.all(
     filenames.map(async (filename) => {
       try {
-        await stat(filename)
+        await fsPromises.stat(filename)
       } catch (error) {
         errors.push(`${filename} does not exist`)
       }
