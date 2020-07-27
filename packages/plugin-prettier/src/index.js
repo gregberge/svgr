@@ -1,5 +1,5 @@
 import prettier from 'prettier'
-import mergeDeep from 'merge-deep'
+import deepmerge from 'deepmerge'
 
 export default function prettierPlugin(code, config, state) {
   if (!config.prettier) return code
@@ -9,10 +9,10 @@ export default function prettierPlugin(code, config, state) {
     : {}
   return prettier.format(
     code,
-    mergeDeep(
+    deepmerge.all([
       { parser: 'babel' },
-      prettierRcConfig,
+      prettierRcConfig || {},
       config.prettierConfig || {},
-    ),
+    ]),
   )
 }

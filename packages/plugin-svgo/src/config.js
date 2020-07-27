@@ -1,4 +1,4 @@
-import mergeDeep from 'merge-deep'
+import deepmerge from 'deepmerge'
 
 export function getFilePath(state) {
   return state.filePath || process.cwd()
@@ -33,7 +33,7 @@ function extractPlugins(config) {
 
 function mergePlugins(configs) {
   const plugins = configs.reduce(
-    (merged, config) => mergeDeep(merged, ...extractPlugins(config)),
+    (merged, config) => deepmerge.all([merged, ...extractPlugins(config)]),
     {},
   )
   return Object.keys(plugins).reduce((array, key) => {
@@ -44,5 +44,5 @@ function mergePlugins(configs) {
 
 export function mergeSvgoConfig(...configs) {
   const plugins = mergePlugins(configs)
-  return { ...mergeDeep(...configs), plugins }
+  return { ...deepmerge.all(configs.filter(Boolean)), plugins }
 }

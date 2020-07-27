@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "cosmiconfig": "^6.0.0",
-    "merge-deep": "^3.0.2",
+    "deepmerge": "^4.2.2",
     "svgo": "^1.2.2"
   }
 }
