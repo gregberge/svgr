@@ -76,6 +76,17 @@ export default \\"logo.svg\\";
 export { SvgComponent as Component };"
 `;
 
+exports[`plugin javascript with "native" and "expandProps" option adds import from "react-native-svg" and adds props 1`] = `
+"import * as React from \\"react\\";
+import Svg from \\"react-native-svg\\";
+
+function SvgComponent(props) {
+  return <Svg><g /></Svg>;
+}
+
+export default SvgComponent;"
+`;
+
 exports[`plugin javascript with "native" option adds import from "react-native-svg" 1`] = `
 "import * as React from \\"react\\";
 import Svg from \\"react-native-svg\\";
@@ -85,6 +96,30 @@ function SvgComponent() {
 }
 
 export default SvgComponent;"
+`;
+
+exports[`plugin javascript with "native", "ref" and "expandProps" option adds import from "react-native-svg" and adds props and adds ForwardRef component 1`] = `
+"import * as React from \\"react\\";
+import Svg from \\"react-native-svg\\";
+
+function SvgComponent(props, svgRef) {
+  return <Svg><g /></Svg>;
+}
+
+const ForwardRef = React.forwardRef(SvgComponent);
+export default ForwardRef;"
+`;
+
+exports[`plugin javascript with "native", "ref" option adds import from "react-native-svg" and adds ForwardRef component 1`] = `
+"import * as React from \\"react\\";
+import Svg from \\"react-native-svg\\";
+
+function SvgComponent(props, svgRef) {
+  return <Svg><g /></Svg>;
+}
+
+const ForwardRef = React.forwardRef(SvgComponent);
+export default ForwardRef;"
 `;
 
 exports[`plugin javascript with "native.expo" option adds import from "react-native-svg" & from "expo" 1`] = `
@@ -219,6 +254,17 @@ export default \\"logo.svg\\";
 export { SvgComponent as Component };"
 `;
 
+exports[`plugin typescript with "native" and "expandProps" option adds import from "react-native-svg" and adds props 1`] = `
+"import * as React from \\"react\\";
+import Svg, { SvgProps } from \\"react-native-svg\\";
+
+function SvgComponent(props: SvgProps) {
+  return <Svg><g /></Svg>;
+}
+
+export default SvgComponent;"
+`;
+
 exports[`plugin typescript with "native" option adds import from "react-native-svg" 1`] = `
 "import * as React from \\"react\\";
 import Svg from \\"react-native-svg\\";
@@ -228,6 +274,30 @@ function SvgComponent() {
 }
 
 export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "native", "ref" and "expandProps" option adds import from "react-native-svg" and adds props and adds ForwardRef component 1`] = `
+"import * as React from \\"react\\";
+import Svg, { SvgProps } from \\"react-native-svg\\";
+
+function SvgComponent(props: SvgProps, svgRef?: React.Ref<React.Component<SvgProps>>) {
+  return <Svg><g /></Svg>;
+}
+
+const ForwardRef = React.forwardRef(SvgComponent);
+export default ForwardRef;"
+`;
+
+exports[`plugin typescript with "native", "ref" option adds import from "react-native-svg" and adds ForwardRef component 1`] = `
+"import * as React from \\"react\\";
+import Svg from \\"react-native-svg\\";
+
+function SvgComponent(props: {}, svgRef?: React.Ref<React.Component<SvgProps>>) {
+  return <Svg><g /></Svg>;
+}
+
+const ForwardRef = React.forwardRef(SvgComponent);
+export default ForwardRef;"
 `;
 
 exports[`plugin typescript with "native.expo" option adds import from "react-native-svg" & from "expo" 1`] = `

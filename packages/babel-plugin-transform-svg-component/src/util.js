@@ -183,7 +183,7 @@ export const getImport = ({ types: t }, opts) => {
       importDeclarations.push(t.importDeclaration([], t.stringLiteral('expo')))
     } else {
       const imports = [t.importDefaultSpecifier(t.identifier('Svg'))];
-      if (opts.typescript) {
+      if (opts.typescript && opts.expandProps) {
         imports.push(t.importSpecifier(t.identifier('SvgProps'), t.identifier('SvgProps')));
       }
       importDeclarations.push(
