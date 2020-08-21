@@ -1,5 +1,5 @@
 import path from 'path'
-import { convertFile, transformFilename, CASE } from './util'
+import { convertFile, transformFilename, CASE, formatExportName } from './util'
 
 const FIXTURES = path.join(__dirname, '../../../__fixtures__')
 
@@ -29,6 +29,14 @@ describe('util', () => {
       expect(transformFilename('foo_bar', CASE.CAMEL)).toBe('fooBar')
       expect(transformFilename('foo_bar', CASE.KEBAB)).toBe('foo-bar')
       expect(transformFilename('foo_bar', CASE.PASCAL)).toBe('FooBar')
+    })
+  })
+
+  describe('#formatExportName', () => {
+    it('should ensure a valid export name', () => {
+      expect(formatExportName('foo-bar')).toBe('FooBar')
+      expect(formatExportName('2foo')).toBe('Svg2foo')
+      expect(formatExportName('2foo-bar')).toBe('Svg2FooBar')
     })
   })
 })
