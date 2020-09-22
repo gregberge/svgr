@@ -401,6 +401,29 @@ export default MemoSvgComponent
 "
 `;
 
+exports[`convert config should support options 18 1`] = `
+"import * as React from 'react'
+
+function SvgComponent(props) {
+  return (
+    <svg width={88} height={88} {...props}>
+      <g
+        stroke=\\"#063855\\"
+        strokeWidth={2}
+        fill=\\"none\\"
+        fillRule=\\"evenodd\\"
+        strokeLinecap=\\"square\\"
+      >
+        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+      </g>
+    </svg>
+  )
+}
+
+export default SvgComponent
+"
+`;
+
 exports[`convert config titleProp: without title added 1`] = `
 "import * as React from 'react'
 
