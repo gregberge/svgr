@@ -209,4 +209,22 @@ describe('cli', () => {
     const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
   }, 10000)
+
+  it.each([
+    [0, ''],
+    [1, '--filename-case=camel'],
+    [2, '--filename-case=pascal'],
+    [3, '--filename-case=kebab'],
+  ])(
+    'should support custom --filename-case in index.js',
+    async (index, args) => {
+      const inDir = '__fixtures__/cased'
+      const outDir = `__fixtures_build__/filename-case-${index}`
+      await del(outDir)
+      await cli(`${args} ${inDir} --out-dir=${outDir}`)
+      const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
+      expect(content).toMatchSnapshot()
+    },
+    10000,
+  )
 })

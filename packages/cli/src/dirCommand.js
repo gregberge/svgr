@@ -2,6 +2,7 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import chalk from 'chalk'
+import camelcase from 'camelcase'
 import { loadConfig } from '@svgr/core'
 import { convertFile, transformFilename, CASE, politeWrite } from './util'
 
@@ -33,7 +34,12 @@ export function isCompilable(filename) {
 function defaultIndexTemplate(filePaths) {
   const exportEntries = filePaths.map((filePath) => {
     const basename = path.basename(filePath, path.extname(filePath))
-    const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
+    const componentName = camelcase(basename, {
+      pascalCase: true,
+    })
+    const exportName = /^\d/.test(componentName)
+      ? `Svg${componentName}`
+      : componentName
     return `export { default as ${exportName} } from './${basename}'`
   })
   return exportEntries.join('\n')

@@ -84,6 +84,34 @@ export default SvgFile
 "
 `;
 
+exports[`cli should support custom --filename-case in index.js 1`] = `
+"export { default as PascalCase } from './PascalCase'
+export { default as CamelCase } from './CamelCase'
+export { default as KebabCase } from './KebabCase'
+export { default as MultipleDashes } from './MultipleDashes'"
+`;
+
+exports[`cli should support custom --filename-case in index.js 2`] = `
+"export { default as PascalCase } from './pascalCase'
+export { default as CamelCase } from './camelCase'
+export { default as KebabCase } from './kebabCase'
+export { default as MultipleDashes } from './multipleDashes'"
+`;
+
+exports[`cli should support custom --filename-case in index.js 3`] = `
+"export { default as PascalCase } from './PascalCase'
+export { default as CamelCase } from './CamelCase'
+export { default as KebabCase } from './KebabCase'
+export { default as MultipleDashes } from './MultipleDashes'"
+`;
+
+exports[`cli should support custom --filename-case in index.js 4`] = `
+"export { default as PascalCase } from './pascal-case'
+export { default as CamelCase } from './camel-case'
+export { default as KebabCase } from './kebab-case'
+export { default as MultipleDashes } from './multiple-dashes'"
+`;
+
 exports[`cli should support custom file extension 1`] = `
 Array [
   "File.ts",
