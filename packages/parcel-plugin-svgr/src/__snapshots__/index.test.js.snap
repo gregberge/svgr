@@ -47,7 +47,8 @@ var _ref = /*#__PURE__*/React.createElement(\\"g\\", {
 function SvgIcon(props) {
   return /*#__PURE__*/React.createElement(\\"svg\\", _extends({
     width: 88,
-    height: 88
+    height: 88,
+    xmlns: \\"http://www.w3.org/2000/svg\\"
   }, props), _ref);
 }
 

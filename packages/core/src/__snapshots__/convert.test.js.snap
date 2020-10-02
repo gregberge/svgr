@@ -5,7 +5,7 @@ exports[`convert config should support options 0 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg viewBox=\\"0 0 88 88\\" {...props}>
+    <svg viewBox=\\"0 0 88 88\\" xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -28,7 +28,7 @@ exports[`convert config should support options 1 1`] = `
 
 function SvgComponent() {
   return (
-    <svg width={88} height={88}>
+    <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\">
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -51,7 +51,7 @@ exports[`convert config should support options 2 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg {...props} width={88} height={88}>
+    <svg {...props} width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\">
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -74,7 +74,13 @@ exports[`convert config should support options 3 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 88 88\\" {...props}>
+    <svg
+      width=\\"1em\\"
+      height=\\"1em\\"
+      viewBox=\\"0 0 88 88\\"
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      {...props}
+    >
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -98,7 +104,7 @@ import Svg, { G, Path } from 'react-native-svg'
 
 function SvgComponent(props) {
   return (
-    <Svg width={88} height={88} {...props}>
+    <Svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <G
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -122,7 +128,7 @@ import { Svg } from 'expo'
 
 function SvgComponent(props) {
   return (
-    <Svg width={88} height={88} {...props}>
+    <Svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <Svg.G
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -146,7 +152,13 @@ import Svg, { G, Path } from 'react-native-svg'
 
 function SvgComponent(props) {
   return (
-    <Svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 88 88\\" {...props}>
+    <Svg
+      width=\\"1em\\"
+      height=\\"1em\\"
+      viewBox=\\"0 0 88 88\\"
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      {...props}
+    >
       <G
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -170,7 +182,7 @@ import Svg, { G, Path } from 'react-native-svg'
 
 function SvgComponent() {
   return (
-    <Svg width={88} height={88}>
+    <Svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\">
       <G
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -194,7 +206,13 @@ import Svg, { G, Path } from 'react-native-svg'
 
 function SvgComponent(props, svgRef) {
   return (
-    <Svg width={88} height={88} ref={svgRef} {...props}>
+    <Svg
+      width={88}
+      height={88}
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      ref={svgRef}
+      {...props}
+    >
       <G
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -218,7 +236,13 @@ exports[`convert config should support options 9 1`] = `
 
 function SvgComponent(props, svgRef) {
   return (
-    <svg width={88} height={88} ref={svgRef} {...props}>
+    <svg
+      width={88}
+      height={88}
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      ref={svgRef}
+      {...props}
+    >
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -242,7 +266,14 @@ exports[`convert config should support options 10 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={88} height={88} a=\\"b\\" b={props.b} {...props}>
+    <svg
+      width={88}
+      height={88}
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      a=\\"b\\"
+      b={props.b}
+      {...props}
+    >
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -265,7 +296,7 @@ exports[`convert config should support options 11 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={88} height={88} {...props}>
+    <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -288,7 +319,7 @@ exports[`convert config should support options 12 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={88} height={88} {...props}>
+    <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -311,7 +342,14 @@ exports[`convert config should support options 13 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width=\\"88px\\" height=\\"88px\\" viewBox=\\"0 0 88 88\\" {...props}>
+    <svg
+      width=\\"88px\\"
+      height=\\"88px\\"
+      viewBox=\\"0 0 88 88\\"
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      xmlnsXlink=\\"http://www.w3.org/1999/xlink\\"
+      {...props}
+    >
       <title>{'Dismiss'}</title>
       <desc>{'Created with Sketch.'}</desc>
       <defs />
@@ -340,7 +378,7 @@ exports[`convert config should support options 14 1`] = `
 "import * as React from \\"react\\";
 
 function SvgComponent(props) {
-  return <svg width={88} height={88} {...props}><g stroke=\\"#063855\\" strokeWidth={2} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\" /></g></svg>;
+  return <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}><g stroke=\\"#063855\\" strokeWidth={2} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\" /></g></svg>;
 }
 
 export default SvgComponent;"
@@ -358,7 +396,13 @@ exports[`convert config should support options 16 1`] = `
 
 function SvgComponent({ title, titleId, ...props }) {
   return (
-    <svg width={88} height={88} aria-labelledby={titleId} {...props}>
+    <svg
+      width={88}
+      height={88}
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      aria-labelledby={titleId}
+      {...props}
+    >
       {title ? <title id={titleId}>{title}</title> : null}
       <g
         stroke=\\"#063855\\"
@@ -382,7 +426,7 @@ exports[`convert config should support options 17 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={88} height={88} {...props}>
+    <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -430,7 +474,7 @@ exports[`convert should convert 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={88} height={88} {...props}>
+    <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
@@ -453,7 +497,13 @@ exports[`convert should convert style attribute 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={48} height={48} {...props}>
+    <svg
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      xmlnsXlink=\\"http://www.w3.org/1999/xlink\\"
+      width={48}
+      height={48}
+      {...props}
+    >
       <g transform=\\"translate(0 -1004.362)\\">
         <g id=\\"prefix__a\\" color=\\"#000\\" fill=\\"#a3a3a3\\" strokeWidth={8}>
           <rect
@@ -500,7 +550,7 @@ exports[`convert should handle special SVG attributes 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg {...props}>
+    <svg xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <path externalResourcesRequired=\\"false\\" d=\\"M10 10h100v100H10z\\" />
     </svg>
   )
@@ -515,7 +565,7 @@ exports[`convert should not remove all style tags 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={88} height={88} {...props}>
+    <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <style>{'path{fill:red}'}</style>
       <g
         id=\\"prefix__Blocks\\"
@@ -543,7 +593,7 @@ exports[`convert should remove null characters 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={25} height={25} {...props}>
+    <svg xmlns=\\"http://www.w3.org/2000/svg\\" width={25} height={25} {...props}>
       <path
         d=\\"M19.4 24.5H5.6c-2.8 0-5.1-2.3-5.1-5.1V5.6C.5 2.8 2.8.5 5.6.5h13.8c2.8 0 5.1 2.3 5.1 5.1v13.8c0 2.8-2.3 5.1-5.1 5.1z\\"
         fill=\\"#fff\\"
@@ -563,7 +613,7 @@ exports[`convert should remove style tags 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={88} height={88} {...props}>
+    <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <g fill=\\"red\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\">
         <g id=\\"prefix__Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
           <path d=\\"M51 37L37 51\\" id=\\"prefix__Shape\\" />

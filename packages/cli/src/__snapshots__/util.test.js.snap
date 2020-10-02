@@ -5,7 +5,7 @@ exports[`util #convertFile should convert a file 1`] = `
 
 function SvgFile(props) {
   return (
-    <svg width={48} height={1} {...props}>
+    <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
     </svg>
   )
@@ -20,7 +20,13 @@ exports[`util #convertFile should support a custom config path 1`] = `
 
 function SvgFile(props) {
   return (
-    <svg width=\\"1em\\" height=\\"1em\\" viewBox=\\"0 0 48 1\\" {...props}>
+    <svg
+      width=\\"1em\\"
+      height=\\"1em\\"
+      viewBox=\\"0 0 48 1\\"
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      {...props}
+    >
       <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
     </svg>
   )
