@@ -1,0 +1,23 @@
+tasks:
+  - command: gp await-port 8000 && sleep 3 && gp preview $(gp url 8000)
+  - name: Docs
+    before: cd website
+    init: | 
+      yarn install
+      gp sync-done boot
+    command: yarn dev
+
+  - name: Dev
+    init: | 
+      gp sync-await boot
+      yarn install
+    command: yarn run dev
+    openMode: split-right
+
+ports: 
+  - port: 8000
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - esbenp.prettier-vscode@5.7.1:4Zx39KyQMoIz7x94PSmDmQ==
