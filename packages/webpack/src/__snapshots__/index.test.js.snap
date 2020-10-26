@@ -44,6 +44,29 @@ function SvgIcon() {
 export default SvgIcon;"
 `;
 
+exports[`webpack loader should convert file for Inferno 1`] = `
+"import { createVNode } from \\"inferno\\";
+
+var _ref = createVNode(32, \\"svg\\", null, createVNode(32, \\"g\\", null, createVNode(32, \\"path\\", null, null, 1, {
+  \\"d\\": \\"M51 37L37 51M51 51L37 37\\"
+}), 2, {
+  \\"stroke\\": \\"#063855\\",
+  \\"stroke-width\\": 2,
+  \\"fill\\": \\"none\\",
+  \\"fill-rule\\": \\"evenodd\\",
+  \\"stroke-linecap\\": \\"square\\"
+}), 2, {
+  \\"width\\": 88,
+  \\"height\\": 88
+});
+
+function SvgIcon() {
+  return _ref;
+}
+
+export default SvgIcon;"
+`;
+
 exports[`webpack loader should support url-loader 1`] = `
 "import * as React from \\"react\\";
 

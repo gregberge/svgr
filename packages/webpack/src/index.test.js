@@ -93,4 +93,23 @@ describe('webpack loader', () => {
 
     expect(source).toMatchSnapshot()
   }, 15000)
+
+  it('should convert file for Inferno', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              expandProps: false,
+              useInfernoJsMode: true
+            },
+          },
+        ],
+      },
+    ])
+
+    expect(source).toMatchSnapshot()
+  }, 15000)
 })

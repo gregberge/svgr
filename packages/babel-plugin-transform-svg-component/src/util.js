@@ -164,6 +164,9 @@ export const getInterface = ({ types: t }, opts) => {
 }
 
 export const getImport = ({ types: t }, opts) => {
+  if (opts.useInfernoJsMode) {
+    return '';
+  }
   const importDeclarations = [
     t.importDeclaration(
       [t.importNamespaceSpecifier(t.identifier('React'))],
