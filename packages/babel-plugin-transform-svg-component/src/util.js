@@ -210,7 +210,7 @@ export const getExport = ({ template }, opts) => {
 
   if (opts.state.caller && opts.state.caller.previousExport) {
     result += `${opts.state.caller.previousExport}\n`
-    result += `export { ${exportName} as ReactComponent }`
+    result += `export { ${exportName} as ${opts.namedExport} }`
     return template.ast(result, {
       plugins,
     })

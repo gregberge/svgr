@@ -309,6 +309,10 @@ describe('convert', () => {
       },
       { titleProp: true },
       { memo: true },
+      {
+        namedExport: 'Component',
+        state: { caller: { previousExport: 'export default "logo.svg";' } },
+      },
     ]
 
     test.each(configs)('should support options %#', async (config) => {
