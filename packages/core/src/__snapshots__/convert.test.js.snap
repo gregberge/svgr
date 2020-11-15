@@ -450,7 +450,7 @@ exports[`convert config should support options 18 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg width={88} height={88} {...props}>
+    <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
       <g
         stroke=\\"#063855\\"
         strokeWidth={2}
