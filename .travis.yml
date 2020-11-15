@@ -3,10 +3,7 @@ language: node_js
 node_js:
   - 10
   - 12
-
-before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh
-  - export PATH="$HOME/.yarn/bin:$PATH"
+  - 14
 
 script:
   - yarn ci
