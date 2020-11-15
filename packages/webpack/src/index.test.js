@@ -18,11 +18,14 @@ function compile(rules) {
 
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
-      if (err) reject(err)
+      if (err) {
+        reject(err)
+        return
+      }
 
       resolve(
         stats
-          .toJson()
+          .toJson({ source: true })
           .modules.find(({ name }) => name === './__fixtures__/icon.svg')
           .source,
       )

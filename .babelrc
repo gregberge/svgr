@@ -4,11 +4,18 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "8"
+          "node": "10"
         },
         "loose": true
-      }
+      },
+      "preset-env"
     ]
   ],
-  "plugins": ["@babel/plugin-proposal-class-properties"]
+  "plugins": [
+    [
+      "@babel/plugin-proposal-class-properties",
+      { "loose": true },
+      "class-properties"
+    ]
+  ]
 }
