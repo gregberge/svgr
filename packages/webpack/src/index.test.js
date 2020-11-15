@@ -112,4 +112,22 @@ describe('webpack loader', () => {
 
     expect(source).toMatchSnapshot()
   }, 15000)
+
+  it('should convert file for Inferno with props', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              useInfernoJsMode: false
+            },
+          },
+        ],
+      },
+    ])
+
+    expect(source).toMatchSnapshot()
+  }, 15000)
 })

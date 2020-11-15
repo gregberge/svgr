@@ -67,6 +67,35 @@ function SvgIcon() {
 export default SvgIcon;"
 `;
 
+exports[`webpack loader should convert file for Inferno with props 1`] = `
+"import { createVNode, normalizeProps } from \\"inferno\\";
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+import * as React from \\"react\\";
+
+function SvgIcon(props) {
+  return normalizeProps(createVNode(32, \\"svg\\", null, createVNode(32, \\"g\\", null, createVNode(32, \\"path\\", null, null, 1, {
+    \\"d\\": \\"M51 37L37 51M51 51L37 37\\"
+  }), 2, {
+    \\"stroke\\": \\"#063855\\",
+    \\"stroke-width\\": 2,
+    \\"fill\\": \\"none\\",
+    \\"fill-rule\\": \\"evenodd\\",
+    \\"stroke-linecap\\": \\"square\\"
+  }), 2, _objectSpread({
+    \\"width\\": 88,
+    \\"height\\": 88
+  }, props)));
+}
+
+export default SvgIcon;"
+`;
+
 exports[`webpack loader should support url-loader 1`] = `
 "import * as React from \\"react\\";
 
