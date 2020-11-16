@@ -121,7 +121,7 @@ describe('webpack loader', () => {
           {
             loader: path.resolve(__dirname, './index.js'),
             options: {
-              useInfernoJsMode: false
+              useInfernoJsMode: true
             },
           },
         ],
