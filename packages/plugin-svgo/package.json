@@ -1,7 +1,7 @@
 {
   "name": "@svgr/plugin-svgo",
   "description": "Optimize SVG",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "main": "lib/index.js",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/plugin-svgo",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -26,7 +26,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "cosmiconfig": "^6.0.0",
+    "cosmiconfig": "^7.0.0",
     "deepmerge": "^4.2.2",
     "svgo": "^1.2.2"
   }

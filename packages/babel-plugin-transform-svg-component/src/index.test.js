@@ -94,6 +94,40 @@ describe('plugin', () => {
       })
     })
 
+    describe('with "native", "ref" option', () => {
+      it('adds import from "react-native-svg" and adds ForwardRef component', () => {
+        const { code } = testPlugin(language)('<Svg><g /></Svg>', {
+          state: { componentName: 'SvgComponent' },
+          native: true,
+          ref: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
+    describe('with "native" and "expandProps" option', () => {
+      it('adds import from "react-native-svg" and adds props', () => {
+        const { code } = testPlugin(language)('<Svg><g /></Svg>', {
+          state: { componentName: 'SvgComponent' },
+          native: true,
+          expandProps: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
+    describe('with "native", "ref" and "expandProps" option', () => {
+      it('adds import from "react-native-svg" and adds props and adds ForwardRef component', () => {
+        const { code } = testPlugin(language)('<Svg><g /></Svg>', {
+          state: { componentName: 'SvgComponent' },
+          native: true,
+          expandProps: true,
+          ref: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
     describe('with "memo" option', () => {
       it('wrap component in "React.memo"', () => {
         const { code } = testPlugin(language)('<svg><g /></svg>', {
@@ -110,6 +144,19 @@ describe('plugin', () => {
           state: { componentName: 'SvgComponent' },
           memo: true,
           ref: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
+    describe('with "namedExport" option and "previousExport" state', () => {
+      it('has custom named export', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: {
+            componentName: 'SvgComponent',
+            caller: { previousExport: 'export default "logo.svg";' },
+          },
+          namedExport: 'Component',
         })
         expect(code).toMatchSnapshot()
       })

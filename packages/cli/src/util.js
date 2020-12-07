@@ -52,3 +52,19 @@ export function politeWrite(program, data) {
     process.stdout.write(data)
   }
 }
+
+export function formatExportName(name) {
+  if (/[-]/g.test(name) && /^\d/.test(name)) {
+    return `Svg${camelcase(name, { pascalCase: true })}`
+  }
+
+  if (/^\d/.test(name)) {
+    return `Svg${name}`
+  }
+
+  if (/[-]/g.test(name)) {
+    return camelcase(name, { pascalCase: true })
+  }
+
+  return name
+}

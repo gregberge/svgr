@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/cli/compare/v5.4.0...v5.5.0) (2020-11-15)
+
+
+### Bug Fixes
+
+* ensure a valid name for exports ([#489](https://github.com/gregberge/svgr/tree/master/packages/cli/issues/489)) ([0eb8085](https://github.com/gregberge/svgr/tree/master/packages/cli/commit/0eb80853e53a55226881f6ae3b50c1afe89f1cfc))
+* prevent removing the namespace by svgr ([[#475](https://github.com/gregberge/svgr/tree/master/packages/cli/issues/475)](https://github.com/gregberge/svgr/issues/475) ([#498](https://github.com/gregberge/svgr/tree/master/packages/cli/issues/498)) ([00e84ea](https://github.com/gregberge/svgr/tree/master/packages/cli/commit/00e84ead96d89bcbd072b9585b4db1365e392d33))
+
+
+### Performance Improvements
+
+* **cli:** use fs.promises ([#459](https://github.com/gregberge/svgr/tree/master/packages/cli/issues/459)) ([af294ac](https://github.com/gregberge/svgr/tree/master/packages/cli/commit/af294ac3b86e7c39e78fc8b348110baf8c690949))
+
+
+
+
+
 # [5.4.0](https://github.com/gregberge/svgr/tree/master/packages/cli/compare/v5.3.1...v5.4.0) (2020-04-27)
 
 

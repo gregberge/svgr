@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v5.4.0...v5.5.0) (2020-11-15)
+
+
+### Performance Improvements
+
+* replace merge-deep with smaller deepmerge ([#463](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/issues/463)) ([1f015eb](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/commit/1f015eb16fca093a08b012236dc83623f7bcce55))
+
+
+
+
+
 # [5.4.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v5.3.1...v5.4.0) (2020-04-27)
 
 **Note:** Version bump only for package @svgr/plugin-prettier

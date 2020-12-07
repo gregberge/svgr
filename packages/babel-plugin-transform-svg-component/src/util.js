@@ -62,7 +62,10 @@ function addTypeAnotation(obj, typeAnnotation, opts) {
   return { ...obj, typeAnnotation }
 }
 
-function getSvgPropsTypeAnnotation(t) {
+function getSvgPropsTypeAnnotation(t, opts) {
+  if (opts.native) {
+    return t.genericTypeAnnotation(t.identifier('SvgProps'))
+  }
   return genericTypeAnnotation(
     qualifiedTypeIdentifier(t.identifier('React'), t.identifier('SVGProps')),
     typeParameters([genericTypeAnnotation(t.identifier('SVGSVGElement'))]),
@@ -104,13 +107,13 @@ export const getProps = ({ types: t }, opts) => {
 
     if (opts.expandProps) {
       propsTypeAnnotation = intersectionTypeAnnotation([
-        getSvgPropsTypeAnnotation(t),
+        getSvgPropsTypeAnnotation(t, opts),
         propsTypeAnnotation,
       ])
     }
   } else {
     propsTypeAnnotation = opts.expandProps
-      ? getSvgPropsTypeAnnotation(t)
+      ? getSvgPropsTypeAnnotation(t, opts)
       : t.objectPattern([])
   }
 
@@ -132,7 +135,11 @@ export const getProps = ({ types: t }, opts) => {
         genericTypeAnnotation(
           qualifiedTypeIdentifier(t.identifier('React'), t.identifier('Ref')),
           typeParameters([
-            genericTypeAnnotation(t.identifier('SVGSVGElement')),
+            opts.native
+              ? genericTypeAnnotation(
+                  qualifiedTypeIdentifier(t.identifier('React'), t.identifier('Component')),
+                  typeParameters([genericTypeAnnotation(t.identifier('SvgProps'))]))
+              : genericTypeAnnotation(t.identifier('SVGSVGElement')),
           ]),
         ),
       ),
@@ -178,9 +185,13 @@ export const getImport = ({ types: t }, opts) => {
     if (opts.native.expo) {
       importDeclarations.push(t.importDeclaration([], t.stringLiteral('expo')))
     } else {
+      const imports = [t.importDefaultSpecifier(t.identifier('Svg'))];
+      if (opts.typescript && opts.expandProps) {
+        imports.push(t.importSpecifier(t.identifier('SvgProps'), t.identifier('SvgProps')));
+      }
       importDeclarations.push(
         t.importDeclaration(
-          [t.importDefaultSpecifier(t.identifier('Svg'))],
+          imports,
           t.stringLiteral('react-native-svg'),
         ),
       )
@@ -213,7 +224,7 @@ export const getExport = ({ template }, opts) => {
 
   if (opts.state.caller && opts.state.caller.previousExport) {
     result += `${opts.state.caller.previousExport}\n`
-    result += `export { ${exportName} as ReactComponent }`
+    result += `export { ${exportName} as ${opts.namedExport} }`
     return template.ast(result, {
       plugins,
     })

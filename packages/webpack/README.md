@@ -84,6 +84,8 @@ const App = () => (
 )
 ```
 
+The named export defaults to `ReactComponent`, but can be customized with the `namedExport` option.
+
 ### Use your own Babel configuration
 
 By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configuration](https://github.com/gregberge/svgr/blob/master/packages/webpack/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
@@ -112,7 +114,7 @@ By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configu
 It is possible to detect the module that requires your SVG using [`Rule.issuer`](https://webpack.js.org/configuration/module/#rule-issuer) in Webpack. Using it you can specify two different configurations for JavaScript and the rest of your files.
 
 ```js
-{
+[
   {
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
     issuer: {
@@ -124,7 +126,7 @@ It is possible to detect the module that requires your SVG using [`Rule.issuer`]
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
     loader: 'url-loader'
   },
-}
+]
 ```
 
 ## License
