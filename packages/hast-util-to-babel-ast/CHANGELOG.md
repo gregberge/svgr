@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/hast-util-to-babel-ast/compare/v5.4.0...v5.5.0) (2020-11-15)
+
+**Note:** Version bump only for package @svgr/hast-util-to-babel-ast
+
+
+
+
+
 # [5.4.0](https://github.com/gregberge/svgr/tree/master/packages/hast-util-to-babel-ast/compare/v5.3.1...v5.4.0) (2020-04-27)
 
 **Note:** Version bump only for package @svgr/hast-util-to-babel-ast

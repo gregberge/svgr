@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/webpack/compare/v5.4.0...v5.5.0) (2020-11-15)
+
+
+### Bug Fixes
+
+* prevent removing the namespace by svgr ([[#475](https://github.com/gregberge/svgr/tree/master/packages/webpack/issues/475)](https://github.com/gregberge/svgr/issues/475) ([#498](https://github.com/gregberge/svgr/tree/master/packages/webpack/issues/498)) ([00e84ea](https://github.com/gregberge/svgr/tree/master/packages/webpack/commit/00e84ead96d89bcbd072b9585b4db1365e392d33))
+
+
+### Features
+
+* allow custom name for named export ([#493](https://github.com/gregberge/svgr/tree/master/packages/webpack/issues/493)) ([16a58d6](https://github.com/gregberge/svgr/tree/master/packages/webpack/commit/16a58d6e817c065f72a68be91600a1a360205f44))
+
+
+
+
+
 # [5.4.0](https://github.com/gregberge/svgr/tree/master/packages/webpack/compare/v5.3.1...v5.4.0) (2020-04-27)
 
 **Note:** Version bump only for package @svgr/webpack

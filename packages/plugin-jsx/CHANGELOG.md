@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-jsx/compare/v5.4.0...v5.5.0) (2020-11-15)
+
+
+### Bug Fixes
+
+* prevent removing the namespace by svgr ([[#475](https://github.com/gregberge/svgr/tree/master/packages/plugin-jsx/issues/475)](https://github.com/gregberge/svgr/issues/475) ([#498](https://github.com/gregberge/svgr/tree/master/packages/plugin-jsx/issues/498)) ([00e84ea](https://github.com/gregberge/svgr/tree/master/packages/plugin-jsx/commit/00e84ead96d89bcbd072b9585b4db1365e392d33))
+
+
+
+
+
 # [5.4.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-jsx/compare/v5.3.1...v5.4.0) (2020-04-27)
 
 **Note:** Version bump only for package @svgr/plugin-jsx

@@ -45,7 +45,8 @@ var _ref = /*#__PURE__*/React.createElement(\\"path\\", {
 function SvgFile(props) {
   return /*#__PURE__*/React.createElement(\\"svg\\", _extends({
     width: 48,
-    height: 1
+    height: 1,
+    xmlns: \\"http://www.w3.org/2000/svg\\"
   }, props), _ref);
 }
 
@@ -56,7 +57,7 @@ exports[`rollup loader should convert file with previousExport of image plugin 1
 "import * as React from \\"react\\";
 
 function SvgFile(props) {
-  return <svg width={48} height={1} {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
+  return <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
 }
 
 var img = new Image();
@@ -69,7 +70,7 @@ exports[`rollup loader should convert file with previousExport of url plugin 1`]
 "import * as React from \\"react\\";
 
 function SvgFile(props) {
-  return <svg width={48} height={1} {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
+  return <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
 }
 
 export default \\"data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20width%3D%2248px%22%20height%3D%221px%22%20viewBox%3D%220%200%2048%201%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%20%20%20%20%20%20%20%20%3Ctitle%3ERectangle%205%3C%2Ftitle%3E%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%20%20%20%20%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%20%20%20%20%20%20%20%3Cg%20id%3D%2219-Separator%22%20transform%3D%22translate%28-129.000000%2C%20-156.000000%29%22%20fill%3D%22%23063855%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Controls%2FSettings%22%20transform%3D%22translate%2880.000000%2C%200.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Content%22%20transform%3D%22translate%280.000000%2C%2064.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group%22%20transform%3D%22translate%2824.000000%2C%2056.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group-2%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-5%22%20x%3D%2225%22%20y%3D%2236%22%20width%3D%2248%22%20height%3D%221%22%3E%3C%2Frect%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%3C%2Fg%3E%3C%2Fsvg%3E\\";
@@ -80,7 +81,7 @@ exports[`rollup loader should convert file without babel 1`] = `
 "import * as React from \\"react\\";
 
 function SvgFile(props) {
-  return <svg width={48} height={1} {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
+  return <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
 }
 
 export default SvgFile;"

@@ -28,7 +28,7 @@ function replaceMapToValues(replaceMap) {
 }
 
 const plugin = (api, opts) => {
-  let toRemoveAttributes = ['xmlns', 'xmlnsXlink', 'version']
+  let toRemoveAttributes = ['version']
   let toAddAttributes = []
 
   if (opts.svgProps) {

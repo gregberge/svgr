@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/gregberge/svgr/compare/v5.4.0...v5.5.0) (2020-11-15)
+
+
+### Bug Fixes
+
+* **typescript:** fix react-native support [#465](https://github.com/gregberge/svgr/issues/465) ([#488](https://github.com/gregberge/svgr/issues/488)) ([d61e0cf](https://github.com/gregberge/svgr/commit/d61e0cface065afc1478fdb44d87ca8177041eab))
+* ensure a valid name for exports ([#489](https://github.com/gregberge/svgr/issues/489)) ([0eb8085](https://github.com/gregberge/svgr/commit/0eb80853e53a55226881f6ae3b50c1afe89f1cfc))
+* fix playground ([c7ad69f](https://github.com/gregberge/svgr/commit/c7ad69fff347afdca3410e4fb1da235be01b1ac8))
+* prevent removing the namespace by svgr ([[#475](https://github.com/gregberge/svgr/issues/475)](https://github.com/gregberge/svgr/issues/475) ([#498](https://github.com/gregberge/svgr/issues/498)) ([00e84ea](https://github.com/gregberge/svgr/commit/00e84ead96d89bcbd072b9585b4db1365e392d33))
+
+
+### Features
+
+* allow custom name for named export ([#493](https://github.com/gregberge/svgr/issues/493)) ([16a58d6](https://github.com/gregberge/svgr/commit/16a58d6e817c065f72a68be91600a1a360205f44))
+* **svgo:** add .svgorc.js config file support ([#451](https://github.com/gregberge/svgr/issues/451)) ([8049b1a](https://github.com/gregberge/svgr/commit/8049b1a63603672096892b6ab3d303580c2f303f)), closes [#412](https://github.com/gregberge/svgr/issues/412)
+
+
+### Performance Improvements
+
+* **cli:** use fs.promises ([#459](https://github.com/gregberge/svgr/issues/459)) ([af294ac](https://github.com/gregberge/svgr/commit/af294ac3b86e7c39e78fc8b348110baf8c690949))
+* replace merge-deep with smaller deepmerge ([#463](https://github.com/gregberge/svgr/issues/463)) ([1f015eb](https://github.com/gregberge/svgr/commit/1f015eb16fca093a08b012236dc83623f7bcce55))
+
+
+
+
+
 # [5.4.0](https://github.com/gregberge/svgr/compare/v5.3.1...v5.4.0) (2020-04-27)
 
 

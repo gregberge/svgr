@@ -3,7 +3,13 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import chalk from 'chalk'
 import { loadConfig } from '@svgr/core'
-import { convertFile, transformFilename, CASE, politeWrite } from './util'
+import {
+  convertFile,
+  transformFilename,
+  CASE,
+  politeWrite,
+  formatExportName,
+} from './util'
 
 async function exists(file) {
   try {
@@ -33,7 +39,7 @@ export function isCompilable(filename) {
 function defaultIndexTemplate(filePaths) {
   const exportEntries = filePaths.map((filePath) => {
     const basename = path.basename(filePath, path.extname(filePath))
-    const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
+    const exportName = formatExportName(basename)
     return `export { default as ${exportName} } from './${basename}'`
   })
   return exportEntries.join('\n')
