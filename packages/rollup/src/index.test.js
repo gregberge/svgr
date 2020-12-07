@@ -36,4 +36,16 @@ describe('rollup loader', () => {
     const code = await compile([url(), svgr({ babel: false })])
     expect(getCode(code)).toMatchSnapshot()
   })
-})
+});
+
+describe('rollup loader for InfernoJs', () => {
+  it('should convert file', async () => {
+    const code = await compile([svgr({useInfernoJsMode: true})])
+    expect(getCode(code)).toMatchSnapshot()
+  })
+
+  it('should convert file without babel', async () => {
+    const code = await compile([svgr({ babel: false, useInfernoJsMode: true})])
+    expect(getCode(code)).toMatchSnapshot()
+  })
+});

@@ -38,6 +38,15 @@ const App = () => (
 }
 ```
 
+### InfernoJS support
+By supplying the following option SVGR plugin can be used with InfernoJS framework:
+
+```js
+{
+  plugins: [svgr({ useInfernoJsMode: true })]
+}
+```
+
 ### Using with `url` plugin
 
 It is possible to use it with [`url`](https://github.com/rollup/rollup-plugin-url).

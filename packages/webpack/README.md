@@ -49,6 +49,15 @@ const App = () => (
 }
 ```
 
+### InfernoJS support
+By supplying the following option SVGR plugin can be used with InfernoJS framework:
+
+```js
+options {
+  useInfernoJsMode: true
+}
+```
+
 ### Using with `url-loader` or `file-loader`
 
 It is possible to use it with [`url-loader`](https://github.com/webpack-contrib/url-loader) or [`file-loader`](https://github.com/webpack-contrib/file-loader).

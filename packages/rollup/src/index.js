@@ -7,6 +7,7 @@ import jsx from '@svgr/plugin-jsx'
 import presetReact from '@babel/preset-react'
 import presetEnv from '@babel/preset-env'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
+import babelPluginInferno from 'babel-plugin-inferno'
 
 const babelOptions = {
   babelrc: false,
@@ -21,6 +22,16 @@ const babelOptions = {
 function svgrPlugin(options = {}) {
   const filter = createFilter(options.include || '**/*.svg', options.exclude)
   const { babel = true } = options
+
+  if (options.useInfernoJsMode) {
+    babelOptions.presets = [
+      createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
+    ]
+    babelOptions.plugins = [
+      createConfigItem(pluginTransformReactConstantElements),
+      [babelPluginInferno, { 'imports': true }],
+    ]
+  }
 
   return {
     name: 'svgr',
