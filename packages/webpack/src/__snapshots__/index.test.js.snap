@@ -59,7 +59,8 @@ var _ref = createVNode(32, \\"svg\\", null, createVNode(32, \\"g\\", null, creat
   \\"stroke-linecap\\": \\"square\\"
 }), 2, {
   \\"width\\": 88,
-  \\"height\\": 88
+  \\"height\\": 88,
+  \\"xmlns\\": \\"http://www.w3.org/2000/svg\\"
 });
 
 function SvgIcon() {
@@ -89,7 +90,8 @@ function SvgIcon(props) {
     \\"stroke-linecap\\": \\"square\\"
   }), 2, _objectSpread({
     \\"width\\": 88,
-    \\"height\\": 88
+    \\"height\\": 88,
+    \\"xmlns\\": \\"http://www.w3.org/2000/svg\\"
   }, props)));
 }
 

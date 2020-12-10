@@ -16,7 +16,8 @@ function SvgFile(props) {
     \\"fill-rule\\": \\"evenodd\\"
   }), 2, _objectSpread({
     \\"width\\": 48,
-    \\"height\\": 1
+    \\"height\\": 1,
+    \\"xmlns\\": \\"http://www.w3.org/2000/svg\\"
   }, props)));
 }
 
@@ -25,7 +26,7 @@ export default SvgFile;"
 
 exports[`rollup loader for InfernoJs should convert file without babel 1`] = `
 "function SvgFile(props) {
-  return <svg width={48} height={1} {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
+  return <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
 }
 
 export default SvgFile;"
