@@ -12,6 +12,7 @@
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 [![Dependencies](https://img.shields.io/david/gregberge/svgr.svg?path=packages%2Fcore)](https://david-dm.org/gregberge/svgr?path=packages/core)
 [![DevDependencies](https://img.shields.io/david/dev/gregberge/svgr.svg)](https://david-dm.org/gregberge/svgr?type=dev)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 
 [**Try it out online!**](https://react-svgr.com/playground)
 

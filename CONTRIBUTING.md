@@ -10,6 +10,17 @@ We expect project participants to adhere to our Code of Conduct. Please read [th
 
 All work on SVGR happens directly on [GitHub](/). Both core team members and external contributors send pull requests which go through the same review process.
 
+### Online one click Setup
+
+You can use Gitpod(An Online Open Source VS Code like IDE which is free for Open Source) for contributing online. With a single click it will start a workspace and automatically: 
+
+- clone the `svgr` repo.
+- install all the dependencies in `/` and `/website`.
+- run `yarn dev` in `/`.
+- run `yarn dev` in `/website` to start the dev server.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+
 ### Workflow and Pull Requests
 
 _Before_ submitting a pull request, please make sure the following is done…
