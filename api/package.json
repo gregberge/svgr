@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "@svgr/core": "latest",
+    "@svgr/plugin-jsx": "latest",
+    "@svgr/plugin-prettier": "latest",
+    "@svgr/plugin-svgo": "latest"
+  }
+}
