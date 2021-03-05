@@ -5,7 +5,6 @@
   ],
   "scripts": {
     "build": "lerna run build",
-    "now-build": "lerna run build",
     "ci": "yarn build && yarn lint && yarn test --ci --coverage && codecov",
     "dev": "lerna run build --parallel -- --watch",
     "format": "prettier --write \"**/*.{js,json,md}\"",
@@ -21,7 +20,7 @@
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-syntax-typescript": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
-    "@now/node": "^1.8.5",
+    "@vercel/node": "^1.9.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^26.6.3",
