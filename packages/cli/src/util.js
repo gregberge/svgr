@@ -62,9 +62,5 @@ export function formatExportName(name) {
     return `Svg${name}`
   }
 
-  if (/[-]/g.test(name)) {
-    return camelcase(name, { pascalCase: true })
-  }
-
-  return name
+  return camelcase(name, { pascalCase: true })
 }
