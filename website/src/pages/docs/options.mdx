@@ -35,8 +35,7 @@ Specify a custom extension for generated files.
 
 ## Icon
 
-Replace SVG "width" and "height" value by "1em" in order to make SVG size
-inherits from text size.
+Replace SVG `width` and `height` value by `1em` in order to make SVG size inherits from text size.
 
 | Default | CLI Override | API Override   |
 | ------- | ------------ | -------------- |
@@ -63,7 +62,13 @@ Generates `.tsx` files with [TypeScript](https://www.typescriptlang.org/) typing
 
 ## Dimensions
 
-Remove width and height from root SVG tag.
+Keep `width` and `height` attributes from the root SVG tag.
+
+Removal is guaranteed if `dimensions: false`, unlike the `removeDimensions: true` SVGO plugin option which also generates a `viewBox` from the dimensions if no `viewBox` is present.
+
+**NOTE:**
+- Any SVGO processing will occur prior to this removal.
+- When removing dimensions, SVGO will be configured not to remove the `viewBox` if one is present. You can override this behaviour via your own config.
 
 | Default | CLI Override      | API Override         |
 | ------- | ----------------- | -------------------- |
@@ -96,8 +101,9 @@ Specify Prettier config. [See Prettier options](https://prettier.io/docs/en/opti
 
 ## SVGO
 
-Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before
-transforming it into a component.
+Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before transforming it into a component.
+
+**NOTE:** SVGR implicitly enables the [`prefixIds` SVGO plugin](https://github.com/svg/svgo/blob/master/plugins/prefixIds.js) which adds a prefix to values of `id` and `class` attributes to [reduce the chance of collision issues](https://github.com/gregberge/svgr/issues/210).
 
 | Default | CLI Override | API Override   |
 | ------- | ------------ | -------------- |
@@ -129,8 +135,7 @@ Setting this to `true` will wrap the exported component in [`React.memo`](https:
 
 ## Replace attribute value
 
-Replace an attribute value by an other. The main usage of this option is to
-change an icon color to "currentColor" in order to inherit from text color.
+Replace an attribute value by an other. The main usage of this option is to change an icon color to "currentColor" in order to inherit from text color.
 
 | Default | CLI Override                      | API Override                        |
 | ------- | --------------------------------- | ----------------------------------- |
@@ -150,8 +155,7 @@ Add props to the root SVG tag.
 
 ## Title
 
-Add title tag via title property. If titleProp is set to true and no title is provided (`title={undefined}`) at render time, this will
-fallback to existing title element in the svg if exists.
+Add title tag via title property. If titleProp is set to true and no title is provided (`title={undefined}`) at render time, this will fallback to an existing title element in the svg if exists.
 
 | Default | CLI Override   | API Override        |
 | ------- | -------------- | ------------------- |
@@ -159,8 +163,7 @@ fallback to existing title element in the svg if exists.
 
 ## Template
 
-Specify a template file (CLI) or a template function (API) to use. For an
-example of template, see [the default one](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/src/index.js).
+Specify a template file (CLI) or a template function (API) to use. For an example of template, see [the default one](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/src/index.js).
 
 | Default                                                                                                                      | CLI Override | API Override       |
 | ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------ |
