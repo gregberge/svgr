@@ -65,6 +65,16 @@ const MemoSvgComponent = React.memo(SvgComponent);
 export default MemoSvgComponent;"
 `;
 
+exports[`plugin javascript with "namedExport" and "exportType" option and without "previousExport" state exports via named export 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent() {
+  return <svg><g /></svg>;
+}
+
+export { SvgComponent as ReactComponent };"
+`;
+
 exports[`plugin javascript with "namedExport" option and "previousExport" state has custom named export 1`] = `
 "import * as React from \\"react\\";
 
@@ -241,6 +251,16 @@ function SvgComponent() {
 
 const MemoSvgComponent = React.memo(SvgComponent);
 export default MemoSvgComponent;"
+`;
+
+exports[`plugin typescript with "namedExport" and "exportType" option and without "previousExport" state exports via named export 1`] = `
+"import * as React from \\"react\\";
+
+function SvgComponent() {
+  return <svg><g /></svg>;
+}
+
+export { SvgComponent as ReactComponent };"
 `;
 
 exports[`plugin typescript with "namedExport" option and "previousExport" state has custom named export 1`] = `

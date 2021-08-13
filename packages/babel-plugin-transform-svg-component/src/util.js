@@ -232,7 +232,10 @@ export const getExport = ({ template }, opts) => {
     })
   }
 
-  result += `export default ${exportName}`
+  result +=
+    opts.exportType === 'named'
+      ? `export { ${exportName} as ${opts.namedExport} }`
+      : `export default ${exportName}`
   return template.ast(result, {
     plugins,
   })

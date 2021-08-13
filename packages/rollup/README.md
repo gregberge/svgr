@@ -65,6 +65,10 @@ const App = () => (
 
 The named export defaults to `ReactComponent`, but can be customized with the `namedExport` option.
 
+Please note that by default, `@svgr/rollup` will try to export the React Component via default export if there is no other plugin handling svg files with default export. When there is already any other plugin using default export for svg files, `@svgr/rollup` will always export the React component via named export.
+
+If you prefer named export in any case, you may set the `exportType` option to `named`.
+
 ### Use your own Babel configuration
 
 By default, `@svgr/rollup` applies a babel transformation with [optimized configuration](https://github.com/smooth-code/svgr/blob/master/packages/rollup/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
