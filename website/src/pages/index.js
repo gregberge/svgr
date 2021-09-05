@@ -31,7 +31,7 @@ export default function Index() {
               <ul>
                 <li>Easy integration</li>
                 <li>Flexibility</li>
-                <li>Performances</li>
+                <li>Performance</li>
               </ul>
             </Box>
           </Box>
