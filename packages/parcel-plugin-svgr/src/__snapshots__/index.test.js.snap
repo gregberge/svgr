@@ -16,6 +16,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== \\"function\\") ret
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== \\"object\\" && typeof obj !== \\"function\\") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+var _g;
+
 function _extends() {
   _extends = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -34,22 +36,20 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-var _ref = /*#__PURE__*/React.createElement(\\"g\\", {
-  stroke: \\"#063855\\",
-  strokeWidth: 2,
-  fill: \\"none\\",
-  fillRule: \\"evenodd\\",
-  strokeLinecap: \\"square\\"
-}, /*#__PURE__*/React.createElement(\\"path\\", {
-  d: \\"M51 37L37 51M51 51L37 37\\"
-}));
-
 function SvgIcon(props) {
   return /*#__PURE__*/React.createElement(\\"svg\\", _extends({
     width: 88,
     height: 88,
     xmlns: \\"http://www.w3.org/2000/svg\\"
-  }, props), _ref);
+  }, props), _g || (_g = /*#__PURE__*/React.createElement(\\"g\\", {
+    stroke: \\"#063855\\",
+    strokeWidth: 2,
+    fill: \\"none\\",
+    fillRule: \\"evenodd\\",
+    strokeLinecap: \\"square\\"
+  }, /*#__PURE__*/React.createElement(\\"path\\", {
+    d: \\"M51 37L37 51M51 51L37 37\\"
+  }))));
 }
 
 var _default = SvgIcon;
