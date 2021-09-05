@@ -39,36 +39,30 @@ function prevent(event) {
 export function DropArea({ onChange, children }) {
   const [dragging, setDragging] = React.useState(false)
 
-  function onStart() {
-    setDragging(true)
-  }
-
-  function onEnd() {
-    setDragging(false)
-  }
-
-  function onDrop(event) {
-    onEnd()
-    prevent(event)
-    const {
-      files: [file],
-    } = event.dataTransfer
-    if (!file || file.type !== 'image/svg+xml') return
-
-    const fileReader = new FileReader()
-    fileReader.onload = () => {
-      onChange(fileReader.result)
-    }
-    fileReader.readAsText(file)
-  }
-
   return (
     <Area
-      onDragEnterCapture={onStart}
-      onDragLeaveCapture={onEnd}
+      onDragEnterCapture={() => {
+        setDragging(true)
+      }}
+      onDragLeaveCapture={() => {
+        setDragging(false)
+      }}
       onDragOverCapture={prevent}
       onDrop={prevent}
-      onDropCapture={onDrop}
+      onDropCapture={(event) => {
+        setDragging(false)
+        prevent(event)
+        const {
+          files: [file],
+        } = event.dataTransfer
+        if (!file || file.type !== 'image/svg+xml') return
+
+        const fileReader = new FileReader()
+        fileReader.onload = () => {
+          onChange(fileReader.result)
+        }
+        fileReader.readAsText(file)
+      }}
     >
       {dragging && (
         <DragHelp>
