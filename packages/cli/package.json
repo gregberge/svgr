@@ -36,10 +36,10 @@
     "@svgr/plugin-prettier": "^5.5.0",
     "@svgr/plugin-svgo": "^5.5.0",
     "camelcase": "^6.2.0",
-    "chalk": "^4.1.0",
-    "commander": "^6.2.0",
+    "chalk": "^4.1.2",
+    "commander": "^8.1.0",
     "dashify": "^2.0.0",
-    "glob": "^7.1.4"
+    "glob": "^7.1.7"
   },
   "devDependencies": {
     "del": "^6.0.0"

@@ -148,44 +148,44 @@ async function run() {
   // Back config file
   config.configFile = opts.configFile
 
-  if (program.expandProps === 'none') {
+  if (opts.expandProps === 'none') {
     config.expandProps = false
   }
 
-  if (program.dimensions === true) {
+  if (opts.dimensions === true) {
     delete config.dimensions
   }
 
-  if (program.svgo === true) {
+  if (opts.svgo === true) {
     delete config.svgo
   }
 
-  if (program.prettier === true) {
+  if (opts.prettier === true) {
     delete config.prettier
   }
 
-  if (program.template) {
+  if (opts.template) {
     try {
       // eslint-disable-next-line global-require, import/no-dynamic-require
-      const template = require(path.join(process.cwd(), program.template))
+      const template = require(path.join(process.cwd(), opts.template))
       if (template.default) config.template = template.default
       else config.template = template
 
       if (typeof config.template !== 'function')
         throw new Error('Template must be a function')
     } catch (error) {
-      console.error(`Error when loading template: ${program.template}\n`)
+      console.error(`Error when loading template: ${opts.template}\n`)
       console.error(error.stack)
       process.exit(2)
     }
   }
 
-  if (program.indexTemplate) {
+  if (opts.indexTemplate) {
     try {
       // eslint-disable-next-line global-require, import/no-dynamic-require
       const indexTemplate = require(path.join(
         process.cwd(),
-        program.indexTemplate,
+        opts.indexTemplate,
       ))
       if (indexTemplate.default) config.indexTemplate = indexTemplate.default
       else config.indexTemplate = indexTemplate
@@ -193,17 +193,15 @@ async function run() {
       if (typeof config.indexTemplate !== 'function')
         throw new Error('indexTemplate must be a function')
     } catch (error) {
-      console.error(
-        `Error when loading indexTemplate: ${program.indexTemplate}\n`,
-      )
+      console.error(`Error when loading indexTemplate: ${opts.indexTemplate}\n`)
       console.error(error.stack)
       process.exit(2)
     }
   }
 
-  const command = program.outDir ? dirCommand : fileCommand
+  const command = opts.outDir ? dirCommand : fileCommand
 
-  await command(program, filenames, config)
+  await command(opts, program, filenames, config)
 }
 
 run().catch((error) => {
