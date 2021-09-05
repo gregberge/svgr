@@ -28,22 +28,23 @@ function parseObjectList(arg, accumulation = {}) {
   return args.reduce((acc, arg) => parseObject(arg, acc), accumulation)
 }
 
-function isFile(filePath) {
-  try {
-    const stats = fs.statSync(filePath)
-    return stats.isFile()
-  } catch (error) {
-    return false
-  }
-}
-
 const parseConfig = (name) => (arg) => {
-  const json = isFile(arg) ? fs.readFileSync(arg) : arg
   try {
-    return JSON.parse(json)
+    if (arg.endsWith('rc')) {
+      const content = fs.readFileSync(arg, 'utf-8')
+      return JSON.parse(content)
+    }
+
+    const ext = path.extname(arg)
+    if (ext === '.js' || ext === '.json') {
+      // eslint-disable-next-line import/no-dynamic-require, global-require
+      return require(path.join(process.cwd(), arg))
+    }
+
+    return JSON.parse(arg)
   } catch (error) {
     exitError(
-      `"${name}" is not valid, please specify a file or use inline JSON.`,
+      `"${name}" is not valid, please specify a valid file or use a inline JSON.`,
     )
     return null
   }

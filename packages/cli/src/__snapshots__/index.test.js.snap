@@ -545,7 +545,7 @@ __fixtures__/numeric/2.file.svg -> __fixtures_build__/whole/numeric/2file.js
 __fixtures__/numeric/file.svg -> __fixtures_build__/whole/numeric/file.js
 __fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/file.js
 __fixtures__/withprettierrc/file.svg -> __fixtures_build__/whole/withprettierrc/file.js
-__fixtures__/withsvgoyml/file.svg -> __fixtures_build__/whole/withsvgoyml/file.js
+__fixtures__/withsvgoconfig/file.svg -> __fixtures_build__/whole/withsvgoconfig/file.js
 __fixtures__/withsvgrrc/file.svg -> __fixtures_build__/whole/withsvgrrc/file.js"
 `;
 
@@ -564,7 +564,7 @@ __fixtures__/numeric/2.file.svg -> __fixtures_build__/whole/numeric/2file.tsx
 __fixtures__/numeric/file.svg -> __fixtures_build__/whole/numeric/file.tsx
 __fixtures__/simple/file.svg -> __fixtures_build__/whole/simple/file.tsx
 __fixtures__/withprettierrc/file.svg -> __fixtures_build__/whole/withprettierrc/file.tsx
-__fixtures__/withsvgoyml/file.svg -> __fixtures_build__/whole/withsvgoyml/file.tsx
+__fixtures__/withsvgoconfig/file.svg -> __fixtures_build__/whole/withsvgoconfig/file.tsx
 __fixtures__/withsvgrrc/file.svg -> __fixtures_build__/whole/withsvgrrc/file.tsx"
 `;
 

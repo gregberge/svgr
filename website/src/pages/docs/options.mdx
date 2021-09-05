@@ -21,8 +21,8 @@ Specify a custom config file.
 
 Disable runtime config (`.svgrrc`, `.svgo.yml`, `.prettierrc`).
 
-| Default | CLI Override    | API Override           |
-| ------- | --------------- | ---------------------- |
+| Default | CLI Override          | API Override            |
+| ------- | --------------------- | ----------------------- |
 | `true`  | `--no-runtime-config` | `runtimeConfig: <bool>` |
 
 ## File extension
@@ -67,6 +67,7 @@ Keep `width` and `height` attributes from the root SVG tag.
 Removal is guaranteed if `dimensions: false`, unlike the `removeDimensions: true` SVGO plugin option which also generates a `viewBox` from the dimensions if no `viewBox` is present.
 
 **NOTE:**
+
 - Any SVGO processing will occur prior to this removal.
 - When removing dimensions, SVGO will be configured not to remove the `viewBox` if one is present. You can override this behaviour via your own config.
 
@@ -111,7 +112,7 @@ Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before transformin
 
 ## SVGO config
 
-Specify SVGO config. [See SVGO options](https://gist.github.com/pladaria/69321af86ce165c2c1fc1c718b098dd0).
+Specify SVGO config. [See SVGO options](https://github.com/svg/svgo#configuration).
 
 | Default | CLI Override    | API Override           |
 | ------- | --------------- | ---------------------- |
@@ -197,6 +198,6 @@ When used with `--out-dir`, it ignores already existing files.
 
 Specify a custom filename case. Possible values: `pascal` for PascalCase, `kebab` for kebab-case or `camel` for camelCase.
 
-| Default  | CLI Override      | API Override           |
-| -------- | ----------------- | ---------------------- |
+| Default  | CLI Override      | API Override             |
+| -------- | ----------------- | ------------------------ |
 | `pascal` | `--filename-case` | `filenameCase: <string>` |
