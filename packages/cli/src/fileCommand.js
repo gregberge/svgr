@@ -6,7 +6,7 @@ async function output(promise) {
   process.stdout.write(`${await promise}\n`)
 }
 
-async function fileCommand(program, filenames, config) {
+async function fileCommand(opts, program, filenames, config) {
   function stdin() {
     let code = ''
 
@@ -18,11 +18,11 @@ async function fileCommand(program, filenames, config) {
     })
 
     process.stdin.on('end', () => {
-      output(convert(code, config, { filePath: program.stdinFilepath }))
+      output(convert(code, config, { filePath: opts.stdinFilepath }))
     })
   }
 
-  if (program.stdin || (filenames.length === 0 && !process.stdin.isTTY)) {
+  if (opts.stdin || (filenames.length === 0 && !process.stdin.isTTY)) {
     stdin()
     return
   }

@@ -50,6 +50,7 @@ function getDefaultExtension(options) {
 }
 
 export default async function dirCommand(
+  opts,
   program,
   filenames,
   { ext, filenameCase = CASE.PASCAL, ...options },
@@ -63,14 +64,14 @@ export default async function dirCommand(
     const cwdRelative = path.relative(process.cwd(), dest)
     const logOutput = `${src} -> ${cwdRelative}\n`
 
-    if (program.ignoreExisting && (await exists(dest))) {
-      politeWrite(program, chalk.grey(logOutput))
+    if (opts.ignoreExisting && (await exists(dest))) {
+      politeWrite(opts, chalk.grey(logOutput))
       return { transformed: false, dest }
     }
 
     await fs.mkdir(path.dirname(dest), { recursive: true })
     await fs.writeFile(dest, code)
-    politeWrite(program, chalk.white(logOutput))
+    politeWrite(opts, chalk.white(logOutput))
     return { transformed: true, dest }
   }
 
@@ -96,13 +97,13 @@ export default async function dirCommand(
       const transformed = results.filter((result) => result.transformed)
       if (transformed.length) {
         const destFiles = results.map((result) => result.dest).filter(Boolean)
-        const dest = path.resolve(program.outDir, path.relative(root, dirname))
+        const dest = path.resolve(opts.outDir, path.relative(root, dirname))
         await generateIndex(dest, destFiles)
       }
       return { transformed: false, dest: null }
     }
 
-    const dest = path.resolve(program.outDir, path.relative(root, filename))
+    const dest = path.resolve(opts.outDir, path.relative(root, filename))
     return write(filename, dest)
   }
 

@@ -47,8 +47,8 @@ export function exitError(error) {
   process.exit(1)
 }
 
-export function politeWrite(program, data) {
-  if (!program.silent) {
+export function politeWrite(opts, data) {
+  if (!opts.silent) {
     process.stdout.write(data)
   }
 }
