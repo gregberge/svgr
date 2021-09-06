@@ -13,7 +13,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -36,7 +36,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -59,7 +59,7 @@ function SvgComponent() {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -88,7 +88,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -111,7 +111,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -135,7 +135,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -159,7 +159,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <Svg.Path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <Svg.Path d=\\"M51 37 37 51M51 51 37 37\\" />
       </Svg.G>
     </Svg>
   )
@@ -183,7 +183,7 @@ function SvgComponent() {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <Path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <Path d=\\"M51 37 37 51M51 51 37 37\\" />
       </G>
     </Svg>
   )
@@ -213,7 +213,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <Path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <Path d=\\"M51 37 37 51M51 51 37 37\\" />
       </G>
     </Svg>
   )
@@ -243,7 +243,7 @@ function SvgComponent(props, svgRef) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <Path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <Path d=\\"M51 37 37 51M51 51 37 37\\" />
       </G>
     </Svg>
   )
@@ -268,7 +268,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <Path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <Path d=\\"M51 37 37 51M51 51 37 37\\" />
       </G>
     </Svg>
   )
@@ -282,7 +282,7 @@ exports[`convert config should support options {"prettier":false} 1`] = `
 "import * as React from \\"react\\";
 
 function SvgComponent(props) {
-  return <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}><g stroke=\\"#063855\\" strokeWidth={2} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><path d=\\"M51 37L37 51M51 51L37 37\\" /></g></svg>;
+  return <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}><g stroke=\\"#063855\\" strokeWidth={2} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><path d=\\"M51 37 37 51M51 51 37 37\\" /></g></svg>;
 }
 
 export default SvgComponent;"
@@ -307,7 +307,7 @@ function SvgComponent(props, svgRef) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -331,7 +331,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -354,7 +354,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -384,7 +384,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -451,7 +451,7 @@ function SvgComponent({ title, titleId, ...props }) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -505,7 +505,7 @@ function SvgComponent(props) {
         fillRule=\\"evenodd\\"
         strokeLinecap=\\"square\\"
       >
-        <path d=\\"M51 37L37 51M51 51L37 37\\" />
+        <path d=\\"M51 37 37 51M51 51 37 37\\" />
       </g>
     </svg>
   )
@@ -528,10 +528,20 @@ function SvgComponent(props) {
       {...props}
     >
       <g transform=\\"translate(0 -1004.362)\\">
-        <g id=\\"prefix__a\\" color=\\"#000\\" fill=\\"#a3a3a3\\" strokeWidth={8}>
+        <g id=\\"prefix__a\\">
           <rect
             style={{
+              color: '#000',
+              fill: '#a3a3a3',
+              fillOpacity: 1,
+              fillRule: 'nonzero',
+              stroke: 'none',
+              strokeWidth: 8,
               marker: 'none',
+              visibility: 'visible',
+              display: 'inline',
+              overflow: 'visible',
+              enableBackground: 'accumulate',
             }}
             width={4}
             height={4}
@@ -539,7 +549,6 @@ function SvgComponent(props) {
             y={1010.362}
             rx={0.2}
             ry={0.2}
-            overflow=\\"visible\\"
           />
           <rect
             ry={0.2}
@@ -549,9 +558,18 @@ function SvgComponent(props) {
             height={4}
             width={32}
             style={{
+              color: '#000',
+              fill: '#a3a3a3',
+              fillOpacity: 1,
+              fillRule: 'nonzero',
+              stroke: 'none',
+              strokeWidth: 8,
               marker: 'none',
+              visibility: 'visible',
+              display: 'inline',
+              overflow: 'visible',
+              enableBackground: 'accumulate',
             }}
-            overflow=\\"visible\\"
           />
         </g>
         <use xlinkHref=\\"#prefix__a\\" />
@@ -599,9 +617,8 @@ function SvgComponent(props) {
         strokeLinecap=\\"square\\"
       >
         <g id=\\"prefix__Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
-          <path d=\\"M51 37L37 51M51 51L37 37\\" id=\\"prefix__Shape\\" />
+          <path d=\\"M51 37 37 51M51 51 37 37\\" id=\\"prefix__Shape\\" />
         </g>
-        <style />
       </g>
     </svg>
   )
@@ -616,12 +633,23 @@ exports[`convert should remove null characters 1`] = `
 
 function SvgComponent(props) {
   return (
-    <svg xmlns=\\"http://www.w3.org/2000/svg\\" width={25} height={25} {...props}>
+    <svg
+      xmlns=\\"http://www.w3.org/2000/svg\\"
+      width={25}
+      height={25}
+      style={{
+        enableBackground: 'new 0 0 25 25',
+      }}
+      xmlSpace=\\"preserve\\"
+      {...props}
+    >
       <path
         d=\\"M19.4 24.5H5.6c-2.8 0-5.1-2.3-5.1-5.1V5.6C.5 2.8 2.8.5 5.6.5h13.8c2.8 0 5.1 2.3 5.1 5.1v13.8c0 2.8-2.3 5.1-5.1 5.1z\\"
-        fill=\\"#fff\\"
-        stroke=\\"#434a54\\"
-        strokeMiterlimit={10}
+        style={{
+          fill: '#fff',
+          stroke: '#434a54',
+          strokeMiterlimit: 10,
+        }}
       />
     </svg>
   )
@@ -637,12 +665,18 @@ exports[`convert should remove style tags 1`] = `
 function SvgComponent(props) {
   return (
     <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
-      <g fill=\\"red\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\">
+      <style />
+      <g
+        fill=\\"none\\"
+        fillRule=\\"evenodd\\"
+        strokeLinecap=\\"square\\"
+        style={{
+          fill: 'red',
+        }}
+      >
         <g id=\\"prefix__Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}>
-          <path d=\\"M51 37L37 51\\" id=\\"prefix__Shape\\" />
-          <path d=\\"M51 51L37 37\\" />
+          <path d=\\"M51 37 37 51M51 51 37 37\\" id=\\"prefix__Shape\\" />
         </g>
-        <style />
       </g>
     </svg>
   )
