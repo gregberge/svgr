@@ -100,14 +100,14 @@ describe('cli', () => {
 
   it('should support --svgo-config as json', async () => {
     const result = await cli(
-      `--svgo-config '{"plugins": [{"removeTitle": false}]}' __fixtures__/simple/file.svg`,
+      `--svgo-config '{"plugins":[{"name":"preset-default","params":{"overrides":{"removeTitle":false}}}]}' __fixtures__/simple/file.svg`,
     )
     expect(result).toMatchSnapshot()
   }, 10000)
 
   it('should support --svgo-config as file', async () => {
     const result = await cli(
-      `--svgo-config __fixtures__/withSvgoYml/.svgo.json __fixtures__/simple/file.svg`,
+      `--svgo-config __fixtures__/withSvgoConfig/svgo.config.js __fixtures__/simple/file.svg`,
     )
     expect(result).toMatchSnapshot()
   }, 10000)

@@ -89,11 +89,12 @@ export const settings = [
   {
     label: 'Config',
     name: 'svgoConfig',
-    placeholder: '{ "plugins": [{ "removeTitle": false }] }',
+    placeholder:
+      '{"plugins":[{"name":"preset-default","params":{"overrides":{"removeTitle":false}}}]}',
     type: 'string',
     group: 'svgo',
     default:
-      '{ "plugins": [{ "removeTitle": false }, { "removeViewBox": false }] }',
+      '{"plugins":[{"name":"preset-default","params":{"overrides":{"removeTitle":false}}}]}',
     transform: parseJson,
   },
   {

@@ -30,7 +30,18 @@ describe('svgo', () => {
       {
         svgo: true,
         runtimeConfig: true,
-        svgoConfig: { plugins: [{ removeDesc: false }] },
+        svgoConfig: {
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  removeDesc: false,
+                },
+              },
+            },
+          ],
+        },
       },
       {},
     )
@@ -38,36 +49,7 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
-  it('supports `config.svgoConfig.multipass`', () => {
-    const result = svgo(
-      baseSvg,
-      {
-        svgo: true,
-        runtimeConfig: true,
-        svgoConfig: { multipass: true },
-      },
-      {},
-    )
-
-    expect(result).toMatchSnapshot()
-  })
-
-  it('supports `config.icon` with `config.svgoConfig` plugins', () => {
-    const result = svgo(
-      baseSvg,
-      {
-        svgo: true,
-        icon: true,
-        runtimeConfig: true,
-        svgoConfig: { plugins: [{ removeDesc: false }] },
-      },
-      {},
-    )
-
-    expect(result).toMatchSnapshot()
-  })
-
-  it('users `state.filePath` to detect configuration', () => {
+  it('uses `state.filePath` to detect configuration', () => {
     const result = svgo(
       baseSvg,
       { svgo: true, runtimeConfig: true },
@@ -88,56 +70,13 @@ describe('svgo', () => {
   })
 
   it('does not remove viewBox with `icon` option', () => {
-    const result = svgo(
-      baseSvg,
-      { svgo: true, icon: true, runtimeConfig: true },
-      { filePath: path.join(__dirname, '../__fixtures__/svgo') },
-    )
+    const result = svgo(baseSvg, { svgo: true, icon: true }, {})
 
     expect(result).toMatchSnapshot()
   })
 
   it('does not remove viewBox with when `dimensions` is false', () => {
-    const result = svgo(
-      baseSvg,
-      { svgo: true, dimensions: false, runtimeConfig: true },
-      { filePath: path.join(__dirname, '../__fixtures__/svgo') },
-    )
-
-    expect(result).toMatchSnapshot()
-  })
-
-  it('disables id prefixing using svgo config', () => {
-    const result = svgo(
-      baseSvg,
-      {
-        svgo: true,
-        icon: true,
-        runtimeConfig: true,
-        svgoConfig: { plugins: [{ prefixIds: false }] },
-      },
-      { filePath: path.join(__dirname, '../__fixtures__/svgo') },
-    )
-
-    expect(result).toMatchSnapshot()
-  })
-
-  it('is possible to enable id prefixing as the only optimization', () => {
-    const result = svgo(
-      baseSvg,
-      {
-        svgo: true,
-        icon: true,
-        runtimeConfig: true,
-        svgoConfig: {
-          full: true,
-          plugins: [
-            { prefixIds: { prefixIds: true, prefixClassNames: false } },
-          ],
-        },
-      },
-      { filePath: path.join(__dirname, '../__fixtures__/svgo') },
-    )
+    const result = svgo(baseSvg, { svgo: true, dimensions: false }, {})
 
     expect(result).toMatchSnapshot()
   })
