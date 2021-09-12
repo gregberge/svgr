@@ -31,7 +31,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@babel/types": "^7.15.4",
-    "entities": "^2.2.0"
+    "@babel/types": "^7.15.6",
+    "entities": "^3.0.1"
   }
 }
