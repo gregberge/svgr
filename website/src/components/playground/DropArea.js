@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useState } from 'react'
 import styled from '@xstyled/styled-components'
 
 const FullWidth = styled.div`
@@ -10,7 +11,7 @@ const ChildWrapper = styled(FullWidth)`
   transition: base;
   opacity: 1;
 
-  &[data-dragging='true'] {
+  &[data-dragging] {
     opacity: 0.1;
   }
 `
@@ -19,7 +20,7 @@ const Area = styled(FullWidth)`
   position: relative;
 `
 
-const DragHelp = styled(FullWidth)`
+const Help = styled(FullWidth)`
   position: absolute;
   z-index: 20;
   pointer-events: none;
@@ -31,13 +32,13 @@ const DragHelp = styled(FullWidth)`
   border-color: light800;
 `
 
-function prevent(event) {
+const prevent = (event) => {
   event.preventDefault()
   event.stopPropagation()
 }
 
-export function DropArea({ onChange, children }) {
-  const [dragging, setDragging] = React.useState(false)
+export const DropArea = ({ onChange, children }) => {
+  const [dragging, setDragging] = useState(false)
 
   return (
     <Area
@@ -65,16 +66,13 @@ export function DropArea({ onChange, children }) {
       }}
     >
       {dragging && (
-        <DragHelp>
-          <p id="drop-zone">
-            <span role="img" aria-labelledby="drop-zone">
-              📄
-            </span>{' '}
-            Drop .svg file here.
-          </p>
-        </DragHelp>
+        <Help>
+          <p id="drop-zone">📄 Drop .svg file here.</p>
+        </Help>
       )}
-      <ChildWrapper data-dragging={dragging}>{children}</ChildWrapper>
+      <ChildWrapper data-dragging={dragging ? '' : undefined}>
+        {children}
+      </ChildWrapper>
     </Area>
   )
 }

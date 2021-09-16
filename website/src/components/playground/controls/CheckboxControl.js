@@ -1,15 +1,7 @@
 import * as React from 'react'
-import { Field } from 'react-final-form'
-import { Checkbox } from '@smooth-ui/core-sc'
+import { useField } from 'react-final-form'
 
-export function CheckboxControl(props) {
-  return (
-    <Field
-      type="checkbox"
-      render={({ input: { value, ...inputProps }, ...props }) => (
-        <Checkbox {...inputProps} {...props} />
-      )}
-      {...props}
-    />
-  )
+export const CheckboxControl = ({ name, value, ...props }) => {
+  const field = useField(name, { type: 'checkbox', value })
+  return <input {...field.input} {...props} />
 }

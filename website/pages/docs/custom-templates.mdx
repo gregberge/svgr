@@ -1,5 +1,5 @@
 ---
-menu: Advanced
+section: Advanced
 title: Custom Templates
 order: 6
 ---
@@ -7,6 +7,8 @@ order: 6
 # Custom Templates
 
 Custom templates give you the opportunity to personalize the final generated component by SVGR. In most of case you don't need it, only advanced use-cases require templates.
+
+<carbon-ad />
 
 ## Custom Component template
 
@@ -116,7 +118,7 @@ The customization is the same, a file that exports a function:
 const path = require('path')
 
 function defaultIndexTemplate(filePaths) {
-  const exportEntries = filePaths.map(filePath => {
+  const exportEntries = filePaths.map((filePath) => {
     const basename = path.basename(filePath, path.extname(filePath))
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     return `export { default as ${exportName} } from './${basename}'`

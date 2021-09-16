@@ -1,26 +1,33 @@
+const path = require('path')
+
 module.exports = {
   plugins: [
     {
       resolve: 'smooth-doc',
       options: {
         name: 'SVGR',
-        slug: 'svgr',
         author: 'Greg Bergé',
         description: 'Transforms SVG into React Components.',
         siteUrl: 'https://react-svgr.com',
-        github: 'https://github.com/gregberge/svgr',
-        menu: ['About', 'Usage', 'Configuring SVGR', 'Advanced'],
-        nav: [
+        githubRepositoryURL: 'https://github.com/gregberge/svgr',
+        baseDirectory: path.resolve(__dirname, '..'),
+        navItems: [
           { title: 'Playground', url: '/playground/' },
-          { title: 'Usage', url: '/docs/getting-started/' },
+          { title: 'Docs', url: '/docs/' },
         ],
-        carbonAdUrl:
+        sections: ['About', 'Usage', 'Configuring SVGR', 'Advanced'],
+        carbonAdsURL:
           '//cdn.carbonads.com/carbon.js?serve=CE7I5K3N&placement=react-svgrcom',
-        googleAnalytics: 'UA-154496255-2',
-        algoliaDocSearch: {
+        docSearch: {
           apiKey: '0c7343afd83c189413499c62c1df6853',
           indexName: 'smooth-code-svgr',
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-154496255-2',
       },
     },
   ],

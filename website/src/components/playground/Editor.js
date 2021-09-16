@@ -9,19 +9,19 @@ import 'brace/theme/tomorrow_night'
 import 'brace/theme/github'
 
 const editorProps = { $blockScrolling: true }
+const scrollMargin = [8, 0, 0, 0]
 
 export default function Editor(props) {
   const [colorMode] = useColorMode()
   const theme = colorMode === 'dark' ? 'tomorrow_night' : 'github'
   return (
     <AceEditor
-      key={theme}
       width="100%"
       height="100%"
       showPrintMargin={false}
       theme={theme}
       editorProps={editorProps}
-      scrollMargin={[10, 0, 0, 0]}
+      scrollMargin={scrollMargin}
       fontSize={13}
       {...props}
     />

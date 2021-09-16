@@ -1,29 +1,26 @@
 {
   "private": true,
   "dependencies": {
-    "@smooth-ui/core-sc": "^11.1.5",
-    "@xstyled/styled-components": "^1.17.1",
+    "@xstyled/styled-components": "^3.0.3",
     "brace": "^0.11.1",
-    "final-form": "^4.20.1",
-    "gatsby": "^2.24.2",
-    "history": "^5.0.0",
-    "isomorphic-fetch": "^2.2.1",
-    "polished": "^3.6.5",
-    "prismjs": "^1.20.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-ace": "^9.1.1",
-    "react-dom": "^16.13.1",
-    "react-final-form": "^6.5.0",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^3.10.0",
-    "reakit": "^1.0.0-beta.14",
-    "smooth-doc": "^4.0.3",
-    "styled-components": "^5.1.1"
+    "final-form": "^4.20.2",
+    "gatsby": "^3.13.0",
+    "gatsby-plugin-google-analytics": "^3.13.0",
+    "history": "^5.0.1",
+    "isomorphic-fetch": "^3.0.0",
+    "react": "^17.0.2",
+    "react-ace": "^9.4.3",
+    "react-dom": "^17.0.2",
+    "react-final-form": "^6.5.3",
+    "react-icons": "^4.2.0",
+    "smooth-doc": "^8.0.0"
   },
   "scripts": {
     "build": "gatsby build && cp _redirects public/",
     "dev": "gatsby develop",
     "serve": "gatsby serve"
+  },
+  "devDependencies": {
+    "eslint-config-react-app": "^6.0.0"
   }
 }
