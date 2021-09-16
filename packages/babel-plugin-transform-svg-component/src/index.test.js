@@ -162,6 +162,20 @@ describe('plugin', () => {
       })
     })
 
+    describe('with "namedExport" and "exportType" option and without "previousExport" state', () => {
+      it('exports via named export', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          state: {
+            componentName: 'SvgComponent',
+            caller: { previousExport: null },
+          },
+          namedExport: 'ReactComponent',
+          exportType: 'named',
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
     describe('custom templates', () => {
       it('support basic template', () => {
         const { code } = testPlugin(language)('<svg><g /></svg>', {

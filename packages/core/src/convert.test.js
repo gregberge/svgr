@@ -313,6 +313,7 @@ describe('convert', () => {
         namedExport: 'Component',
         state: { caller: { previousExport: 'export default "logo.svg";' } },
       },
+      { exportType: 'named' },
     ]
 
     test.each(configs)('should support options %j', async (config) => {
