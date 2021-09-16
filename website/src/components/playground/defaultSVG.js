@@ -1,4 +1,4 @@
-export default `<?xml version="1.0" encoding="UTF-8"?>
+const defaultSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="48px" height="1px" viewBox="0 0 48 1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
     <title>Rectangle 5</title>
@@ -18,3 +18,5 @@ export default `<?xml version="1.0" encoding="UTF-8"?>
         </g>
     </g>
 </svg>`
+
+export default defaultSvg

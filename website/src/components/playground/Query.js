@@ -38,9 +38,9 @@ function useHistory() {
 }
 
 function useLocation() {
-  const history = useHistory()
+  const { listen } = useHistory()
   const [location, setLocation] = React.useState(getLocation)
-  React.useEffect(() => history.listen((location) => setLocation(location)), [])
+  React.useEffect(() => listen((location) => setLocation(location)), [listen])
   return location
 }
 

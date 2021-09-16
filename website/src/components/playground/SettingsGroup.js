@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled, { up, css, x } from '@xstyled/styled-components'
+import styled, { up, css } from '@xstyled/styled-components'
 import {
   useDisclosureState,
   DisclosureContent,

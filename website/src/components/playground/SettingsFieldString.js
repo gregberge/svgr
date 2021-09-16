@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { x } from '@xstyled/styled-components'
 import { TextareaControl } from './controls/TextareaControl'
 import { SmallLabel } from './SmallLabel'
 
