@@ -5,5 +5,4 @@ __fixtures_build__/
 coverage/
 examples/
 svgr.now.sh/
-/website/.cache/
-/website/public/
+/website/
