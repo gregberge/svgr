@@ -1,12 +1,7 @@
 import * as React from 'react'
-import { Field } from 'react-final-form'
-import { Input } from '@smooth-ui/core-sc'
+import { useField } from 'react-final-form'
 
-export function InputControl(props) {
-  return (
-    <Field
-      render={({ input, ...props }) => <Input {...input} {...props} />}
-      {...props}
-    />
-  )
+export const InputControl = ({ name, ...props }) => {
+  const field = useField(name)
+  return <input {...field.input} {...props} />
 }

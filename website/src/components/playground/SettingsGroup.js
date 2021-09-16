@@ -1,21 +1,17 @@
 import * as React from 'react'
-import styled, { up, css, Box } from '@xstyled/styled-components'
+import styled, { up, css, x } from '@xstyled/styled-components'
 import {
   useDisclosureState,
   DisclosureContent,
   Disclosure,
 } from 'reakit/Disclosure'
-import { ChevronLeft } from 'components/playground/icons/ChevronLeft'
+import { IoChevronBack } from 'react-icons/io5'
 
-const Container = styled.div`
-  border-right: 1px solid;
-  border-color: light400;
-`
-
-const Marker = styled(ChevronLeft)`
+const Marker = styled(IoChevronBack)`
   width: 18;
   height: 18;
   transition: base;
+  transition-property: transform;
   transform: rotate(90deg);
 
   ${up(
@@ -26,22 +22,24 @@ const Marker = styled(ChevronLeft)`
   )}
 `
 
-const Button = styled.buttonBox`
+const Button = styled.button`
   font-size: 15;
-  font-weight: bold;
-  padding: 8 16;
+  height: 28;
+  font-weight: 500;
   background-color: transparent;
   border: none;
   color: inherit;
   cursor: pointer;
-  transition: base;
   border: 0;
-  border-bottom: 1px solid;
-  border-color: light400;
+  border-bottom: 1;
+  border-color: layout-border;
   appearance: none;
   margin: 0;
-  width: 100%;
   text-align: left;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  align-items: center;
+  width: 100%;
 
   &[aria-expanded='true'] {
     ${Marker} {
@@ -57,27 +55,27 @@ const Button = styled.buttonBox`
 `
 
 const Content = styled.div`
-  border-bottom: 1px solid;
-  border-color: light400;
+  display: grid;
+  gap: 1;
+  padding: 2;
+  border-bottom: 1;
+  border-color: layout-border;
 `
 
 export function SettingsGroup({ title, children }) {
   const disclosure = useDisclosureState({ visible: true })
   return (
-    <Container>
+    <div>
       <Disclosure {...disclosure}>
         {(DisclosureProps) => (
-          <Button row {...DisclosureProps}>
-            <Box col>{title}</Box>
-            <Box col="auto">
-              <Marker />
-            </Box>
+          <Button {...DisclosureProps}>
+            {title} <Marker />
           </Button>
         )}
       </Disclosure>
       <DisclosureContent as={Content} {...disclosure}>
         {children}
       </DisclosureContent>
-    </Container>
+    </div>
   )
 }

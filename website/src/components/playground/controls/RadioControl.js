@@ -1,13 +1,7 @@
 import * as React from 'react'
-import { Field } from 'react-final-form'
-import { Radio } from '@smooth-ui/core-sc'
+import { useField } from 'react-final-form'
 
-export function RadioControl(props) {
-  return (
-    <Field
-      type="radio"
-      render={({ input, ...props }) => <Radio {...input} {...props} />}
-      {...props}
-    />
-  )
+export const RadioControl = ({ name, value, ...props }) => {
+  const field = useField(name, { type: 'radio', value })
+  return <input {...field.input} {...props} />
 }

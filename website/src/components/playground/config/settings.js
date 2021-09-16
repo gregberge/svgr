@@ -9,6 +9,21 @@ const parseObject = (value) =>
 
 const parseJson = (value) => value && JSON.parse(value)
 
+const initialSvgoConfig = JSON.stringify(
+  {
+    plugins: [
+      {
+        name: 'preset-default',
+        params: { overrides: { removeTitle: false } },
+      },
+    ],
+  },
+  null,
+  2,
+)
+
+const initialPrettierConfig = JSON.stringify({ semi: false }, null, 2)
+
 export const settings = [
   {
     label: 'Icon',
@@ -89,12 +104,10 @@ export const settings = [
   {
     label: 'Config',
     name: 'svgoConfig',
-    placeholder:
-      '{"plugins":[{"name":"preset-default","params":{"overrides":{"removeTitle":false}}}]}',
+    placeholder: initialSvgoConfig,
     type: 'string',
     group: 'svgo',
-    default:
-      '{"plugins":[{"name":"preset-default","params":{"overrides":{"removeTitle":false}}}]}',
+    default: initialSvgoConfig,
     transform: parseJson,
   },
   {
@@ -107,10 +120,10 @@ export const settings = [
   {
     label: 'Config',
     name: 'prettierConfig',
-    placeholder: '{ "semi": false }',
+    placeholder: initialPrettierConfig,
     type: 'string',
     group: 'prettier',
-    default: '{ "semi": false }',
+    default: initialPrettierConfig,
     transform: parseJson,
   },
 ]

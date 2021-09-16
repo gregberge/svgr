@@ -1,20 +1,14 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import * as React from 'react'
-import styled, {
-  Box,
-  createGlobalStyle,
-  up,
-  down,
-  css,
-} from '@xstyled/styled-components'
+import { useState, useEffect, lazy, useRef, Suspense } from 'react'
+import styled, { x, createGlobalStyle } from '@xstyled/styled-components'
 import {
   useDialogState,
   Dialog as ReakitDialog,
   DialogBackdrop as ReakitDialogBackdrop,
 } from 'reakit/Dialog'
-import { CarbonAd } from 'smooth-doc/components'
+import { CarbonAd } from 'smooth-doc/src/components/CarbonAd'
 import { lighten } from 'polished'
-import { Button } from '@smooth-ui/core-sc'
 import { Settings } from './Settings'
 import { svgr } from './modules/svgr'
 import defaultSvg from './defaultSVG'
@@ -24,53 +18,51 @@ import { settings, getInitialState, stateToSettings } from './config/settings'
 import { useQuery } from './Query'
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    color-scheme: light;
+  }
+
+  .xstyled-color-mode-dark {
+    color-scheme: dark;
+  }
+
   .loading {
     transition: opacity 300ms;
     opacity: 0.5;
   }
 
   .ace_gutter {
-    ${down(
-      'sm',
-      css`
-        width: 5px !important;
-      `,
-    )}
+    @media(max-width: sm) {
+      width: 5px !important;
+    }
   }
 `
 
-const PlaygroundContainer = styled.box`
-  display: flex;
-  flex-direction: column;
-  background-color: lighter;
-  height: calc(100vh - 67px);
-
-  ${up(
-    'md',
-    css`
-      flex-direction: row;
-    `,
-  )}
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  height: calc(100vh - 50px);
+  background-color: background;
 `
 
-const PlaygroundEditors = styled(Box)`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  background-color: lighter;
-  height: 50%;
+const Editors = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
-  ${up(
-    'md',
-    css`
-      height: 100%;
+  > :first-child {
+    border-right: 1px solid;
+    border-color: layout-border;
+  }
+`
 
-      > :first-child {
-        border-right: 1px solid;
-        border-color: light400;
-      }
-    `,
-  )}
+const EditorContainer = styled.div`
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  transition: opacity 300ms;
+
+  &[data-loading] {
+    opacity: 0.5;
+  }
 `
 
 const FloatingAd = styled.div`
@@ -78,37 +70,33 @@ const FloatingAd = styled.div`
   bottom: 16;
   right: 16;
   z-index: 500;
-  background-color: black !important;
-  ${down(
-    'md',
-    css`
-      display: none;
-    `,
-  )}
+  width: 400;
 `
 
-const EditorTitle = styled.div`
-  background-color: light100;
-  color: light900;
-  padding: 4 8;
+const EditorTitle = styled.h3`
+  padding: 0 2;
   font-size: 12;
+  height: 28;
+  display: flex;
+  align-items: center;
   text-transform: uppercase;
   font-weight: bold;
-  border-bottom: 1px solid;
-  border-color: light400;
+  border-bottom: 1;
+  border-color: layout-border;
+  color: on-background-light;
 `
 
 const InnerDialog = styled.div`
-  background-color: light900;
-  color: lighter;
+  background-color: background-light;
+  color: on-background;
   position: fixed;
   top: 20%;
   left: 50%;
   max-width: 90%;
-  min-width: 500;
+  min-width: 600;
   transform: translateX(-50%);
   border-radius: 10;
-  padding: 8;
+  padding: 5;
   outline: 0;
   z-index: 999;
   box-shadow: 5px 5px rgba(50, 50, 50, 0.4), 10px 10px rgba(50, 50, 50, 0.3),
@@ -122,7 +110,7 @@ const InnerBackdrop = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: light800;
+  background-color: on-background;
   opacity: 0.4;
   z-index: 899;
 `
@@ -130,30 +118,37 @@ const InnerBackdrop = styled.div`
 const ThankBody = styled.div`
   text-align: center;
 
-  a {
-    color: lighter;
-    text-decoration: underline;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
   h2 {
     font-size: 18;
     font-weight: 500;
+    margin: 2;
   }
 `
 
-const SponsorButton = styled(Button)`
+const Link = styled.a`
+  display: inline-block;
+  color: inherit;
+  transition: base;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+`
+
+const SponsorLink = styled.aBox`
+  display: inline-block;
   font-weight: 500;
-  color: white !important;
+  color: white;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 0 3px rgba(0, 0, 0, 0.2);
   min-width: 300;
   text-decoration: none !important;
+  padding: 2;
+  border-radius: 3;
+  transition: base;
 
   &:hover {
-    color: white !important;
+    color: white;
     transform: scale(1.08);
   }
 `
@@ -179,82 +174,79 @@ function CopyFeedback(props) {
         <ThankBody>
           <h2>
             SVGR is made with ❤️ by{' '}
-            <a
+            <Link
               onClick={trackLink}
               href="https://gregberge.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               Greg Bergé
-            </a>
+            </Link>
           </h2>
           <p>
             Glad it helps!
             <br />A few ways to say thank you 👇
           </p>
-          <Box my={24}>
-            <SponsorButton
-              forwardedAs="a"
+          <x.div my={24}>
+            <SponsorLink
               onClick={trackLink}
               href="https://github.com/sponsors/gregberge"
               target="_blank"
               rel="noopener noreferrer"
-              variant={lighten(0.1, '#EA4BAA')}
+              bg="#EA4BAA"
             >
               ❤️ Sponsor me on GitHub
-            </SponsorButton>
-          </Box>
-          <Box my={24}>
-            <SponsorButton
-              forwardedAs="a"
+            </SponsorLink>
+          </x.div>
+          <x.div my={24}>
+            <SponsorLink
               onClick={trackLink}
               href="https://opencollective.com/svgr"
               target="_blank"
               rel="noopener noreferrer"
-              variant={lighten(0.1, '#2A7EFF')}
+              bg="#2A7EFF"
             >
               💸 Donate on OpenCollective
-            </SponsorButton>
-          </Box>
-          <Box my={24}>
-            <SponsorButton
-              forwardedAs="a"
+            </SponsorLink>
+          </x.div>
+          <x.div my={24}>
+            <SponsorLink
               onClick={trackLink}
               href="https://twitter.com/neoziro"
               target="_blank"
               rel="noopener noreferrer"
-              variant={lighten(0.1, '#1DA1F3')}
+              bg="#1DA1F3"
             >
               😉 Follow me on Twitter
-            </SponsorButton>
-          </Box>
+            </SponsorLink>
+          </x.div>
         </ThankBody>
       </ReakitDialog>
     </>
   )
 }
 
-const Editor = React.lazy(() => import('components/playground/Editor'))
+const Editor = lazy(() => import('./Editor'))
 
-function ClientOnly({ children }) {
-  const [visible, setVisible] = React.useState(false)
-  React.useEffect(() => {
+const ClientOnly = ({ children }) => {
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
     setVisible(true)
-  })
-  return visible && children
+  }, [])
+  return visible ? children : null
 }
 
 export function Playground() {
-  const [input, setInput] = React.useState(defaultSvg)
-  const [output, setOutput] = React.useState('')
-  const [loading, setLoading] = React.useState(false)
+  const [input, setInput] = useState(defaultSvg)
+  const [output, setOutput] = useState('')
+  const [loading, setLoading] = useState(false)
   const [state, setState] = useQuery(getInitialState)
   const dialog = useDialogState({ visible: false })
-  const [dialogDisplayed, setDialogDisplayed] = React.useState(false)
+  const dialogDisplayedRef = useRef(false)
 
-  const transformIdRef = React.useRef(0)
+  const transformIdRef = useRef(0)
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function transform() {
       if (input.trim() === '') {
         setOutput('')
@@ -291,64 +283,48 @@ export function Playground() {
     <>
       <GlobalStyle />
       <ClientOnly>
-        <PlaygroundContainer>
+        <Container>
           <Settings
             settings={settings}
             initialValues={state}
             onChange={setState}
           />
-          <React.Suspense fallback={<Loading />}>
-            <PlaygroundEditors>
-              <Box flex={1} display="flex" flexDirection="column">
+          <Suspense fallback={<Loading />}>
+            <Editors>
+              <EditorContainer>
                 <EditorTitle>SVG input</EditorTitle>
-                <Box flex={1} position="relative">
-                  <DropArea onChange={setInput}>
-                    <Editor
-                      name="input"
-                      mode="xml"
-                      onChange={setInput}
-                      value={input}
-                    />
-                  </DropArea>
-                </Box>
-              </Box>
-              <Box
-                flex={1}
-                display="flex"
-                flexDirection="column"
-                className={loading ? 'loading' : ''}
+                <DropArea onChange={setInput}>
+                  <Editor
+                    name="input"
+                    mode="xml"
+                    onChange={setInput}
+                    value={input}
+                  />
+                </DropArea>
+              </EditorContainer>
+              <EditorContainer
+                data-loading={loading ? '' : undefined}
+                onKeyDown={(event) => {
+                  if (dialogDisplayedRef.current) return
+                  // Detect copy
+                  if ((event.metaKey || event.ctrlKey) && event.key === 'c') {
+                    setTimeout(() => {
+                      dialog.show()
+                      dialogDisplayedRef.current = true
+                    }, 50)
+                  }
+                }}
               >
                 <EditorTitle>JSX output</EditorTitle>
-                <Box
-                  flex={1}
-                  position="relative"
-                  onKeyDown={
-                    dialogDisplayed
-                      ? null
-                      : (event) => {
-                          // Detect copy
-                          if (
-                            (event.metaKey || event.ctrlKey) &&
-                            event.key === 'c'
-                          ) {
-                            setTimeout(() => {
-                              dialog.show()
-                              setDialogDisplayed(true)
-                            }, 50)
-                          }
-                        }
-                  }
-                >
-                  <Editor name="output" mode="jsx" readOnly value={output} />
-                </Box>
-              </Box>
-            </PlaygroundEditors>
-          </React.Suspense>
+                <Editor name="output" mode="jsx" readOnly value={output} />
+              </EditorContainer>
+            </Editors>
+          </Suspense>
           <CopyFeedback {...dialog} />
           <FloatingAd>
             <CarbonAd />
           </FloatingAd>
-        </PlaygroundContainer>
+        </Container>
       </ClientOnly>
     </>
   )

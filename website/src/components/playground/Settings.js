@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled, { up, css } from '@xstyled/styled-components'
+import styled from '@xstyled/styled-components'
 import { Form, FormSpy } from 'react-final-form'
 import { SettingsFieldBoolean } from './SettingsFieldBoolean'
 import { SettingsGroup } from './SettingsGroup'
@@ -7,23 +7,14 @@ import { SettingsFieldString } from './SettingsFieldString'
 import { SettingsFieldEnum } from './SettingsFieldEnum'
 import { SettingsFieldInteger } from './SettingsFieldInteger'
 
-const SettingsContainer = styled.div`
-  width: 100%;
+const Container = styled.div`
   font-size: 14;
-  background-color: light100;
-  color: light800;
+  color: on-background-light;
   user-select: none;
+  width: 200;
   overflow: auto;
-  max-height: 50%;
-
-  ${up(
-    'md',
-    css`
-      width: 200px;
-      height: 100%;
-      max-height: 100%;
-    `,
-  )}
+  border-right: 1;
+  border-color: layout-border;
 `
 
 const getGroupSettings = (group, settings) =>
@@ -44,7 +35,7 @@ const renderSetting = (setting) => {
 
 const noop = () => {}
 
-export function Settings({ settings, initialValues, onChange }) {
+export const Settings = ({ settings, initialValues, onChange }) => {
   return (
     <Form onSubmit={noop} initialValues={initialValues}>
       {() => (
@@ -53,7 +44,7 @@ export function Settings({ settings, initialValues, onChange }) {
             subscription={{ values: true }}
             onChange={({ values }) => onChange(values)}
           />
-          <SettingsContainer direction="column">
+          <Container>
             <SettingsGroup title="Global">
               {getGroupSettings('global', settings).map(renderSetting)}
             </SettingsGroup>
@@ -63,7 +54,7 @@ export function Settings({ settings, initialValues, onChange }) {
             <SettingsGroup title="Prettier">
               {getGroupSettings('prettier', settings).map(renderSetting)}
             </SettingsGroup>
-          </SettingsContainer>
+          </Container>
         </>
       )}
     </Form>

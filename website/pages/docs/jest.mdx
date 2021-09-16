@@ -1,5 +1,5 @@
 ---
-menu: Advanced
+section: Advanced
 title: Testing with Jest
 order: 4
 ---
@@ -7,6 +7,8 @@ order: 4
 # Testing with Jest
 
 Create a simple mock for the svgr loader and map this in the jest config:
+
+<carbon-ad />
 
 ## 1. Create a mock file
 
@@ -20,12 +22,12 @@ export const ReactComponent = 'div'
 ```
 
 The above mock would support the following import syntaxes:
+
 ```js
 import logoURL from '../assets/logo.svg'
 // and
 import { ReactComponent as Logo } from '../assets/logo.svg'
 ```
-
 
 ## 2. Configure Jest
 
@@ -46,7 +48,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.svg$': '<rootDir>/__mocks__/svgrMock.js',
   },
-};
+}
 ```
 
 Your snapshots will include all properties on the icon components, so they will be tested.
