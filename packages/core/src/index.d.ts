@@ -84,11 +84,16 @@ export interface SvgrOpts {
    * kebab for kebab-case or camel for camelCase.
    */
   filenameCase?: 'kebab' | 'camel' | 'pascal'
+  /**
+   * By default @svgr/core doesn't include svgo and prettier plugins,
+   * if you want them, you have to install them and include them in config.
+   */
+  plugins?: string[]
 }
 
 type ConvertT = {
-  (svgCode: string, opts?: SvgrOpts, state?: TemplateData): Promise<void>
-  sync: (svgCode: string, opts?: SvgrOpts, state?: TemplateData) => void
+  (svgCode: string, opts?: SvgrOpts, state?: TemplateData): Promise<string>
+  sync: (svgCode: string, opts?: SvgrOpts, state?: TemplateData) => string
 }
 
 declare const convert: ConvertT
