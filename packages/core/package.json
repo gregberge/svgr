@@ -18,7 +18,7 @@
   "engines": {
     "node": ">=10"
   },
-  "types": "src",
+  "types": "lib/index.d.ts",
   "homepage": "https://react-svgr.com",
   "funding": {
     "type": "github",
@@ -27,7 +27,7 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rm -rf lib/",
-    "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
+    "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src && cp src/index.d.ts lib/index.d.ts",
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
