@@ -13,6 +13,7 @@
     "no-use-before-define": "off",
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
     "import/extensions": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
     "react/jsx-wrap-multilines": "off",
