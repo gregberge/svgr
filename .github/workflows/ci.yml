@@ -25,16 +25,19 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
+
+      - name: Check DTS
+        run: npm run check-dts
 
       - name: Test
-        run: yarn test --ci --coverage
+        run: npm run test -- --ci --coverage
 
       - name: Codecov
-        run: yarn codecov
+        run: npm run codecov
