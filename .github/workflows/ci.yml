@@ -23,6 +23,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Use npm v7
+        run: npm i -g npm@7 --registry=https://registry.npmjs.org
+        if: ${{ matrix.node-version == '12.x' || matrix.node-version == '14.x' }}
 
       - name: Install dependencies
         run: npm ci
