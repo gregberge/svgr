@@ -23,18 +23,26 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Use npm v7
+        run: npm i -g npm@7 --registry=https://registry.npmjs.org
+        if: ${{ matrix.node-version == '12.x' || matrix.node-version == '14.x' }}
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
+
+      - name: Check DTS
+        run: npx check-dts
 
       - name: Test
-        run: yarn test --ci --coverage
+        run: npm run test -- --ci --coverage
 
       - name: Codecov
-        run: yarn codecov
+        run: npx codecov

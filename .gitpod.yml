@@ -2,19 +2,19 @@ tasks:
   - command: gp await-port 8000 && sleep 3 && gp preview $(gp url 8000)
   - name: Docs
     before: cd website
-    init: | 
-      yarn install
+    init: |
+      npm install
       gp sync-done boot
-    command: yarn dev
+    command: npm run dev
 
   - name: Dev
-    init: | 
+    init: |
       gp sync-await boot
-      yarn install
-    command: yarn run dev
+      npm install
+    command: npm run dev
     openMode: split-right
 
-ports: 
+ports:
   - port: 8000
     onOpen: ignore
 

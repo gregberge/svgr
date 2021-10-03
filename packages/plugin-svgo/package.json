@@ -23,7 +23,7 @@
   "scripts": {
     "prebuild": "rm -rf lib/",
     "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
-    "prepublishOnly": "yarn run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "cosmiconfig": "^7.0.1",

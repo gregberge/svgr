@@ -16,8 +16,8 @@ You can use Gitpod(An Online Open Source VS Code like IDE which is free for Open
 
 - clone the `svgr` repo.
 - install all the dependencies in `/` and `/website`.
-- run `yarn dev` in `/`.
-- run `yarn dev` in `/website` to start the dev server.
+- run `npm run dev` in `/`.
+- run `npm run dev` in `/website` to start the dev server.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
@@ -25,7 +25,7 @@ You can use Gitpod(An Online Open Source VS Code like IDE which is free for Open
 
 _Before_ submitting a pull request, please make sure the following is done…
 
-1.  Fork the repo and create your branch from `master`. A guide on how to fork a repository: https://help.github.com/articles/fork-a-repo/
+1.  Fork the repo and create your branch from `main`. A guide on how to fork a repository: https://help.github.com/articles/fork-a-repo/
 
     Open terminal (e.g. Terminal, iTerm, Git Bash or Git Shell) and type:
 
@@ -37,39 +37,27 @@ _Before_ submitting a pull request, please make sure the following is done…
 
     Note: Replace `<your_username>` with your GitHub username
 
-2.  SVGR uses [Yarn](https://code.fb.com/web/yarn-a-new-package-manager-for-javascript/) for running development scripts. If you haven't already done so, please [install yarn](https://yarnpkg.com/en/docs/install).
+2.  Run `npm install`.
 
-3.  Run `yarn install`. On Windows: To install [Yarn](https://yarnpkg.com/en/docs/install#windows-tab) on Windows you may need to download either node.js or Chocolatey<br />
-
-    ```sh
-    yarn install
-    ```
-
-    To check your version of Yarn and ensure it's installed you can type:
-
-    ```sh
-    yarn --version
-    ```
-
-4.  If you've added code that should be tested, add tests. You can use watch mode that continuously transforms changed files to make your life easier.
+3.  If you've added code that should be tested, add tests. You can use watch mode that continuously transforms changed files to make your life easier.
 
     ```sh
     # in the background
-    yarn run dev
+    npm run dev
     ```
 
-5.  If you've changed APIs, update the documentation.
+4.  If you've changed APIs, update the documentation.
 
-6.  Ensure the linting is good via `yarn lint`.
+5.  Ensure the linting is good via `npm run lint`.
 
     ```sh-session
-    $ yarn lint
+    $ npm run lint
     ```
 
-7.  Ensure the test suite passes via `yarn test`.
+6.  Ensure the test suite passes via `npm run test`.
 
     ```sh-session
-    $ yarn test
+    $ npm run test
     ```
 
 ## Bugs
