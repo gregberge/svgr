@@ -39,10 +39,10 @@ jobs:
         run: npm run lint
 
       - name: Check DTS
-        run: npm run check-dts
+        run: npx check-dts
 
       - name: Test
         run: npm run test -- --ci --coverage
 
       - name: Codecov
-        run: npm run codecov
+        run: npx codecov
