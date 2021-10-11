@@ -68,6 +68,8 @@ export interface SvgrOpts {
    * https://github.com/gregberge/svgr/blob/main/packages/babel-plugin-transform-svg-component/src/index.js
    */
   template?: TemplateFunc
+  /** Disable index file generation. */
+  index?: boolean
   /** Output files into a directory. */
   outDir?: string
   /**

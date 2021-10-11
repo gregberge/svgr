@@ -75,9 +75,8 @@ export default async function dirCommand(
     return { transformed: true, dest }
   }
 
-  async function generateIndex(dest, files) {
+  async function generateIndex(dest, files, config) {
     const indexFile = path.join(dest, `index.${ext}`)
-    const config = loadConfig.sync(options, { filePath: indexFile })
     const indexTemplate = config.indexTemplate || defaultIndexTemplate
     await fs.writeFile(indexFile, indexTemplate(files))
   }
@@ -98,7 +97,10 @@ export default async function dirCommand(
       if (transformed.length) {
         const destFiles = results.map((result) => result.dest).filter(Boolean)
         const dest = path.resolve(opts.outDir, path.relative(root, dirname))
-        await generateIndex(dest, destFiles)
+        const config = loadConfig.sync(options, { filePath: dest })
+        if (config.index) {
+          await generateIndex(dest, destFiles, config)
+        }
       }
       return { transformed: false, dest: null }
     }

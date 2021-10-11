@@ -188,6 +188,14 @@ Specify a template function (API) to change default index.js output (when --out-
 | ------------------------------------------------------------------------------------------------ | ------------------ | -------------------------- |
 | [`basic template`](https://github.com/gregberge/svgr/blob/master/packages/cli/src/dirCommand.js) | `--index-template` | indexTemplate: files => '' |
 
+## index.js file
+
+Disable index.js file generation
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `false` | `--no-index` | `index: <bool>` |
+
 ## Ignore existing
 
 When used with `--out-dir`, it ignores already existing files.

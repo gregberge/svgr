@@ -209,4 +209,12 @@ describe('cli', () => {
     const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
   }, 10000)
+
+  it('should support --no-index', async () => {
+    const inDir = '__fixtures__/simple'
+    const outDir = `__fixtures_build__/no-index-case`
+    await del(outDir)
+    await cli(`--no-index ${inDir} --out-dir=${outDir}`)
+    expect(await fs.readdir(outDir)).toMatchSnapshot()
+  }, 10000)
 })

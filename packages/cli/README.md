@@ -33,6 +33,7 @@ Options:
   --replace-attr-values <old=new>  replace an attribute value
   --template <file>                specify a custom template to use
   --index-template <file>          specify a custom index.js template to use
+  --no-index                       disable index file generation
   --title-prop                     create a title element linked with props
   --prettier-config <fileOrJson>   Prettier config
   --no-prettier                    disable Prettier
