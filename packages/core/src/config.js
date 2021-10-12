@@ -15,6 +15,7 @@ export const DEFAULT_CONFIG = {
   svgo: true,
   svgoConfig: null,
   template: null,
+  index: false,
   titleProp: false,
   runtimeConfig: true,
   plugins: null,

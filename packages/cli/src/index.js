@@ -90,6 +90,7 @@ program
     '--index-template <file>',
     'specify a custom index.js template to use',
   )
+  .option('--no-index', 'disable index file generation')
   .option('--title-prop', 'create a title element linked with props')
   .option(
     '--prettier-config <fileOrJson>',
@@ -198,6 +199,10 @@ async function run() {
       console.error(error.stack)
       process.exit(2)
     }
+  }
+
+  if (opts.index === false) {
+    delete config.index
   }
 
   const command = opts.outDir ? dirCommand : fileCommand
