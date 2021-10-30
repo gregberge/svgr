@@ -2,7 +2,9 @@
   "name": "@svgr/hast-util-to-babel-ast",
   "description": "Transform HAST to Babel AST (JSX)",
   "version": "6.0.0-alpha.0",
-  "main": "lib/index.js",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/hast-util-to-babel-ast",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
@@ -25,13 +27,16 @@
     "url": "https://github.com/sponsors/gregberge"
   },
   "license": "MIT",
-  "scripts": {
-    "prebuild": "rm -rf lib/",
-    "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
-    "prepublishOnly": "npm run build"
-  },
   "dependencies": {
     "@babel/types": "^7.15.6",
     "entities": "^3.0.1"
+  },
+  "scripts": {
+    "reset": "rm -rf dist",
+    "build": "rollup -c ../../build/rollup.config.js",
+    "prepublishOnly": "npm run reset && npm run build"
+  },
+  "devDependencies": {
+    "@types/svg-parser": "^2.0.3"
   }
 }

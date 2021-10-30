@@ -1,4 +1,4 @@
-/* eslint-disable no-console, import/no-unresolved */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const githubCurrentUser = require('github-current-user')
 
 githubCurrentUser.verify((err, verified, username) => {

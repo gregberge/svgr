@@ -1,26 +1,26 @@
 {
   "root": true,
-  "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier"],
   "env": {
-    "jest": true
+    "node": true
   },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended"
+  ],
   "rules": {
-    "no-plusplus": "off",
-    "no-shadow": "off",
-    "class-methods-use-this": "off",
-    "no-param-reassign": "off",
-    "no-use-before-define": "off",
-    "import/prefer-default-export": "off",
-    "import/no-extraneous-dependencies": "off",
-    "import/extensions": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
-    "react/jsx-wrap-multilines": "off",
-    "react/no-unused-state": "off",
-    "react/destructuring-assignment": "off",
-    "react/prop-types": "off",
-    "react/sort-comp": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/state-in-constructor": "off"
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/ban-types": "warn",
+    "react/prop-types": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

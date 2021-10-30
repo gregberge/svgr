@@ -1,5 +1,4 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { default: svgr } = require('@svgr/core')
 const { default: jsx } = require('@svgr/plugin-jsx')
 const { default: svgo } = require('@svgr/plugin-svgo')
