@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-plugin-remove-jsx-empty-expression",
   "description": "Remove JSX empty expression",
-  "version": "5.0.1",
+  "version": "6.0.0-alpha.1",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "typings": "./dist/index.d.ts",

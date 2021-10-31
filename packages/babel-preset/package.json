@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-preset",
   "description": "SVGR preset that apply transformations from config",
-  "version": "6.0.0-alpha.0",
+  "version": "6.0.0-alpha.1",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -24,14 +24,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@svgr/babel-plugin-add-jsx-attribute": "^5.4.0",
-    "@svgr/babel-plugin-remove-jsx-attribute": "^5.4.0",
-    "@svgr/babel-plugin-remove-jsx-empty-expression": "^5.0.1",
-    "@svgr/babel-plugin-replace-jsx-attribute-value": "^5.0.1",
-    "@svgr/babel-plugin-svg-dynamic-title": "^5.4.0",
-    "@svgr/babel-plugin-svg-em-dimensions": "^5.4.0",
-    "@svgr/babel-plugin-transform-react-native-svg": "^5.4.0",
-    "@svgr/babel-plugin-transform-svg-component": "^6.0.0-alpha.0"
+    "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0-alpha.1",
+    "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0-alpha.1",
+    "@svgr/babel-plugin-remove-jsx-empty-expression": "^6.0.0-alpha.1",
+    "@svgr/babel-plugin-replace-jsx-attribute-value": "^6.0.0-alpha.1",
+    "@svgr/babel-plugin-svg-dynamic-title": "^6.0.0-alpha.1",
+    "@svgr/babel-plugin-svg-em-dimensions": "^6.0.0-alpha.1",
+    "@svgr/babel-plugin-transform-react-native-svg": "^6.0.0-alpha.1",
+    "@svgr/babel-plugin-transform-svg-component": "^6.0.0-alpha.1"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0-0"

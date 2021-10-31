@@ -1,7 +1,7 @@
 {
   "name": "@svgr/hast-util-to-babel-ast",
   "description": "Transform HAST to Babel AST (JSX)",
-  "version": "6.0.0-alpha.0",
+  "version": "6.0.0-alpha.1",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "typings": "./dist/index.d.ts",
