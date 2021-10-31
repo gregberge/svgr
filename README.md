@@ -7,12 +7,8 @@
 [![Donate](https://opencollective.com/svgr/backers/badge.svg)](https://opencollective.com/svgr/donate)
 [![npm package](https://img.shields.io/npm/v/@svgr/core/latest.svg)](https://www.npmjs.com/package/@svgr/core)
 [![npm downloads](https://img.shields.io/npm/dm/@svgr/core.svg)](https://www.npmjs.com/package/@svgr/core)
-[![Build Status](https://img.shields.io/travis/gregberge/svgr.svg)](https://travis-ci.org/gregberge/svgr)
+[![CI](https://github.com/gregberge/svgr/actions/workflows/ci.yml/badge.svg)](https://github.com/gregberge/svgr/actions/workflows/ci.yml)
 [![Code Coverage](https://img.shields.io/codecov/c/github/gregberge/svgr.svg)](https://codecov.io/github/gregberge/svgr)
-![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-[![Dependencies](https://img.shields.io/david/gregberge/svgr.svg?path=packages%2Fcore)](https://david-dm.org/gregberge/svgr?path=packages/core)
-[![DevDependencies](https://img.shields.io/david/dev/gregberge/svgr.svg)](https://david-dm.org/gregberge/svgr?type=dev)
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 
 [**Try it out online!**](https://react-svgr.com/playground)
 
