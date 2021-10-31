@@ -1,6 +1,10 @@
-const path = require('path')
-const fs = require('fs')
+module.exports = (api) => {
+  api.cache(true)
 
-const config = fs.readFileSync(path.join(__dirname, '.babelrc'))
-
-module.exports = JSON.parse(config)
+  return {
+    presets: [
+      ['@babel/preset-env', { targets: { node: '12' }, loose: true }],
+      '@babel/preset-typescript',
+    ],
+  }
+}

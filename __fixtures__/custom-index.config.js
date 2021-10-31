@@ -1,11 +1,10 @@
 const indexTemplate = require('./custom-index-template.js')
 
 function template(
-  { template },
-  opts,
   { imports, componentName, props, jsx, exports },
+  { tpl }
 ) {
-  return template.ast`${imports}
+  return tpl`${imports}
 export function ${componentName}(${props}) {
   return ${jsx};
 }

@@ -26,9 +26,9 @@
     "svgr": "./bin/svgr"
   },
   "scripts": {
-    "prebuild": "rm -rf lib/",
-    "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
-    "prepublishOnly": "npm run build"
+    "reset": "rm -rf dist",
+    "build": "rollup -c ../../build/rollup.config.js",
+    "prepublishOnly": "npm run reset && npm run build"
   },
   "dependencies": {
     "@svgr/core": "^6.0.0-alpha.0",
@@ -42,6 +42,7 @@
     "glob": "^7.1.7"
   },
   "devDependencies": {
+    "@types/glob": "^7.2.0",
     "del": "^6.0.0"
   }
 }

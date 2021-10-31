@@ -3,7 +3,7 @@ __fixtures__/
 CHANGELOG.md
 package.json
 lerna.json
-lib/
+dist/
 .next/
 /website/.cache/
 /website/public/

@@ -37,7 +37,7 @@ _Before_ submitting a pull request, please make sure the following is done…
 
     Note: Replace `<your_username>` with your GitHub username
 
-2.  Run `npm install`.
+2.  Run `npm install` and `npm run build`.
 
 3.  If you've added code that should be tested, add tests. You can use watch mode that continuously transforms changed files to make your life easier.
 
