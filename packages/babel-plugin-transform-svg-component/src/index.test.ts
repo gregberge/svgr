@@ -228,5 +228,58 @@ describe('plugin', () => {
         expect(code).toMatchSnapshot()
       })
     })
+
+    describe('#jsxRuntime', () => {
+      it('supports "automatic" jsxRuntime', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          jsxRuntime: 'automatic',
+        })
+        expect(code).toMatchSnapshot()
+      })
+
+      it('supports "classic" jsxRuntime', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          jsxRuntime: 'classic',
+        })
+        expect(code).toMatchSnapshot()
+      })
+
+      it('allows to specify a custom "classic" jsxRuntime using "specifiers"', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          jsxRuntime: 'classic',
+          jsxRuntimeImport: { specifiers: ['h'], source: 'preact' },
+        })
+        expect(code).toMatchSnapshot()
+      })
+
+      it('allows to specify a custom "classic" jsxRuntime using "namespace"', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          jsxRuntime: 'classic',
+          jsxRuntimeImport: { namespace: 'Preact', source: 'preact' },
+        })
+        expect(code).toMatchSnapshot()
+      })
+
+      it('throws with invalid configuration', () => {
+        expect(() => {
+          testPlugin(language)('<svg><g /></svg>', {
+            jsxRuntime: 'classic',
+            jsxRuntimeImport: { source: 'preact' },
+          })
+        }).toThrow(
+          'Specify either "namespace" or "specifiers" in "jsxRuntimeImport" option',
+        )
+      })
+    })
+
+    it('allows to specify a different import source', () => {
+      const { code } = testPlugin(language)('<svg><g /></svg>', {
+        memo: true,
+        ref: true,
+        importSource: 'preact/compat',
+        jsxRuntimeImport: { specifiers: ['h'], source: 'preact' },
+      })
+      expect(code).toMatchSnapshot()
+    })
   })
 })

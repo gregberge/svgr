@@ -11,6 +11,7 @@
     "module": "ESNext",
     "strict": true,
     "sourceMap": true,
-    "declaration": true
+    "declaration": true,
+    "resolveJsonModule": true
   }
 }

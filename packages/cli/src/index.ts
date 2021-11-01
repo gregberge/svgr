@@ -106,6 +106,10 @@ program
     'specify filename case ("pascal", "kebab", "camel") (default: "pascal")',
   )
   .option('--icon', 'use "1em" as width and height')
+  .option(
+    '--jsx-runtime <runtime>',
+    'specify JSX runtime ("automatic", "classic", "classic-preact") (default: "classic")',
+  )
   .option('--typescript', 'transform svg into typescript')
   .option('--native', 'add react-native support with react-native-svg')
   .option('--memo', 'add React.memo into the result component')

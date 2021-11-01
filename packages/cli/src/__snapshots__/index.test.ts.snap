@@ -196,6 +196,32 @@ export default SvgFile
 "
 `;
 
+exports[`cli should support various args: --jsx-runtime automatic 1`] = `
+"const SvgFile = (props) => (
+  <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default SvgFile
+
+"
+`;
+
+exports[`cli should support various args: --jsx-runtime classic-preact 1`] = `
+"import { h } from 'preact'
+
+const SvgFile = (props) => (
+  <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default SvgFile
+
+"
+`;
+
 exports[`cli should support various args: --native --expand-props none 1`] = `
 "import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
