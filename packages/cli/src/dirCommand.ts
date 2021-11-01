@@ -3,13 +3,14 @@ import { promises as fs } from 'fs'
 import * as path from 'path'
 import { grey, white } from 'chalk'
 import { loadConfig, Config } from '@svgr/core'
+import { format, resolveConfig } from 'prettier'
 import {
   convertFile,
   transformFilename,
   politeWrite,
   formatExportName,
 } from './util'
-import type { SvgrCommand } from './index'
+import type { Options, SvgrCommand } from './index'
 
 const exists = async (filepath: string) => {
   try {
@@ -50,20 +51,20 @@ const resolveExtension = (config: Config, ext?: string) =>
   ext || (config.typescript ? 'tsx' : 'js')
 
 export const dirCommand: SvgrCommand = async (
-  {
+  opts,
+  _,
+  filenames,
+): Promise<void> => {
+  const {
     ext: extOpt,
     filenameCase = 'pascal',
     ignoreExisting,
     silent,
-    indexTemplate: indexTemplateOpt,
     configFile,
     outDir,
-  },
-  _,
-  filenames,
-  config,
-): Promise<void> => {
-  const ext = resolveExtension(config, extOpt)
+  } = opts
+
+  const ext = resolveExtension(opts, extOpt)
 
   const write = async (src: string, dest: string) => {
     if (!isCompilable(src)) {
@@ -71,7 +72,7 @@ export const dirCommand: SvgrCommand = async (
     }
 
     dest = rename(dest, ext, filenameCase)
-    const code = await convertFile(src, config)
+    const code = await convertFile(src, opts)
     const cwdRelative = path.relative(process.cwd(), dest)
     const logOutput = `${src} -> ${cwdRelative}\n`
 
@@ -86,10 +87,25 @@ export const dirCommand: SvgrCommand = async (
     return { transformed: true, dest }
   }
 
-  const generateIndex = async (dest: string, files: string[]) => {
-    const indexFile = path.join(dest, `index.${ext}`)
-    const indexTemplate = indexTemplateOpt || defaultIndexTemplate
-    await fs.writeFile(indexFile, indexTemplate(files))
+  const generateIndex = async (
+    dest: string,
+    files: string[],
+    opts: Options,
+  ) => {
+    const filepath = path.join(dest, `index.${ext}`)
+    const indexTemplate = opts.indexTemplate || defaultIndexTemplate
+    const fileContent = indexTemplate(files)
+    const prettyContent = await (async () => {
+      if (!opts.prettier) return fileContent
+      const prettierRcConfig = opts.runtimeConfig
+        ? await resolveConfig(filepath, { editorconfig: true })
+        : {}
+      return format(fileContent, {
+        ...prettierRcConfig,
+        ...opts.prettierConfig,
+      })
+    })()
+    await fs.writeFile(filepath, prettyContent)
   }
 
   async function handle(filename: string, root: string) {
@@ -114,11 +130,11 @@ export const dirCommand: SvgrCommand = async (
           path.relative(root, dirname),
         )
         const resolvedConfig = loadConfig.sync(
-          { configFile, ...config },
+          { configFile, ...opts },
           { filePath: dest },
-        )
+        ) as Options
         if (resolvedConfig.index) {
-          await generateIndex(dest, destFiles)
+          await generateIndex(dest, destFiles, opts)
         }
       }
       return { transformed: false, dest: null }

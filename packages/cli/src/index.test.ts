@@ -18,7 +18,7 @@ describe('cli', () => {
   it('should work with a simple file', async () => {
     const result = await cli('__fixtures__/simple/file.svg')
     expect(result).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should not work with a directory without --out-dir option', async () => {
     expect.assertions(1)
@@ -29,7 +29,7 @@ describe('cli', () => {
         'Directory are not supported without `--out-dir` option instead',
       )
     }
-  }, 10000)
+  })
 
   it('should not work with several files without destination', async () => {
     expect.assertions(1)
@@ -40,19 +40,19 @@ describe('cli', () => {
         'Please specify only one filename or use `--out-dir` option',
       )
     }
-  }, 10000)
+  })
 
   it('should work with stdin', async () => {
     const result = await cli('< __fixtures__/simple/file.svg')
     expect(result).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support stdin filepath', async () => {
     const result = await cli(
       '--stdin-filepath __fixtures__/simple/file.svg < __fixtures__/simple/file.svg',
     )
     expect(result).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should transform a whole directory and output relative destination paths', async () => {
     const result = await cli('--out-dir __fixtures_build__/whole __fixtures__')
@@ -62,7 +62,7 @@ describe('cli', () => {
       .map((x) => x.toLowerCase())
       .join('\n')
     expect(sorted).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should transform a whole directory with --typescript', async () => {
     const result = await cli(
@@ -74,7 +74,7 @@ describe('cli', () => {
       .map((x) => x.toLowerCase())
       .join('\n')
     expect(sorted).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should suppress output when transforming a directory with a --silent option', async () => {
     const result = await cli(
@@ -82,35 +82,35 @@ describe('cli', () => {
     )
     const sorted = result.split(/\n/).sort().join('\n')
     expect(sorted).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support --prettier-config as json', async () => {
     const result = await cli(
       `--prettier-config '{"tabWidth": 5}' __fixtures__/simple/file.svg`,
     )
     expect(result).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support --prettier-config as file', async () => {
     const result = await cli(
       `--prettier-config __fixtures__/withPrettierRc/.prettierrc __fixtures__/simple/file.svg`,
     )
     expect(result).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support --svgo-config as json', async () => {
     const result = await cli(
       `--svgo-config '{"plugins":[{"name":"preset-default","params":{"overrides":{"removeTitle":false}}}]}' __fixtures__/simple/file.svg`,
     )
     expect(result).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support --svgo-config as file', async () => {
     const result = await cli(
       `--svgo-config __fixtures__/withSvgoConfig/svgo.config.js __fixtures__/simple/file.svg`,
     )
     expect(result).toMatchSnapshot()
-  }, 10000)
+  })
 
   it.each([
     ['--no-dimensions'],
@@ -164,7 +164,7 @@ describe('cli', () => {
     await del(outDir)
     await cli(`--ext=ts ${inDir} --out-dir=${outDir}`)
     expect(await fs.readdir(outDir)).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support "--ignore-existing"', async () => {
     const inDir = '__fixtures__/simple'
@@ -172,14 +172,14 @@ describe('cli', () => {
     await cli(`${inDir} --out-dir=${outDir} --ignore-existing`)
     const content = await fs.readFile(path.join(outDir, 'File.js'), 'utf-8')
     expect(content).toBe('// nothing')
-  }, 10000)
+  })
 
   it('should not override config with cli defaults', async () => {
     const result = await cli(
       '__fixtures__/simple/file.svg --config-file=__fixtures__/overrides.config.js',
     )
     expect(result).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should add Svg prefix to index.js exports staring with number', async () => {
     const inDir = '__fixtures__/numeric'
@@ -188,7 +188,7 @@ describe('cli', () => {
     await cli(`${inDir} --out-dir=${outDir}`)
     const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support custom index.js with directory output', async () => {
     const inDir = '__fixtures__/simple'
@@ -199,7 +199,7 @@ describe('cli', () => {
     )
     const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support --index-template in cli', async () => {
     const inDir = '__fixtures__/simple'
@@ -210,7 +210,7 @@ describe('cli', () => {
     )
     const content = await fs.readFile(path.join(outDir, 'index.js'), 'utf-8')
     expect(content).toMatchSnapshot()
-  }, 10000)
+  })
 
   it('should support --no-index', async () => {
     const inDir = '__fixtures__/simple'
@@ -218,5 +218,5 @@ describe('cli', () => {
     await del(outDir)
     await cli(`--no-index ${inDir} --out-dir=${outDir}`)
     expect(await fs.readdir(outDir)).toMatchSnapshot()
-  }, 10000)
+  })
 })

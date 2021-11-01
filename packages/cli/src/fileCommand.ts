@@ -21,11 +21,10 @@ export const fileCommand: SvgrCommand = async (
   opts,
   program,
   filenames,
-  config,
 ): Promise<void> => {
   if (opts.stdin || (filenames.length === 0 && !process.stdin.isTTY)) {
     const input = await readStdin()
-    const output = convert(input, config, { filePath: opts.stdinFilepath })
+    const output = convert(input, opts, { filePath: opts.stdinFilepath })
     process.stdout.write(`${output}\n`)
     return
   }
@@ -46,6 +45,6 @@ export const fileCommand: SvgrCommand = async (
     exitError('Directory are not supported without `--out-dir` option instead.')
   }
 
-  const output = await convertFile(filename, config)
+  const output = await convertFile(filename, opts)
   process.stdout.write(`${output}\n`)
 }

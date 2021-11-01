@@ -68,7 +68,7 @@ const parseTemplate = (name: string) => (arg: string) => {
   }
 }
 
-interface ProgramOpts extends Config {
+export interface Options extends Config {
   configFile?: string
   runtimeConfig?: boolean
   outDir?: string
@@ -82,12 +82,7 @@ interface ProgramOpts extends Config {
 }
 
 export interface SvgrCommand {
-  (
-    opts: ProgramOpts,
-    program: Command,
-    filenames: string[],
-    config: Config,
-  ): Promise<void>
+  (opts: Options, program: Command, filenames: string[]): Promise<void>
 }
 
 program
@@ -193,28 +188,13 @@ async function run() {
     process.exit(2)
   }
 
-  const opts = noUndefinedKeys(program.opts<ProgramOpts>())
-
-  const config = await loadConfig(opts, { filePath: process.cwd() })
-
-  if (opts.dimensions === true) {
-    delete config.dimensions
-  }
-
-  if (opts.svgo === true) {
-    delete config.svgo
-  }
-
-  if (opts.prettier === true) {
-    delete config.prettier
-  }
-
-  if (opts.index === false) {
-    delete config.index
-  }
+  const programOpts = noUndefinedKeys(program.opts<Options>())
+  const opts = (await loadConfig(programOpts, {
+    filePath: process.cwd(),
+  })) as Options
 
   const command = opts.outDir ? dirCommand : fileCommand
-  await command(opts, program, filenames, config)
+  await command(opts, program, filenames)
 }
 
 run().catch((error) => {
