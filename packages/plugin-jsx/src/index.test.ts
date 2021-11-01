@@ -17,7 +17,7 @@ const svgBaseCode = `
 `
 
 describe('plugin', () => {
-  it('should transform code', () => {
+  it('transforms code', () => {
     const result = jsx(svgBaseCode, {}, { componentName: 'SvgComponent' })
     expect(result).toMatchInlineSnapshot(`
       "import * as React from \\"react\\";
@@ -28,7 +28,35 @@ describe('plugin', () => {
     `)
   })
 
-  it('should accept jsx config', () => {
+  it('supports "automatic" runtime', () => {
+    const result = jsx(
+      svgBaseCode,
+      { jsxRuntime: 'automatic' },
+      { componentName: 'SvgComponent' },
+    )
+    expect(result).toMatchInlineSnapshot(`
+      "const SvgComponent = () => <svg viewBox=\\"0 0 88 88\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlnsXlink=\\"http://www.w3.org/1999/xlink\\"><title>{\\"Dismiss\\"}</title><desc>{\\"Created with Sketch.\\"}</desc><defs /><g id=\\"Blocks\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}><path d=\\"M51,37 L37,51\\" id=\\"Shape\\" /><path d=\\"M51,51 L37,37\\" id=\\"Shape\\" /></g></g></svg>;
+
+      export default SvgComponent;"
+    `)
+  })
+
+  it('supports "preact" preset', () => {
+    const result = jsx(
+      svgBaseCode,
+      { jsxRuntime: 'classic-preact' },
+      { componentName: 'SvgComponent' },
+    )
+    expect(result).toMatchInlineSnapshot(`
+      "import { h } from \\"preact\\";
+
+      const SvgComponent = () => <svg viewBox=\\"0 0 88 88\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlnsXlink=\\"http://www.w3.org/1999/xlink\\"><title>{\\"Dismiss\\"}</title><desc>{\\"Created with Sketch.\\"}</desc><defs /><g id=\\"Blocks\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><g id=\\"Dismiss\\" stroke=\\"#063855\\" strokeWidth={2}><path d=\\"M51,37 L37,51\\" id=\\"Shape\\" /><path d=\\"M51,51 L37,37\\" id=\\"Shape\\" /></g></g></svg>;
+
+      export default SvgComponent;"
+    `)
+  })
+
+  it('accepts jsx config', () => {
     const dropTitle = () => ({
       visitor: {
         JSXElement(path: any) {

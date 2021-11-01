@@ -1,5 +1,5 @@
 import { types as t } from '@babel/core'
-import type { Options, TemplateVariables } from './types'
+import type { Options, TemplateVariables, JSXRuntimeImport } from './types'
 
 const tsOptionalPropertySignature = (
   ...args: Parameters<typeof t.tsPropertySignature>
@@ -15,6 +15,7 @@ interface Context {
   interfaces: t.TSInterfaceDeclaration[]
   props: (t.Identifier | t.ObjectPattern)[]
   imports: t.ImportDeclaration[]
+  importSource: string
 }
 
 const getOrCreateImport = ({ imports }: Context, sourceValue: string) => {
@@ -40,7 +41,7 @@ const tsTypeReferenceSVGProps = (ctx: Context) => {
     return t.tsTypeReference(identifier)
   }
   const identifier = t.identifier('SVGProps')
-  getOrCreateImport(ctx, 'react').specifiers.push(
+  getOrCreateImport(ctx, ctx.importSource).specifiers.push(
     t.importSpecifier(identifier, identifier),
   )
   return t.tsTypeReference(
@@ -53,7 +54,7 @@ const tsTypeReferenceSVGProps = (ctx: Context) => {
 
 const tsTypeReferenceSVGRef = (ctx: Context) => {
   const identifier = t.identifier('Ref')
-  getOrCreateImport(ctx, 'react').specifiers.push(
+  getOrCreateImport(ctx, ctx.importSource).specifiers.push(
     t.importSpecifier(identifier, identifier),
   )
   return t.tsTypeReference(
@@ -63,6 +64,29 @@ const tsTypeReferenceSVGRef = (ctx: Context) => {
     ]),
   )
 }
+
+const getJsxRuntimeImport = (cfg: JSXRuntimeImport) => {
+  const specifiers = (() => {
+    if (cfg.namespace)
+      return [t.importNamespaceSpecifier(t.identifier(cfg.namespace))]
+    if (cfg.specifiers)
+      return cfg.specifiers.map((specifier) => {
+        const identifier = t.identifier(specifier)
+        return t.importSpecifier(identifier, identifier)
+      })
+    throw new Error(
+      `Specify either "namespace" or "specifiers" in "jsxRuntimeImport" option`,
+    )
+  })()
+  return t.importDeclaration(specifiers, t.stringLiteral(cfg.source))
+}
+
+const defaultJsxRuntimeImport: JSXRuntimeImport = {
+  source: 'react',
+  namespace: 'React',
+}
+
+const defaultImportSource = 'react'
 
 export const getVariables = ({
   opts,
@@ -77,6 +101,7 @@ export const getVariables = ({
   const imports: t.ImportDeclaration[] = []
   const exports: (t.VariableDeclaration | t.ExportDeclaration)[] = []
   const ctx = {
+    importSource: opts.importSource ?? defaultImportSource,
     exportIdentifier: componentName,
     opts,
     interfaces,
@@ -85,12 +110,11 @@ export const getVariables = ({
     exports,
   }
 
-  imports.push(
-    t.importDeclaration(
-      [t.importNamespaceSpecifier(t.identifier('React'))],
-      t.stringLiteral('react'),
-    ),
-  )
+  if (opts.jsxRuntime !== 'automatic') {
+    imports.push(
+      getJsxRuntimeImport(opts.jsxRuntimeImport ?? defaultJsxRuntimeImport),
+    )
+  }
 
   if (opts.native) {
     getOrCreateImport(ctx, 'react-native-svg').specifiers.push(
@@ -171,7 +195,7 @@ export const getVariables = ({
     }
     const forwardRef = t.identifier('forwardRef')
     const ForwardRef = t.identifier('ForwardRef')
-    getOrCreateImport(ctx, 'react').specifiers.push(
+    getOrCreateImport(ctx, ctx.importSource).specifiers.push(
       t.importSpecifier(forwardRef, forwardRef),
     )
     exports.push(
@@ -188,7 +212,7 @@ export const getVariables = ({
   if (opts.memo) {
     const memo = t.identifier('memo')
     const Memo = t.identifier('Memo')
-    getOrCreateImport(ctx, 'react').specifiers.push(
+    getOrCreateImport(ctx, ctx.importSource).specifiers.push(
       t.importSpecifier(memo, memo),
     )
     exports.push(
@@ -203,6 +227,9 @@ export const getVariables = ({
   }
 
   if (opts.state.caller?.previousExport || opts.exportType === 'named') {
+    if (!opts.namedExport) {
+      throw new Error(`"namedExport" not specified`)
+    }
     exports.push(
       t.exportNamedDeclaration(null, [
         t.exportSpecifier(ctx.exportIdentifier, t.identifier(opts.namedExport)),

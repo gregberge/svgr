@@ -1,5 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`plugin javascript #jsxRuntime allows to specify a custom "classic" jsxRuntime using "namespace" 1`] = `
+"import * as Preact from \\"preact\\";
+
+const SvgComponent = () => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript #jsxRuntime allows to specify a custom "classic" jsxRuntime using "specifiers" 1`] = `
+"import { h } from \\"preact\\";
+
+const SvgComponent = () => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript #jsxRuntime supports "automatic" jsxRuntime 1`] = `
+"const SvgComponent = () => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript #jsxRuntime supports "classic" jsxRuntime 1`] = `
+"import * as React from \\"react\\";
+
+const SvgComponent = () => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript allows to specify a different import source 1`] = `
+"import { h } from \\"preact\\";
+import { forwardRef, memo } from \\"preact/compat\\";
+
+const SvgComponent = (_, ref) => <svg><g /></svg>;
+
+const ForwardRef = forwardRef(SvgComponent);
+const Memo = memo(ForwardRef);
+export default Memo;"
+`;
+
 exports[`plugin javascript custom templates support basic template 1`] = `
 "import * as React from 'react';
 
@@ -156,6 +197,47 @@ exports[`plugin javascript with both "memo" and "ref" option wrap component in "
 import { forwardRef, memo } from \\"react\\";
 
 const SvgComponent = (_, ref) => <svg><g /></svg>;
+
+const ForwardRef = forwardRef(SvgComponent);
+const Memo = memo(ForwardRef);
+export default Memo;"
+`;
+
+exports[`plugin typescript #jsxRuntime allows to specify a custom "classic" jsxRuntime using "namespace" 1`] = `
+"import * as Preact from \\"preact\\";
+
+const SvgComponent = () => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript #jsxRuntime allows to specify a custom "classic" jsxRuntime using "specifiers" 1`] = `
+"import { h } from \\"preact\\";
+
+const SvgComponent = () => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript #jsxRuntime supports "automatic" jsxRuntime 1`] = `
+"const SvgComponent = () => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript #jsxRuntime supports "classic" jsxRuntime 1`] = `
+"import * as React from \\"react\\";
+
+const SvgComponent = () => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript allows to specify a different import source 1`] = `
+"import { h } from \\"preact\\";
+import { Ref, forwardRef, memo } from \\"preact/compat\\";
+
+const SvgComponent = (_, ref: Ref<SVGSVGElement>) => <svg><g /></svg>;
 
 const ForwardRef = forwardRef(SvgComponent);
 const Memo = memo(ForwardRef);

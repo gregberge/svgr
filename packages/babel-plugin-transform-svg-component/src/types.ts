@@ -26,6 +26,12 @@ interface State {
   caller?: { previousExport?: string | null }
 }
 
+export interface JSXRuntimeImport {
+  source: string
+  namespace?: string
+  specifiers?: string[]
+}
+
 export interface Options {
   typescript?: boolean
   titleProp?: boolean
@@ -36,5 +42,8 @@ export interface Options {
   native?: boolean
   memo?: boolean
   exportType?: 'named' | 'default'
-  namedExport: string
+  namedExport?: string
+  jsxRuntime?: 'automatic' | 'classic'
+  jsxRuntimeImport?: JSXRuntimeImport
+  importSource?: string
 }

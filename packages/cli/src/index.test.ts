@@ -114,6 +114,8 @@ describe('cli', () => {
 
   it.each([
     ['--no-dimensions'],
+    ['--jsx-runtime classic-preact'],
+    ['--jsx-runtime automatic'],
     ['--expand-props none'],
     ['--expand-props start'],
     ['--icon'],

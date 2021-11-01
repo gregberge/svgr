@@ -6,23 +6,40 @@ import type { TransformOptions as BabelTransformOptions } from '@babel/core'
 import type { ConfigPlugin } from './plugins'
 import type { State } from './state'
 
-export interface Config extends Partial<Omit<TransformOptions, 'state'>> {
+export interface Config {
+  ref?: boolean
+  titleProp?: boolean
+  expandProps?: boolean | 'start' | 'end'
   dimensions?: boolean
-  runtimeConfig?: boolean
+  icon?: boolean
   native?: boolean
+  svgProps?: {
+    [key: string]: string
+  }
+  replaceAttrValues?: {
+    [key: string]: string
+  }
+  runtimeConfig?: boolean
   typescript?: boolean
   prettier?: boolean
   prettierConfig?: PrettierOptions
   svgo?: boolean
   svgoConfig?: SvgoOptions
   configFile?: string
+  template?: TransformOptions['template']
+  memo?: boolean
+  exportType?: 'named' | 'default'
+  namedExport?: string
+  jsxRuntime?: 'classic' | 'classic-preact' | 'automatic'
 
   // CLI only
   index?: boolean
   plugins?: ConfigPlugin[]
 
   // JSX
-  jsx?: { babelConfig?: BabelTransformOptions }
+  jsx?: {
+    babelConfig?: BabelTransformOptions
+  }
 }
 
 export const DEFAULT_CONFIG: Config = {
