@@ -2,7 +2,8 @@
 
 exports[`cli should add Svg prefix to index.js exports staring with number 1`] = `
 "export { default as Svg2File } from './2File'
-export { default as File } from './File'"
+export { default as File } from './File'
+"
 `;
 
 exports[`cli should not override config with cli defaults 1`] = `
@@ -19,7 +20,10 @@ export default SvgFile
 "
 `;
 
-exports[`cli should support --index-template in cli 1`] = `"export { File } from './File'"`;
+exports[`cli should support --index-template in cli 1`] = `
+"export { File } from './File'
+"
+`;
 
 exports[`cli should support --no-index 1`] = `
 Array [
@@ -92,7 +96,10 @@ Array [
 ]
 `;
 
-exports[`cli should support custom index.js with directory output 1`] = `"export { default as File } from './File'"`;
+exports[`cli should support custom index.js with directory output 1`] = `
+"export { File } from './File'
+"
+`;
 
 exports[`cli should support different filename cases with directory output 1`] = `
 Array [
