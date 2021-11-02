@@ -1,6 +1,6 @@
 import { callbackify } from 'util'
 import { transformAsync, createConfigItem } from '@babel/core'
-import convert, { Config, State } from '@svgr/core'
+import { transform, Config, State } from '@svgr/core'
 import { normalize } from 'path'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
@@ -42,7 +42,7 @@ interface LoaderOptions extends Config {
 const tranformSvg = callbackify(
   async (contents: string, options: LoaderOptions, state: Partial<State>) => {
     const { babel = true, ...config } = options
-    const jsCode = await convert(contents, config, state)
+    const jsCode = await transform(contents, config, state)
     if (!babel) return jsCode
     const result = await transformAsync(
       jsCode,

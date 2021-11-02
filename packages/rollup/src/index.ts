@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import convert, { Config } from '@svgr/core'
+import { transform, Config } from '@svgr/core'
 import { createFilter, CreateFilter } from 'rollup-pluginutils'
 import { transformAsync, createConfigItem } from '@babel/core'
 import svgo from '@svgr/plugin-svgo'
@@ -58,7 +58,7 @@ const plugin: PluginImpl<Options> = (options = {}) => {
 
       const previousExport = exportMatches ? data : null
 
-      const jsCode = await convert(load, options, {
+      const jsCode = await transform(load, options, {
         filePath: id,
         caller: {
           name: '@svgr/rollup',

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { promises as fs } from 'fs'
 import { red } from 'chalk'
-import svgrConvert, { Config, State } from '@svgr/core'
+import { transform, Config, State } from '@svgr/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
 import prettier from '@svgr/plugin-prettier'
@@ -31,7 +31,7 @@ export const convert = (
   config: Config,
   state: Partial<State>,
 ): string => {
-  return svgrConvert.sync(code, config, {
+  return transform.sync(code, config, {
     ...state,
     caller: {
       name: '@svgr/cli',

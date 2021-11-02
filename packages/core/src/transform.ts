@@ -15,7 +15,7 @@ const run = (code: string, config: Config, state: Partial<State>): string => {
   return nextCode
 }
 
-const convert = async (
+export const transform = async (
   code: string,
   config: Config = {},
   state: Partial<State> = {},
@@ -24,7 +24,7 @@ const convert = async (
   return run(code, config, state)
 }
 
-convert.sync = (
+transform.sync = (
   code: string,
   config: Config = {},
   state: Partial<State> = {},
@@ -32,5 +32,3 @@ convert.sync = (
   config = loadConfig.sync(config, state)
   return run(code, config, state)
 }
-
-export default convert
