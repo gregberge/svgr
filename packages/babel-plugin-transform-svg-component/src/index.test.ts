@@ -227,6 +227,25 @@ describe('plugin', () => {
         })
         expect(code).toMatchSnapshot()
       })
+
+      it('supports type annotation on component', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          typescript: true,
+          template: (
+            { jsx, imports, interfaces, componentName, exports },
+            { tpl },
+          ) => tpl`
+          ${imports}
+          ${interfaces}
+          interface Props { x?: string }
+          export const ${`${componentName}:React.FC<Props>`} = ({ x }) => {
+            return (${jsx});
+          }
+          ${exports}`,
+          state: { componentName: 'SvgComponent' },
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
 
     describe('#jsxRuntime', () => {

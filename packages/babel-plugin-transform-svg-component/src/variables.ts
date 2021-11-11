@@ -95,14 +95,13 @@ export const getVariables = ({
   opts: Options
   jsx: t.JSXElement
 }): TemplateVariables => {
-  const componentName = t.identifier(opts.state.componentName)
   const interfaces: t.TSInterfaceDeclaration[] = []
   const props: (t.Identifier | t.ObjectPattern)[] = []
   const imports: t.ImportDeclaration[] = []
   const exports: (t.VariableDeclaration | t.ExportDeclaration)[] = []
   const ctx = {
     importSource: opts.importSource ?? defaultImportSource,
-    exportIdentifier: componentName,
+    exportIdentifier: t.identifier(opts.state.componentName),
     opts,
     interfaces,
     props,
@@ -238,5 +237,12 @@ export const getVariables = ({
   } else {
     exports.push(t.exportDefaultDeclaration(ctx.exportIdentifier))
   }
-  return { componentName, props, interfaces, imports, exports, jsx }
+  return {
+    componentName: opts.state.componentName,
+    props,
+    interfaces,
+    imports,
+    exports,
+    jsx,
+  }
 }

@@ -67,6 +67,19 @@ export default MyComponent;"
 
 exports[`plugin javascript custom templates supports template that does not return an array 1`] = `"<svg><g /></svg>;"`;
 
+exports[`plugin javascript custom templates supports type annotation on component 1`] = `
+"import * as React from \\"react\\";
+interface Props {
+  x?: string;
+}
+export const SvgComponent:React.FC<Props> = ({
+  x
+}) => {
+  return <svg><g /></svg>;
+};
+export default SvgComponent;"
+`;
+
 exports[`plugin javascript transforms whole program 1`] = `
 "import * as React from \\"react\\";
 
@@ -269,6 +282,19 @@ export default MyComponent;"
 `;
 
 exports[`plugin typescript custom templates supports template that does not return an array 1`] = `"<svg><g /></svg>;"`;
+
+exports[`plugin typescript custom templates supports type annotation on component 1`] = `
+"import * as React from \\"react\\";
+interface Props {
+  x?: string;
+}
+export const SvgComponent:React.FC<Props> = ({
+  x
+}) => {
+  return <svg><g /></svg>;
+};
+export default SvgComponent;"
+`;
 
 exports[`plugin typescript transforms whole program 1`] = `
 "import * as React from \\"react\\";

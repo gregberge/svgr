@@ -2,7 +2,7 @@ import type { types as t } from '@babel/core'
 import type { TemplateBuilder } from '@babel/template'
 
 export interface TemplateVariables {
-  componentName: t.Identifier
+  componentName: string
   interfaces: t.TSInterfaceDeclaration[]
   props: (t.ObjectPattern | t.Identifier)[]
   imports: t.ImportDeclaration[]
