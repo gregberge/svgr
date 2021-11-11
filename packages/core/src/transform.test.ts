@@ -1,11 +1,11 @@
-import convert, { Config, State } from '.'
+import { transform, Config, State } from '.'
 
 function convertWithAllPlugins(
   code: string,
   config?: Config,
   state?: Partial<State>,
 ) {
-  return convert(
+  return transform(
     code,
     {
       plugins: [
@@ -24,7 +24,7 @@ function convertSyncWithAllPlugins(
   config?: Config,
   state?: Partial<State>,
 ) {
-  return convert.sync(
+  return transform.sync(
     code,
     {
       plugins: [
