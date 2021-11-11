@@ -111,4 +111,4 @@ See [LICENSE](./LICENSE) for more information.
 
 ## Acknowledgements
 
-This project has been popularized by [Christopher Chedeau](https://twitter.com/vjeux) and it has been included in [create-react-app] thanks to [Dan Abramov](https://twitter.com/dan_abramov). We would like to thanks [Sven Sauleau](https://twitter.com/svensauleau) for his help and its intuition.
+This project has been popularized by [Christopher Chedeau](https://twitter.com/vjeux) and it has been included in [create-react-app](https://github.com/facebook/create-react-app) thanks to [Dan Abramov](https://twitter.com/dan_abramov). We would like to thanks [Sven Sauleau](https://twitter.com/svensauleau) for his help and its intuition.
