@@ -299,6 +299,7 @@ export const ATTRIBUTE_MAPPING = {
   mask: 'mask',
   maskcontentunits: 'maskContentUnits',
   maskunits: 'maskUnits',
+  'mask-type': 'maskType',
   mathematical: 'mathematical',
   mode: 'mode',
   numoctaves: 'numOctaves',
