@@ -83,8 +83,17 @@ function svgrLoader(
     tranformSvg(contents, options, state, callback)
   } else {
     this.fs.readFile(this.resourcePath, (err, result) => {
-      if (err) callback(err)
-      else tranformSvg(String(result), options, state, callback)
+      if (err) {
+        callback(err)
+        return
+      }
+      tranformSvg(String(result), options, state, (err, content) => {
+        if (err) {
+          callback(err)
+          return
+        }
+        callback(null, `${content}\n${previousExport}`)
+      })
     })
   }
 }

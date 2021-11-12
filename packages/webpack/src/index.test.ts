@@ -33,7 +33,7 @@ function compile(rules: ModuleOptions['rules']) {
 }
 
 describe('webpack loader', () => {
-  it('should convert file (typescript: true)', async () => {
+  it('transforms file (typescript: true)', async () => {
     const source = await compile([
       {
         test: /\.svg$/,
@@ -49,9 +49,9 @@ describe('webpack loader', () => {
     ])
 
     expect(source).toMatchSnapshot()
-  }, 15000)
+  })
 
-  it('should convert file', async () => {
+  it('transforms file', async () => {
     const source = await compile([
       {
         test: /\.svg$/,
@@ -67,9 +67,9 @@ describe('webpack loader', () => {
     ])
 
     expect(source).toMatchSnapshot()
-  }, 15000)
+  })
 
-  it('should convert file', async () => {
+  it('transforms file', async () => {
     const source = await compile([
       {
         test: /\.svg$/,
@@ -85,9 +85,9 @@ describe('webpack loader', () => {
     ])
 
     expect(source).toMatchSnapshot()
-  }, 15000)
+  })
 
-  it('should support url-loader', async () => {
+  it('supports url-loader', async () => {
     const source = await compile([
       {
         test: /\.svg$/,
@@ -104,9 +104,9 @@ describe('webpack loader', () => {
     ])
 
     expect(source).toMatchSnapshot()
-  }, 15000)
+  })
 
-  it('should convert file (babel: false)', async () => {
+  it('transforms file (babel: false)', async () => {
     const source = await compile([
       {
         test: /\.svg$/,
@@ -130,5 +130,5 @@ describe('webpack loader', () => {
     ])
 
     expect(source).toMatchSnapshot()
-  }, 15000)
+  })
 })
