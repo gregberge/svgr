@@ -83,4 +83,16 @@ describe('hast-util-to-babel-ast', () => {
       `"<svg><text><tspan>{\\"<\\"}</tspan></text></svg>;"`,
     )
   })
+
+  it('properly converts style with variables', () => {
+    const code = `<svg><path style="--index: 1; font-size: 24px;"></path><path style="--index: 2"></path></svg>`
+    expect(transform(code)).toMatchInlineSnapshot(`
+      "<svg><path style={{
+          \\"--index\\": 1,
+          fontSize: 24
+        }} /><path style={{
+          \\"--index\\": 2
+        }} /></svg>;"
+    `)
+  })
 })

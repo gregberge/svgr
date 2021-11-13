@@ -2,21 +2,28 @@
 import * as t from '@babel/types'
 import { hyphenToCamelCase, isNumeric, trimEnd } from './util'
 
+const PX_REGEX = /^\d+px$/
+const MS_REGEX = /^-ms-/
+const VAR_REGEX = /^--/
+
 /**
  * Determines if the CSS value can be converted from a
  * 'px' suffixed string to a numeric value.
  */
 const isConvertiblePixelValue = (value: string) => {
-  return /^\d+px$/.test(value)
+  return PX_REGEX.test(value)
 }
 
 /**
  * Format style key into JSX style object key.
  */
 const formatKey = (key: string) => {
+  if (VAR_REGEX.test(key)) {
+    return t.stringLiteral(key)
+  }
   key = key.toLowerCase()
   // Don't capitalize -ms- prefix
-  if (/^-ms-/.test(key)) key = key.substr(1)
+  if (MS_REGEX.test(key)) key = key.substr(1)
   return t.identifier(hyphenToCamelCase(key))
 }
 
