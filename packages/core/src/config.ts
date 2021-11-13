@@ -11,7 +11,7 @@ export interface Config {
   titleProp?: boolean
   expandProps?: boolean | 'start' | 'end'
   dimensions?: boolean
-  icon?: boolean
+  icon?: boolean | string | number
   native?: boolean
   svgProps?: {
     [key: string]: string

@@ -300,6 +300,8 @@ describe('convert', () => {
       { expandProps: false },
       { expandProps: 'start' },
       { icon: true },
+      { icon: 24 },
+      { icon: '2em' },
       { native: true },
       { native: true, icon: true },
       { native: true, expandProps: false },
@@ -323,7 +325,7 @@ describe('convert', () => {
       { exportType: 'named' },
     ]
 
-    test.each(configs)('should support options %j', async (config) => {
+    test.each(configs)('accepts options %j', async (config) => {
       const result = await convertWithAllPlugins(svgBaseCode, config)
       expect(result).toMatchSnapshot()
     })
