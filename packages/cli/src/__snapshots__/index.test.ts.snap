@@ -203,6 +203,46 @@ export default SvgFile
 "
 `;
 
+exports[`cli should support various args: --icon 2em 1`] = `
+"import * as React from 'react'
+
+const SvgFile = (props) => (
+  <svg
+    width=\\"2em\\"
+    height=\\"2em\\"
+    viewBox=\\"0 0 48 1\\"
+    xmlns=\\"http://www.w3.org/2000/svg\\"
+    {...props}
+  >
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default SvgFile
+
+"
+`;
+
+exports[`cli should support various args: --icon 24 1`] = `
+"import * as React from 'react'
+
+const SvgFile = (props) => (
+  <svg
+    width={24}
+    height={24}
+    viewBox=\\"0 0 48 1\\"
+    xmlns=\\"http://www.w3.org/2000/svg\\"
+    {...props}
+  >
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default SvgFile
+
+"
+`;
+
 exports[`cli should support various args: --jsx-runtime automatic 1`] = `
 "const SvgFile = (props) => (
   <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
@@ -250,8 +290,8 @@ import Svg, { Path } from 'react-native-svg'
 
 const SvgFile = (props) => (
   <Svg
-    width=\\"1em\\"
-    height=\\"1em\\"
+    width={24}
+    height={24}
     viewBox=\\"0 0 48 1\\"
     xmlns=\\"http://www.w3.org/2000/svg\\"
     {...props}

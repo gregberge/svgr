@@ -20,7 +20,7 @@ export interface Options extends TransformOptions {
   titleProp?: boolean
   expandProps?: boolean | 'start' | 'end'
   dimensions?: boolean
-  icon?: boolean
+  icon?: boolean | string | number
   native?: boolean
   svgProps?: { [key: string]: string }
   replaceAttrValues?: { [key: string]: string }
@@ -96,7 +96,18 @@ const plugin = (_: ConfigAPI, opts: Options) => {
 
   const plugins: any[] = [
     [transformSvgComponent, opts],
-    ...(opts.icon && opts.dimensions ? [svgEmDimensions] : []),
+    ...(opts.icon !== false && opts.dimensions
+      ? [
+          [
+            svgEmDimensions,
+            opts.icon !== true
+              ? { width: opts.icon, height: opts.icon }
+              : opts.native
+              ? { width: 24, height: 24 }
+              : {},
+          ],
+        ]
+      : []),
     [
       removeJSXAttribute,
       { elements: ['svg', 'Svg'], attributes: toRemoveAttributes },

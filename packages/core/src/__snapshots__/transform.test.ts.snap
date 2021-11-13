@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`convert config should support options {"dimensions":false} 1`] = `
+exports[`convert config accepts options {"dimensions":false} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -21,7 +21,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"expandProps":"start"} 1`] = `
+exports[`convert config accepts options {"expandProps":"start"} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -42,7 +42,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"expandProps":false} 1`] = `
+exports[`convert config accepts options {"expandProps":false} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = () => (
@@ -63,7 +63,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"exportType":"named"} 1`] = `
+exports[`convert config accepts options {"exportType":"named"} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -84,7 +84,61 @@ export { SvgComponent as ReactComponent }
 "
 `;
 
-exports[`convert config should support options {"icon":true} 1`] = `
+exports[`convert config accepts options {"icon":"2em"} 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = (props) => (
+  <svg
+    width=\\"2em\\"
+    height=\\"2em\\"
+    viewBox=\\"0 0 88 88\\"
+    xmlns=\\"http://www.w3.org/2000/svg\\"
+    {...props}
+  >
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37 37 51M51 51 37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config accepts options {"icon":24} 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = (props) => (
+  <svg
+    width={24}
+    height={24}
+    viewBox=\\"0 0 88 88\\"
+    xmlns=\\"http://www.w3.org/2000/svg\\"
+    {...props}
+  >
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37 37 51M51 51 37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
+exports[`convert config accepts options {"icon":true} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -111,7 +165,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"memo":true} 1`] = `
+exports[`convert config accepts options {"memo":true} 1`] = `
 "import * as React from 'react'
 import { memo } from 'react'
 
@@ -134,7 +188,7 @@ export default Memo
 "
 `;
 
-exports[`convert config should support options {"namedExport":"Component","state":{"caller":{"previousExport":"export default \\"logo.svg\\";"}}} 1`] = `
+exports[`convert config accepts options {"namedExport":"Component","state":{"caller":{"previousExport":"export default \\"logo.svg\\";"}}} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -155,7 +209,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"native":true,"expandProps":false} 1`] = `
+exports[`convert config accepts options {"native":true,"expandProps":false} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
@@ -177,14 +231,14 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"native":true,"icon":true} 1`] = `
+exports[`convert config accepts options {"native":true,"icon":true} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
 const SvgComponent = (props) => (
   <Svg
-    width=\\"1em\\"
-    height=\\"1em\\"
+    width={24}
+    height={24}
     viewBox=\\"0 0 88 88\\"
     xmlns=\\"http://www.w3.org/2000/svg\\"
     {...props}
@@ -205,7 +259,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"native":true,"ref":true} 1`] = `
+exports[`convert config accepts options {"native":true,"ref":true} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 import { forwardRef } from 'react'
@@ -235,7 +289,7 @@ export default ForwardRef
 "
 `;
 
-exports[`convert config should support options {"native":true} 1`] = `
+exports[`convert config accepts options {"native":true} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 
@@ -257,7 +311,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"prettier":false} 1`] = `
+exports[`convert config accepts options {"prettier":false} 1`] = `
 "import * as React from \\"react\\";
 
 const SvgComponent = props => <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}><g stroke=\\"#063855\\" strokeWidth={2} fill=\\"none\\" fillRule=\\"evenodd\\" strokeLinecap=\\"square\\"><path d=\\"M51 37 37 51M51 51 37 37\\" /></g></svg>;
@@ -265,7 +319,7 @@ const SvgComponent = props => <svg width={88} height={88} xmlns=\\"http://www.w3
 export default SvgComponent;"
 `;
 
-exports[`convert config should support options {"ref":true} 1`] = `
+exports[`convert config accepts options {"ref":true} 1`] = `
 "import * as React from 'react'
 import { forwardRef } from 'react'
 
@@ -294,7 +348,7 @@ export default ForwardRef
 "
 `;
 
-exports[`convert config should support options {"replaceAttrValues":{"none":"{black}"}} 1`] = `
+exports[`convert config accepts options {"replaceAttrValues":{"none":"{black}"}} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -315,7 +369,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"replaceAttrValues":{"none":"black"}} 1`] = `
+exports[`convert config accepts options {"replaceAttrValues":{"none":"black"}} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -336,7 +390,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"svgProps":{"a":"b","b":"{props.b}"}} 1`] = `
+exports[`convert config accepts options {"svgProps":{"a":"b","b":"{props.b}"}} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -364,7 +418,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"svgo":false} 1`] = `
+exports[`convert config accepts options {"svgo":false} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = (props) => (
@@ -399,7 +453,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {"titleProp":true} 1`] = `
+exports[`convert config accepts options {"titleProp":true} 1`] = `
 "import * as React from 'react'
 
 const SvgComponent = ({ title, titleId, ...props }) => (
@@ -427,7 +481,7 @@ export default SvgComponent
 "
 `;
 
-exports[`convert config should support options {} 1`] = `
+exports[`convert config accepts options {} 1`] = `
 "const noop = () => null
 
 export default noop

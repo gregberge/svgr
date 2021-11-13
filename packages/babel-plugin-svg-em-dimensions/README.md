@@ -12,7 +12,9 @@ npm install --save-dev @svgr/babel-plugin-svg-em-dimensions
 
 ```json
 {
-  "plugins": ["@svgr/babel-plugin-svg-em-dimensions"]
+  "plugins": [
+    ["@svgr/babel-plugin-svg-em-dimensions", { "width": 24, "height": 24 }]
+  ]
 }
 ```
 

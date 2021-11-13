@@ -68,6 +68,11 @@ const parseTemplate = (name: string) => (arg: string) => {
   }
 }
 
+const parseIconSize = (arg: string) => {
+  const num = Number(arg)
+  return Number.isNaN(num) ? arg : num
+}
+
 export interface Options extends Config {
   configFile?: string
   runtimeConfig?: boolean
@@ -100,7 +105,11 @@ program
     '--filename-case <case>',
     'specify filename case ("pascal", "kebab", "camel") (default: "pascal")',
   )
-  .option('--icon', 'use "1em" as width and height')
+  .option(
+    '--icon [size]',
+    'specify width and height (default to "1em" or 24dp (native))',
+    parseIconSize,
+  )
   .option(
     '--jsx-runtime <runtime>',
     'specify JSX runtime ("automatic", "classic", "classic-preact") (default: "classic")',

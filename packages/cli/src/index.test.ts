@@ -119,6 +119,8 @@ describe('cli', () => {
     ['--expand-props none'],
     ['--expand-props start'],
     ['--icon'],
+    ['--icon 24'],
+    ['--icon 2em'],
     ['--native'],
     ['--native --icon'],
     ['--native --expand-props none'],
@@ -135,7 +137,7 @@ describe('cli', () => {
   ])(
     'should support various args',
     async (args) => {
-      const result = await cli(`${args} __fixtures__/simple/file.svg`)
+      const result = await cli(`${args} -- __fixtures__/simple/file.svg`)
       expect(result).toMatchSnapshot(args)
     },
     10000,

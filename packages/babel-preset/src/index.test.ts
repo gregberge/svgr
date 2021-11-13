@@ -17,7 +17,7 @@ const testPreset = (code: string, options: Partial<Options>) => {
 }
 
 describe('preset', () => {
-  it('should handle svgProps', () => {
+  it('handles svgProps', () => {
     expect(
       testPreset('<svg />', {
         svgProps: {
@@ -34,7 +34,7 @@ describe('preset', () => {
     `)
   })
 
-  it('should handle titleProp', () => {
+  it('handles titleProp', () => {
     expect(
       testPreset('<svg></svg>', {
         titleProp: true,
@@ -50,7 +50,7 @@ describe('preset', () => {
       export default SvgComponent;"
     `)
   })
-  it('should handle titleProp and fallback on existing title', () => {
+  it('handles titleProp and fallback on existing title', () => {
     // testing when existing title has string as chilren
     expect(
       testPreset(`<svg><title>Hello</title></svg>`, {
@@ -83,7 +83,7 @@ describe('preset', () => {
     `)
   })
 
-  it('should handle replaceAttrValues', () => {
+  it('handles replaceAttrValues', () => {
     expect(
       testPreset('<svg a="#000" b="#fff" />', {
         replaceAttrValues: {
@@ -100,7 +100,7 @@ describe('preset', () => {
     `)
   })
 
-  it('should handle expandProps & icon & dimensions', () => {
+  it('handles expandProps & icon & dimensions', () => {
     expect(
       testPreset('<svg a="#000" b="#fff" />', {
         expandProps: 'end',
@@ -111,6 +111,40 @@ describe('preset', () => {
       "import * as React from \\"react\\";
 
       const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width=\\"1em\\" height=\\"1em\\" {...props} />;
+
+      export default SvgComponent;"
+    `)
+  })
+
+  it('handles custom icon size', () => {
+    expect(
+      testPreset('<svg a="#000" b="#fff" />', {
+        expandProps: 'end',
+        icon: 24,
+        dimensions: true,
+      }),
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+
+      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} {...props} />;
+
+      export default SvgComponent;"
+    `)
+  })
+
+  it('defaults to 24 on native', () => {
+    expect(
+      testPreset('<svg a="#000" b="#fff" />', {
+        expandProps: 'end',
+        icon: true,
+        native: true,
+        dimensions: true,
+      }),
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+      import Svg from \\"react-native-svg\\";
+
+      const SvgComponent = props => <Svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} {...props} />;
 
       export default SvgComponent;"
     `)
