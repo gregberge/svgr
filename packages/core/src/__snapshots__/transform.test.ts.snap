@@ -215,7 +215,7 @@ const SvgComponent = (props, ref) => (
     width={88}
     height={88}
     xmlns=\\"http://www.w3.org/2000/svg\\"
-    ref={svgRef}
+    ref={ref}
     {...props}
   >
     <G
@@ -274,7 +274,7 @@ const SvgComponent = (props, ref) => (
     width={88}
     height={88}
     xmlns=\\"http://www.w3.org/2000/svg\\"
-    ref={svgRef}
+    ref={ref}
     {...props}
   >
     <g

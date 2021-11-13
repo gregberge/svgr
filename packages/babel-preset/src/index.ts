@@ -59,7 +59,7 @@ const plugin = (_: ConfigAPI, opts: Options) => {
       ...toAddAttributes,
       {
         name: 'ref',
-        value: 'svgRef',
+        value: 'ref',
         literal: true,
       },
     ]
