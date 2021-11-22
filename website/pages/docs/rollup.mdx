@@ -1,36 +1,41 @@
 ---
 section: Usage
-title: Rollup
-order: 40
+title: Rollup.js
+order: 50
 ---
 
-# Rollup
+# Rollup.js
 
-SVGR can be used as a [rollup](https://rollupjs.org) plugin, this way you can import your SVG directly as a React Component.
+SVGR provides an official [rollup.js](https://rollupjs.org) plugin to import SVG as React components.
 
 <carbon-ad />
 
 ## Install
 
 ```bash
-npm install @svgr/rollup --save-dev
+npm install --save-dev @svgr/rollup
 # or use yarn
-yarn add @svgr/rollup --dev
+yarn add --dev @svgr/rollup
 ```
 
 ## Usage
 
-In your `rollup.config.js`:
+**rollup.config.js**
 
 ```js
-const svgr = require('@svgr/rollup').default
+import svgr from '@svgr/rollup'
 
-{
-  plugins: [svgr()]
+export default {
+  plugins: [svgr()],
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs',
+  },
 }
 ```
 
-In your code:
+**Your code**
 
 ```js
 import Star from './star.svg'
@@ -42,27 +47,48 @@ const App = () => (
 )
 ```
 
-### Passing options
+## Options
+
+SVGR let you specify options in a runtime config file like `svgr.config.js` or directly in the rollup.js plugin:
+
+**rollup.config.js**
 
 ```js
-{
-  plugins: [svgr({ native: true })]
+import svgr from '@svgr/rollup'
+
+export default {
+  plugins: [svgr({ icon: true })],
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs',
+  },
 }
 ```
 
-### Using with `@rollup/plugin-url`
+[SVGR options reference](https://react-svgr.com/docs/options/) describes all options available.
+
+## Using with `@rollup/plugin-url`
 
 It is possible to use it with [`@rollup/plugin-url`](https://github.com/rollup/plugins/tree/master/packages/url).
 
-In your `rollup.config.js`:
+**rollup.config.js**
 
 ```js
-{
-  plugins: [url(), svgr()]
+import url from '@rollup/plugin-url'
+import svgr from '@svgr/rollup'
+
+export default {
+  plugins: [url(), svgr({ icon: true })],
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs',
+  },
 }
 ```
 
-In your code:
+**Your code**
 
 ```js
 import starUrl, { ReactComponent as Star } from './star.svg'
@@ -83,7 +109,7 @@ If you prefer named export in any case, you may set the `exportType` option to `
 
 ### Use your own Babel configuration
 
-By default, `@svgr/rollup` applies a babel transformation with [optimized configuration](https://github.com/gregberge/svgr/blob/master/packages/rollup/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+By default, `@svgr/rollup` applies a babel transformation with [optimized configuration](https://github.com/gregberge/svgr/blob/main/packages/rollup/src/index.ts). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
 
 ```js
 {

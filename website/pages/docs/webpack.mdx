@@ -1,76 +1,148 @@
 ---
 section: Usage
 title: Webpack
-order: 30
+order: 20
 ---
 
 # Webpack
 
-SVGR can be used as a [webpack](https://webpack.js.org/) loader, this way you can import your SVG directly as a React Component.
+SVGR provides an official [webpack.js](https://webpack.js.org/) loader to import SVG as React components.
 
 <carbon-ad />
 
 ## Install
 
 ```bash
-npm install @svgr/webpack --save-dev
+npm install --save-dev @svgr/webpack
 # or use yarn
-yarn add @svgr/webpack --dev
+yarn add --dev @svgr/webpack
 ```
 
 ## Usage
 
-In your `webpack.config.js`:
+**webpack.config.js**
 
 ```js
-{
-  test: /\.svg$/,
-  use: ['@svgr/webpack'],
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+      },
+    ],
+  },
 }
 ```
 
-In your code:
+**Your code**
 
 ```js
 import Star from './star.svg'
 
-const App = () => (
+const Example = () => (
   <div>
     <Star />
   </div>
 )
 ```
 
-### Passing options
+## Options
+
+SVGR let you specify options in a runtime config file like `svgr.config.js` or directly in the loader:
+
+**webpack.config.js**
 
 ```js
-{
-  test: /\.svg$/,
-  use: [
-    {
-      loader: '@svgr/webpack',
-      options: {
-        native: true,
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: [{ loader: '@svgr/webpack', options: { icon: true } }],
       },
-    },
-  ],
+    ],
+  },
 }
 ```
 
-### Using with `url-loader` or `file-loader`
+[SVGR options reference](https://react-svgr.com/docs/options/) describes all options available.
 
-It is possible to use it with [`url-loader`](https://github.com/webpack-contrib/url-loader) or [`file-loader`](https://github.com/webpack-contrib/file-loader).
+## Use SVGR and asset SVG in the same project
 
-In your `webpack.config.js`:
+You may be interested to use some SVG as an asset (url) and other SVG as a React component. The easiest way to do it is to use a `resourceQuery` for one of the two type.
+
+**webpack.config.js**
 
 ```js
-{
-  test: /\.svg$/,
-  use: ['@svgr/webpack', 'url-loader'],
+module.exports = {
+  module: {
+    rules: [
+      {
+        type: 'asset',
+        resourceQuery: /url/, // *.svg?react
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+      },
+    ],
+  },
 }
 ```
 
-In your code:
+**Your code**
+
+```js
+import svg from './assets/file.svg?url'
+import Svg from './assets/file.svg'
+
+const App = () => {
+  return (
+    <div>
+      <img src={svg} width="200" height="200" />
+      <Svg width="200" height="200" viewBox="0 0 3500 3500" />
+    </div>
+  )
+}
+```
+
+## Use SVG in CSS files
+
+The `issuer: /\.[jt]sx?$/` option ensures that SVGR will only apply if the SVG is imported from a JavaScript or a TypeScript file. It allows you to safely import SVG into your `.css` or `.scss` without any issue.
+
+```css
+.example {
+  background-image: url(./assets/file.svg);
+}
+```
+
+## Use with `url-loader` or `file-loader`
+
+> `url-loader` and `file-loader` are deprecated over [Asset Modules](https://webpack.js.org/guides/asset-modules/) in webpack v5. It is widely encouraged to use `resourceQuery` method described before.
+
+SVGR can be used with [`url-loader`](https://github.com/webpack-contrib/url-loader) or [`file-loader`](https://github.com/webpack-contrib/file-loader).
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      },
+    ],
+  },
+}
+```
+
+**Your code**
 
 ```js
 import starUrl, { ReactComponent as Star } from './star.svg'
@@ -83,15 +155,15 @@ const App = () => (
 )
 ```
 
-The named export defaults to `ReactComponent`, but can be customized with the `namedExport` option.
+The named export defaults to `ReactComponent` and can be customized with the `namedExport` option.
 
 Please note that by default, `@svgr/webpack` will try to export the React Component via default export if there is no other loader handling svg files with default export. When there is already any other loader using default export for svg files, `@svgr/webpack` will always export the React component via named export.
 
 If you prefer named export in any case, you may set the `exportType` option to `named`.
 
-### Use your own Babel configuration
+## Use your own Babel configuration
 
-By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configuration](https://github.com/gregberge/svgr/blob/master/packages/webpack/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configuration](https://github.com/gregberge/svgr/blob/main/packages/webpack/src/index.ts). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
 
 ```js
 // Example using preact
@@ -111,23 +183,3 @@ By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configu
   ],
 }
 ```
-
-### Handle SVG in CSS, Sass or Less
-
-It is possible to detect the module that requires your SVG using [`Rule.issuer`](https://webpack.js.org/configuration/module/#ruleissuer) in Webpack 5. Using it you can specify two different configurations for JavaScript and the rest of your files.
-
-```js
-;[
-  {
-    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    issuer: /\.[jt]sx?$/,
-    use: ['babel-loader', '@svgr/webpack', 'url-loader'],
-  },
-  {
-    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url-loader',
-  },
-]
-```
-
-_[Rule.issuer](https://v4.webpack.js.org/configuration/module/#ruleissuer) in Webpack 4 has additional conditions which are not available in Webpack 5._

@@ -1,109 +1,114 @@
 ---
 section: Usage
-title: CLI
-order: 10
+title: Command Line
+order: 20
 ---
 
-# CLI
+# Command Line
 
-SVGR can be run from the CLI. Run it without argument to see the [options](/docs/options).
+Use SVGR from command line to transform a single file or a whole directory.
 
 <carbon-ad />
 
 ## Install
 
-```bash
-npm install @svgr/cli --save-dev
-# or use yarn
-yarn add @svgr/cli --dev
-```
-
-## Usage
-
-```bash
-npx @svgr/cli icons/clock-icon.svg
-```
-
-## Recipes
-
-### Transform a whole directory
-
-A whole directory can be processed, all SVG files (matching `.svg` or `.SVG`)
-are transformed into React components.
+Depending you usage, you can install `@svgr/cli` locally in your project:
 
 ```sh
-# Usage: npx @svgr/cli [-d out-dir] [--ignore-existing] [src-dir]
-$ npx @svgr/cli -d icons icons
-icons/web/clock-icon.svg -> icons/web/ClockIcon.js
-icons/web/wifi-icon.svg -> icons/web/WifiIcon.js
-icons/spinner/cog-icon.svg -> icons/spinner/CogIcon.js
-icons/spinner/spinner-icon.svg -> icons/spinner/SpinnerIcon.js
+npm install --save-dev @svgr/cli
+# or use yarn
+yarn add --dev @svgr/cli
 ```
 
-> Add `--ignore-existing` to avoid overriding existing files.
+or use it on the fly using `npx @svgr/cli`.
 
-### Use stdin
+## Options
 
-```
-$ npx @svgr/cli < icons/web/wifi-icon.svg
-```
+All [SVGR options](https://react-svgr.com/docs/options/) are available from command line or in configuration. Command line options have precedence over config file options.
 
-### Use stdin / stdout
+## Transform a single file
 
-```
-$ npx @svgr/cli < icons/web/wifi-icon.svg > icons/web/WifiIcon.js
-```
+### From file
 
-### Transform icons
+Transforms a single file by specifying file as the single argument.
 
-To create icons, two options are important:
-
-- `--icon`: viewBox is preserved and SVG inherits text size
-- `--replace-attr-values "#000=currentColor"`: "#000" is replaced by
-  "currentColor" and SVG inherits text color
-
-```
-$ npx @svgr/cli --icon --replace-attr-values "#000=currentColor" my-icon.svg
+```sh
+npx @svgr/cli -- icons/clock-icon.svg
 ```
 
-> You can replace several values using `,` as separator: `--replace-attr-values "#000=currentColor,#fff=currentColor"`
+### From standard input
 
-## Target React Native
+`@svgr/cli` supports standard input, just redirect file contents using `<` operator.
 
-It is possible to target React Native using [react-native-svg](https://github.com/react-native-community/react-native-svg).
-
-```
-$ npx @svgr/cli --native my-icon.svg
+```sh
+npx @svgr/cli < icons/clock-icon.svg
 ```
 
-## Use a specific template
+### Output the result in another file
 
-You can use a specific template.
+You can easily create another file using `>` operator.
 
+```sh
+npx @svgr/cli -- icons/clock-icon.svg > dist/ClockIcon.js
 ```
-$ npx @svgr/cli --template path/to/template.js my-icon.svg
+
+## Transform a whole directory
+
+Transforms a whole directory using `--out-dir` option. All SVG presents in this directory tree are transformed into React components.
+
+```sh
+# Usage: npx @svgr/cli [--out-dir dir] [--ignore-existing] [src-dir]
+$ npx @svgr/cli --out-dir dist -- icons
+icons/web/clock-icon.svg -> dist/web/ClockIcon.js
+icons/web/wifi-icon.svg -> dist/web/WifiIcon.js
+icons/spinner/cog-icon.svg -> dist/spinner/CogIcon.js
+icons/spinner/spinner-icon.svg -> dist/spinner/SpinnerIcon.js
 ```
 
-An example of template:
+### Avoid replacing existing files
+
+Even if it is not recommended, you may be tempted to modify generated files. If you do so, you should use the `--ignore-existing` option to avoid replacing existing files.
+
+```sh
+npx @svgr/cli --out-dir dist --ignore-existing -- icons
+```
+
+### Use a different filename case
+
+By default, filenames uses "PascalCase", you can specify a different case for generated files using `--filename-case` option.
+
+```sh
+npx @svgr/cli --out-dir dist --filename-case kebab -- icons
+```
+
+### Disable index generation
+
+By default an index is generated, giving you opportunity to import all your components from the directory. If you does not want auto-generated index, turn it off using `--no-index` option.
+
+```sh
+npx @svgr/cli --out-dir dist --no-index -- icons
+```
+
+### Use a custom index template
+
+Advanced use cases could lead you to customize the index template. The `--index-template <template>` argument let you specify a custom one.
 
 ```js
-function template(
-  { template },
-  opts,
-  { imports, componentName, props, jsx, exports },
-) {
-  return template.ast`
-    ${imports}
-    const ${componentName} = (${props}) => ${jsx}
-    ${exports}
-  `
+// index-template.js
+const path = require('path')
+
+function defaultIndexTemplate(filePaths) {
+  const exportEntries = filePaths.map((filePath) => {
+    const basename = path.basename(filePath, path.extname(filePath))
+    const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
+    return `export { default as ${exportName} } from './${basename}'`
+  })
+  return exportEntries.join('\n')
 }
 
-module.exports = template
+module.exports = defaultIndexTemplate
 ```
 
-Template must return a Babel AST, the template function take three arguments:
-
-- `api`: API methods provided by Babel
-- `opts`: SVGR options
-- `values`: Pre-computed values to use (or not) in your templates
+```sh
+npx @svgr/cli  --out-dir dist --index-template index-template.js -- icons
+```

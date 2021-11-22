@@ -10,7 +10,7 @@ import type { Options } from './types'
 import { defaultTemplate } from './defaultTemplate'
 import { getVariables } from './variables'
 
-export type { Options } from './types'
+export type { Options, Template } from './types'
 
 const plugin = (_: ConfigAPI, opts: Options) => {
   const template = opts.template || defaultTemplate

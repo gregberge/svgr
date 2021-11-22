@@ -1,0 +1,125 @@
+---
+section: Usage
+title: Migrate to v6
+order: 15
+---
+
+# Migrate to v6
+
+This guide will help you migrating from SVGR v5.x to SVGR v6.x.
+
+<carbon-ad />
+
+## webpack
+
+`@svgr/webpack` is now **only compatible with webpack 5**.
+
+It still works with deprecated `url-loader` and `file-loader` but it is recommended to use [asset modules](https://webpack.js.org/guides/asset-modules/) available in webpack 5.
+
+Report to [SVGR webpack documentation](/docs/webpack/) to learn more about it.
+
+## SVGO
+
+SVGR v6 now uses SVGO v2 and does not merge config any more.
+
+If you have a custom SVGO configuration (using a dedicated file or using `svgo` key in SVGR config), then please follow [SVGO migration guide](https://github.com/svg/svgo/releases/tag/v2.0.0).
+
+Configuration are not merged any more, it means you have to remove viewBox by yourself if you use a custom SVGO config with `--icon` or `--no-dimensions` option.
+
+```json
+{
+  "name": "preset-default",
+  "params": {
+    "overrides": {
+      "removeViewBox": false
+    }
+  }
+}
+```
+
+## Command line options
+
+It is now recommended to add `--` to separate files from arguments. Since `--icon` can now accept an optional size, it could break your command if you have `--icon` as the last argument.
+
+**v5.x**
+
+```sh
+svgr --icon assets/svg
+```
+
+**v6.x**
+
+```sh
+svgr --icon -- assets/svg
+```
+
+## Template
+
+Template signature has changed, it is now much more simpler to create custom templates. Also you don't have to do anything specific to use TypeScript in your template. If you need some Babel specific things you have to import it by yourself from the relevant Babel package.
+
+**v5.x**
+
+```js
+const template = (
+  { template },
+  opts,
+  { imports, interfaces, componentName, props, jsx, exports },
+) => {
+  const plugins = ['jsx']
+  if (opts.typescript) {
+    plugins.push('typescript')
+  }
+  const typeScriptTpl = template.smart({ plugins })
+  return typeScriptTpl.ast`${imports}
+
+${interfaces}
+
+function ${componentName}(${props}) {
+  return ${jsx};
+}
+${exports}
+  `
+}
+
+module.exports = template
+```
+
+**v6.x**
+
+```js
+const template = (variables, { tpl }) => {
+  return tpl`
+${variables.imports};
+
+${variables.interfaces};
+
+const ${variables.componentName} = (${variables.props}) => (
+  ${variables.jsx}
+);
+ 
+${variables.exports};
+`
+}
+
+module.exports = template
+```
+
+## Programmatic usage
+
+`@svgr/core` now exposes `transform` as a named export instead of using the `default` export.
+
+**v5.x**
+
+```js
+import transform from '@svgr/core'
+```
+
+**v6.x**
+
+```js
+import { transform } from '@svgr/core'
+```
+
+## ES Modules
+
+SVGR v6 will be the latest version to support CommonJS. If you are still using CommonJS you should [Get Ready For ESM](https://blog.sindresorhus.com/get-ready-for-esm-aa53530b3f77) as soon as possible.
