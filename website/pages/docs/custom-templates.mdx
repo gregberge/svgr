@@ -6,7 +6,7 @@ order: 6
 
 # Custom Templates
 
-Custom templates give you the opportunity to personalize the final generated component by SVGR. In most of case you don't need it, only advanced use-cases require templates.
+Customize template to personalize the result React component.
 
 <carbon-ad />
 
@@ -16,59 +16,45 @@ A custom template takes place in a file that exports a "template function".
 
 This function is called in a babel plugin: `babel-plugin-transform-svg-component` and must returns a Babel AST. If you are not familiar with all Babel stuff, you should read [this guide](https://github.com/jamiebuilds/babel-handbook).
 
-- `api`: The API object returned by Babel
-- `opts`: Options passed to `babel-plugin-transform-svg-component`
-- `astParts`: All pre-compiled parts by SVGR
+- `variables`: All pre-compiled variables by SVGR
   - `componentName`: The component name
   - `props`: The properties
   - `interfaces`: All necessary interfaces (typescript)
   - `imports`: All necessary imports
   - `exports`: The export of the component
   - `jsx`: The JSX part of the component
+- `context`:
+  - `tpl`: A built-in template-tag function to create template
+  - `options`: Options passed to `babel-plugin-transform-svg-component`
 
 The following template is the default template used by SVGR. It is a good idea to start with it:
 
 ```js
-function defaultTemplate(
-  { template },
-  opts,
-  { imports, interfaces, componentName, props, jsx, exports },
-) {
-  const plugins = ['jsx']
-  if (opts.typescript) {
-    plugins.push('typescript')
-  }
-  const typeScriptTpl = template.smart({ plugins })
-  return typeScriptTpl.ast`${imports}
+const template = (variables, { tpl }) => {
+  return tpl`
+${variables.imports};
 
-${interfaces}
+${variables.interfaces};
 
-function ${componentName}(${props}) {
-  return ${jsx};
-}
-${exports}
-  `
+const ${variables.componentName} = (${variables.props}) => (
+  ${variables.jsx}
+);
+ 
+${variables.exports};
+`
 }
 
-module.exports = defaultTemplate
+module.exports = template
 ```
-
-As you can see, we use [the `template.ast` helper of Babel](https://babeljs.io/docs/en/babel-template#template). This function have to return an AST.
 
 Let's try something very simple. You want to add some PropTypes to your component:
 
 ```js
-function propTypesTemplate(
-  { template },
-  opts,
+const propTypesTemplate = (
   { imports, interfaces, componentName, props, jsx, exports },
-) {
-  const plugins = ['jsx']
-  if (opts.typescript) {
-    plugins.push('typescript')
-  }
-  const typeScriptTpl = template.smart({ plugins })
-  return typeScriptTpl.ast`${imports}
+  { tpl },
+) => {
+  return tpl.ast`${imports}
 import PropTypes from 'prop-types';
 ${interfaces}
 
@@ -94,7 +80,7 @@ As you can see it is very natural, we just add code and use AST parts in the tem
 You can use component template in the CLI:
 
 ```sh
-$ npx @svgr/cli --template template.js my-icon.svg
+npx @svgr/cli --template template.js -- my-icon.svg
 ```
 
 ### Use with config
@@ -134,5 +120,5 @@ module.exports = defaultIndexTemplate
 You can use component template in the CLI:
 
 ```sh
-$ npx @svgr/cli --index-template index-template.js my-icon.svg
+npx @svgr/cli --index-template index-template.js -- my-icon.svg
 ```

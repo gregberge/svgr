@@ -1,0 +1,53 @@
+---
+section: Usage
+title: Next.js
+order: 45
+---
+
+# Next.js
+
+Configure your [Next.js](https://nextjs.org/) project to import SVG as React components in your application.
+
+<carbon-ad />
+
+## Install
+
+```bash
+npm install --save-dev @svgr/webpack
+# or use yarn
+yarn add --dev @svgr/webpack
+```
+
+## Usage
+
+Using SVGR into Next.js is possible by configuring `@svgr/webpack`.
+
+**next.config.js**
+
+```js
+module.exports = {
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    })
+
+    return config
+  },
+}
+```
+
+**Your code**
+
+```js
+import Star from './star.svg'
+
+const Example = () => (
+  <div>
+    <Star />
+  </div>
+)
+```
+
+Please refer to [SVGR webpack guide](/docs/webpack/) for advanced use cases.
