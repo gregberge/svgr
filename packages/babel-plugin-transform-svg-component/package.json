@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-plugin-transform-svg-component",
   "description": "Transform SVG into component",
-  "version": "6.0.0-alpha.3",
+  "version": "6.0.0",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "typings": "./dist/index.d.ts",
