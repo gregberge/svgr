@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { transform } = require('@svgr/core')
-const { default: jsx } = require('@svgr/plugin-jsx')
-const { default: svgo } = require('@svgr/plugin-svgo')
-const { default: prettier } = require('@svgr/plugin-prettier')
+const jsx = require('@svgr/plugin-jsx')
+const svgo = require('@svgr/plugin-svgo')
+const prettier = require('@svgr/plugin-prettier')
 
 module.exports = (req, res) => {
   if (!req.body) {
