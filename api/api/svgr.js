@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { default: svgr } = require('@svgr/core')
+const { transform } = require('@svgr/core')
 const { default: jsx } = require('@svgr/plugin-jsx')
 const { default: svgo } = require('@svgr/plugin-svgo')
 const { default: prettier } = require('@svgr/plugin-prettier')
@@ -9,7 +9,10 @@ module.exports = (req, res) => {
     res.status(204).send('')
     return
   }
-  svgr(req.body.code, { ...req.body.options, plugins: [svgo, jsx, prettier] })
+  transform(req.body.code, {
+    ...req.body.options,
+    plugins: [svgo, jsx, prettier],
+  })
     .then((output) => {
       res.status(200).json({ output })
     })

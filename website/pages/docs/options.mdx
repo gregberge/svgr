@@ -27,13 +27,27 @@ Disable runtime config (`.svgrrc`, `.svgo.yml`, `.prettierrc`).
 | ------- | --------------------- | ----------------------- |
 | `true`  | `--no-runtime-config` | `runtimeConfig: <bool>` |
 
-## File extension
+## JSX runtime
 
-Specify a custom extension for generated files.
+Specify a JSX runtime to use.
 
-| Default | CLI Override | API Override    |
-| ------- | ------------ | --------------- |
-| `"js"`  | `--ext`      | `ext: <string>` |
+- "classic": adds `import * as React from 'react'` on the top of file
+- "automatic": do not add anything
+- "classic-preact": adds `import { h } from 'preact'` on the top of file
+
+| Default   | CLI Override    | API Override            |
+| --------- | --------------- | ----------------------- | ----------- | ------------------ |
+| `classic` | `--jsx-runtime` | `jsxRuntime: <'classic' | 'automatic' | 'classic-preact'>` |
+
+## JSX runtime import source
+
+Specify a custom JSX runtime source to use. Allows to customize the import added at the top of generated file.
+
+Example: `jsxRuntimeImport: { source: 'preact', specifiers: ['h'] }` for "classic-preact" equivalent.
+
+| Default | CLI Override | API Override                                                 |
+| ------- | ------------ | ------------------------------------------------------------ |
+| `null`  | -            | `jsxRuntimeImport: { source: string, specifiers: string[] }` |
 
 ## Icon
 
@@ -211,3 +225,11 @@ Specify a custom filename case. Possible values: `pascal` for PascalCase, `kebab
 | Default  | CLI Override      | API Override             |
 | -------- | ----------------- | ------------------------ |
 | `pascal` | `--filename-case` | `filenameCase: <string>` |
+
+## File extension
+
+Specify a custom extension for generated files.
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `"js"`  | `--ext`      | `ext: <string>` |
