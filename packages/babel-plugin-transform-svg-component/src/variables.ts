@@ -1,4 +1,4 @@
-import { types as t } from '@babel/core'
+import { types as t, template } from '@babel/core'
 import type { Options, TemplateVariables, JSXRuntimeImport } from './types'
 
 const tsOptionalPropertySignature = (
@@ -98,7 +98,8 @@ export const getVariables = ({
   const interfaces: t.TSInterfaceDeclaration[] = []
   const props: (t.Identifier | t.ObjectPattern)[] = []
   const imports: t.ImportDeclaration[] = []
-  const exports: (t.VariableDeclaration | t.ExportDeclaration)[] = []
+  const exports: (t.VariableDeclaration | t.ExportDeclaration | t.Statement)[] =
+    []
   const ctx = {
     importSource: opts.importSource ?? defaultImportSource,
     exportIdentifier: t.identifier(opts.state.componentName),
@@ -234,6 +235,14 @@ export const getVariables = ({
         t.exportSpecifier(ctx.exportIdentifier, t.identifier(opts.namedExport)),
       ]),
     )
+    if (opts.state.caller?.previousExport) {
+      const previousExportAst = template.ast(opts.state.caller.previousExport)
+      exports.push(
+        ...(Array.isArray(previousExportAst)
+          ? previousExportAst
+          : [previousExportAst]),
+      )
+    }
   } else {
     exports.push(t.exportDefaultDeclaration(ctx.exportIdentifier))
   }

@@ -158,7 +158,9 @@ describe('plugin', () => {
         const { code } = testPlugin(language)('<svg><g /></svg>', {
           state: {
             componentName: 'SvgComponent',
-            caller: { previousExport: 'export default "logo.svg";' },
+            caller: {
+              previousExport: `var img = new Image(); img.src = '...'; export default img;`,
+            },
           },
           namedExport: 'Component',
         })

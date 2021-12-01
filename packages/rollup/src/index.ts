@@ -41,6 +41,7 @@ export interface Options extends Config {
 }
 
 const plugin: PluginImpl<Options> = (options = {}) => {
+  const EXPORT_REGEX = /(module\.exports *= *|export default)/
   const filter = createFilter(options.include || '**/*.svg', options.exclude)
   const { babel = true } = options
 
@@ -52,11 +53,7 @@ const plugin: PluginImpl<Options> = (options = {}) => {
 
       const load = fs.readFileSync(id, 'utf8')
 
-      const exportMatches =
-        data.match(/^module.exports\s*=\s*(.*)/) ||
-        data.match(/export\sdefault\s(.*)/)
-
-      const previousExport = exportMatches ? data : null
+      const previousExport = EXPORT_REGEX.test(data) ? data : null
 
       const jsCode = await transform(load, options, {
         filePath: id,

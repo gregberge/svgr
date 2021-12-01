@@ -6,7 +6,7 @@ export interface TemplateVariables {
   interfaces: t.TSInterfaceDeclaration[]
   props: (t.ObjectPattern | t.Identifier)[]
   imports: t.ImportDeclaration[]
-  exports: (t.VariableDeclaration | t.ExportDeclaration)[]
+  exports: (t.VariableDeclaration | t.ExportDeclaration | t.Statement)[]
   jsx: t.JSXElement
 }
 
