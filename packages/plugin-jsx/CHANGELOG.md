@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/gregberge/svgr/compare/v6.0.0...v6.1.0) (2021-12-01)
+
+**Note:** Version bump only for package @svgr/plugin-jsx
+
+
+
+
+
 # [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-jsx/compare/v5.4.0...v5.5.0) (2020-11-15)
 
 

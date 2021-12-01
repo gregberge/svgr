@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/gregberge/svgr/compare/v6.0.0...v6.1.0) (2021-12-01)
+
+
+### Bug Fixes
+
+* fix previous export system ([1872829](https://github.com/gregberge/svgr/commit/187282977af841cd5a2243a23abba72b20eec2fa)), closes [#635](https://github.com/gregberge/svgr/issues/635)
+
+
+
+
+
 # [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/rollup/compare/v5.4.0...v5.5.0) (2020-11-15)
 
 

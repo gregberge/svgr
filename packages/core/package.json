@@ -1,7 +1,7 @@
 {
   "name": "@svgr/core",
   "description": "Transform SVG into React Components.",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -33,7 +33,7 @@
     "prepublishOnly": "npm run reset && npm run build"
   },
   "dependencies": {
-    "@svgr/plugin-jsx": "^6.0.0",
+    "@svgr/plugin-jsx": "^6.1.0",
     "camelcase": "^6.2.0",
     "cosmiconfig": "^7.0.1"
   },

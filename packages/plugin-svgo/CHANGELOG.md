@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/gregberge/svgr/compare/v6.0.0...v6.1.0) (2021-12-01)
+
+
+### Features
+
+* **native:** automatically convert inline style in native ([138c493](https://github.com/gregberge/svgr/commit/138c493b2ae0c5c1cef488cf9ff7f94827dc2aa5)), closes [#588](https://github.com/gregberge/svgr/issues/588)
+
+
+
+
+
 # [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-svgo/compare/v5.4.0...v5.5.0) (2020-11-15)
 
 
