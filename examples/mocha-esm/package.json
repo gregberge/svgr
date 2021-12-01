@@ -1,0 +1,11 @@
+{
+  "name": "@svgr/mocha-esm-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "mocha --loader=./mock-loader.js example.test.js"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.3"
+  }
+}
