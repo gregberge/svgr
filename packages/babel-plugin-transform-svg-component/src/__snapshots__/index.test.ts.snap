@@ -119,7 +119,10 @@ exports[`plugin javascript with "namedExport" option and "previousExport" state 
 
 const SvgComponent = () => <svg><g /></svg>;
 
-export { SvgComponent as Component };"
+export { SvgComponent as Component };
+var img = new Image();
+img.src = '...';
+export default img;"
 `;
 
 exports[`plugin javascript with "native" and "expandProps" option adds import from "react-native-svg" and adds props 1`] = `
@@ -336,7 +339,10 @@ exports[`plugin typescript with "namedExport" option and "previousExport" state 
 
 const SvgComponent = () => <svg><g /></svg>;
 
-export { SvgComponent as Component };"
+export { SvgComponent as Component };
+var img = new Image();
+img.src = '...';
+export default img;"
 `;
 
 exports[`plugin typescript with "native" and "expandProps" option adds import from "react-native-svg" and adds props 1`] = `
