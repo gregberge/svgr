@@ -17,19 +17,24 @@ const explorer = cosmiconfigSync('svgo', {
 })
 
 const getSvgoConfigFromSvgrConfig = (config: Config): any => {
-  const preset =
-    config.icon || config.dimensions === false
-      ? {
-          name: 'preset-default',
-          params: {
-            overrides: {
-              removeViewBox: false,
-            },
-          },
-        }
-      : 'preset-default'
+  const params = { overrides: {} as any }
+  if (config.icon || config.dimensions === false) {
+    params.overrides.removeViewBox = false
+  }
+  if (config.native) {
+    params.overrides.inlineStyles = {
+      onlyMatchedOnce: false,
+    }
+  }
+
   return {
-    plugins: [preset, 'prefixIds'],
+    plugins: [
+      {
+        name: 'preset-default',
+        params,
+      },
+      'prefixIds',
+    ],
   }
 }
 
