@@ -9,10 +9,11 @@ const baseSvg = `<?xml version="1.0" encoding="UTF-8"?>
   <title>Dismiss</title>
   <desc>Created with Sketch.</desc>
   <defs></defs>
+  <style>.shape{fill: red}</style>
   <g id="Blocks" class="blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
       <g id="Dismiss" stroke="#063855" stroke-width="2">
-          <path d="M51,37 L37,51" id="Shape"></path>
-          <path d="M51,51 L37,37" id="Shape"></path>
+          <path d="M51,37 L37,51" id="Shape" class="shape"></path>
+          <path d="M51,51 L37,37" id="Shape" class="shape"></path>
           <style>
             #Shape {}
           </style>
@@ -47,7 +48,6 @@ describe('svgo', () => {
       },
       state,
     )
-
     expect(result).toMatchSnapshot()
   })
 
@@ -67,19 +67,21 @@ describe('svgo', () => {
       { svgo: true, runtimeConfig: false },
       { ...state, filePath: path.join(__dirname, '../__fixtures__/svgo') },
     )
-
     expect(result).toMatchSnapshot()
   })
 
   it('does not remove viewBox with `icon` option', () => {
     const result = svgo(baseSvg, { svgo: true, icon: true }, state)
-
     expect(result).toMatchSnapshot()
   })
 
   it('does not remove viewBox with when `dimensions` is false', () => {
     const result = svgo(baseSvg, { svgo: true, dimensions: false }, state)
+    expect(result).toMatchSnapshot()
+  })
 
+  it('does remove style when `native` is true', () => {
+    const result = svgo(baseSvg, { svgo: true, native: true }, state)
     expect(result).toMatchSnapshot()
   })
 })
