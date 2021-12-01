@@ -1,0 +1,60 @@
+---
+section: Usage
+title: Jest
+order: 80
+---
+
+# Mocha
+
+Configure [Mocha](https://mochajs.org/) to work properly with SVGR.
+
+<carbon-ad />
+
+## Steps
+
+This steps describe how to configure mocha to handle SVG generated from SVGR. It only covers EcmaScript modules because it is the only type of output supported by SVGR.
+
+### 1. Create a mock
+
+Create a mock file `__mocks__/svg.js`:
+
+```jsx
+export default 'SvgrURL'
+export const ReactComponent = 'div'
+```
+
+The above mock would support the following import syntaxes:
+
+```js
+import logoURL from '../assets/logo.svg'
+// and
+import { ReactComponent as Logo } from '../assets/logo.svg'
+```
+
+### 2. Create a custom loader
+
+```js
+// mock-loader.js
+import { cwd } from 'node:process'
+import { pathToFileURL } from 'node:url'
+
+const baseURL = pathToFileURL(`${cwd()}/`).href
+const SVG_REGEX = /^[./a-zA-Z0-9$_-]+\.svg$/
+
+export async function resolve(specifier, context, defaultResolve) {
+  if (SVG_REGEX.test(specifier)) {
+    return { url: new URL('./__mocks__/svg.js', baseURL).href }
+  }
+  return defaultResolve(specifier, context, defaultResolve)
+}
+```
+
+### 3. Run mocha with the loader
+
+```
+mocha --loader=./mock-loader.js
+```
+
+## Example
+
+A [full working example](https://github.com/gregberge/svgr/tree/main/examples/mocha-esm) is available in SVGR repository.

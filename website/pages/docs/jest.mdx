@@ -6,17 +6,15 @@ order: 70
 
 # Jest
 
-Configure Jest to work properly with SVGR.
+Configure [Jest](https://jestjs.io/) to work properly with SVGR.
 
 <carbon-ad />
 
 ## 1. Create a mock file
 
-Create a mock file `__mocks__/svgrMock.js`:
+Create a mock file `__mocks__/svg.js`:
 
 ```jsx
-import * as React from 'react'
-
 export default 'SvgrURL'
 export const ReactComponent = 'div'
 ```
@@ -36,7 +34,7 @@ In your `package.json`
 ```json
 "jest": {
   "moduleNameMapper": {
-    "\\.svg": "<rootDir>/__mocks__/svgrMock.js"
+    "\\.svg": "<rootDir>/__mocks__/svg.js"
   }
 }
 ```
@@ -46,7 +44,7 @@ or in your `jest.config.js`
 ```js
 module.exports = {
   moduleNameMapper: {
-    '\\.svg$': '<rootDir>/__mocks__/svgrMock.js',
+    '\\.svg$': '<rootDir>/__mocks__/svg.js',
   },
 }
 ```
