@@ -54,7 +54,7 @@ const propTypesTemplate = (
   { imports, interfaces, componentName, props, jsx, exports },
   { tpl },
 ) => {
-  return tpl.ast`${imports}
+  return tpl`${imports}
 import PropTypes from 'prop-types';
 ${interfaces}
 
