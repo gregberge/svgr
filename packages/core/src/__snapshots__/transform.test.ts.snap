@@ -205,7 +205,8 @@ const SvgComponent = (props) => (
   </svg>
 )
 
-export default SvgComponent
+export { SvgComponent as Component }
+export default 'logo.svg'
 "
 `;
 

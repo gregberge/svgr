@@ -325,8 +325,8 @@ describe('convert', () => {
       { exportType: 'named' },
     ]
 
-    test.each(configs)('accepts options %j', async (config) => {
-      const result = await convertWithAllPlugins(svgBaseCode, config)
+    test.each(configs)('accepts options %j', async ({ state, ...config }) => {
+      const result = await convertWithAllPlugins(svgBaseCode, config, state)
       expect(result).toMatchSnapshot()
     })
 

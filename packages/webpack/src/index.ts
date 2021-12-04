@@ -92,7 +92,7 @@ function svgrLoader(
           callback(err)
           return
         }
-        callback(null, `${content}\n${previousExport}`)
+        callback(null, content)
       })
     })
   }
