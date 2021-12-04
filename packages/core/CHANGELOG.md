@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.1](https://github.com/gregberge/svgr/compare/v6.1.0...v6.1.1) (2021-12-04)
+
+
+### Bug Fixes
+
+* **webpack:** fix double export ([#648](https://github.com/gregberge/svgr/issues/648)) ([7595d37](https://github.com/gregberge/svgr/commit/7595d378b73d4826a4cead165b3f32386b07315b)), closes [#645](https://github.com/gregberge/svgr/issues/645)
+
+
+
+
+
 # [6.1.0](https://github.com/gregberge/svgr/compare/v6.0.0...v6.1.0) (2021-12-01)
 
 **Note:** Version bump only for package @svgr/core

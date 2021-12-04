@@ -1,7 +1,7 @@
 {
   "name": "@svgr/core",
   "description": "Transform SVG into React Components.",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "typings": "./dist/index.d.ts",
