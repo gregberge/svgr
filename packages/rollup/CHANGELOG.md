@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.2](https://github.com/gregberge/svgr/compare/v6.1.1...v6.1.2) (2021-12-12)
+
+
+### Bug Fixes
+
+* **rollup:** missing dep & missing map return ([#652](https://github.com/gregberge/svgr/issues/652)) ([12627fc](https://github.com/gregberge/svgr/commit/12627fcd91a425361e1fbe825a6668ce9a8b4f3b))
+
+
+
+
+
 ## [6.1.1](https://github.com/gregberge/svgr/compare/v6.1.0...v6.1.1) (2021-12-04)
 
 **Note:** Version bump only for package @svgr/rollup

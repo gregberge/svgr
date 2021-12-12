@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.2](https://github.com/gregberge/svgr/compare/v6.1.1...v6.1.2) (2021-12-12)
+
+
+### Bug Fixes
+
+* specify valid peer deps ([45a76ed](https://github.com/gregberge/svgr/commit/45a76ed5f7d433e549c8513c0fdab08eb6c7bc2c))
+
+
+
+
+
 # [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/plugin-prettier/compare/v5.4.0...v5.5.0) (2020-11-15)
 
 

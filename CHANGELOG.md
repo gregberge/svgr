@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.2](https://github.com/gregberge/svgr/compare/v6.1.1...v6.1.2) (2021-12-12)
+
+
+### Bug Fixes
+
+* **rollup:** missing dep & missing map return ([#652](https://github.com/gregberge/svgr/issues/652)) ([12627fc](https://github.com/gregberge/svgr/commit/12627fcd91a425361e1fbe825a6668ce9a8b4f3b))
+* specify valid peer deps ([45a76ed](https://github.com/gregberge/svgr/commit/45a76ed5f7d433e549c8513c0fdab08eb6c7bc2c))
+
+
+
+
+
 ## [6.1.1](https://github.com/gregberge/svgr/compare/v6.1.0...v6.1.1) (2021-12-04)
 
 
