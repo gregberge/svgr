@@ -7,7 +7,7 @@ import del from 'del'
 
 const exec = promisify(execCb)
 
-const svgr = path.join(__dirname, '../bin/svgr')
+const svgr = path.join(__dirname, '../bin/svgr.js')
 
 describe('cli', () => {
   const cli = async (args: string) => {

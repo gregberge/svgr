@@ -2,9 +2,9 @@
   "name": "@svgr/plugin-jsx",
   "description": "Transform SVG into JSX",
   "version": "6.1.2",
-  "main": "./dist/index.js",
+  "type": "module",
   "exports": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/plugin-jsx",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
@@ -14,7 +14,7 @@
     "svgr-plugin"
   ],
   "engines": {
-    "node": ">=10"
+    "node": "^12.17.0 || ^14.13 || >=16.0.0"
   },
   "homepage": "https://react-svgr.com",
   "funding": {

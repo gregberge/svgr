@@ -2,9 +2,10 @@
   "name": "@svgr/webpack",
   "description": "SVGR webpack loader.",
   "version": "6.1.2",
+  "type": "commonjs",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/webpack",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
@@ -18,7 +19,7 @@
     "webpack-loader"
   ],
   "engines": {
-    "node": ">=10"
+    "node": "^12.17.0 || ^14.13 || >=16.0.0"
   },
   "homepage": "https://react-svgr.com",
   "funding": {

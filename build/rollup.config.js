@@ -5,7 +5,7 @@ import esbuild from 'rollup-plugin-esbuild'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require(path.resolve(process.cwd(), './package.json'))
-const name = pkg.main ? pkg.main.replace(/\.js$/, '') : './dist/index'
+const name = pkg.exports ? pkg.exports.replace(/\.js$/, '') : './dist/index'
 
 const bundle = (config) => ({
   ...config,
@@ -19,13 +19,13 @@ export default [
     output: [
       {
         file: `${name}.js`,
-        format: 'cjs',
-        sourcemap: Boolean(pkg.main),
+        format: pkg.type === 'module' ? 'es' : 'cjs',
+        sourcemap: Boolean(pkg.exports),
         exports: 'auto',
       },
     ],
   }),
-  ...(pkg.main
+  ...(pkg.types
     ? [
         bundle({
           plugins: [dts()],

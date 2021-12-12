@@ -2,9 +2,10 @@
   "name": "@svgr/babel-preset",
   "description": "SVGR preset that apply transformations from config",
   "version": "6.1.0",
+  "type": "commonjs",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-preset",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
@@ -15,7 +16,7 @@
     "babel-preset"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "homepage": "https://react-svgr.com",
   "funding": {

@@ -2,6 +2,7 @@
   "name": "@svgr/cli",
   "description": "SVGR command line.",
   "version": "6.1.2",
+  "type": "module",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
@@ -14,7 +15,7 @@
     "cli"
   ],
   "engines": {
-    "node": ">=10"
+    "node": "^12.17.0 || ^14.13 || >=16.0.0"
   },
   "homepage": "https://react-svgr.com",
   "funding": {
@@ -23,7 +24,7 @@
   },
   "license": "MIT",
   "bin": {
-    "svgr": "./bin/svgr"
+    "svgr": "./bin/svgr.js"
   },
   "scripts": {
     "reset": "rm -rf dist",
@@ -42,7 +43,6 @@
     "glob": "^7.1.7"
   },
   "devDependencies": {
-    "@types/glob": "^7.2.0",
-    "del": "^6.0.0"
+    "@types/glob": "^7.2.0"
   }
 }
