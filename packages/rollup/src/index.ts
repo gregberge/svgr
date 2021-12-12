@@ -72,7 +72,7 @@ const plugin: PluginImpl<Options> = (options = {}) => {
         if (!result?.code) {
           throw new Error(`Error while transforming using Babel`)
         }
-        return { code: result.code }
+        return { code: result.code, map: null }
       }
 
       return {
@@ -84,6 +84,7 @@ const plugin: PluginImpl<Options> = (options = {}) => {
           body: [],
         },
         code: jsCode,
+        map: null
       }
     },
   }
