@@ -28,7 +28,7 @@
     "prepublishOnly": "npm run reset && npm run build"
   },
   "peerDependencies": {
-    "@svgr/core": "^6.0.0-alpha.0"
+    "@svgr/core": "^6.0.0"
   },
   "dependencies": {
     "@babel/core": "^7.15.5",
