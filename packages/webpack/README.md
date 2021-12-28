@@ -83,7 +83,7 @@ If you prefer named export in any case, you may set the `exportType` option to `
 
 ### Use your own Babel configuration
 
-By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configuration](https://github.com/gregberge/svgr/blob/master/packages/webpack/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configuration](https://github.com/gregberge/svgr/blob/main/packages/webpack/src/index.ts). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
 
 ```js
 // Example using preact
