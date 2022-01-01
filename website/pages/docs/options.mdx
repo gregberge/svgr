@@ -180,11 +180,11 @@ Add title tag via title property. If titleProp is set to true and no title is pr
 
 ## Template
 
-Specify a template file (CLI) or a template function (API) to use. For an example of template, see [the default one](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/src/index.js).
+Specify a template file (CLI) or a template function (API) to use. For an example of template, see [the default one](https://github.com/gregberge/svgr/blob/main/packages/babel-plugin-transform-svg-component/src/defaultTemplate.ts).
 
 | Default                                                                                                                      | CLI Override | API Override       |
 | ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------ |
-| [`basic template`](https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component/src/index.js) | `--template` | `template: <func>` |
+| [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/babel-plugin-transform-svg-component/src/defaultTemplate.ts) | `--template` | `template: <func>` |
 
 ## Output Directory
 
@@ -200,7 +200,7 @@ Specify a template function (API) to change default index.js output (when --out-
 
 | Default                                                                                          | CLI Override       | API Override               |
 | ------------------------------------------------------------------------------------------------ | ------------------ | -------------------------- |
-| [`basic template`](https://github.com/gregberge/svgr/blob/master/packages/cli/src/dirCommand.js) | `--index-template` | indexTemplate: files => '' |
+| [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/cli/src/dirCommand.ts) | `--index-template` | indexTemplate: files => '' |
 
 ## index.js file
 
