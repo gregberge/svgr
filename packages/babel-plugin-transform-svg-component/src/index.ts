@@ -17,7 +17,7 @@ const plugin = (_: ConfigAPI, opts: Options) => {
   const plugins: ParserOptions['plugins'] = opts.typescript
     ? ['jsx', 'typescript']
     : ['jsx']
-  const tpl = babelTemplate.smart({ plugins }).ast
+  const tpl = babelTemplate.smart({ plugins, preserveComments: true }).ast
   return {
     visitor: {
       Program(path: NodePath<t.Program>) {

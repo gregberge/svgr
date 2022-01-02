@@ -65,6 +65,15 @@ const MyComponent = (props: React.SVGProps<SVGSVGElement>) => <svg><g /></svg>;
 export default MyComponent;"
 `;
 
+exports[`plugin javascript custom templates supports comments in templates 1`] = `
+"/**
+ * Comment
+ */
+const MyComponent = () => <svg><g /></svg>;
+
+export default MyComponent;"
+`;
+
 exports[`plugin javascript custom templates supports template that does not return an array 1`] = `"<svg><g /></svg>;"`;
 
 exports[`plugin javascript custom templates supports type annotation on component 1`] = `
@@ -280,6 +289,15 @@ exports[`plugin typescript custom templates supports TypeScript template 1`] = `
 "import * as React from 'react';
 
 const MyComponent = (props: React.SVGProps<SVGSVGElement>) => <svg><g /></svg>;
+
+export default MyComponent;"
+`;
+
+exports[`plugin typescript custom templates supports comments in templates 1`] = `
+"/**
+ * Comment
+ */
+const MyComponent = () => <svg><g /></svg>;
 
 export default MyComponent;"
 `;
