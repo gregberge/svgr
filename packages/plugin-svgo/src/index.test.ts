@@ -51,6 +51,21 @@ describe('svgo', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('throws error on invalid svg input', () => {
+    const errorSvg = `<?xml version="1.0" encoding="UTF-8"?>
+  <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d=M51,37 L37,51" id="Shape" class="shape"></path>
+  </svg>`
+
+    expect(() =>
+      svgo(
+        errorSvg,
+        { svgo: true, runtimeConfig: true },
+        { ...state, filePath: path.join(__dirname, '../__fixtures__/svgo') },
+      ),
+    ).toThrowError()
+  })
+
   it('uses `state.filePath` to detect configuration', () => {
     const result = svgo(
       baseSvg,
