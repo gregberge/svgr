@@ -248,6 +248,21 @@ describe('plugin', () => {
         })
         expect(code).toMatchSnapshot()
       })
+
+      it('supports comments in templates', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          template: ({ jsx }, { tpl }) => tpl`
+          /**
+           * Comment
+           */
+          const MyComponent = () => ${jsx}
+
+          export default MyComponent;
+          `,
+          state: { componentName: 'SvgComponent' },
+        })
+        expect(code).toMatchSnapshot()
+      })
     })
 
     describe('#jsxRuntime', () => {
