@@ -3,7 +3,7 @@ import { promises as fs } from 'fs'
 import * as path from 'path'
 import { grey, white } from 'chalk'
 import { loadConfig, Config } from '@svgr/core'
-import { format, resolveConfig, getFileInfo } from 'prettier'
+import { format, resolveConfig } from 'prettier'
 import {
   convertFile,
   transformFilename,
@@ -100,9 +100,8 @@ export const dirCommand: SvgrCommand = async (
       const prettierRcConfig = opts.runtimeConfig
         ? await resolveConfig(filepath, { editorconfig: true })
         : {}
-      const prettierFileInfo = await getFileInfo(filepath)
       return format(fileContent, {
-        parser: prettierFileInfo.inferredParser,
+        filepath,
         ...prettierRcConfig,
         ...opts.prettierConfig,
       })
