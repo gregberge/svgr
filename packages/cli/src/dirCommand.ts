@@ -101,6 +101,7 @@ export const dirCommand: SvgrCommand = async (
         ? await resolveConfig(filepath, { editorconfig: true })
         : {}
       return format(fileContent, {
+        filepath,
         ...prettierRcConfig,
         ...opts.prettierConfig,
       })
