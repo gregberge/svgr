@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/gregberge/svgr/compare/v6.1.2...v6.2.0) (2022-01-10)
+
+
+### Bug Fixes
+
+* **cli:** pass in parser to prettier format to avoid deprecation warning ([#662](https://github.com/gregberge/svgr/issues/662)) ([74fa3ae](https://github.com/gregberge/svgr/commit/74fa3aed2944b63797a6e0e786acd1b51f86550a))
+* **plugin-svgo:** handle potential errors from optimize ([#663](https://github.com/gregberge/svgr/issues/663)) ([7582d31](https://github.com/gregberge/svgr/commit/7582d3130e5b6eb0f962e283f956a84552f839a6))
+
+
+### Features
+
+* support comments in templates ([#661](https://github.com/gregberge/svgr/issues/661)) ([9afb590](https://github.com/gregberge/svgr/commit/9afb590d1094793fca797449fb7017da9fa06b4e))
+
+
+
+
+
 ## [6.1.2](https://github.com/gregberge/svgr/compare/v6.1.1...v6.1.2) (2021-12-12)
 
 

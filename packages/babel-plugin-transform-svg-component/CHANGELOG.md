@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/gregberge/svgr/compare/v6.1.2...v6.2.0) (2022-01-10)
+
+
+### Features
+
+* support comments in templates ([#661](https://github.com/gregberge/svgr/issues/661)) ([9afb590](https://github.com/gregberge/svgr/commit/9afb590d1094793fca797449fb7017da9fa06b4e))
+
+
+
+
+
 # [6.1.0](https://github.com/gregberge/svgr/compare/v6.0.0...v6.1.0) (2021-12-01)
 
 

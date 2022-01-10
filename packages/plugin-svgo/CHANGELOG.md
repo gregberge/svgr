@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/gregberge/svgr/compare/v6.1.2...v6.2.0) (2022-01-10)
+
+
+### Bug Fixes
+
+* **plugin-svgo:** handle potential errors from optimize ([#663](https://github.com/gregberge/svgr/issues/663)) ([7582d31](https://github.com/gregberge/svgr/commit/7582d3130e5b6eb0f962e283f956a84552f839a6))
+
+
+
+
+
 ## [6.1.2](https://github.com/gregberge/svgr/compare/v6.1.1...v6.1.2) (2021-12-12)
 
 

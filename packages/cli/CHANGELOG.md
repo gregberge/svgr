@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/gregberge/svgr/compare/v6.1.2...v6.2.0) (2022-01-10)
+
+
+### Bug Fixes
+
+* **cli:** pass in parser to prettier format to avoid deprecation warning ([#662](https://github.com/gregberge/svgr/issues/662)) ([74fa3ae](https://github.com/gregberge/svgr/commit/74fa3aed2944b63797a6e0e786acd1b51f86550a))
+
+
+
+
+
 ## [6.1.2](https://github.com/gregberge/svgr/compare/v6.1.1...v6.1.2) (2021-12-12)
 
 **Note:** Version bump only for package @svgr/cli
