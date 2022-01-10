@@ -7,7 +7,9 @@ const svgoPlugin: Plugin = (code, config, state) => {
   const svgoConfig = getSvgoConfig(config, state)
   const result = optimize(code, { ...svgoConfig, path: state.filePath })
 
+  // @ts-ignore
   if (result.modernError) {
+    // @ts-ignore
     throw result.modernError
   }
 
