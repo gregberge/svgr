@@ -39,6 +39,10 @@ interface LoaderOptions extends Config {
   babel?: boolean
 }
 
+const errorHandler = (error) => {
+  return error;
+}
+
 const tranformSvg = callbackify(
   async (contents: string, options: LoaderOptions, state: Partial<State>) => {
     const { babel = true, ...config } = options
@@ -62,7 +66,13 @@ function svgrLoader(
   this.cacheable && this.cacheable()
   const callback = this.async()
 
-  const options = this.getOptions()
+  let options = {};
+
+  try {
+    options = this.getOptions()
+  } catch(error) {
+    errorHandler(error);
+  }
 
   const previousExport = (() => {
     if (contents.startsWith('export ')) return contents
