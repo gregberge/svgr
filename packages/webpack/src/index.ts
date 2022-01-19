@@ -13,6 +13,8 @@ import presetTS from '@babel/preset-typescript'
 // @ts-ignore
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
 import type * as webpack from 'webpack'
+// @ts-ignore
+import { getOptions as getOptionsUtils } from 'loader-utils';
 
 const babelOptions = {
   babelrc: false,
@@ -39,8 +41,10 @@ interface LoaderOptions extends Config {
   babel?: boolean
 }
 
-const errorHandler = (error) => {
-  return error;
+// for webpack@4
+const getOptionsFallback = (loader: object) => {
+  const options = getOptionsUtils(loader);
+  return options === undefined ? {} : options;
 }
 
 const tranformSvg = callbackify(
@@ -66,13 +70,7 @@ function svgrLoader(
   this.cacheable && this.cacheable()
   const callback = this.async()
 
-  let options = {};
-
-  try {
-    options = this.getOptions()
-  } catch(error) {
-    errorHandler(error);
-  }
+  const options = this.getOptions === undefined ? getOptionsFallback(this) : this.getOptions();
 
   const previousExport = (() => {
     if (contents.startsWith('export ')) return contents
