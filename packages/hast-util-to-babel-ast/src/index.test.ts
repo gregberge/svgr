@@ -13,7 +13,7 @@ function transform(code: string) {
 }
 
 describe('hast-util-to-babel-ast', () => {
-  it('should correctly transform svg', () => {
+  it('transforms SVG', () => {
     const code = `
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -32,25 +32,30 @@ describe('hast-util-to-babel-ast', () => {
     expect(transform(code)).toMatchSnapshot()
   })
 
-  it('should correctly transform aria-x', () => {
+  it('transforms "aria-x"', () => {
     const code = `<svg aria-hidden="true"></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
       `"<svg aria-hidden=\\"true\\" />;"`,
     )
   })
 
-  it('should correctly transform aria-xxxXxx', () => {
+  it('transforms "aria-xxxXxx"', () => {
     const code = `<svg aria-labelledby="foo" aria-describedat="foo" aria-describedby="foo"></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
       `"<svg aria-labelledby=\\"foo\\" aria-describedat=\\"foo\\" aria-describedby=\\"foo\\" />;"`,
     )
   })
 
-  it('should correctly transform data-x', () => {
+  it('transformss "data-x"', () => {
     const code = `<svg data-hidden="true"></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
       `"<svg data-hidden=\\"true\\" />;"`,
     )
+  })
+
+  it('preserves "mask-type"', () => {
+    const code = `<svg><mask mask-type="alpha" /></svg>`
+    expect(transform(code)).toBe('<svg><mask mask-type="alpha" /></svg>;')
   })
 
   it('should handle spaces and tab', () => {
