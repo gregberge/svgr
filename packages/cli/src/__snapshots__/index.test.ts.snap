@@ -619,3 +619,8 @@ export default SvgComponent
 
 "
 `;
+
+exports[`cli using typescript option, it creates index with \`.ts\` extension 1`] = `
+"export { default as File } from './File'
+"
+`;

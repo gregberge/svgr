@@ -47,8 +47,11 @@ const defaultIndexTemplate: IndexTemplate = (paths) => {
   return exportEntries.join('\n')
 }
 
-const resolveExtension = (config: Config, ext?: string) =>
-  ext || (config.typescript ? 'tsx' : 'js')
+const resolveExtension = (
+  config: Config,
+  ext: string | null | undefined,
+  jsx: boolean,
+) => ext || (config.typescript ? (jsx ? 'tsx' : 'ts') : 'js')
 
 export const dirCommand: SvgrCommand = async (
   opts,
@@ -64,7 +67,7 @@ export const dirCommand: SvgrCommand = async (
     outDir,
   } = opts
 
-  const ext = resolveExtension(opts, extOpt)
+  const ext = resolveExtension(opts, extOpt, true)
 
   const write = async (src: string, dest: string) => {
     if (!isCompilable(src)) {
@@ -92,6 +95,7 @@ export const dirCommand: SvgrCommand = async (
     files: string[],
     opts: Options,
   ) => {
+    const ext = resolveExtension(opts, extOpt, false)
     const filepath = path.join(dest, `index.${ext}`)
     const indexTemplate = opts.indexTemplate || defaultIndexTemplate
     const fileContent = indexTemplate(files)
