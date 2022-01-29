@@ -10,6 +10,7 @@ module.exports = {
         description: 'Transforms SVG into React Components.',
         siteUrl: 'https://react-svgr.com',
         githubRepositoryURL: 'https://github.com/gregberge/svgr',
+        githubDefaultBranch: 'main',
         baseDirectory: path.resolve(__dirname, '..'),
         navItems: [
           { title: 'Playground', url: '/playground/' },
