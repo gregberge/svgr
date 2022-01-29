@@ -203,6 +203,15 @@ describe('cli', () => {
     expect(content).toMatchSnapshot()
   })
 
+  it('using typescript option, it creates index with `.ts` extension', async () => {
+    const inDir = '__fixtures__/simple'
+    const outDir = `__fixtures_build__/ts-index`
+    await del(outDir)
+    await cli(`${inDir} --out-dir=${outDir} --typescript`)
+    const content = await fs.readFile(path.join(outDir, 'index.ts'), 'utf-8')
+    expect(content).toMatchSnapshot()
+  })
+
   it('should support --index-template in cli', async () => {
     const inDir = '__fixtures__/simple'
     const outDir = `__fixtures_build__/custom-index-arg`
