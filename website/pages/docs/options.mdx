@@ -15,17 +15,17 @@ API.
 
 Specify a custom config file.
 
-| Default | CLI Override    | API Override           |
-| ------- | --------------- | ---------------------- |
-| `null`  | `--config-file` | `configFile: <string>` |
+| Default | CLI Override    | API Override         |
+| ------- | --------------- | -------------------- |
+| `null`  | `--config-file` | `configFile: string` |
 
 ## Runtime config
 
 Disable runtime config (`.svgrrc`, `.svgo.yml`, `.prettierrc`).
 
-| Default | CLI Override          | API Override            |
-| ------- | --------------------- | ----------------------- |
-| `true`  | `--no-runtime-config` | `runtimeConfig: <bool>` |
+| Default | CLI Override          | API Override             |
+| ------- | --------------------- | ------------------------ |
+| `true`  | `--no-runtime-config` | `runtimeConfig: boolean` |
 
 ## JSX runtime
 
@@ -35,9 +35,9 @@ Specify a JSX runtime to use.
 - "automatic": do not add anything
 - "classic-preact": adds `import { h } from 'preact'` on the top of file
 
-| Default   | CLI Override    | API Override            |
-| --------- | --------------- | ----------------------- | ----------- | ------------------ |
-| `classic` | `--jsx-runtime` | `jsxRuntime: <'classic' | 'automatic' | 'classic-preact'>` |
+| Default   | CLI Override    | API Override           |
+| --------- | --------------- | ---------------------- | ----------- | ----------------- |
+| `classic` | `--jsx-runtime` | `jsxRuntime: 'classic' | 'automatic' | 'classic-preact'` |
 
 ## JSX runtime import source
 
@@ -51,30 +51,30 @@ Example: `jsxRuntimeImport: { source: 'preact', specifiers: ['h'] }` for "classi
 
 ## Icon
 
-Replace SVG `width` and `height` value by `1em` in order to make SVG size inherits from text size.
+Replace SVG `width` and `height` by a custom value. If value is omitted, it uses `1em` in order to make SVG size inherits from text size.
 
-| Default | CLI Override | API Override   |
-| ------- | ------------ | -------------- |
-| `false` | `--icon`     | `icon: <bool>` |
+| Default | CLI Override     | API Override   |
+| ------- | ---------------- | -------------- | ------ | ------- |
+| `false` | `--icon [value]` | `icon: boolean | string | number` |
+
+> If you use `--icon` without any argument, be careful of separating files from arguments using `--`, ex: `svgr --icon -- assets/svg`
 
 ## Native
 
 Modify all SVG nodes with uppercase and use a specific template with
 [`react-native-svg`](https://github.com/react-native-community/react-native-svg) imports. **All unsupported nodes will be removed.**
 
-Override using the API with `native: { expo: true }` to template SVG nodes with the [ExpoKit SVG package](https://docs.expo.io/versions/latest/sdk/svg/). This is only necessary for 'ejected' ExpoKit projects where `import 'react-native-svg'` results in an error.
-
-| Default | CLI Override | API Override                                 |
-| ------- | ------------ | -------------------------------------------- |
-| `false` | `--native`   | `native: <bool>` or `native: { expo: true }` |
+| Default | CLI Override | API Override      |
+| ------- | ------------ | ----------------- |
+| `false` | `--native`   | `native: boolean` |
 
 ## TypeScript
 
 Generates `.tsx` files with [TypeScript](https://www.typescriptlang.org/) typings.
 
-| Default | CLI Override   | API Override         |
-| ------- | -------------- | -------------------- |
-| `false` | `--typescript` | `typescript: <bool>` |
+| Default | CLI Override   | API Override          |
+| ------- | -------------- | --------------------- |
+| `false` | `--typescript` | `typescript: boolean` |
 
 ## Dimensions
 
@@ -87,34 +87,34 @@ Removal is guaranteed if `dimensions: false`, unlike the `removeDimensions: true
 - Any SVGO processing will occur prior to this removal.
 - When removing dimensions, SVGO will be configured not to remove the `viewBox` if one is present. You can override this behaviour via your own config.
 
-| Default | CLI Override      | API Override         |
-| ------- | ----------------- | -------------------- |
-| `true`  | `--no-dimensions` | `dimensions: <bool>` |
+| Default | CLI Override      | API Override          |
+| ------- | ----------------- | --------------------- |
+| `true`  | `--no-dimensions` | `dimensions: boolean` |
 
 ## Expand props
 
 All properties given to component will be forwarded on SVG tag. Possible values: `"start"`, `"end"` or `false` (`"none"` in CLI).
 
-| Default | CLI Override     | API Override            |
-| ------- | ---------------- | ----------------------- |
-| `end`   | `--expand-props` | `expandProps: <string>` |
+| Default | CLI Override     | API Override          |
+| ------- | ---------------- | --------------------- |
+| `end`   | `--expand-props` | `expandProps: string` |
 
 ## Prettier
 
 Use [Prettier](https://github.com/prettier/prettier) to format JavaScript code
 output.
 
-| Default | CLI Override    | API Override       |
-| ------- | --------------- | ------------------ |
-| `true`  | `--no-prettier` | `prettier: <bool>` |
+| Default | CLI Override    | API Override        |
+| ------- | --------------- | ------------------- |
+| `true`  | `--no-prettier` | `prettier: boolean` |
 
 ## Prettier config
 
 Specify Prettier config. [See Prettier options](https://prettier.io/docs/en/options.html).
 
-| Default | CLI Override        | API Override               |
-| ------- | ------------------- | -------------------------- |
-| `null`  | `--prettier-config` | `prettierConfig: <object>` |
+| Default | CLI Override        | API Override                     |
+| ------- | ------------------- | -------------------------------- |
+| `null`  | `--prettier-config` | `prettierConfig: PrettierConfig` |
 
 ## SVGO
 
@@ -122,41 +122,41 @@ Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before transformin
 
 **NOTE:** SVGR implicitly enables the [`prefixIds` SVGO plugin](https://github.com/svg/svgo/blob/master/plugins/prefixIds.js) which adds a prefix to values of `id` and `class` attributes to [reduce the chance of collision issues](https://github.com/gregberge/svgr/issues/210).
 
-| Default | CLI Override | API Override   |
-| ------- | ------------ | -------------- |
-| `true`  | `--no-svgo`  | `svgo: <bool>` |
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `true`  | `--no-svgo`  | `svgo: boolean` |
 
 ## SVGO config
 
 Specify SVGO config. [See SVGO options](https://github.com/svg/svgo#configuration).
 
-| Default | CLI Override    | API Override           |
-| ------- | --------------- | ---------------------- |
-| `null`  | `--svgo-config` | `svgoConfig: <object>` |
+| Default | CLI Override    | API Override             |
+| ------- | --------------- | ------------------------ |
+| `null`  | `--svgo-config` | `svgoConfig: SVGOConfig` |
 
 ## Ref
 
 Setting this to `true` will forward ref to the root SVG tag.
 
-| Default | CLI Override | API Override  |
-| ------- | ------------ | ------------- |
-| `false` | `--ref`      | `ref: <bool>` |
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `false` | `--ref`      | `ref: boolean` |
 
 ## Memo
 
 Setting this to `true` will wrap the exported component in [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo).
 
-| Default | CLI Override | API Override   |
-| ------- | ------------ | -------------- |
-| `false` | `--memo`     | `memo: <bool>` |
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `false` | `--memo`     | `memo: boolean` |
 
 ## Replace attribute value
 
 Replace an attribute value by an other. The main usage of this option is to change an icon color to "currentColor" in order to inherit from text color.
 
-| Default | CLI Override                      | API Override                        |
-| ------- | --------------------------------- | ----------------------------------- |
-| `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { old: 'new' }` |
+| Default | CLI Override                      | API Override                                   |
+| ------- | --------------------------------- | ---------------------------------------------- |
+| `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { [key: string]: string }` |
 
 > You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particularly useful with a custom template.
 
@@ -164,9 +164,9 @@ Replace an attribute value by an other. The main usage of this option is to chan
 
 Add props to the root SVG tag.
 
-| Default | CLI Override               | API Override                  |
-| ------- | -------------------------- | ----------------------------- |
-| `[]`    | `--svg-props <name=value>` | `svgProps: { name: 'value' }` |
+| Default | CLI Override               | API Override                          |
+| ------- | -------------------------- | ------------------------------------- |
+| `[]`    | `--svg-props <name=value>` | `svgProps: { [key: string]: string }` |
 
 > You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particularly useful with a custom template.
 
@@ -174,62 +174,62 @@ Add props to the root SVG tag.
 
 Add title tag via title property. If titleProp is set to true and no title is provided (`title={undefined}`) at render time, this will fallback to an existing title element in the svg if exists.
 
-| Default | CLI Override   | API Override        |
-| ------- | -------------- | ------------------- |
-| `false` | `--title-prop` | `titleProp: <bool>` |
+| Default | CLI Override   | API Override         |
+| ------- | -------------- | -------------------- |
+| `false` | `--title-prop` | `titleProp: boolean` |
 
 ## Template
 
 Specify a template file (CLI) or a template function (API) to use. For an example of template, see [the default one](https://github.com/gregberge/svgr/blob/main/packages/babel-plugin-transform-svg-component/src/defaultTemplate.ts).
 
-| Default                                                                                                                      | CLI Override | API Override       |
-| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------ |
+| Default                                                                                                                              | CLI Override | API Override       |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ------------------ |
 | [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/babel-plugin-transform-svg-component/src/defaultTemplate.ts) | `--template` | `template: <func>` |
 
 ## Output Directory
 
 Output files into a directory.
 
-| Default     | CLI Override          | API Override       |
-| ----------- | --------------------- | ------------------ |
-| `undefined` | `--out-dir <dirname>` | `outDir: <string>` |
+| Default     | CLI Override          | API Override     |
+| ----------- | --------------------- | ---------------- |
+| `undefined` | `--out-dir <dirname>` | `outDir: string` |
 
 ## index.js template
 
 Specify a template function (API) to change default index.js output (when --out-dir is used).
 
-| Default                                                                                          | CLI Override       | API Override               |
-| ------------------------------------------------------------------------------------------------ | ------------------ | -------------------------- |
+| Default                                                                                        | CLI Override       | API Override               |
+| ---------------------------------------------------------------------------------------------- | ------------------ | -------------------------- |
 | [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/cli/src/dirCommand.ts) | `--index-template` | indexTemplate: files => '' |
 
 ## index.js file
 
 Disable index.js file generation
 
-| Default | CLI Override | API Override    |
-| ------- | ------------ | --------------- |
-| `false` | `--no-index` | `index: <bool>` |
+| Default | CLI Override | API Override     |
+| ------- | ------------ | ---------------- |
+| `false` | `--no-index` | `index: boolean` |
 
 ## Ignore existing
 
 When used with `--out-dir`, it ignores already existing files.
 
-| Default | CLI Override        | API Override             |
-| ------- | ------------------- | ------------------------ |
-| `false` | `--ignore-existing` | `ignoreExisting: <bool>` |
+| Default | CLI Override        | API Override              |
+| ------- | ------------------- | ------------------------- |
+| `false` | `--ignore-existing` | `ignoreExisting: boolean` |
 
 ## Filename case
 
 Specify a custom filename case. Possible values: `pascal` for PascalCase, `kebab` for kebab-case or `camel` for camelCase.
 
-| Default  | CLI Override      | API Override             |
-| -------- | ----------------- | ------------------------ |
-| `pascal` | `--filename-case` | `filenameCase: <string>` |
+| Default  | CLI Override      | API Override           |
+| -------- | ----------------- | ---------------------- |
+| `pascal` | `--filename-case` | `filenameCase: string` |
 
 ## File extension
 
 Specify a custom extension for generated files.
 
-| Default | CLI Override | API Override    |
-| ------- | ------------ | --------------- |
-| `"js"`  | `--ext`      | `ext: <string>` |
+| Default | CLI Override | API Override  |
+| ------- | ------------ | ------------- |
+| `"js"`  | `--ext`      | `ext: string` |
