@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.1](https://github.com/gregberge/svgr/compare/v6.2.0...v6.2.1) (2022-01-30)
+
+
+### Bug Fixes
+
+* do not transform mask-type ([#673](https://github.com/gregberge/svgr/issues/673)) ([6e58f2c](https://github.com/gregberge/svgr/commit/6e58f2cb456bf5fbfa011ab8f8154333c0724e34)), closes [#643](https://github.com/gregberge/svgr/issues/643)
+
+
+
+
+
 # [5.5.0](https://github.com/gregberge/svgr/tree/master/packages/hast-util-to-babel-ast/compare/v5.4.0...v5.5.0) (2020-11-15)
 
 **Note:** Version bump only for package @svgr/hast-util-to-babel-ast

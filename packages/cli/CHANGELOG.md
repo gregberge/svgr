@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.1](https://github.com/gregberge/svgr/compare/v6.2.0...v6.2.1) (2022-01-30)
+
+
+### Bug Fixes
+
+* use .ts extension for generated index ([#670](https://github.com/gregberge/svgr/issues/670)) ([d19abe2](https://github.com/gregberge/svgr/commit/d19abe207013f4e880a78f236e9f75b0151258da)), closes [#462](https://github.com/gregberge/svgr/issues/462)
+
+
+
+
+
 # [6.2.0](https://github.com/gregberge/svgr/compare/v6.1.2...v6.2.0) (2022-01-10)
 
 
