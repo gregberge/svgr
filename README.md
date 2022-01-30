@@ -14,7 +14,9 @@
 
 [**Watch the talk at React Europe**](https://www.youtube.com/watch?v=geKCzi7ZPkA)
 
-SVGR transforms SVG into ready to use components. It is part of create-react-app and makes SVG integration into your React projects easy.
+SVGR is an universal tool to transform SVG into React components.
+
+SVGR takes a raw SVG and transforms it into a ready-to-use React component.
 
 ## [Docs](https://react-svgr.com)
 
@@ -26,12 +28,11 @@ Quicklinks to some of the most-visited pages:
 - [**Getting started**](https://react-svgr.com/docs/getting-started/)
 - [CLI usage](https://react-svgr.com/docs/cli/)
 - [Webpack usage](https://react-svgr.com/docs/webpack/)
-- [Node usage](https://react-svgr.com/docs/node-api/)
-- [VS-Code Extension](https://marketplace.visualstudio.com/items?itemName=NathHorrigan.code-svgr)
+- [Node.js usage](https://react-svgr.com/docs/node-api/)
 
 ## Example
 
-**Take an icon.svg**:
+**Take a SVG**:
 
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
@@ -70,10 +71,10 @@ Quicklinks to some of the most-visited pages:
 **Run SVGR**
 
 ```sh
-npx @svgr/cli --icon --replace-attr-values "#063855=currentColor" icon.svg
+npx @svgr/cli --icon --replace-attr-values "#063855=currentColor" -- icon.svg
 ```
 
-**Output**
+**Get an optimized React component**
 
 ```js
 import * as React from 'react'
@@ -91,13 +92,10 @@ export default SvgComponent
 
 SVGR is a MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of these awesome [backers](/BACKERS.md). If you'd like to join them, please consider:
 
-- [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr).
+- [Sponsor me on GitHub](https://github.com/sponsors/gregberge)
+- [Become a backer or sponsor on OpenCollective](https://opencollective.com/svgr)
 
-### Gold Sponsors
-
-Gold Sponsors are those who have pledged \$100/month and more to SVGR.
-
-[![gold-sponsors](https://opencollective.com/svgr/tiers/gold-sponsors.svg?avatarHeight=120&width=600)](https://opencollective.com/svgr/order/6010)
+Learn more about [supporting SVGR](https://react-svgr.com/docs/supporting-svgr/).
 
 ## Contributing
 
@@ -105,7 +103,7 @@ Check out the [contributing guidelines](CONTRIBUTING.md)
 
 # License
 
-Licensed under the MIT License, Copyright © 2017-present Smooth Code.
+Licensed under the MIT License, Copyright © 2017-present Greg Bergé.
 
 See [LICENSE](./LICENSE) for more information.
 
