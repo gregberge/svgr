@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 import { transform, Config } from '@svgr/core'
-import { createFilter, CreateFilter } from 'rollup-pluginutils'
+import { createFilter, CreateFilter } from '@rollup/pluginutils'
 import { transformAsync, createConfigItem } from '@babel/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
