@@ -1,7 +1,6 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+**WARNING**: this file is an incomplete list of versions, and not all breaking changes are documented here (eg. 6.0.0). For a full list of releases and release notes, go to the [project's releases page](https://github.com/gregberge/svgr/releases) on Github.
 
 ## [6.2.1](https://github.com/gregberge/svgr/compare/v6.2.0...v6.2.1) (2022-01-30)
 
