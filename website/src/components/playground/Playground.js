@@ -73,17 +73,28 @@ const FloatingAd = styled.div`
   width: 400;
 `
 
-const EditorTitle = styled.h3`
+const EditorTitleContainer = styled.div`
   padding: 0 2;
   font-size: 12;
   height: 28;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   text-transform: uppercase;
-  font-weight: bold;
   border-bottom: 1;
   border-color: layout-border;
   color: on-background-light;
+`
+
+const EditorTitle = styled.h3`
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+`
+
+const EditorTitleButton = styled.button`
+  border-radius: 4;
+  height: 20;
 `
 
 const InnerDialog = styled.div`
@@ -236,6 +247,9 @@ const ClientOnly = ({ children }) => {
   return visible ? children : null
 }
 
+const Copy = 'Copy'
+const Copied = 'Copied!'
+
 export function Playground() {
   const [input, setInput] = useState(defaultSvg)
   const [output, setOutput] = useState('')
@@ -279,6 +293,20 @@ export function Playground() {
     transform()
   }, [input, JSON.stringify(state)])
 
+  const handleButtonClick = (event) => {
+    navigator.clipboard.writeText(output)
+    !dialogDisplayedRef.current &&
+      setTimeout(() => {
+        dialog.show()
+        dialogDisplayedRef.current = true
+      }, 50)
+    const button = event.target
+    button.innerText = Copied
+    setTimeout(() => {
+      button.innerText = Copy
+    }, 2000)
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -292,7 +320,9 @@ export function Playground() {
           <Suspense fallback={<Loading />}>
             <Editors>
               <EditorContainer>
-                <EditorTitle>SVG input</EditorTitle>
+                <EditorTitleContainer>
+                  <EditorTitle>SVG input</EditorTitle>
+                </EditorTitleContainer>
                 <DropArea onChange={setInput}>
                   <Editor
                     name="input"
@@ -315,7 +345,12 @@ export function Playground() {
                   }
                 }}
               >
-                <EditorTitle>JSX output</EditorTitle>
+                <EditorTitleContainer>
+                  <EditorTitle>JSX output</EditorTitle>
+                  <EditorTitleButton onClick={handleButtonClick}>
+                    {Copy}
+                  </EditorTitleButton>
+                </EditorTitleContainer>
                 <Editor name="output" mode="jsx" readOnly value={output} />
               </EditorContainer>
             </Editors>
