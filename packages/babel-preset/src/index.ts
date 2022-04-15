@@ -32,6 +32,20 @@ const getAttributeValue = (value: string) => {
   return { value: literal ? value.slice(1, -1) : value, literal }
 }
 
+const parseRegExp = (value: string) => {
+  try {
+    const match = value.match(/^\/(.*)\/{1}([dgimsuy]{0,7})$/)
+
+    if (!match) return null
+
+    const [, pattern, flags] = match
+
+    return new RegExp(pattern, flags)
+  } catch (error) {
+    return null
+  }
+}
+
 const propsToAttributes = (props: { [key: string]: string }): Attribute[] => {
   return Object.keys(props).map((name) => {
     const { literal, value } = getAttributeValue(props[name])
@@ -42,7 +56,10 @@ const propsToAttributes = (props: { [key: string]: string }): Attribute[] => {
 function replaceMapToValues(replaceMap: { [key: string]: string }): Value[] {
   return Object.keys(replaceMap).map((value) => {
     const { literal, value: newValue } = getAttributeValue(replaceMap[value])
-    return { value, newValue, literal }
+
+    const regExp = parseRegExp(value) ?? undefined
+
+    return { value, newValue, literal, regExp }
   })
 }
 

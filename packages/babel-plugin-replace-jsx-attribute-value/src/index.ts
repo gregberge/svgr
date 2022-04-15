@@ -5,13 +5,14 @@ export interface Value {
   value: string
   newValue: string | boolean | number
   literal?: boolean
+  regExp?: RegExp
 }
 
 export interface Options {
   values: Value[]
 }
 
-const addJSXAttribute = (api: ConfigAPI, opts: Options) => {
+const replaceJSXAttribute = (api: ConfigAPI, opts: Options) => {
   const getAttributeValue = (
     value: string | boolean | number,
     literal?: boolean,
@@ -43,8 +44,13 @@ const addJSXAttribute = (api: ConfigAPI, opts: Options) => {
         const valuePath = path.get('value')
         if (!valuePath.isStringLiteral()) return
 
-        opts.values.forEach(({ value, newValue, literal }) => {
-          if (!valuePath.isStringLiteral({ value })) return
+        opts.values.forEach(({ value, newValue, literal, regExp }) => {
+          if (regExp) {
+            if (!valuePath.node.value.match(regExp)) return
+          } else {
+            if (!valuePath.isStringLiteral({ value })) return
+          }
+
           const attributeValue = getAttributeValue(newValue, literal)
           if (attributeValue) {
             valuePath.replaceWith(attributeValue)
@@ -55,4 +61,4 @@ const addJSXAttribute = (api: ConfigAPI, opts: Options) => {
   }
 }
 
-export default addJSXAttribute
+export default replaceJSXAttribute

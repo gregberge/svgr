@@ -23,5 +23,18 @@ describe('plugin', () => {
         values: [{ value: 'cool', newValue: 'props.color', literal: true }],
       }),
     ).toMatchInlineSnapshot(`"<div something={props.color} />;"`)
+
+    expect(
+      testPlugin('<div something="#FFF" />', {
+        values: [
+          {
+            value: '/#([0-9A-F]{3}){1,2}/g',
+            regExp: /#([0-9A-F]{3}){1,2}/g,
+            newValue: 'props.color',
+            literal: true,
+          },
+        ],
+      }),
+    ).toMatchInlineSnapshot(`"<div something={props.color} />;"`)
   })
 })

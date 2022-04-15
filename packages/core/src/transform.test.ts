@@ -309,6 +309,7 @@ describe('convert', () => {
       { ref: true },
       { svgProps: { a: 'b', b: '{props.b}' } },
       { replaceAttrValues: { none: 'black' } },
+      { replaceAttrValues: { '/^(none)$/g': 'black' } },
       { replaceAttrValues: { none: '{black}' } },
       { svgo: false },
       { prettier: false },

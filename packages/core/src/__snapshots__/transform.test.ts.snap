@@ -349,6 +349,27 @@ export default ForwardRef
 "
 `;
 
+exports[`convert config accepts options {"replaceAttrValues":{"/^(none)$/g":"black"}} 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = (props) => (
+  <svg width={88} height={88} xmlns=\\"http://www.w3.org/2000/svg\\" {...props}>
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"black\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37 37 51M51 51 37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert config accepts options {"replaceAttrValues":{"none":"{black}"}} 1`] = `
 "import * as React from 'react'
 

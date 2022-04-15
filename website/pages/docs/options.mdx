@@ -158,7 +158,8 @@ Replace an attribute value by an other. The main usage of this option is to chan
 | ------- | --------------------------------- | ---------------------------------------------- |
 | `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { [key: string]: string }` |
 
-> You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particularly useful with a custom template.
+> You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particularly useful with a custom template. <br />
+> Also you can use regular expression to replace the value: `{ '/#([0-9A-F]{3}){1,2}/g': "{props.color}" }`
 
 ## SVG props
 
