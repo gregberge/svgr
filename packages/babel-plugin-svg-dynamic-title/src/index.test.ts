@@ -1,7 +1,7 @@
 import { transform } from '@babel/core'
 import plugin from '.'
 
-const testTagPlugin = (code: string, tag: string) => {
+const testPlugin = (code: string, tag: string) => {
   const result = transform(code, {
     plugins: ['@babel/plugin-syntax-jsx', () => plugin(tag)],
     configFile: false,
@@ -11,11 +11,11 @@ const testTagPlugin = (code: string, tag: string) => {
 }
 
 const testTitlePlugin = (code: string) => {
-  return testTagPlugin(code, 'title')
+  return testPlugin(code, 'title')
 }
 
 const testDescPlugin = (code: string) => {
-  return testTagPlugin(code, 'desc')
+  return testPlugin(code, 'desc')
 }
 
 describe('title plugin', () => {
