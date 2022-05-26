@@ -10,7 +10,8 @@
     "format": "prettier --write \"**/*.{js,json,md}\"",
     "lint": "eslint .",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "test:c": "jest packages/babel-plugin-svg-dynamic-title --runInBand"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
