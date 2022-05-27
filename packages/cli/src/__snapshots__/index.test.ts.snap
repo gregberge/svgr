@@ -155,6 +155,27 @@ export default SvgFile
 "
 `;
 
+exports[`cli should support various args: --desc-prop 1`] = `
+"import * as React from 'react'
+
+const SvgFile = ({ desc, descId, ...props }) => (
+  <svg
+    width={48}
+    height={1}
+    xmlns=\\"http://www.w3.org/2000/svg\\"
+    aria-describedby={descId}
+    {...props}
+  >
+    {desc ? <desc id={descId}>{desc}</desc> : null}
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+export default SvgFile
+
+"
+`;
+
 exports[`cli should support various args: --expand-props none 1`] = `
 "import * as React from 'react'
 
@@ -480,6 +501,37 @@ const SvgFile = ({ title, titleId, ...props }) => (
 )
 
 export default SvgFile
+
+"
+`;
+
+exports[`cli should support various args: --typescript --ref --desc-prop 1`] = `
+"import * as React from 'react'
+import { SVGProps, Ref, forwardRef } from 'react'
+interface SVGRProps {
+  desc?: string;
+  descId?: string;
+}
+
+const SvgFile = (
+  { desc, descId, ...props }: SVGProps<SVGSVGElement> & SVGRProps,
+  ref: Ref<SVGSVGElement>,
+) => (
+  <svg
+    width={48}
+    height={1}
+    xmlns=\\"http://www.w3.org/2000/svg\\"
+    ref={ref}
+    aria-describedby={descId}
+    {...props}
+  >
+    {desc ? <desc id={descId}>{desc}</desc> : null}
+    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  </svg>
+)
+
+const ForwardRef = forwardRef(SvgFile)
+export default ForwardRef
 
 "
 `;
