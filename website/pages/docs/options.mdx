@@ -178,6 +178,14 @@ Add title tag via title property. If titleProp is set to true and no title is pr
 | ------- | -------------- | -------------------- |
 | `false` | `--title-prop` | `titleProp: boolean` |
 
+## Description
+
+Add desc tag via title property. If descProp is set to true and no description is provided (`desc={undefined}`) at render time, this will fallback to an existing desc element in the svg if exists.
+
+| Default | CLI Override  | API Override        |
+| ------- | ------------- | ------------------- |
+| `false` | `--desc-prop` | `descProp: boolean` |
+
 ## Template
 
 Specify a template file (CLI) or a template function (API) to use. For an example of template, see [the default one](https://github.com/gregberge/svgr/blob/main/packages/babel-plugin-transform-svg-component/src/defaultTemplate.ts).
