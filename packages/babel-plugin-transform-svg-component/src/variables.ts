@@ -125,62 +125,39 @@ export const getVariables = ({
   if (opts.titleProp || opts.descProp) {
     const properties = []
     const propertySignatures = []
-    if (opts.titleProp) {
-      properties.push(
-        t.objectProperty(
-          t.identifier('title'),
-          t.identifier('title'),
-          false,
-          true,
-        ),
-        t.objectProperty(
-          t.identifier('titleId'),
-          t.identifier('titleId'),
-          false,
-          true,
-        ),
+    const createProperty = (attr: string) => {
+      return t.objectProperty(
+        t.identifier(attr),
+        t.identifier(attr),
+        false,
+        true,
       )
+    }
+    const createSignature = (attr: string) => {
+      return tsOptionalPropertySignature(
+        t.identifier(attr),
+        t.tsTypeAnnotation(t.tsStringKeyword()),
+      )
+    }
+
+    if (opts.titleProp) {
+      properties.push(createProperty('title'), createProperty('titleId'))
 
       if (opts.typescript) {
         propertySignatures.push(
-          tsOptionalPropertySignature(
-            t.identifier('title'),
-            t.tsTypeAnnotation(t.tsStringKeyword()),
-          ),
-          tsOptionalPropertySignature(
-            t.identifier('titleId'),
-            t.tsTypeAnnotation(t.tsStringKeyword()),
-          ),
+          createSignature('title'),
+          createSignature('titleId'),
         )
       }
     }
 
     if (opts.descProp) {
-      properties.push(
-        t.objectProperty(
-          t.identifier('desc'),
-          t.identifier('desc'),
-          false,
-          true,
-        ),
-        t.objectProperty(
-          t.identifier('descId'),
-          t.identifier('descId'),
-          false,
-          true,
-        ),
-      )
+      properties.push(createProperty('desc'), createProperty('descId'))
 
       if (opts.typescript) {
         propertySignatures.push(
-          tsOptionalPropertySignature(
-            t.identifier('desc'),
-            t.tsTypeAnnotation(t.tsStringKeyword()),
-          ),
-          tsOptionalPropertySignature(
-            t.identifier('descId'),
-            t.tsTypeAnnotation(t.tsStringKeyword()),
-          ),
+          createSignature('desc'),
+          createSignature('descId'),
         )
       }
     }

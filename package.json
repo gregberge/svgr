@@ -10,9 +10,7 @@
     "format": "prettier --write \"**/*.{js,json,md}\"",
     "lint": "eslint .",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
-    "test": "jest --runInBand",
-    "test:c": "jest packages/cli --runInBand",
-    "test:cw": "jest packages/cli --runInBand --watch"
+    "test": "jest --runInBand"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
