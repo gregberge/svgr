@@ -1,7 +1,7 @@
 import { transform } from '@babel/core'
 import plugin from '.'
 
-const testPlugin = (code: string, tag: string = 'title') => {
+const testPlugin = (code: string, tag = 'title') => {
   const result = transform(code, {
     plugins: ['@babel/plugin-syntax-jsx', tag ? () => plugin(tag) : plugin],
     configFile: false,

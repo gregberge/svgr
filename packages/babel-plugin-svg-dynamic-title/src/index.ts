@@ -4,7 +4,7 @@ import { NodePath, types as t } from '@babel/core'
 const elements = ['svg', 'Svg']
 
 const createTagElement = (
-  tag: string = 'title',
+  tag = 'title',
   children: t.JSXExpressionContainer[] = [],
   attributes: (t.JSXAttribute | t.JSXSpreadAttribute)[] = [],
 ) => {
