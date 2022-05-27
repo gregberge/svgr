@@ -122,21 +122,70 @@ export const getVariables = ({
     )
   }
 
-  if (opts.titleProp) {
-    const prop = t.objectPattern([
-      t.objectProperty(
-        t.identifier('title'),
-        t.identifier('title'),
-        false,
-        true,
-      ),
-      t.objectProperty(
-        t.identifier('titleId'),
-        t.identifier('titleId'),
-        false,
-        true,
-      ),
-    ])
+  if (opts.titleProp || opts.descProp) {
+    const properties = []
+    const propertySignatures = []
+    if (opts.titleProp) {
+      properties.push(
+        t.objectProperty(
+          t.identifier('title'),
+          t.identifier('title'),
+          false,
+          true,
+        ),
+        t.objectProperty(
+          t.identifier('titleId'),
+          t.identifier('titleId'),
+          false,
+          true,
+        ),
+      )
+
+      if (opts.typescript) {
+        propertySignatures.push(
+          tsOptionalPropertySignature(
+            t.identifier('title'),
+            t.tsTypeAnnotation(t.tsStringKeyword()),
+          ),
+          tsOptionalPropertySignature(
+            t.identifier('titleId'),
+            t.tsTypeAnnotation(t.tsStringKeyword()),
+          ),
+        )
+      }
+    }
+
+    if (opts.descProp) {
+      properties.push(
+        t.objectProperty(
+          t.identifier('desc'),
+          t.identifier('desc'),
+          false,
+          true,
+        ),
+        t.objectProperty(
+          t.identifier('descId'),
+          t.identifier('descId'),
+          false,
+          true,
+        ),
+      )
+
+      if (opts.typescript) {
+        propertySignatures.push(
+          tsOptionalPropertySignature(
+            t.identifier('desc'),
+            t.tsTypeAnnotation(t.tsStringKeyword()),
+          ),
+          tsOptionalPropertySignature(
+            t.identifier('descId'),
+            t.tsTypeAnnotation(t.tsStringKeyword()),
+          ),
+        )
+      }
+    }
+
+    const prop = t.objectPattern(properties)
     props.push(prop)
     if (opts.typescript) {
       interfaces.push(
@@ -144,16 +193,7 @@ export const getVariables = ({
           t.identifier('SVGRProps'),
           null,
           null,
-          t.tSInterfaceBody([
-            tsOptionalPropertySignature(
-              t.identifier('title'),
-              t.tsTypeAnnotation(t.tsStringKeyword()),
-            ),
-            tsOptionalPropertySignature(
-              t.identifier('titleId'),
-              t.tsTypeAnnotation(t.tsStringKeyword()),
-            ),
-          ]),
+          t.tSInterfaceBody(propertySignatures),
         ),
       )
       prop.typeAnnotation = t.tsTypeAnnotation(
