@@ -45,7 +45,7 @@ const addTagIdAttribute = (
   return attributes
 }
 
-const plugin = (_: ConfigAPI, opts: Options = { tag: 'title' }) => ({
+const plugin = (_: ConfigAPI, opts: Options) => ({
   visitor: {
     JSXElement(path: NodePath<t.JSXElement>) {
       if (!elements.length) return
