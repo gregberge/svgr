@@ -131,9 +131,11 @@ describe('cli', () => {
     ['--no-svgo'],
     ['--no-prettier'],
     ['--title-prop'],
+    ['--desc-prop'],
     ['--typescript'],
     ['--typescript --ref'],
     ['--typescript --ref --title-prop'],
+    ['--typescript --ref --desc-prop'],
   ])(
     'should support various args',
     async (args) => {

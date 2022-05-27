@@ -146,6 +146,7 @@ program
   )
   .option('--no-index', 'disable index file generation')
   .option('--title-prop', 'create a title element linked with props')
+  .option('--desc-prop', 'create a desc element linked with props')
   .option(
     '--prettier-config <fileOrJson>',
     'Prettier config',
