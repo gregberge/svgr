@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { NodePath, types as t } from '@babel/core'
+import { ConfigAPI, NodePath, types as t } from '@babel/core'
 
 const elements = ['svg', 'Svg']
+
+export interface Options {
+  tag: string
+}
 
 const createTagElement = (
   tag: string,
@@ -41,7 +45,7 @@ const addTagIdAttribute = (
   return attributes
 }
 
-const plugin = (tag = 'title') => ({
+const plugin = (_: ConfigAPI, opts: Options = { tag: 'title' }) => ({
   visitor: {
     JSXElement(path: NodePath<t.JSXElement>) {
       if (!elements.length) return
@@ -59,21 +63,21 @@ const plugin = (tag = 'title') => ({
       const getTagElement = (
         existingTitle?: t.JSXElement,
       ): t.JSXExpressionContainer => {
-        const tagExpression = t.identifier(tag)
+        const tagExpression = t.identifier(opts.tag)
         if (existingTitle) {
           existingTitle.openingElement.attributes = addTagIdAttribute(
-            tag,
+            opts.tag,
             existingTitle.openingElement.attributes,
           )
         }
         const conditionalTitle = t.conditionalExpression(
           tagExpression,
           createTagElement(
-            tag,
+            opts.tag,
             [t.jsxExpressionContainer(tagExpression)],
             existingTitle
               ? existingTitle.openingElement.attributes
-              : [createTagIdAttribute(tag)],
+              : [createTagIdAttribute(opts.tag)],
           ),
           t.nullLiteral(),
         )
@@ -103,7 +107,7 @@ const plugin = (tag = 'title') => ({
         if (!childPath.isJSXElement()) return false
         const name = childPath.get('openingElement').get('name')
         if (!name.isJSXIdentifier()) return false
-        if (name.node.name !== tag) return false
+        if (name.node.name !== opts.tag) return false
         tagElement = getTagElement(childPath.node)
         childPath.replaceWith(tagElement)
         return true
