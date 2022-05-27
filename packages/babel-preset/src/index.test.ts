@@ -83,6 +83,55 @@ describe('preset', () => {
     `)
   })
 
+  it('handles descProp', () => {
+    expect(
+      testPreset('<svg></svg>', {
+        descProp: true,
+      }),
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+
+      const SvgComponent = ({
+        desc,
+        descId
+      }) => <svg aria-describedby={descId}>{desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
+
+      export default SvgComponent;"
+    `)
+  })
+  it('handles descProp and fallback on existing desc', () => {
+    // testing when existing desc has string as chilren
+    expect(
+      testPreset(`<svg><desc>Hello</desc></svg>`, {
+        descProp: true,
+      }),
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+
+      const SvgComponent = ({
+        desc,
+        descId
+      }) => <svg aria-describedby={descId}>{desc === undefined ? <desc id={descId}>Hello</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
+
+      export default SvgComponent;"
+    `)
+    // testing when existing desc has JSXExpression as children
+    expect(
+      testPreset(`<svg><desc>{"Hello"}</desc></svg>`, {
+        descProp: true,
+      }),
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+
+      const SvgComponent = ({
+        desc,
+        descId
+      }) => <svg aria-describedby={descId}>{desc === undefined ? <desc id={descId}>{\\"Hello\\"}</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
+
+      export default SvgComponent;"
+    `)
+  })
+
   it('handles replaceAttrValues', () => {
     expect(
       testPreset('<svg a="#000" b="#fff" />', {

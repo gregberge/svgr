@@ -38,6 +38,7 @@ const jsxPlugin: Plugin = (code, config, state) => {
   const svgPresetOptions: SvgrPresetOptions = {
     ref: config.ref,
     titleProp: config.titleProp,
+    descProp: config.descProp,
     expandProps: config.expandProps,
     dimensions: config.dimensions,
     icon: config.icon,

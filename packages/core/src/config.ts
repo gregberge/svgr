@@ -9,6 +9,7 @@ import type { State } from './state'
 export interface Config {
   ref?: boolean
   titleProp?: boolean
+  descProp?: boolean
   expandProps?: boolean | 'start' | 'end'
   dimensions?: boolean
   icon?: boolean | string | number
@@ -59,6 +60,7 @@ export const DEFAULT_CONFIG: Config = {
   template: undefined,
   index: false,
   titleProp: false,
+  descProp: false,
   runtimeConfig: true,
   namedExport: 'ReactComponent',
   exportType: 'default',

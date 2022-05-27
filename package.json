@@ -11,8 +11,8 @@
     "lint": "eslint .",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest --runInBand",
-    "test:c": "jest packages/babel-plugin-transform-svg-component --runInBand",
-    "test:cw": "jest packages/babel-plugin-transform-svg-component --runInBand --watch"
+    "test:c": "jest packages/babel-preset --runInBand",
+    "test:cw": "jest packages/babel-preset --runInBand --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
