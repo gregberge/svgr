@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ConfigAPI, NodePath, types as t } from '@babel/core'
+import { NodePath, types as t } from '@babel/core'
 
 const elements = ['svg', 'Svg']
 
 export interface Options {
   tag: 'title' | 'desc'
+}
+
+interface State {
+  opts: Options
 }
 
 const createTagElement = (
@@ -45,9 +49,10 @@ const addTagIdAttribute = (
   return attributes
 }
 
-const plugin = (_: ConfigAPI, opts: Options) => ({
+const plugin = () => ({
   visitor: {
-    JSXElement(path: NodePath<t.JSXElement>) {
+    JSXElement(path: NodePath<t.JSXElement>, state: State) {
+      const tag = state.opts.tag
       if (!elements.length) return
 
       const openingElement = path.get('openingElement')
@@ -63,21 +68,21 @@ const plugin = (_: ConfigAPI, opts: Options) => ({
       const getTagElement = (
         existingTitle?: t.JSXElement,
       ): t.JSXExpressionContainer => {
-        const tagExpression = t.identifier(opts.tag)
+        const tagExpression = t.identifier(tag)
         if (existingTitle) {
           existingTitle.openingElement.attributes = addTagIdAttribute(
-            opts.tag,
+            tag,
             existingTitle.openingElement.attributes,
           )
         }
         const conditionalTitle = t.conditionalExpression(
           tagExpression,
           createTagElement(
-            opts.tag,
+            tag,
             [t.jsxExpressionContainer(tagExpression)],
             existingTitle
               ? existingTitle.openingElement.attributes
-              : [createTagIdAttribute(opts.tag)],
+              : [createTagIdAttribute(tag)],
           ),
           t.nullLiteral(),
         )
@@ -107,7 +112,7 @@ const plugin = (_: ConfigAPI, opts: Options) => ({
         if (!childPath.isJSXElement()) return false
         const name = childPath.get('openingElement').get('name')
         if (!name.isJSXIdentifier()) return false
-        if (name.node.name !== opts.tag) return false
+        if (name.node.name !== tag) return false
         tagElement = getTagElement(childPath.node)
         childPath.replaceWith(tagElement)
         return true
