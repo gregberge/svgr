@@ -4,7 +4,7 @@ import { NodePath, types as t } from '@babel/core'
 const elements = ['svg', 'Svg']
 
 const createTagElement = (
-  tag = 'title',
+  tag: string,
   children: t.JSXExpressionContainer[] = [],
   attributes: (t.JSXAttribute | t.JSXSpreadAttribute)[] = [],
 ) => {
@@ -41,7 +41,7 @@ const addTagIdAttribute = (
   return attributes
 }
 
-const plugin = (tag: string) => ({
+const plugin = (tag = 'title') => ({
   visitor: {
     JSXElement(path: NodePath<t.JSXElement>) {
       if (!elements.length) return
