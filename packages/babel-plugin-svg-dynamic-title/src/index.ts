@@ -4,11 +4,11 @@ import { ConfigAPI, NodePath, types as t } from '@babel/core'
 const elements = ['svg', 'Svg']
 
 export interface Options {
-  tag: string
+  tag: 'title' | 'desc'
 }
 
 const createTagElement = (
-  tag: string,
+  tag: Options['tag'],
   children: t.JSXExpressionContainer[] = [],
   attributes: (t.JSXAttribute | t.JSXSpreadAttribute)[] = [],
 ) => {
@@ -20,14 +20,14 @@ const createTagElement = (
   )
 }
 
-const createTagIdAttribute = (tag: string) =>
+const createTagIdAttribute = (tag: Options['tag']) =>
   t.jsxAttribute(
     t.jsxIdentifier('id'),
     t.jsxExpressionContainer(t.identifier(`${tag}Id`)),
   )
 
 const addTagIdAttribute = (
-  tag: string,
+  tag: Options['tag'],
   attributes: (t.JSXAttribute | t.JSXSpreadAttribute)[],
 ) => {
   const existingId = attributes.find(
