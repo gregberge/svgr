@@ -3,8 +3,10 @@ import { NodePath, types as t } from '@babel/core'
 
 const elements = ['svg', 'Svg']
 
+type tag = 'title' | 'desc'
+
 export interface Options {
-  tag: 'title' | 'desc'
+  tag: tag | null
 }
 
 interface State {
@@ -12,7 +14,7 @@ interface State {
 }
 
 const createTagElement = (
-  tag: Options['tag'],
+  tag: tag,
   children: t.JSXExpressionContainer[] = [],
   attributes: (t.JSXAttribute | t.JSXSpreadAttribute)[] = [],
 ) => {
@@ -24,14 +26,14 @@ const createTagElement = (
   )
 }
 
-const createTagIdAttribute = (tag: Options['tag']) =>
+const createTagIdAttribute = (tag: tag) =>
   t.jsxAttribute(
     t.jsxIdentifier('id'),
     t.jsxExpressionContainer(t.identifier(`${tag}Id`)),
   )
 
 const addTagIdAttribute = (
-  tag: Options['tag'],
+  tag: tag,
   attributes: (t.JSXAttribute | t.JSXSpreadAttribute)[],
 ) => {
   const existingId = attributes.find(
@@ -52,7 +54,7 @@ const addTagIdAttribute = (
 const plugin = () => ({
   visitor: {
     JSXElement(path: NodePath<t.JSXElement>, state: State) {
-      const tag = state.opts.tag
+      const tag = state.opts.tag || 'title'
       if (!elements.length) return
 
       const openingElement = path.get('openingElement')

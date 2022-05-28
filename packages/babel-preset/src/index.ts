@@ -139,7 +139,7 @@ const plugin = (_: ConfigAPI, opts: Options) => {
   }
 
   if (opts.titleProp) {
-    plugins.push([svgDynamicTitle, { tag: 'title' }])
+    plugins.push(svgDynamicTitle)
   }
 
   if (opts.descProp) {
