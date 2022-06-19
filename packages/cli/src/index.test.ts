@@ -9,6 +9,14 @@ const exec = promisify(execCb)
 
 const svgr = path.join(__dirname, '../bin/svgr')
 
+const sortCliResult = (result: string) => {
+  return result
+    .split(/\n/)
+    .sort((a, b) => a.localeCompare(b))
+    .map((x) => x.toLowerCase())
+    .join('\n')
+}
+
 describe('cli', () => {
   const cli = async (args: string) => {
     const { stdout } = await exec(`${svgr} ${args}`)
@@ -56,32 +64,21 @@ describe('cli', () => {
 
   it('should transform a whole directory and output relative destination paths', async () => {
     const result = await cli('--out-dir __fixtures_build__/whole __fixtures__')
-    const sorted = result
-      .split(/\n/)
-      .sort()
-      .map((x) => x.toLowerCase())
-      .join('\n')
-    expect(sorted).toMatchSnapshot()
+    expect(sortCliResult(result)).toMatchSnapshot()
   })
 
   it('should transform a whole directory with --typescript', async () => {
     const result = await cli(
       '--typescript --out-dir __fixtures_build__/whole __fixtures__',
     )
-    const sorted = result
-      .split(/\n/)
-      .sort()
-      .map((x) => x.toLowerCase())
-      .join('\n')
-    expect(sorted).toMatchSnapshot()
+    expect(sortCliResult(result)).toMatchSnapshot()
   })
 
   it('should suppress output when transforming a directory with a --silent option', async () => {
     const result = await cli(
       '--silent --out-dir __fixtures_build__/whole __fixtures__',
     )
-    const sorted = result.split(/\n/).sort().join('\n')
-    expect(sorted).toMatchSnapshot()
+    expect(sortCliResult(result)).toMatchSnapshot()
   })
 
   it('should support --prettier-config as json', async () => {

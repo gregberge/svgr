@@ -1,7 +1,7 @@
 import { transform } from '@babel/core'
 import plugin, { Options } from '.'
 
-const testPlugin = (code: string, options: Options = {tag: 'title'}) => {
+const testPlugin = (code: string, options: Options = { tag: 'title' }) => {
   const result = transform(code, {
     plugins: ['@babel/plugin-syntax-jsx', [plugin, options]],
     configFile: false,
@@ -19,9 +19,7 @@ describe('title plugin', () => {
 
   it('should add title element and fallback to existing title', () => {
     // testing when the existing title contains a simple string
-    expect(
-      testPlugin(`<svg><title>Hello</title></svg>`),
-    ).toMatchInlineSnapshot(
+    expect(testPlugin(`<svg><title>Hello</title></svg>`)).toMatchInlineSnapshot(
       `"<svg>{title === undefined ? <title id={titleId}>Hello</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;"`,
     )
     // testing when the existing title contains an JSXExpression
@@ -40,24 +38,18 @@ describe('title plugin', () => {
     )
   })
   it('should support empty title', () => {
-    expect(
-      testPlugin('<svg><title></title></svg>'),
-    ).toMatchInlineSnapshot(
+    expect(testPlugin('<svg><title></title></svg>')).toMatchInlineSnapshot(
       `"<svg>{title ? <title id={titleId}>{title}</title> : null}</svg>;"`,
     )
   })
   it('should support self closing title', () => {
-    expect(
-      testPlugin('<svg><title /></svg>'),
-    ).toMatchInlineSnapshot(
+    expect(testPlugin('<svg><title /></svg>')).toMatchInlineSnapshot(
       `"<svg>{title ? <title id={titleId}>{title}</title> : null}</svg>;"`,
     )
   })
 
   it('should work if an attribute is already present', () => {
-    expect(
-      testPlugin('<svg><foo /></svg>'),
-    ).toMatchInlineSnapshot(
+    expect(testPlugin('<svg><foo /></svg>')).toMatchInlineSnapshot(
       `"<svg>{title ? <title id={titleId}>{title}</title> : null}<foo /></svg>;"`,
     )
   })

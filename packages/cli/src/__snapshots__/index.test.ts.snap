@@ -608,10 +608,10 @@ exports[`cli should suppress output when transforming a directory with a --silen
 
 exports[`cli should transform a whole directory and output relative destination paths 1`] = `
 "
-__fixtures__/cased/pascalcase.svg -> __fixtures_build__/whole/cased/pascalcase.js
 __fixtures__/cased/camelcase.svg -> __fixtures_build__/whole/cased/camelcase.js
 __fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/kebabcase.js
 __fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/multipledashes.js
+__fixtures__/cased/pascalcase.svg -> __fixtures_build__/whole/cased/pascalcase.js
 __fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/skype.js
 __fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/telegram.js
 __fixtures__/nesting/a/c/three.svg -> __fixtures_build__/whole/nesting/a/c/three.js
@@ -627,10 +627,10 @@ __fixtures__/withsvgrrc/file.svg -> __fixtures_build__/whole/withsvgrrc/file.js"
 
 exports[`cli should transform a whole directory with --typescript 1`] = `
 "
-__fixtures__/cased/pascalcase.svg -> __fixtures_build__/whole/cased/pascalcase.tsx
 __fixtures__/cased/camelcase.svg -> __fixtures_build__/whole/cased/camelcase.tsx
 __fixtures__/cased/kebab-case.svg -> __fixtures_build__/whole/cased/kebabcase.tsx
 __fixtures__/cased/multiple---dashes.svg -> __fixtures_build__/whole/cased/multipledashes.tsx
+__fixtures__/cased/pascalcase.svg -> __fixtures_build__/whole/cased/pascalcase.tsx
 __fixtures__/complex/skype.svg -> __fixtures_build__/whole/complex/skype.tsx
 __fixtures__/complex/telegram.svg -> __fixtures_build__/whole/complex/telegram.tsx
 __fixtures__/nesting/a/c/three.svg -> __fixtures_build__/whole/nesting/a/c/three.tsx

@@ -6,6 +6,6 @@
     "test": "mocha --loader=./mock-loader.js example.test.js"
   },
   "devDependencies": {
-    "mocha": "^9.1.3"
+    "mocha": "^10.0.0"
   }
 }
