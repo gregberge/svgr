@@ -35,6 +35,7 @@ Options:
   --index-template <file>          specify a custom index.js template to use
   --no-index                       disable index file generation
   --title-prop                     create a title element linked with props
+  --desc-prop                      create a desc element linked with props
   --prettier-config <fileOrJson>   Prettier config
   --no-prettier                    disable Prettier
   --svgo-config <fileOrJson>       SVGO config

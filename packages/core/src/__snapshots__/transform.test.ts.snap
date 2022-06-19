@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`convert config accepts options {"descProp":true} 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = ({ desc, descId, ...props }) => (
+  <svg
+    width={88}
+    height={88}
+    xmlns=\\"http://www.w3.org/2000/svg\\"
+    aria-describedby={descId}
+    {...props}
+  >
+    {desc ? <desc id={descId}>{desc}</desc> : null}
+    <g
+      stroke=\\"#063855\\"
+      strokeWidth={2}
+      fill=\\"none\\"
+      fillRule=\\"evenodd\\"
+      strokeLinecap=\\"square\\"
+    >
+      <path d=\\"M51 37 37 51M51 51 37 37\\" />
+    </g>
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert config accepts options {"dimensions":false} 1`] = `
 "import * as React from 'react'
 
@@ -486,6 +514,28 @@ exports[`convert config accepts options {} 1`] = `
 "const noop = () => null
 
 export default noop
+"
+`;
+
+exports[`convert config descProp: without desc added 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = ({ desc, descId, ...props }) => (
+  <svg
+    width={0}
+    height={0}
+    style={{
+      position: 'absolute',
+    }}
+    aria-describedby={descId}
+    {...props}
+  >
+    {desc ? <desc id={descId}>{desc}</desc> : null}
+    <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+  </svg>
+)
+
+export default SvgComponent
 "
 `;
 

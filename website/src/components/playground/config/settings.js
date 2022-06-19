@@ -68,6 +68,13 @@ export const settings = [
     default: false,
   },
   {
+    label: 'Desc prop',
+    name: 'descProp',
+    type: 'boolean',
+    group: 'global',
+    default: false,
+  },
+  {
     label: 'Expand props',
     name: 'expandProps',
     type: 'enum',

@@ -3,25 +3,37 @@ import { NodePath, types as t } from '@babel/core'
 
 const elements = ['svg', 'Svg']
 
-const createTitleElement = (
+type tag = 'title' | 'desc'
+
+export interface Options {
+  tag: tag | null
+}
+
+interface State {
+  opts: Options
+}
+
+const createTagElement = (
+  tag: tag,
   children: t.JSXExpressionContainer[] = [],
   attributes: (t.JSXAttribute | t.JSXSpreadAttribute)[] = [],
 ) => {
-  const title = t.jsxIdentifier('title')
+  const eleName = t.jsxIdentifier(tag)
   return t.jsxElement(
-    t.jsxOpeningElement(title, attributes),
-    t.jsxClosingElement(title),
+    t.jsxOpeningElement(eleName, attributes),
+    t.jsxClosingElement(eleName),
     children,
   )
 }
 
-const createTitleIdAttribute = () =>
+const createTagIdAttribute = (tag: tag) =>
   t.jsxAttribute(
     t.jsxIdentifier('id'),
-    t.jsxExpressionContainer(t.identifier('titleId')),
+    t.jsxExpressionContainer(t.identifier(`${tag}Id`)),
   )
 
-const addTitleIdAttribute = (
+const addTagIdAttribute = (
+  tag: tag,
   attributes: (t.JSXAttribute | t.JSXSpreadAttribute)[],
 ) => {
   const existingId = attributes.find(
@@ -29,19 +41,20 @@ const addTitleIdAttribute = (
   ) as t.JSXAttribute | undefined
 
   if (!existingId) {
-    return [...attributes, createTitleIdAttribute()]
+    return [...attributes, createTagIdAttribute(tag)]
   }
   existingId.value = t.jsxExpressionContainer(
     t.isStringLiteral(existingId.value)
-      ? t.logicalExpression('||', t.identifier('titleId'), existingId.value)
-      : t.identifier('titleId'),
+      ? t.logicalExpression('||', t.identifier(`${tag}Id`), existingId.value)
+      : t.identifier(`${tag}Id`),
   )
   return attributes
 }
 
 const plugin = () => ({
   visitor: {
-    JSXElement(path: NodePath<t.JSXElement>) {
+    JSXElement(path: NodePath<t.JSXElement>, state: State) {
+      const tag = state.opts.tag || 'title'
       if (!elements.length) return
 
       const openingElement = path.get('openingElement')
@@ -54,22 +67,24 @@ const plugin = () => ({
         return
       }
 
-      const getTitleElement = (
+      const getTagElement = (
         existingTitle?: t.JSXElement,
       ): t.JSXExpressionContainer => {
-        const titleExpression = t.identifier('title')
+        const tagExpression = t.identifier(tag)
         if (existingTitle) {
-          existingTitle.openingElement.attributes = addTitleIdAttribute(
+          existingTitle.openingElement.attributes = addTagIdAttribute(
+            tag,
             existingTitle.openingElement.attributes,
           )
         }
         const conditionalTitle = t.conditionalExpression(
-          titleExpression,
-          createTitleElement(
-            [t.jsxExpressionContainer(titleExpression)],
+          tagExpression,
+          createTagElement(
+            tag,
+            [t.jsxExpressionContainer(tagExpression)],
             existingTitle
               ? existingTitle.openingElement.attributes
-              : [createTitleIdAttribute()],
+              : [createTagIdAttribute(tag)],
           ),
           t.nullLiteral(),
         )
@@ -80,7 +95,7 @@ const plugin = () => ({
             t.conditionalExpression(
               t.binaryExpression(
                 '===',
-                titleExpression,
+                tagExpression,
                 t.identifier('undefined'),
               ),
               existingTitle,
@@ -92,25 +107,25 @@ const plugin = () => ({
       }
 
       // store the title element
-      let titleElement: t.JSXExpressionContainer | null = null
+      let tagElement: t.JSXExpressionContainer | null = null
 
       const hasTitle = path.get('children').some((childPath) => {
-        if (childPath.node === titleElement) return false
+        if (childPath.node === tagElement) return false
         if (!childPath.isJSXElement()) return false
         const name = childPath.get('openingElement').get('name')
         if (!name.isJSXIdentifier()) return false
-        if (name.node.name !== 'title') return false
-        titleElement = getTitleElement(childPath.node)
-        childPath.replaceWith(titleElement)
+        if (name.node.name !== tag) return false
+        tagElement = getTagElement(childPath.node)
+        childPath.replaceWith(tagElement)
         return true
       })
 
       // create a title element if not already create
-      titleElement = titleElement || getTitleElement()
+      tagElement = tagElement || getTagElement()
       if (!hasTitle) {
         // path.unshiftContainer is not working well :(
         // path.unshiftContainer('children', titleElement)
-        path.node.children.unshift(titleElement)
+        path.node.children.unshift(tagElement)
         path.replaceWith(path.node)
       }
     },

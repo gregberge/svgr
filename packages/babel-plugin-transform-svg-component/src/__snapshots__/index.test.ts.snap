@@ -97,6 +97,29 @@ const SvgComponent = () => <svg><g /></svg>;
 export default SvgComponent;"
 `;
 
+exports[`plugin javascript with "descProp" adds "desc" and "descId" prop 1`] = `
+"import * as React from \\"react\\";
+
+const SvgComponent = ({
+  desc,
+  descId
+}) => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript with "descProp" and "expandProps" adds "desc", "descId" props and expands props 1`] = `
+"import * as React from \\"react\\";
+
+const SvgComponent = ({
+  desc,
+  descId,
+  ...props
+}) => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
 exports[`plugin javascript with "expandProps" add props 1`] = `
 "import * as React from \\"react\\";
 
@@ -194,7 +217,21 @@ const ForwardRef = forwardRef(SvgComponent);
 export default ForwardRef;"
 `;
 
-exports[`plugin javascript with "titleProp" adds "titleProp" and "titleId" prop 1`] = `
+exports[`plugin javascript with "titleProp" "descProp" and "expandProps" adds "title", "titleId", "desc", "descId" props and expands props 1`] = `
+"import * as React from \\"react\\";
+
+const SvgComponent = ({
+  title,
+  titleId,
+  desc,
+  descId,
+  ...props
+}) => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript with "titleProp" adds "title" and "titleId" prop 1`] = `
 "import * as React from \\"react\\";
 
 const SvgComponent = ({
@@ -205,7 +242,20 @@ const SvgComponent = ({
 export default SvgComponent;"
 `;
 
-exports[`plugin javascript with "titleProp" and "expandProps" adds "titleProp", "titleId" props and expands props 1`] = `
+exports[`plugin javascript with "titleProp" and "descProp" adds "title", "titleId", "desc", and "descId prop 1`] = `
+"import * as React from \\"react\\";
+
+const SvgComponent = ({
+  title,
+  titleId,
+  desc,
+  descId
+}) => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin javascript with "titleProp" and "expandProps" adds "title", "titleId" props and expands props 1`] = `
 "import * as React from \\"react\\";
 
 const SvgComponent = ({
@@ -325,6 +375,38 @@ const SvgComponent = () => <svg><g /></svg>;
 export default SvgComponent;"
 `;
 
+exports[`plugin typescript with "descProp" adds "desc" and "descId" prop 1`] = `
+"import * as React from \\"react\\";
+interface SVGRProps {
+  desc?: string;
+  descId?: string;
+}
+
+const SvgComponent = ({
+  desc,
+  descId
+}: SVGRProps) => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "descProp" and "expandProps" adds "desc", "descId" props and expands props 1`] = `
+"import * as React from \\"react\\";
+import { SVGProps } from \\"react\\";
+interface SVGRProps {
+  desc?: string;
+  descId?: string;
+}
+
+const SvgComponent = ({
+  desc,
+  descId,
+  ...props
+}: SVGProps<SVGSVGElement> & SVGRProps) => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
 exports[`plugin typescript with "expandProps" add props 1`] = `
 "import * as React from \\"react\\";
 import { SVGProps } from \\"react\\";
@@ -423,7 +505,28 @@ const ForwardRef = forwardRef(SvgComponent);
 export default ForwardRef;"
 `;
 
-exports[`plugin typescript with "titleProp" adds "titleProp" and "titleId" prop 1`] = `
+exports[`plugin typescript with "titleProp" "descProp" and "expandProps" adds "title", "titleId", "desc", "descId" props and expands props 1`] = `
+"import * as React from \\"react\\";
+import { SVGProps } from \\"react\\";
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+  desc?: string;
+  descId?: string;
+}
+
+const SvgComponent = ({
+  title,
+  titleId,
+  desc,
+  descId,
+  ...props
+}: SVGProps<SVGSVGElement> & SVGRProps) => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "titleProp" adds "title" and "titleId" prop 1`] = `
 "import * as React from \\"react\\";
 interface SVGRProps {
   title?: string;
@@ -438,7 +541,26 @@ const SvgComponent = ({
 export default SvgComponent;"
 `;
 
-exports[`plugin typescript with "titleProp" and "expandProps" adds "titleProp", "titleId" props and expands props 1`] = `
+exports[`plugin typescript with "titleProp" and "descProp" adds "title", "titleId", "desc", and "descId prop 1`] = `
+"import * as React from \\"react\\";
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+  desc?: string;
+  descId?: string;
+}
+
+const SvgComponent = ({
+  title,
+  titleId,
+  desc,
+  descId
+}: SVGRProps) => <svg><g /></svg>;
+
+export default SvgComponent;"
+`;
+
+exports[`plugin typescript with "titleProp" and "expandProps" adds "title", "titleId" props and expands props 1`] = `
 "import * as React from \\"react\\";
 import { SVGProps } from \\"react\\";
 interface SVGRProps {

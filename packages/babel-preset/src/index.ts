@@ -18,6 +18,7 @@ import transformSvgComponent, {
 export interface Options extends TransformOptions {
   ref?: boolean
   titleProp?: boolean
+  descProp?: boolean
   expandProps?: boolean | 'start' | 'end'
   dimensions?: boolean
   icon?: boolean | string | number
@@ -76,6 +77,17 @@ const plugin = (_: ConfigAPI, opts: Options) => {
     ]
   }
 
+  if (opts.descProp) {
+    toAddAttributes = [
+      ...toAddAttributes,
+      {
+        name: 'aria-describedby',
+        value: 'descId',
+        literal: true,
+      },
+    ]
+  }
+
   if (opts.expandProps) {
     toAddAttributes = [
       ...toAddAttributes,
@@ -128,6 +140,10 @@ const plugin = (_: ConfigAPI, opts: Options) => {
 
   if (opts.titleProp) {
     plugins.push(svgDynamicTitle)
+  }
+
+  if (opts.descProp) {
+    plugins.push([svgDynamicTitle, { tag: 'desc' }])
   }
 
   if (opts.native) {

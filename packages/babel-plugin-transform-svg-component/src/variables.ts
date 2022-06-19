@@ -122,21 +122,47 @@ export const getVariables = ({
     )
   }
 
-  if (opts.titleProp) {
-    const prop = t.objectPattern([
-      t.objectProperty(
-        t.identifier('title'),
-        t.identifier('title'),
+  if (opts.titleProp || opts.descProp) {
+    const properties = []
+    const propertySignatures = []
+    const createProperty = (attr: string) => {
+      return t.objectProperty(
+        t.identifier(attr),
+        t.identifier(attr),
         false,
         true,
-      ),
-      t.objectProperty(
-        t.identifier('titleId'),
-        t.identifier('titleId'),
-        false,
-        true,
-      ),
-    ])
+      )
+    }
+    const createSignature = (attr: string) => {
+      return tsOptionalPropertySignature(
+        t.identifier(attr),
+        t.tsTypeAnnotation(t.tsStringKeyword()),
+      )
+    }
+
+    if (opts.titleProp) {
+      properties.push(createProperty('title'), createProperty('titleId'))
+
+      if (opts.typescript) {
+        propertySignatures.push(
+          createSignature('title'),
+          createSignature('titleId'),
+        )
+      }
+    }
+
+    if (opts.descProp) {
+      properties.push(createProperty('desc'), createProperty('descId'))
+
+      if (opts.typescript) {
+        propertySignatures.push(
+          createSignature('desc'),
+          createSignature('descId'),
+        )
+      }
+    }
+
+    const prop = t.objectPattern(properties)
     props.push(prop)
     if (opts.typescript) {
       interfaces.push(
@@ -144,16 +170,7 @@ export const getVariables = ({
           t.identifier('SVGRProps'),
           null,
           null,
-          t.tSInterfaceBody([
-            tsOptionalPropertySignature(
-              t.identifier('title'),
-              t.tsTypeAnnotation(t.tsStringKeyword()),
-            ),
-            tsOptionalPropertySignature(
-              t.identifier('titleId'),
-              t.tsTypeAnnotation(t.tsStringKeyword()),
-            ),
-          ]),
+          t.tSInterfaceBody(propertySignatures),
         ),
       )
       prop.typeAnnotation = t.tsTypeAnnotation(

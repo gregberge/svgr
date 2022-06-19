@@ -57,7 +57,7 @@ describe('plugin', () => {
     })
 
     describe('with "titleProp"', () => {
-      it('adds "titleProp" and "titleId" prop', () => {
+      it('adds "title" and "titleId" prop', () => {
         const { code } = testPlugin(language)('<svg><g /></svg>', {
           titleProp: true,
         })
@@ -66,11 +66,53 @@ describe('plugin', () => {
     })
 
     describe('with "titleProp" and "expandProps"', () => {
-      it('adds "titleProp", "titleId" props and expands props', () => {
+      it('adds "title", "titleId" props and expands props', () => {
         const { code } = testPlugin(language)('<svg><g /></svg>', {
           ...defaultOptions,
           expandProps: true,
           titleProp: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
+    describe('with "descProp"', () => {
+      it('adds "desc" and "descId" prop', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          descProp: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
+    describe('with "descProp" and "expandProps"', () => {
+      it('adds "desc", "descId" props and expands props', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          ...defaultOptions,
+          expandProps: true,
+          descProp: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
+    describe('with "titleProp" and "descProp"', () => {
+      it('adds "title", "titleId", "desc", and "descId prop', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          titleProp: true,
+          descProp: true,
+        })
+        expect(code).toMatchSnapshot()
+      })
+    })
+
+    describe('with "titleProp" "descProp" and "expandProps"', () => {
+      it('adds "title", "titleId", "desc", "descId" props and expands props', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          ...defaultOptions,
+          expandProps: true,
+          titleProp: true,
+          descProp: true,
         })
         expect(code).toMatchSnapshot()
       })

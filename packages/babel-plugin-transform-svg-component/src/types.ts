@@ -35,6 +35,7 @@ export interface JSXRuntimeImport {
 export interface Options {
   typescript?: boolean
   titleProp?: boolean
+  descProp?: boolean
   expandProps?: boolean | 'start' | 'end'
   ref?: boolean
   template?: Template

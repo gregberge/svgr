@@ -317,6 +317,7 @@ describe('convert', () => {
           tpl`const noop = () => null; export default noop;`,
       },
       { titleProp: true },
+      { descProp: true },
       { memo: true },
       {
         namedExport: 'Component',
@@ -338,6 +339,17 @@ describe('convert', () => {
 `
       expect(
         await convertWithAllPlugins(svg, { titleProp: true }),
+      ).toMatchSnapshot()
+    })
+
+    it('descProp: without desc added', async () => {
+      const svg = `
+      <svg width="0" height="0" style="position:absolute">
+    <path d="M0 0h24v24H0z" fill="none" />
+</svg>
+`
+      expect(
+        await convertWithAllPlugins(svg, { descProp: true }),
       ).toMatchSnapshot()
     })
   })
