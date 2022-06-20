@@ -146,7 +146,7 @@ export const dirCommand: SvgrCommand = async (
     }
 
     const dest = path.resolve(outDir as string, path.relative(root, filename))
-    return write(filename, dest).catch(err => {
+    return write(filename, dest).catch((err) => {
       console.error('Failed to handle file: ', filename)
       throw err
     })

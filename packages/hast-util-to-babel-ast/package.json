@@ -28,8 +28,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@babel/types": "^7.15.6",
-    "entities": "^3.0.1"
+    "@babel/types": "^7.18.4",
+    "entities": "^4.3.0"
   },
   "scripts": {
     "reset": "rm -rf dist",

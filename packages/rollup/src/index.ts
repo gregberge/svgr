@@ -84,7 +84,7 @@ const plugin: PluginImpl<Options> = (options = {}) => {
           body: [],
         },
         code: jsCode,
-        map: null
+        map: null,
       }
     },
   }

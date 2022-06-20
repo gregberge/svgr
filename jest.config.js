@@ -2,6 +2,6 @@ module.exports = {
   watchPathIgnorePatterns: ['__fixtures__', '__fixtures__build__'],
   rootDir: 'packages',
   transform: {
-    '^.+\\.(j|t)sx?$': 'babel-jest',
+    '^.+\\.(j|t)sx?$': ['babel-jest', { root: __dirname }],
   },
 }
