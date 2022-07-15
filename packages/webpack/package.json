@@ -3,7 +3,10 @@
   "description": "SVGR webpack loader.",
   "version": "6.2.1",
   "main": "./dist/index.js",
-  "exports": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
   "typings": "./dist/index.d.ts",
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/webpack",
   "author": "Greg Bergé <berge.greg@gmail.com>",
