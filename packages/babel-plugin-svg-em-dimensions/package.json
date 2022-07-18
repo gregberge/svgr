@@ -3,8 +3,14 @@
   "description": "Transform SVG to use em-based dimensions",
   "version": "6.0.0",
   "main": "./dist/index.js",
-  "exports": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-svg-em-dimensions",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
