@@ -3,8 +3,14 @@
   "description": "Remove JSX attribute",
   "version": "6.0.0",
   "main": "./dist/index.js",
-  "exports": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-remove-jsx-attribute",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
