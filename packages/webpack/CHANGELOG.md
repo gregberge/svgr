@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/gregberge/svgr/compare/v6.2.1...v6.3.0) (2022-07-18)
+
+
+### Bug Fixes
+
+* **package.json:** fix exports ([#745](https://github.com/gregberge/svgr/issues/745)) ([2a368d1](https://github.com/gregberge/svgr/commit/2a368d1305949ec6426c7c7312c04224071ec2bd))
+
+
+
+
+
 ## [6.2.1](https://github.com/gregberge/svgr/compare/v6.2.0...v6.2.1) (2022-01-30)
 
 **Note:** Version bump only for package @svgr/webpack

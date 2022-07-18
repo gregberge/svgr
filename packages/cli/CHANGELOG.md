@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/gregberge/svgr/compare/v6.2.1...v6.3.0) (2022-07-18)
+
+
+### Features
+
+* add descProp option ([#729](https://github.com/gregberge/svgr/issues/729)) ([a0637d4](https://github.com/gregberge/svgr/commit/a0637d49b60243bbae461f7b96dab9b47cd82d8f))
+* **cli:** output file name when error happen to handling a file ([#702](https://github.com/gregberge/svgr/issues/702)) ([0ec1fbd](https://github.com/gregberge/svgr/commit/0ec1fbd0bf1e020ecd8f53fba38d7e53d2462b27))
+
+
+
+
+
 ## [6.2.1](https://github.com/gregberge/svgr/compare/v6.2.0...v6.2.1) (2022-01-30)
 
 

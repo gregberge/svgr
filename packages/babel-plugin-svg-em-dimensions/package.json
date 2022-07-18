@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-plugin-svg-em-dimensions",
   "description": "Transform SVG to use em-based dimensions",
-  "version": "6.0.0",
+  "version": "6.3.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

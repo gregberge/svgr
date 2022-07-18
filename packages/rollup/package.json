@@ -1,7 +1,7 @@
 {
   "name": "@svgr/rollup",
   "description": "SVGR Rollup plugin.",
-  "version": "6.2.1",
+  "version": "6.3.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -44,9 +44,9 @@
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
     "@rollup/pluginutils": "^4.2.1",
-    "@svgr/core": "^6.2.1",
-    "@svgr/plugin-jsx": "^6.2.1",
-    "@svgr/plugin-svgo": "^6.2.0"
+    "@svgr/core": "^6.3.0",
+    "@svgr/plugin-jsx": "^6.3.0",
+    "@svgr/plugin-svgo": "^6.3.0"
   },
   "devDependencies": {
     "rollup": "^2.75.6",

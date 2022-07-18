@@ -1,7 +1,7 @@
 {
   "name": "@svgr/plugin-prettier",
   "description": "Format code using Prettier",
-  "version": "6.1.2",
+  "version": "6.3.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
