@@ -1,52 +1,59 @@
-import { callbackify } from 'util'
-import { transformAsync, createConfigItem } from '@babel/core'
-import { transform, Config, State } from '@svgr/core'
-import { normalize } from 'path'
-import svgo from '@svgr/plugin-svgo'
-import jsx from '@svgr/plugin-jsx'
+import { callbackify } from "util"
+import { transformAsync, createConfigItem } from "@babel/core"
+import { transform, Config, State } from "@svgr/core"
+import { normalize } from "path"
+import svgo from "@svgr/plugin-svgo"
+import jsx from "@svgr/plugin-jsx"
 // @ts-ignore
-import presetReact from '@babel/preset-react'
+import presetReact from "@babel/preset-react"
 // @ts-ignore
-import presetEnv from '@babel/preset-env'
+import presetEnv from "@babel/preset-env"
 // @ts-ignore
-import presetTS from '@babel/preset-typescript'
+import presetTS from "@babel/preset-typescript"
 // @ts-ignore
-import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
-import type * as webpack from 'webpack'
+import pluginTransformReactConstantElements from "@babel/plugin-transform-react-constant-elements"
+import type * as webpack from "webpack"
 
-const babelOptions = {
+type Runtimes = "automatic" | "classic"
+
+const getBabelOptions = (runtime: Runtimes) => ({
   babelrc: false,
   configFile: false,
   presets: [
-    createConfigItem(presetReact, { type: 'preset' }),
-    createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
+    createConfigItem([presetReact, { runtime }], { type: "preset" }),
+    createConfigItem([presetEnv, { modules: false }], { type: "preset" }),
   ],
   plugins: [createConfigItem(pluginTransformReactConstantElements)],
-}
+})
 
-const typeScriptBabelOptions = {
-  ...babelOptions,
-  presets: [
-    ...babelOptions.presets,
-    createConfigItem(
-      [presetTS, { allowNamespaces: true, allExtensions: true, isTSX: true }],
-      { type: 'preset' },
-    ),
-  ],
+const getTypeScriptBabelOptions = (runtime: Runtimes) => {
+  const babelOptions = getBabelOptions(runtime)
+
+  return {
+    ...babelOptions,
+    presets: [
+      ...babelOptions.presets,
+      createConfigItem(
+        [presetTS, { allowNamespaces: true, allExtensions: true, isTSX: true }],
+        { type: "preset" },
+      ),
+    ],
+  }
 }
 
 interface LoaderOptions extends Config {
   babel?: boolean
+  runtime?: "automatic" | "classic"
 }
 
 const tranformSvg = callbackify(
   async (contents: string, options: LoaderOptions, state: Partial<State>) => {
-    const { babel = true, ...config } = options
+    const { babel = true, runtime = "classic", ...config } = options
     const jsCode = await transform(contents, config, state)
     if (!babel) return jsCode
     const result = await transformAsync(
       jsCode,
-      options.typescript ? typeScriptBabelOptions : babelOptions,
+      options.typescript ? getTypeScriptBabelOptions(runtime) : getBabelOptions(runtime),
     )
     if (!result?.code) {
       throw new Error(`Error while transforming using Babel`)
@@ -65,14 +72,14 @@ function svgrLoader(
   const options = this.getOptions()
 
   const previousExport = (() => {
-    if (contents.startsWith('export ')) return contents
+    if (contents.startsWith("export ")) return contents
     const exportMatches = contents.match(/^module.exports\s*=\s*(.*)/)
     return exportMatches ? `export default ${exportMatches[1]}` : null
   })()
 
   const state = {
     caller: {
-      name: '@svgr/webpack',
+      name: "@svgr/webpack",
       previousExport,
       defaultPlugins: [svgo, jsx],
     },
