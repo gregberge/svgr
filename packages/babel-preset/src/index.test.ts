@@ -132,6 +132,26 @@ describe('preset', () => {
     `)
   })
 
+  it('handles descProp and titleProp', () => {
+    expect(
+      testPreset('<svg></svg>', {
+        titleProp: true,
+        descProp: true,
+      }),
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+
+      const SvgComponent = ({
+        title,
+        titleId,
+        desc,
+        descId
+      }) => <svg aria-labelledby={titleId} aria-describedby={descId}>{desc ? <desc id={descId}>{desc}</desc> : null}{title ? <title id={titleId}>{title}</title> : null}</svg>;
+
+      export default SvgComponent;"
+    `)
+  })
+
   it('handles replaceAttrValues', () => {
     expect(
       testPreset('<svg a="#000" b="#fff" />', {
