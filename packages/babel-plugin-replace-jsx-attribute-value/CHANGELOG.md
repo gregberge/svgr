@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.1](https://github.com/gregberge/svgr/compare/v6.3.0...v6.3.1) (2022-07-22)
+
+
+### Bug Fixes
+
+* fix exports compat with ESM ([#749](https://github.com/gregberge/svgr/issues/749)) ([f3e304c](https://github.com/gregberge/svgr/commit/f3e304c166282f042ecd4d6c396a0798a7f0b490))
+
+
+
+
+
 # [6.3.0](https://github.com/gregberge/svgr/compare/v6.2.1...v6.3.0) (2022-07-18)
 
 
