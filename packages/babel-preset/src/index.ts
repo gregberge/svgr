@@ -49,7 +49,12 @@ function replaceMapToValues(replaceMap: { [key: string]: string }): Value[] {
 
 const plugin = (_: ConfigAPI, opts: Options) => {
   let toRemoveAttributes = ['version']
-  let toAddAttributes: Attribute[] = []
+  let toAddAttributes: Attribute[] = [
+    {
+      name: 'role',
+      value: 'img',
+    },
+  ]
 
   if (opts.svgProps) {
     toAddAttributes = [...toAddAttributes, ...propsToAttributes(opts.svgProps)]
