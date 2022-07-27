@@ -222,6 +222,17 @@ describe('cli', () => {
     expect(content).toMatchSnapshot()
   })
 
+  it('should support --template in cli', async () => {
+    const inDir = '__fixtures__/simple'
+    const outDir = `__fixtures_build__/custom-template-arg`
+    await del(outDir)
+    await cli(
+      `${inDir} --out-dir=${outDir} --template=__fixtures__/custom-template.js`,
+    )
+    const content = await fs.readFile(path.join(outDir, 'File.js'), 'utf-8')
+    expect(content).toMatchSnapshot()
+  })
+
   it('should support --no-index', async () => {
     const inDir = '__fixtures__/simple'
     const outDir = `__fixtures_build__/no-index-case`
