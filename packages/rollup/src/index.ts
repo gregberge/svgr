@@ -11,7 +11,6 @@ import presetEnv from '@babel/preset-env'
 // @ts-ignore
 import presetTS from '@babel/preset-typescript'
 // @ts-ignore
-import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
 import type { PluginImpl } from 'rollup'
 
 const babelOptions = {
@@ -21,7 +20,7 @@ const babelOptions = {
     createConfigItem(presetReact, { type: 'preset' }),
     createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
   ],
-  plugins: [createConfigItem(pluginTransformReactConstantElements)],
+  plugins: [],
 }
 
 const typeScriptBabelOptions = {

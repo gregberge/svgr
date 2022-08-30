@@ -1,7 +1,7 @@
 {
   "name": "@svgr/rollup",
   "description": "SVGR Rollup plugin.",
-  "version": "6.3.1",
+  "version": "6.3.1-exodus-0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -39,7 +39,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.18.5",
-    "@babel/plugin-transform-react-constant-elements": "^7.17.12",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
