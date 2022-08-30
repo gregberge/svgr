@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rollup loader should convert file 1`] = `
-"var _path;
-
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+"function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 import * as React from \\"react\\";
 
@@ -12,11 +10,11 @@ var SvgFile = function SvgFile(props) {
     width: 48,
     height: 1,
     xmlns: \\"http://www.w3.org/2000/svg\\"
-  }, props), _path || (_path = /*#__PURE__*/React.createElement(\\"path\\", {
+  }, props), /*#__PURE__*/React.createElement(\\"path\\", {
     d: \\"M0 0h48v1H0z\\",
     fill: \\"#063855\\",
     fillRule: \\"evenodd\\"
-  })));
+  }));
 };
 
 export default SvgFile;"
