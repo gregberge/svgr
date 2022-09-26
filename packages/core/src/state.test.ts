@@ -24,6 +24,11 @@ describe('state', () => {
         filePath: 'a&b~c-d_e.svg',
         componentName: 'SvgAbcDE',
       })
+      expect(expandState({ filePath: 'Arrow up.svg' })).toEqual({
+        filePath: 'Arrow up.svg',
+        componentName: 'SvgArrowUp',
+      })
+
     })
   })
 })

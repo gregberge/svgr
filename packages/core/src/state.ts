@@ -13,7 +13,7 @@ export interface State {
   }
 }
 
-const VALID_CHAR_REGEX = /[^a-zA-Z0-9_-]/g
+const VALID_CHAR_REGEX = /[^a-zA-Z0-9 _-]/g
 
 const getComponentName = (filePath?: string): string => {
   if (!filePath) return 'SvgComponent'
