@@ -28,7 +28,7 @@ describe('preset', () => {
     ).toMatchInlineSnapshot(`
       "import * as React from \\"react\\";
 
-      const SvgComponent = () => <svg foo=\\"bar\\" x={y} />;
+      const SvgComponent = () => <svg role=\\"img\\" foo=\\"bar\\" x={y} />;
 
       export default SvgComponent;"
     `)
@@ -45,7 +45,7 @@ describe('preset', () => {
       const SvgComponent = ({
         title,
         titleId
-      }) => <svg aria-labelledby={titleId}>{title ? <title id={titleId}>{title}</title> : null}</svg>;
+      }) => <svg role=\\"img\\" aria-labelledby={titleId}>{title ? <title id={titleId}>{title}</title> : null}</svg>;
 
       export default SvgComponent;"
     `)
@@ -62,7 +62,7 @@ describe('preset', () => {
       const SvgComponent = ({
         title,
         titleId
-      }) => <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>Hello</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
+      }) => <svg role=\\"img\\" aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>Hello</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
 
       export default SvgComponent;"
     `)
@@ -77,7 +77,7 @@ describe('preset', () => {
       const SvgComponent = ({
         title,
         titleId
-      }) => <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>{\\"Hello\\"}</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
+      }) => <svg role=\\"img\\" aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>{\\"Hello\\"}</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
 
       export default SvgComponent;"
     `)
@@ -94,7 +94,7 @@ describe('preset', () => {
       const SvgComponent = ({
         desc,
         descId
-      }) => <svg aria-describedby={descId}>{desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
+      }) => <svg role=\\"img\\" aria-describedby={descId}>{desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
 
       export default SvgComponent;"
     `)
@@ -111,7 +111,7 @@ describe('preset', () => {
       const SvgComponent = ({
         desc,
         descId
-      }) => <svg aria-describedby={descId}>{desc === undefined ? <desc id={descId}>Hello</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
+      }) => <svg role=\\"img\\" aria-describedby={descId}>{desc === undefined ? <desc id={descId}>Hello</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
 
       export default SvgComponent;"
     `)
@@ -126,7 +126,7 @@ describe('preset', () => {
       const SvgComponent = ({
         desc,
         descId
-      }) => <svg aria-describedby={descId}>{desc === undefined ? <desc id={descId}>{\\"Hello\\"}</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
+      }) => <svg role=\\"img\\" aria-describedby={descId}>{desc === undefined ? <desc id={descId}>{\\"Hello\\"}</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
 
       export default SvgComponent;"
     `)
@@ -146,7 +146,7 @@ describe('preset', () => {
         titleId,
         desc,
         descId
-      }) => <svg aria-labelledby={titleId} aria-describedby={descId}>{desc ? <desc id={descId}>{desc}</desc> : null}{title ? <title id={titleId}>{title}</title> : null}</svg>;
+      }) => <svg role=\\"img\\" aria-labelledby={titleId} aria-describedby={descId}>{desc ? <desc id={descId}>{desc}</desc> : null}{title ? <title id={titleId}>{title}</title> : null}</svg>;
 
       export default SvgComponent;"
     `)
@@ -163,7 +163,7 @@ describe('preset', () => {
     ).toMatchInlineSnapshot(`
       "import * as React from \\"react\\";
 
-      const SvgComponent = () => <svg a=\\"black\\" b={props.white} />;
+      const SvgComponent = () => <svg a=\\"black\\" b={props.white} role=\\"img\\" />;
 
       export default SvgComponent;"
     `)
@@ -179,7 +179,7 @@ describe('preset', () => {
     ).toMatchInlineSnapshot(`
       "import * as React from \\"react\\";
 
-      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width=\\"1em\\" height=\\"1em\\" {...props} />;
+      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width=\\"1em\\" height=\\"1em\\" role=\\"img\\" {...props} />;
 
       export default SvgComponent;"
     `)
@@ -195,7 +195,7 @@ describe('preset', () => {
     ).toMatchInlineSnapshot(`
       "import * as React from \\"react\\";
 
-      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} {...props} />;
+      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} role=\\"img\\" {...props} />;
 
       export default SvgComponent;"
     `)
@@ -213,7 +213,7 @@ describe('preset', () => {
       "import * as React from \\"react\\";
       import Svg from \\"react-native-svg\\";
 
-      const SvgComponent = props => <Svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} {...props} />;
+      const SvgComponent = props => <Svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} role=\\"img\\" {...props} />;
 
       export default SvgComponent;"
     `)
