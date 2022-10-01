@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/gregberge/svgr/compare/v6.3.1...v6.4.0) (2022-10-01)
+
+**Note:** Version bump only for package @svgr/hast-util-to-babel-ast
+
+
+
+
+
 ## [6.3.1](https://github.com/gregberge/svgr/compare/v6.3.0...v6.3.1) (2022-07-22)
 
 

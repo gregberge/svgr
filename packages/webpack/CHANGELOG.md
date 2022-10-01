@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/gregberge/svgr/compare/v6.3.1...v6.4.0) (2022-10-01)
+
+
+### Features
+
+* **a11y:** add attribute role="img" to the svg element ([#750](https://github.com/gregberge/svgr/issues/750)) ([8b9edc4](https://github.com/gregberge/svgr/commit/8b9edc4e712f3adbd9f9c503dfc5e4d627f763cd))
+
+
+
+
+
 ## [6.3.1](https://github.com/gregberge/svgr/compare/v6.3.0...v6.3.1) (2022-07-22)
 
 

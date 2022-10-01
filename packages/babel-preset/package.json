@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-preset",
   "description": "SVGR preset that apply transformations from config",
-  "version": "6.3.1",
+  "version": "6.4.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/gregberge/svgr/compare/v6.3.1...v6.4.0) (2022-10-01)
+
+
+### Bug Fixes
+
+* **deps:** add babel-preset to core dependencies ([#782](https://github.com/gregberge/svgr/issues/782)) ([464ec5f](https://github.com/gregberge/svgr/commit/464ec5fe81c6ba98be5a26923f3ad19fc2ef7fc6))
+
+
+### Features
+
+* **a11y:** add attribute role="img" to the svg element ([#750](https://github.com/gregberge/svgr/issues/750)) ([8b9edc4](https://github.com/gregberge/svgr/commit/8b9edc4e712f3adbd9f9c503dfc5e4d627f763cd))
+* support spaces in file names ([#779](https://github.com/gregberge/svgr/issues/779)) ([6ee639a](https://github.com/gregberge/svgr/commit/6ee639a039a0001d3b97fef024f2bd0c3e107182))
+
+
+
+
+
 ## [6.3.1](https://github.com/gregberge/svgr/compare/v6.3.0...v6.3.1) (2022-07-22)
 
 
