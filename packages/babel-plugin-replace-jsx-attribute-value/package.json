@@ -11,7 +11,7 @@
     },
     "./package.json": "./package.json"
   },
-  "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-replace-jsx-attribute-value",
+  "repository": "https://github.com/gregberge/svgr/tree/main/packages/babel-plugin-replace-jsx-attribute-value",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"
