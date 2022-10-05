@@ -11,7 +11,7 @@
     },
     "./package.json": "./package.json"
   },
-  "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-preset",
+  "repository": "https://github.com/gregberge/svgr/tree/main/packages/babel-preset",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"

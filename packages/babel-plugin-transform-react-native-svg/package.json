@@ -11,7 +11,7 @@
     },
     "./package.json": "./package.json"
   },
-  "repository": "https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-react-native-svg",
+  "repository": "https://github.com/gregberge/svgr/tree/main/packages/babel-plugin-transform-react-native-svg",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"

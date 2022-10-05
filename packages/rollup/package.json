@@ -11,7 +11,7 @@
     },
     "./package.json": "./package.json"
   },
-  "repository": "https://github.com/gregberge/svgr/tree/master/packages/rollup",
+  "repository": "https://github.com/gregberge/svgr/tree/main/packages/rollup",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"

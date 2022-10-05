@@ -11,7 +11,7 @@
     },
     "./package.json": "./package.json"
   },
-  "repository": "https://github.com/gregberge/svgr/tree/master/packages/hast-util-to-babel-ast",
+  "repository": "https://github.com/gregberge/svgr/tree/main/packages/hast-util-to-babel-ast",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"
