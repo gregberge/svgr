@@ -213,7 +213,7 @@ describe('preset', () => {
       "import * as React from \\"react\\";
       import Svg from \\"react-native-svg\\";
 
-      const SvgComponent = props => <Svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} role=\\"img\\" {...props} />;
+      const SvgComponent = props => <Svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} accessibilityRole=\\"image\\" {...props} />;
 
       export default SvgComponent;"
     `)
