@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/gregberge/svgr/compare/v6.4.0...v6.5.0) (2022-10-14)
+
+
+### Bug Fixes
+
+* fix Yarn peer dependency warning from @babel/core ([#786](https://github.com/gregberge/svgr/issues/786)) ([db35837](https://github.com/gregberge/svgr/commit/db3583751474997dd72a0209ca61daddbac16c46)), closes [#785](https://github.com/gregberge/svgr/issues/785)
+
+
+
+
+
 # [6.4.0](https://github.com/gregberge/svgr/compare/v6.3.1...v6.4.0) (2022-10-01)
 
 

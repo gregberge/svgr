@@ -1,7 +1,7 @@
 {
   "name": "@svgr/webpack",
   "description": "SVGR webpack loader.",
-  "version": "6.4.0",
+  "version": "6.5.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -43,9 +43,9 @@
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
-    "@svgr/core": "^6.4.0",
-    "@svgr/plugin-jsx": "^6.4.0",
-    "@svgr/plugin-svgo": "^6.3.1"
+    "@svgr/core": "^6.5.0",
+    "@svgr/plugin-jsx": "^6.5.0",
+    "@svgr/plugin-svgo": "^6.5.0"
   },
   "devDependencies": {
     "babel-loader": "^8.2.5",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/gregberge/svgr/compare/v6.4.0...v6.5.0) (2022-10-14)
+
+
+### Features
+
+* **babel-preset:** fix 'role' attribute on svg element for react native ([#787](https://github.com/gregberge/svgr/issues/787)) ([35d85e0](https://github.com/gregberge/svgr/commit/35d85e069ebfef1b26ba181f443d9377a7bc003e))
+
+
+
+
+
 # [6.4.0](https://github.com/gregberge/svgr/compare/v6.3.1...v6.4.0) (2022-10-01)
 
 
