@@ -170,6 +170,28 @@ Add props to the root SVG tag.
 
 > You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particularly useful with a custom template.
 
+### Accessibility
+
+SVGs by default have an implicit `role="graphics-document"`. To make SVG content accessible you may want to override the default behavior which can be done via the `svgProps` override.
+
+#### For web:
+
+| Default | CLI Override           | API Override                |
+| ------- | ---------------------- | --------------------------- |
+| `[]`    | `--svg-props role=img` | `svgProps: { role: 'img' }` |
+
+#### For native:
+
+| Default | CLI Override                          | API Override                               |
+| ------- | ------------------------------------- | ------------------------------------------ |
+| `[]`    | `--svg-props accessibilityRole=image` | `svgProps: { accessibilityRole: 'image' }` |
+
+Typically for role=img you will want to add either `alt` text or `aria` label/description properties to describe the image when rendering the SVG in your application.
+
+> **NOTE**: On the web once you add `role: 'img'` some screen-readers will automatically announce any `title`/`text`/`desc` nodes within your SVG.
+>
+> SVGO can be configured to remove those nodes via the built-in `removeDesc` and `removeTitle` plugins if you only want to use `aria` properties during consumption of the SVGs.
+
 ## Title
 
 Add title tag via title property. If titleProp is set to true and no title is provided (`title={undefined}`) at render time, this will fallback to an existing title element in the svg if exists.
