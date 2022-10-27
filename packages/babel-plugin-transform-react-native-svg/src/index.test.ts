@@ -21,10 +21,9 @@ describe('plugin', () => {
       `import Svg from 'react-native-svg'; <svg><g /><div /></svg>;`,
     )
     expect(code).toMatchInlineSnapshot(`
-"import Svg, { G } from 'react-native-svg';
-/* SVGR has dropped some elements not supported by react-native-svg: div */
-
-<Svg><G /></Svg>;"
-`)
+      "import Svg, { G } from 'react-native-svg';
+      /* SVGR has dropped some elements not supported by react-native-svg: div */
+      <Svg><G /></Svg>;"
+    `)
   })
 })

@@ -1,19 +1,21 @@
 {
   "private": true,
   "dependencies": {
-    "@xstyled/styled-components": "^3.5.1",
+    "@xstyled/styled-components": "^3.7.0",
+    "ariakit": "^2.0.0-next.41",
     "brace": "^0.11.1",
-    "final-form": "^4.20.6",
-    "gatsby": "^4.6.0",
-    "gatsby-plugin-google-analytics": "^4.6.0",
-    "history": "^5.2.0",
+    "final-form": "^4.20.7",
+    "gatsby": "^4.24.5",
+    "gatsby-plugin-google-analytics": "^4.24.0",
+    "history": "^5.3.0",
     "isomorphic-fetch": "^3.0.0",
-    "react": "^17.0.2",
-    "react-ace": "^9.5.0",
-    "react-dom": "^17.0.2",
-    "react-final-form": "^6.5.7",
-    "react-icons": "^4.3.1",
-    "smooth-doc": "^9.0.0"
+    "react": "^18.2.0",
+    "react-ace": "^10.1.0",
+    "react-dom": "^18.2.0",
+    "react-final-form": "^6.5.9",
+    "react-icons": "^4.6.0",
+    "reakit": "^1.3.11",
+    "smooth-doc": "^10.1.0"
   },
   "scripts": {
     "build": "gatsby build && cp _redirects public/",
@@ -21,6 +23,10 @@
     "serve": "gatsby serve"
   },
   "devDependencies": {
-    "eslint-config-react-app": "^7.0.0"
+    "eslint-config-react-app": "^7.0.1"
+  },
+  "overrides": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

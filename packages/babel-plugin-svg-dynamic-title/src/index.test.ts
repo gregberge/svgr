@@ -26,7 +26,7 @@ describe('title plugin', () => {
     expect(
       testPlugin(`<svg><title>{"Hello"}</title></svg>`),
     ).toMatchInlineSnapshot(
-      `"<svg>{title === undefined ? <title id={titleId}>{\\"Hello\\"}</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;"`,
+      `"<svg>{title === undefined ? <title id={titleId}>{"Hello"}</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;"`,
     )
   })
   it('should preserve any existing title attributes', () => {
@@ -73,7 +73,7 @@ describe('desc plugin', () => {
     expect(
       testPlugin(`<svg><desc>{"Hello"}</desc></svg>`, { tag: 'desc' }),
     ).toMatchInlineSnapshot(
-      `"<svg>{desc === undefined ? <desc id={descId}>{\\"Hello\\"}</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;"`,
+      `"<svg>{desc === undefined ? <desc id={descId}>{"Hello"}</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;"`,
     )
   })
   it('should preserve any existing desc attributes', () => {

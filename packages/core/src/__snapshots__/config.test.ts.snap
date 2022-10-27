@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`svgo async #loadConfig [async] should load config using filePath 1`] = `
-Object {
+{
   "descProp": false,
   "dimensions": true,
   "expandProps": "end",
@@ -15,8 +15,8 @@ Object {
   "prettier": true,
   "prettierConfig": undefined,
   "ref": false,
-  "replaceAttrValues": Array [
-    Array [
+  "replaceAttrValues": [
+    [
       "#063855",
       "currentColor",
     ],
@@ -32,7 +32,7 @@ Object {
 `;
 
 exports[`svgo async #loadConfig [async] should not load config with "runtimeConfig: false 1`] = `
-Object {
+{
   "descProp": false,
   "dimensions": true,
   "expandProps": "end",
@@ -46,8 +46,8 @@ Object {
   "prettier": true,
   "prettierConfig": undefined,
   "ref": false,
-  "replaceAttrValues": Array [
-    Array [
+  "replaceAttrValues": [
+    [
       "#063855",
       "currentColor",
     ],
@@ -64,7 +64,7 @@ Object {
 `;
 
 exports[`svgo async #loadConfig [async] should use default config without state.filePath 1`] = `
-Object {
+{
   "descProp": false,
   "dimensions": false,
   "expandProps": "end",
@@ -89,7 +89,7 @@ Object {
 `;
 
 exports[`svgo async #loadConfig [async] should work with custom config path 1`] = `
-Object {
+{
   "descProp": false,
   "dimensions": true,
   "expandProps": "end",
@@ -103,8 +103,8 @@ Object {
   "prettier": true,
   "prettierConfig": undefined,
   "ref": false,
-  "replaceAttrValues": Array [
-    Array [
+  "replaceAttrValues": [
+    [
       "#063855",
       "currentColor",
     ],
@@ -120,7 +120,7 @@ Object {
 `;
 
 exports[`svgo sync #loadConfig [sync] should load config using filePath 1`] = `
-Object {
+{
   "descProp": false,
   "dimensions": true,
   "expandProps": "end",
@@ -134,8 +134,8 @@ Object {
   "prettier": true,
   "prettierConfig": undefined,
   "ref": false,
-  "replaceAttrValues": Array [
-    Array [
+  "replaceAttrValues": [
+    [
       "#063855",
       "currentColor",
     ],
@@ -151,7 +151,7 @@ Object {
 `;
 
 exports[`svgo sync #loadConfig [sync] should not load config with "runtimeConfig: false 1`] = `
-Object {
+{
   "descProp": false,
   "dimensions": true,
   "expandProps": "end",
@@ -165,8 +165,8 @@ Object {
   "prettier": true,
   "prettierConfig": undefined,
   "ref": false,
-  "replaceAttrValues": Array [
-    Array [
+  "replaceAttrValues": [
+    [
       "#063855",
       "currentColor",
     ],
@@ -183,7 +183,7 @@ Object {
 `;
 
 exports[`svgo sync #loadConfig [sync] should use default config without state.filePath 1`] = `
-Object {
+{
   "descProp": false,
   "dimensions": false,
   "expandProps": "end",
@@ -208,7 +208,7 @@ Object {
 `;
 
 exports[`svgo sync #loadConfig [sync] should work with custom config path 1`] = `
-Object {
+{
   "descProp": false,
   "dimensions": true,
   "expandProps": "end",
@@ -222,8 +222,8 @@ Object {
   "prettier": true,
   "prettierConfig": undefined,
   "ref": false,
-  "replaceAttrValues": Array [
-    Array [
+  "replaceAttrValues": [
+    [
       "#063855",
       "currentColor",
     ],

@@ -35,21 +35,21 @@ describe('hast-util-to-babel-ast', () => {
   it('transforms "aria-x"', () => {
     const code = `<svg aria-hidden="true"></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
-      `"<svg aria-hidden=\\"true\\" />;"`,
+      `"<svg aria-hidden="true" />;"`,
     )
   })
 
   it('transforms "aria-xxxXxx"', () => {
     const code = `<svg aria-labelledby="foo" aria-describedat="foo" aria-describedby="foo"></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
-      `"<svg aria-labelledby=\\"foo\\" aria-describedat=\\"foo\\" aria-describedby=\\"foo\\" />;"`,
+      `"<svg aria-labelledby="foo" aria-describedat="foo" aria-describedby="foo" />;"`,
     )
   })
 
   it('transformss "data-x"', () => {
     const code = `<svg data-hidden="true"></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
-      `"<svg data-hidden=\\"true\\" />;"`,
+      `"<svg data-hidden="true" />;"`,
     )
   })
 
@@ -78,14 +78,14 @@ describe('hast-util-to-babel-ast', () => {
   it('string literals children of text nodes should have decoded XML entities', () => {
     const code = `<svg><text>&lt;</text></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
-      `"<svg><text>{\\"<\\"}</text></svg>;"`,
+      `"<svg><text>{"<"}</text></svg>;"`,
     )
   })
 
   it('string literals children of tspan nodes should have decoded XML entities', () => {
     const code = `<svg><text><tspan>&lt;</tspan></text></svg>`
     expect(transform(code)).toMatchInlineSnapshot(
-      `"<svg><text><tspan>{\\"<\\"}</tspan></text></svg>;"`,
+      `"<svg><text><tspan>{"<"}</tspan></text></svg>;"`,
     )
   })
 
@@ -93,10 +93,10 @@ describe('hast-util-to-babel-ast', () => {
     const code = `<svg><path style="--index: 1; font-size: 24px;"></path><path style="--index: 2"></path></svg>`
     expect(transform(code)).toMatchInlineSnapshot(`
       "<svg><path style={{
-          \\"--index\\": 1,
+          "--index": 1,
           fontSize: 24
         }} /><path style={{
-          \\"--index\\": 2
+          "--index": 2
         }} /></svg>;"
     `)
   })
