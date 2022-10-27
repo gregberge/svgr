@@ -37,9 +37,9 @@
     "@svgr/core": "^6.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.18.5",
-    "@svgr/babel-preset": "^6.5.0",
-    "@svgr/hast-util-to-babel-ast": "^6.5.0",
+    "@babel/core": "^7.19.6",
+    "@svgr/babel-preset": "*",
+    "@svgr/hast-util-to-babel-ast": "*",
     "svg-parser": "^2.0.4"
   }
 }

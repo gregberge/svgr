@@ -26,10 +26,8 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
-      const SvgComponent = () => <svg foo=\\"bar\\" x={y} />;
-
+      "import * as React from "react";
+      const SvgComponent = () => <svg foo="bar" x={y} />;
       export default SvgComponent;"
     `)
   })
@@ -40,13 +38,11 @@ describe('preset', () => {
         titleProp: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
+      "import * as React from "react";
       const SvgComponent = ({
         title,
         titleId
       }) => <svg aria-labelledby={titleId}>{title ? <title id={titleId}>{title}</title> : null}</svg>;
-
       export default SvgComponent;"
     `)
   })
@@ -57,13 +53,11 @@ describe('preset', () => {
         titleProp: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
+      "import * as React from "react";
       const SvgComponent = ({
         title,
         titleId
       }) => <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>Hello</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
-
       export default SvgComponent;"
     `)
     // testing when existing title has JSXExpression as children
@@ -72,13 +66,11 @@ describe('preset', () => {
         titleProp: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
+      "import * as React from "react";
       const SvgComponent = ({
         title,
         titleId
-      }) => <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>{\\"Hello\\"}</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
-
+      }) => <svg aria-labelledby={titleId}>{title === undefined ? <title id={titleId}>{"Hello"}</title> : title ? <title id={titleId}>{title}</title> : null}</svg>;
       export default SvgComponent;"
     `)
   })
@@ -89,13 +81,11 @@ describe('preset', () => {
         descProp: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
+      "import * as React from "react";
       const SvgComponent = ({
         desc,
         descId
       }) => <svg aria-describedby={descId}>{desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
-
       export default SvgComponent;"
     `)
   })
@@ -106,13 +96,11 @@ describe('preset', () => {
         descProp: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
+      "import * as React from "react";
       const SvgComponent = ({
         desc,
         descId
       }) => <svg aria-describedby={descId}>{desc === undefined ? <desc id={descId}>Hello</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
-
       export default SvgComponent;"
     `)
     // testing when existing desc has JSXExpression as children
@@ -121,13 +109,11 @@ describe('preset', () => {
         descProp: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
+      "import * as React from "react";
       const SvgComponent = ({
         desc,
         descId
-      }) => <svg aria-describedby={descId}>{desc === undefined ? <desc id={descId}>{\\"Hello\\"}</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
-
+      }) => <svg aria-describedby={descId}>{desc === undefined ? <desc id={descId}>{"Hello"}</desc> : desc ? <desc id={descId}>{desc}</desc> : null}</svg>;
       export default SvgComponent;"
     `)
   })
@@ -139,15 +125,13 @@ describe('preset', () => {
         descProp: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
+      "import * as React from "react";
       const SvgComponent = ({
         title,
         titleId,
         desc,
         descId
       }) => <svg aria-labelledby={titleId} aria-describedby={descId}>{desc ? <desc id={descId}>{desc}</desc> : null}{title ? <title id={titleId}>{title}</title> : null}</svg>;
-
       export default SvgComponent;"
     `)
   })
@@ -161,10 +145,8 @@ describe('preset', () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
-      const SvgComponent = () => <svg a=\\"black\\" b={props.white} />;
-
+      "import * as React from "react";
+      const SvgComponent = () => <svg a="black" b={props.white} />;
       export default SvgComponent;"
     `)
   })
@@ -177,10 +159,8 @@ describe('preset', () => {
         dimensions: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
-      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width=\\"1em\\" height=\\"1em\\" {...props} />;
-
+      "import * as React from "react";
+      const SvgComponent = props => <svg a="#000" b="#fff" width="1em" height="1em" {...props} />;
       export default SvgComponent;"
     `)
   })
@@ -193,10 +173,8 @@ describe('preset', () => {
         dimensions: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-
-      const SvgComponent = props => <svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} {...props} />;
-
+      "import * as React from "react";
+      const SvgComponent = props => <svg a="#000" b="#fff" width={24} height={24} {...props} />;
       export default SvgComponent;"
     `)
   })
@@ -210,11 +188,9 @@ describe('preset', () => {
         dimensions: true,
       }),
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-      import Svg from \\"react-native-svg\\";
-
-      const SvgComponent = props => <Svg a=\\"#000\\" b=\\"#fff\\" width={24} height={24} {...props} />;
-
+      "import * as React from "react";
+      import Svg from "react-native-svg";
+      const SvgComponent = props => <Svg a="#000" b="#fff" width={24} height={24} {...props} />;
       export default SvgComponent;"
     `)
   })

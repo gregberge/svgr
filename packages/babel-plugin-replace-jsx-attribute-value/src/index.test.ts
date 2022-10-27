@@ -16,7 +16,7 @@ describe('plugin', () => {
       testPlugin('<div something="cool" />', {
         values: [{ value: 'cool', newValue: 'not cool' }],
       }),
-    ).toMatchInlineSnapshot(`"<div something=\\"not cool\\" />;"`)
+    ).toMatchInlineSnapshot(`"<div something="not cool" />;"`)
 
     expect(
       testPlugin('<div something="cool" />', {

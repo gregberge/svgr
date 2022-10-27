@@ -32,7 +32,7 @@ describe('plugin', () => {
         elements: ['div'],
         attributes: [{ name: 'disabled', value: 'true' }],
       }),
-    ).toMatchInlineSnapshot(`"<div disabled=\\"true\\" />;"`)
+    ).toMatchInlineSnapshot(`"<div disabled="true" />;"`)
 
     expect(
       testPlugin('<div />', {
@@ -83,7 +83,7 @@ describe('plugin', () => {
           },
         ],
       }),
-    ).toMatchInlineSnapshot(`"<div><span foo=\\"bar\\" {...props} /></div>;"`)
+    ).toMatchInlineSnapshot(`"<div><span foo="bar" {...props} /></div>;"`)
   })
 
   it('should replace attribute', () => {

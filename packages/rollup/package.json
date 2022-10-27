@@ -38,15 +38,15 @@
     "prepublishOnly": "npm run reset && npm run build"
   },
   "dependencies": {
-    "@babel/core": "^7.18.5",
-    "@babel/plugin-transform-react-constant-elements": "^7.17.12",
-    "@babel/preset-env": "^7.18.2",
-    "@babel/preset-react": "^7.17.12",
-    "@babel/preset-typescript": "^7.17.12",
+    "@babel/core": "^7.19.6",
+    "@babel/plugin-transform-react-constant-elements": "^7.18.12",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@rollup/pluginutils": "^4.2.1",
-    "@svgr/core": "^6.5.0",
-    "@svgr/plugin-jsx": "^6.5.0",
-    "@svgr/plugin-svgo": "^6.5.0"
+    "@svgr/core": "*",
+    "@svgr/plugin-jsx": "*",
+    "@svgr/plugin-svgo": "*"
   },
   "devDependencies": {
     "rollup": "^2.75.6",

@@ -34,7 +34,7 @@
     "prepublishOnly": "npm run reset && npm run build"
   },
   "peerDependencies": {
-    "@svgr/core": "^6.0.0"
+    "@svgr/core": "*"
   },
   "dependencies": {
     "deepmerge": "^4.2.2",

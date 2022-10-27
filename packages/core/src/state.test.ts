@@ -28,7 +28,6 @@ describe('state', () => {
         filePath: 'Arrow up.svg',
         componentName: 'SvgArrowUp',
       })
-
     })
   })
 })

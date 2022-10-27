@@ -8,7 +8,6 @@ import {
   DialogBackdrop as ReakitDialogBackdrop,
 } from 'reakit/Dialog'
 import { CarbonAd } from 'smooth-doc/src/components/CarbonAd'
-import { lighten } from 'polished'
 import { Settings } from './Settings'
 import { svgr } from './modules/svgr'
 import defaultSvg from './defaultSVG'
