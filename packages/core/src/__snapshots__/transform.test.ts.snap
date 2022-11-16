@@ -4,19 +4,19 @@ exports[`convert config accepts options {"descProp":true} 1`] = `
 "import * as React from 'react'
 const SvgComponent = ({ desc, descId, ...props }) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
-    xmlns="http://www.w3.org/2000/svg"
     aria-describedby={descId}
     {...props}
   >
     {desc ? <desc id={descId}>{desc}</desc> : null}
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -29,13 +29,13 @@ export default SvgComponent
 exports[`convert config accepts options {"dimensions":false} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" {...props}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -48,13 +48,13 @@ export default SvgComponent
 exports[`convert config accepts options {"expandProps":"start"} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg {...props} width={88} height={88} xmlns="http://www.w3.org/2000/svg">
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" width={88} height={88}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -67,13 +67,13 @@ export default SvgComponent
 exports[`convert config accepts options {"expandProps":false} 1`] = `
 "import * as React from 'react'
 const SvgComponent = () => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg">
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -86,13 +86,13 @@ export default SvgComponent
 exports[`convert config accepts options {"exportType":"named"} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -106,18 +106,18 @@ exports[`convert config accepts options {"icon":"2em"} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width="2em"
     height="2em"
     viewBox="0 0 88 88"
-    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -131,18 +131,18 @@ exports[`convert config accepts options {"icon":24} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
     viewBox="0 0 88 88"
-    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -156,18 +156,18 @@ exports[`convert config accepts options {"icon":true} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width="1em"
     height="1em"
     viewBox="0 0 88 88"
-    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -181,13 +181,13 @@ exports[`convert config accepts options {"memo":true} 1`] = `
 "import * as React from 'react'
 import { memo } from 'react'
 const SvgComponent = (props) => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -201,13 +201,13 @@ export default Memo
 exports[`convert config accepts options {"namedExport":"Component","state":{"caller":{"previousExport":"export default \\"logo.svg\\";"}}} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -222,13 +222,13 @@ exports[`convert config accepts options {"native":true,"expandProps":false} 1`] 
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 const SvgComponent = () => (
-  <Svg width={88} height={88} xmlns="http://www.w3.org/2000/svg">
+  <Svg xmlns="http://www.w3.org/2000/svg" width={88} height={88}>
     <G
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <Path d="M51 37 37 51M51 51 37 37" />
     </G>
@@ -243,18 +243,18 @@ exports[`convert config accepts options {"native":true,"icon":true} 1`] = `
 import Svg, { G, Path } from 'react-native-svg'
 const SvgComponent = (props) => (
   <Svg
+    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
     viewBox="0 0 88 88"
-    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <G
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <Path d="M51 37 37 51M51 51 37 37" />
     </G>
@@ -270,18 +270,18 @@ import Svg, { G, Path } from 'react-native-svg'
 import { forwardRef } from 'react'
 const SvgComponent = (props, ref) => (
   <Svg
+    xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
-    xmlns="http://www.w3.org/2000/svg"
     ref={ref}
     {...props}
   >
     <G
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <Path d="M51 37 37 51M51 51 37 37" />
     </G>
@@ -296,13 +296,13 @@ exports[`convert config accepts options {"native":true} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
 const SvgComponent = (props) => (
-  <Svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <Svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <G
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <Path d="M51 37 37 51M51 51 37 37" />
     </G>
@@ -314,7 +314,7 @@ export default SvgComponent
 
 exports[`convert config accepts options {"prettier":false} 1`] = `
 "import * as React from "react";
-const SvgComponent = props => <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}><g stroke="#063855" strokeWidth={2} fill="none" fillRule="evenodd" strokeLinecap="square"><path d="M51 37 37 51M51 51 37 37" /></g></svg>;
+const SvgComponent = props => <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}><g fill="none" fillRule="evenodd" stroke="#063855" strokeLinecap="square" strokeWidth={2}><path d="M51 37 37 51M51 51 37 37" /></g></svg>;
 export default SvgComponent;"
 `;
 
@@ -323,18 +323,18 @@ exports[`convert config accepts options {"ref":true} 1`] = `
 import { forwardRef } from 'react'
 const SvgComponent = (props, ref) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
-    xmlns="http://www.w3.org/2000/svg"
     ref={ref}
     {...props}
   >
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -348,13 +348,13 @@ export default ForwardRef
 exports[`convert config accepts options {"replaceAttrValues":{"none":"{black}"}} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill={black}
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -367,13 +367,13 @@ export default SvgComponent
 exports[`convert config accepts options {"replaceAttrValues":{"none":"black"}} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="black"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -387,19 +387,19 @@ exports[`convert config accepts options {"svgProps":{"a":"b","b":"{props.b}"}} 1
 "import * as React from 'react'
 const SvgComponent = (props) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
-    xmlns="http://www.w3.org/2000/svg"
     a="b"
     b={props.b}
     {...props}
   >
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -446,19 +446,19 @@ exports[`convert config accepts options {"titleProp":true} 1`] = `
 "import * as React from 'react'
 const SvgComponent = ({ title, titleId, ...props }) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
-    xmlns="http://www.w3.org/2000/svg"
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -487,7 +487,7 @@ const SvgComponent = ({ desc, descId, ...props }) => (
     {...props}
   >
     {desc ? <desc id={descId}>{desc}</desc> : null}
-    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="none" d="M0 0h24v24H0z" />
   </svg>
 )
 export default SvgComponent
@@ -507,7 +507,7 @@ const SvgComponent = ({ title, titleId, ...props }) => (
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
-    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="none" d="M0 0h24v24H0z" />
   </svg>
 )
 export default SvgComponent
@@ -517,13 +517,13 @@ export default SvgComponent
 exports[`convert should convert 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <g
-      stroke="#063855"
-      strokeWidth={2}
       fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
     >
       <path d="M51 37 37 51M51 51 37 37" />
     </g>
@@ -546,6 +546,12 @@ const SvgComponent = (props) => (
     <g transform="translate(0 -1004.362)">
       <g id="prefix__a">
         <rect
+          width={4}
+          height={4}
+          x={4}
+          y={1010.362}
+          rx={0.2}
+          ry={0.2}
           style={{
             color: '#000',
             fill: '#a3a3a3',
@@ -559,20 +565,14 @@ const SvgComponent = (props) => (
             overflow: 'visible',
             enableBackground: 'accumulate',
           }}
-          width={4}
-          height={4}
-          x={4}
-          y={1010.362}
-          rx={0.2}
-          ry={0.2}
         />
         <rect
-          ry={0.2}
-          rx={0.2}
-          y={1010.362}
-          x={12}
-          height={4}
           width={32}
+          height={4}
+          x={12}
+          y={1010.362}
+          rx={0.2}
+          ry={0.2}
           style={{
             color: '#000',
             fill: '#a3a3a3',
@@ -604,7 +604,7 @@ exports[`convert should handle special SVG attributes 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path externalResourcesRequired="false" d="M10 10h100v100H10z" />
+    <path d="M10 10h100v100H10z" externalResourcesRequired="false" />
   </svg>
 )
 export default SvgComponent
@@ -614,18 +614,18 @@ export default SvgComponent
 exports[`convert should not remove all style tags 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <style>{'path{fill:red}'}</style>
     <g
       id="prefix__Blocks"
-      stroke="none"
-      strokeWidth={1}
       fill="none"
       fillRule="evenodd"
+      stroke="none"
       strokeLinecap="square"
+      strokeWidth={1}
     >
       <g id="prefix__Dismiss" stroke="#063855" strokeWidth={2}>
-        <path d="M51 37 37 51" id="prefix__Shape" />
+        <path id="prefix__Shape" d="M51 37 37 51" />
         <path d="M51 51 37 37" />
       </g>
     </g>
@@ -640,12 +640,12 @@ exports[`convert should remove null characters 1`] = `
 const SvgComponent = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    xmlSpace="preserve"
     width={25}
     height={25}
     style={{
       enableBackground: 'new 0 0 25 25',
     }}
-    xmlSpace="preserve"
     {...props}
   >
     <path
@@ -665,7 +665,7 @@ export default SvgComponent
 exports[`convert should remove style tags 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg width={88} height={88} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
     <style />
     <g
       fill="none"
@@ -676,7 +676,7 @@ const SvgComponent = (props) => (
       }}
     >
       <g id="prefix__Dismiss" stroke="#063855" strokeWidth={2}>
-        <path d="M51 37 37 51" id="prefix__Shape" />
+        <path id="prefix__Shape" d="M51 37 37 51" />
         <path d="M51 51 37 37" />
       </g>
     </g>
