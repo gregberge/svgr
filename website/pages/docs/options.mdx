@@ -46,9 +46,11 @@ Specify a custom JSX runtime source to use. Allows to customize the import added
 
 Example: `jsxRuntimeImport: { source: 'preact', specifiers: ['h'] }` for "classic-preact" equivalent.
 
-| Default | CLI Override | API Override                                                 |
-| ------- | ------------ | ------------------------------------------------------------ |
-| `null`  | -            | `jsxRuntimeImport: { source: string, specifiers: string[] }` |
+To use the default import instead of a list of names, you can use `defaultSpecifier`, for example to use svgr with `hyperapp-jsx-pragma`, you can specify `jsxRuntimeImport: { source: 'hyperapp-jsx-pragma', defaultSpecifier: 'h' }` to get an end result of `import h from "hyperapp-jsx-pragma";`
+
+| Default | CLI Override | API Override                                                                           |
+| ------- | ------------ | -------------------------------------------------------------------------------------- |
+| `null`  | -            | `jsxRuntimeImport: { source: string, specifiers: string[], defaultSpecifier: string }` |
 
 ## Icon
 

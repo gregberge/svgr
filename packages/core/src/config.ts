@@ -36,6 +36,7 @@ export interface Config {
     source: string
     namespace?: string
     specifiers?: string[]
+    defaultSpecifier?: string
   }
 
   // CLI only

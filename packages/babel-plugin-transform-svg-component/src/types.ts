@@ -29,6 +29,7 @@ interface State {
 export interface JSXRuntimeImport {
   source: string
   namespace?: string
+  defaultSpecifier?: string
   specifiers?: string[]
 }
 

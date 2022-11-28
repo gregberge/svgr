@@ -69,13 +69,17 @@ const getJsxRuntimeImport = (cfg: JSXRuntimeImport) => {
   const specifiers = (() => {
     if (cfg.namespace)
       return [t.importNamespaceSpecifier(t.identifier(cfg.namespace))]
+    if (cfg.defaultSpecifier) {
+      const identifier = t.identifier(cfg.defaultSpecifier)
+      return [t.importDefaultSpecifier(identifier)]
+    }
     if (cfg.specifiers)
       return cfg.specifiers.map((specifier) => {
         const identifier = t.identifier(specifier)
         return t.importSpecifier(identifier, identifier)
       })
     throw new Error(
-      `Specify either "namespace" or "specifiers" in "jsxRuntimeImport" option`,
+      `Specify "namespace", "defaultSpecifier", or "specifiers" in "jsxRuntimeImport" option`,
     )
   })()
   return t.importDeclaration(specifiers, t.stringLiteral(cfg.source))
