@@ -7,6 +7,12 @@ import svgrBabelPreset, {
 import type { Plugin, Config } from '@svgr/core'
 
 const getJsxRuntimeOptions = (config: Config): Partial<SvgrPresetOptions> => {
+  if (config.jsxRuntimeImport) {
+    return {
+      importSource: config.jsxRuntimeImport.source,
+      jsxRuntimeImport: config.jsxRuntimeImport,
+    }
+  }
   switch (config.jsxRuntime) {
     case null:
     case undefined:
