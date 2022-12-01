@@ -36,9 +36,9 @@ Specify a JSX runtime to use.
 - "automatic": do not add anything
 - "classic-preact": adds `import { h } from 'preact'` on the top of file
 
-| Default   | CLI Override    | API Override           |
-| --------- | --------------- | ---------------------- | ----------- | ----------------- |
-| `classic` | `--jsx-runtime` | `jsxRuntime: 'classic' | 'automatic' | 'classic-preact'` |
+| Default   | CLI Override    | API Override                                               |
+| --------- | --------------- | ---------------------------------------------------------- |
+| `classic` | `--jsx-runtime` | `jsxRuntime: 'classic' \| 'automatic' \| 'classic-preact'` |
 
 ## JSX runtime import source
 
@@ -54,9 +54,9 @@ Example: `jsxRuntimeImport: { source: 'preact', specifiers: ['h'] }` for "classi
 
 Replace SVG `width` and `height` by a custom value. If value is omitted, it uses `1em` in order to make SVG size inherits from text size.
 
-| Default | CLI Override     | API Override   |
-| ------- | ---------------- | -------------- | ------ | ------- |
-| `false` | `--icon [value]` | `icon: boolean | string | number` |
+| Default | CLI Override     | API Override                        |
+| ------- | ---------------- | ----------------------------------- |
+| `false` | `--icon [value]` | `icon: boolean \| string \| number` |
 
 > If you use `--icon` without any argument, be careful of separating files from arguments using `--`, ex: `svgr --icon -- assets/svg`
 
