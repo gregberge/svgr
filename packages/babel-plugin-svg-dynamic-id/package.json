@@ -1,0 +1,37 @@
+{
+  "name": "@svgr/babel-plugin-svg-dynamic-id",
+  "version": "6.5.1",
+  "description": "Transform SVG by adding a dynamic prefixable/suffixable id",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },  "scripts": {
+    "reset": "rm -rf dist",
+    "build": "rollup -c ../../build/rollup.config.js",
+    "prepublishOnly": "npm run reset && npm run build"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "babel-plugin"
+  ],
+  "homepage": "https://react-svgr.com",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0"
+  },
+  "author": "Alfie Jones <alfie.jones@hotmail.co.uk>",
+  "license": "MIT"
+}

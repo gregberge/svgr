@@ -6,6 +6,7 @@ npm run build --workspace @svgr/babel-plugin-remove-jsx-attribute
 npm run build --workspace @svgr/babel-plugin-remove-jsx-empty-expression
 npm run build --workspace @svgr/babel-plugin-replace-jsx-attribute-value
 npm run build --workspace @svgr/babel-plugin-svg-dynamic-title
+npm run build --workspace @svgr/babel-plugin-svg-dynamic-id
 npm run build --workspace @svgr/babel-plugin-svg-em-dimensions
 npm run build --workspace @svgr/babel-plugin-transform-react-native-svg
 npm run build --workspace @svgr/babel-plugin-transform-svg-component
