@@ -58,7 +58,11 @@ Replace SVG `width` and `height` by a custom value. If value is omitted, it uses
 | ------- | ---------------- | ----------------------------------- |
 | `false` | `--icon [value]` | `icon: boolean \| string \| number` |
 
-> If you use `--icon` without any argument, be careful of separating files from arguments using `--`, ex: `svgr --icon -- assets/svg`
+:::caution
+
+If you use `--icon` without any argument, be careful of separating files from arguments using `--`, ex: `svgr --icon -- assets/svg`
+
+:::
 
 ## Native
 
@@ -159,7 +163,11 @@ Replace an attribute value by an other. The main usage of this option is to chan
 | ------- | --------------------------------- | ---------------------------------------------- |
 | `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { [key: string]: string }` |
 
-> You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particularly useful with a custom template.
+:::caution
+
+You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particularly useful with a custom template.
+
+:::
 
 ## SVG props
 
@@ -169,7 +177,11 @@ Add props to the root SVG tag.
 | ------- | -------------------------- | ------------------------------------- |
 | `[]`    | `--svg-props <name=value>` | `svgProps: { [key: string]: string }` |
 
-> You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particularly useful with a custom template.
+:::caution
+
+You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particularly useful with a custom template.
+
+:::
 
 ### Accessibility
 
@@ -189,9 +201,13 @@ SVGs by default have an implicit `role="graphics-document"`. To make SVG content
 
 Typically for role=img you will want to add either `alt` text or `aria` label/description properties to describe the image when rendering the SVG in your application.
 
-> **NOTE**: On the web once you add `role: 'img'` some screen-readers will automatically announce any `title`/`text`/`desc` nodes within your SVG.
->
-> SVGO can be configured to remove those nodes via the built-in `removeDesc` and `removeTitle` plugins if you only want to use `aria` properties during consumption of the SVGs.
+:::caution
+
+**NOTE**: On the web once you add `role: 'img'` some screen-readers will automatically announce any `title`/`text`/`desc` nodes within your SVG.
+
+SVGO can be configured to remove those nodes via the built-in `removeDesc` and `removeTitle` plugins if you only want to use `aria` properties during consumption of the SVGs.
+
+:::
 
 ## Title
 
