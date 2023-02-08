@@ -1,0 +1,142 @@
+---
+section: Usage
+title: Node.js
+slug: /docs/node-api/
+sidebar_position: 30
+---
+
+# Node.js
+
+Use SVGR in Node.js to complex transformations or tools.
+
+<carbon-ad />
+
+## Install
+
+```bash
+npm install --save-dev @svgr/core
+# or use yarn
+yarn add --dev @svgr/core
+```
+
+## Usage
+
+Import `transform` from `@svgr/core` to transform a file. It takes three arguments:
+
+- `source`: the SVG source code to transform
+- `options`: the options used to transform the SVG
+- `state`: a state linked to the transformation
+
+```js
+import { transform } from '@svgr/core'
+
+const svgCode = `
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="10" y="10" height="100" width="100"
+    style="stroke:#ff0000; fill: #0000ff"/>
+</svg>
+`
+
+const jsCode = await transform(
+  svgCode,
+  { icon: true },
+  { componentName: 'MyComponent' },
+)
+```
+
+### Options
+
+[SVGR options reference](https://react-svgr.com/docs/options/) describes all options available.
+
+### State
+
+`state` argument have two main properties:
+
+- `componentName` (required): the name of the component that will be used in the generated component
+- `filePath` (required): the name of the file that is generated, mainly used to find runtime config file to apply
+
+## Use SVGO and Prettier
+
+By default `@svgr/core` doesn't include `svgo` and `prettier` plugins. If you need these, you have to install it and to specify it in options.
+
+```bash
+npm install @svgr/plugin-jsx @svgr/plugin-prettier
+```
+
+```js
+import { transform } from '@svgr/core'
+
+const svgCode = `
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="10" y="10" height="100" width="100"
+    style="stroke:#ff0000; fill: #0000ff"/>
+</svg>
+`
+
+const jsCode = await transform(
+  svgCode,
+  {
+    plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
+    icon: true,
+  },
+  { componentName: 'MyComponent' },
+)
+```
+
+## Synchronous usage
+
+SVGR provides two API, an asynchronous one and a synchronous one. It is recommended to use the asynchronous one as possible, but sometimes you may have to use the synchronous one. SVGR exposes `transform.sync` for synchronous usage.
+
+```js
+import { transform } from '@svgr/core'
+
+const svgCode = `
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="10" y="10" height="100" width="100"
+    style="stroke:#ff0000; fill: #0000ff"/>
+</svg>
+`
+
+const jsCode = transform.sync(
+  svgCode,
+  { icon: true },
+  { componentName: 'MyComponent' },
+)
+```
+
+## Note for tools creator
+
+If you want to create a tool based on SVGR, you must follow some rules:
+
+### Specify `state.caller`
+
+If you create a tool based on SVGR, it is always better to specify `state.caller`. It permits the inter-operability betweens plugins. If someone create a SVGR plugin it could adapt it specifically to your tool.
+
+```js
+interface State {
+  filePath?: string
+  componentName: string
+  caller?: {
+    name?: string
+    previousExport?: string | null
+    defaultPlugins?: ConfigPlugin[]
+  }
+}
+```
+
+Aditionnaly you can specify `defaultPlugins` if your tool needs plugins by default and you still want users to be able to customize it.
+
+### Use asynchronous API
+
+Asynchronous API uses Node.js asychronous API under the hood, it is more performant. So it is always better to use that API if possible.
+
+### Do not overrides SVGR options
+
+SVGR has lot of options, every options are describe in this documentation. It is always easier for users to refer to this documentation.
+
+- Always prefer asynchronous API if possible
+- Do not override SVGR options, it is easier for users to refer to this documentation
+- Specify `state.caller` argument:
