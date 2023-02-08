@@ -81,7 +81,7 @@ export default function Home() {
 
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`SVGR - Transform SVGs into React components`}
       description="Description will go into a meta tag in <head />"
     >
       <HomepageHeader />

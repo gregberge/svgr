@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Transform SVGs into React components',
+  title: 'SVGR',
   tagline:
     'A complete tool box to take advantage of using SVGs in your React applications.',
   favicon: 'img/favicon.ico',
