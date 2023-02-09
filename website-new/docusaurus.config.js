@@ -76,7 +76,7 @@ const config = {
         },
         items: [
           {
-            href: '#',
+            href: '/playground',
             label: 'Playground',
             position: 'right',
           },
