@@ -82,7 +82,7 @@ export default function Home() {
   return (
     <Layout
       title={`SVGR - Transform SVGs into React components`}
-      description="Description will go into a meta tag in <head />"
+      description="TODO"
     >
       <HomepageHeader />
       <main>
