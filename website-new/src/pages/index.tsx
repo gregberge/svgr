@@ -13,7 +13,9 @@ function HomepageHeader() {
       <div className={styles.hero}>
         <div className={styles.heroInner}>
           <div className={styles.heroMain}>
-            <h1 className={styles.heroTitle}>{siteConfig.title}</h1>
+            <h1 className={styles.heroTitle}>
+              Transform SVGs into React components
+            </h1>
             <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
             <div className={styles.heroButtons}>
               <Link
