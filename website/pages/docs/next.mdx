@@ -21,22 +21,42 @@ yarn add --dev @svgr/webpack
 
 ## Usage
 
-Using SVGR into Next.js is possible by configuring `@svgr/webpack`.
+Using SVGR in Next.js is possible with `@svgr/webpack`.
 
 **next.config.js**
 
 ```js
 module.exports = {
   webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    })
+    // Grab the existing rule that handles SVG imports
+    const fileLoaderRule = config.module.rules.find((rule) =>
+      rule.test?.test?.(".svg")
+    );
 
-    return config
+    config.module.rules.push(
+      // Reapply the existing rule, but only for svg imports ending in ?url
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/, // *.svg?url
+      },
+      // Convert all other *.svg imports to React components
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: /url/ }, // exclude if *.svg?url
+        use: ["@svgr/webpack"],
+      },
+    );
+
+    // Modify the file loader rule to ignore *.svg, since we have it handled now.
+    fileLoaderRule.exclude = /\.svg$/i;
+
+    return config;
   },
-}
+
+  // ...other config
+};
 ```
 
 **Your code**
@@ -47,6 +67,19 @@ import Star from './star.svg'
 const Example = () => (
   <div>
     <Star />
+  </div>
+)
+```
+
+Or, using the classic (URL) import:
+
+```js
+import Image from 'next/image'
+import starUrl from './star.svg?url'
+
+const Example = () => (
+  <div>
+    <Image src={starUrl} />
   </div>
 )
 ```
