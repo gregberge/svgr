@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`plugin javascript #jsxRuntime allows to specify a custom "classic" jsxRuntime using "defaultSpecifier" 1`] = `
+"import h from "hyperapp-jsx-pragma";
+const SvgComponent = () => <svg><g /></svg>;
+export default SvgComponent;"
+`;
+
 exports[`plugin javascript #jsxRuntime allows to specify a custom "classic" jsxRuntime using "namespace" 1`] = `
 "import * as Preact from "preact";
 const SvgComponent = () => <svg><g /></svg>;
@@ -224,6 +230,12 @@ const SvgComponent = (_, ref) => <svg><g /></svg>;
 const ForwardRef = forwardRef(SvgComponent);
 const Memo = memo(ForwardRef);
 export default Memo;"
+`;
+
+exports[`plugin typescript #jsxRuntime allows to specify a custom "classic" jsxRuntime using "defaultSpecifier" 1`] = `
+"import h from "hyperapp-jsx-pragma";
+const SvgComponent = () => <svg><g /></svg>;
+export default SvgComponent;"
 `;
 
 exports[`plugin typescript #jsxRuntime allows to specify a custom "classic" jsxRuntime using "namespace" 1`] = `

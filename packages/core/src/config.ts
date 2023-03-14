@@ -32,6 +32,12 @@ export interface Config {
   exportType?: 'named' | 'default'
   namedExport?: string
   jsxRuntime?: 'classic' | 'classic-preact' | 'automatic'
+  jsxRuntimeImport?: {
+    source: string
+    namespace?: string
+    specifiers?: string[]
+    defaultSpecifier?: string
+  }
 
   // CLI only
   index?: boolean
