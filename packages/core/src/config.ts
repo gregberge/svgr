@@ -1,6 +1,6 @@
 import { cosmiconfig, cosmiconfigSync } from 'cosmiconfig'
 import type { Options as PrettierOptions } from 'prettier'
-import type { OptimizeOptions as SvgoOptions } from 'svgo'
+import type { Config as SvgoOptions } from 'svgo'
 import type { Options as TransformOptions } from '@svgr/babel-preset'
 import type { TransformOptions as BabelTransformOptions } from '@babel/core'
 import type { ConfigPlugin } from './plugins'
