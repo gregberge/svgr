@@ -1,5 +1,3 @@
-// @ts-ignore
-import jsx from '@svgr/plugin-jsx'
 import { Config } from './config'
 import type { State } from './state'
 
@@ -9,7 +7,7 @@ export interface Plugin {
 
 export type ConfigPlugin = string | Plugin
 
-const DEFAULT_PLUGINS: Plugin[] = [jsx as any]
+const DEFAULT_PLUGINS: Plugin[] = []
 
 export const getPlugins = (
   config: Config,
