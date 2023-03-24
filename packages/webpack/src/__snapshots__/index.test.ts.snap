@@ -5,15 +5,15 @@ exports[`webpack loader supports url-loader 1`] = `
 import * as React from "react";
 var SvgIcon = function SvgIcon() {
   return _svg || (_svg = /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
     width: 88,
-    height: 88,
-    xmlns: "http://www.w3.org/2000/svg"
+    height: 88
   }, /*#__PURE__*/React.createElement("g", {
-    stroke: "#063855",
-    strokeWidth: 2,
     fill: "none",
     fillRule: "evenodd",
-    strokeLinecap: "square"
+    stroke: "#063855",
+    strokeLinecap: "square",
+    strokeWidth: 2
   }, /*#__PURE__*/React.createElement("path", {
     d: "M51 37 37 51M51 51 37 37"
   }))));
@@ -25,15 +25,15 @@ export default "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz
 exports[`webpack loader transforms file (babel: false) 1`] = `
 "import * as React from "react";
 const SvgIcon = () => /*#__PURE__*/React.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
   width: 88,
-  height: 88,
-  xmlns: "http://www.w3.org/2000/svg"
+  height: 88
 }, /*#__PURE__*/React.createElement("g", {
-  stroke: "#063855",
-  strokeWidth: 2,
   fill: "none",
   fillRule: "evenodd",
-  strokeLinecap: "square"
+  stroke: "#063855",
+  strokeLinecap: "square",
+  strokeWidth: 2
 }, /*#__PURE__*/React.createElement("path", {
   d: "M51 37 37 51M51 51 37 37"
 })));
@@ -46,15 +46,15 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 import * as React from "react";
 var SvgIcon = function SvgIcon(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
     width: 88,
-    height: 88,
-    xmlns: "http://www.w3.org/2000/svg"
+    height: 88
   }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
-    stroke: "#063855",
-    strokeWidth: 2,
     fill: "none",
     fillRule: "evenodd",
-    strokeLinecap: "square"
+    stroke: "#063855",
+    strokeLinecap: "square",
+    strokeWidth: 2
   }, /*#__PURE__*/React.createElement("path", {
     d: "M51 37 37 51M51 51 37 37"
   }))));
@@ -67,15 +67,15 @@ exports[`webpack loader transforms file 1`] = `
 import * as React from "react";
 var SvgIcon = function SvgIcon() {
   return _svg || (_svg = /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
     width: 88,
-    height: 88,
-    xmlns: "http://www.w3.org/2000/svg"
+    height: 88
   }, /*#__PURE__*/React.createElement("g", {
-    stroke: "#063855",
-    strokeWidth: 2,
     fill: "none",
     fillRule: "evenodd",
-    strokeLinecap: "square"
+    stroke: "#063855",
+    strokeLinecap: "square",
+    strokeWidth: 2
   }, /*#__PURE__*/React.createElement("path", {
     d: "M51 37 37 51M51 51 37 37"
   }))));
@@ -88,15 +88,15 @@ exports[`webpack loader transforms file 2`] = `
 import * as React from "react";
 var SvgIcon = function SvgIcon() {
   return _svg || (_svg = /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
     width: 88,
-    height: 88,
-    xmlns: "http://www.w3.org/2000/svg"
+    height: 88
   }, /*#__PURE__*/React.createElement("g", {
-    stroke: "#063855",
-    strokeWidth: 2,
     fill: "none",
     fillRule: "evenodd",
-    strokeLinecap: "square"
+    stroke: "#063855",
+    strokeLinecap: "square",
+    strokeWidth: 2
   }, /*#__PURE__*/React.createElement("path", {
     d: "M51 37 37 51M51 51 37 37"
   }))));

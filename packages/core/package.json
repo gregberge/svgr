@@ -43,8 +43,5 @@
     "@svgr/plugin-jsx": "^6.5.1",
     "camelcase": "^6.2.0",
     "cosmiconfig": "^7.0.1"
-  },
-  "devDependencies": {
-    "@types/svgo": "^2.6.4"
   }
 }
