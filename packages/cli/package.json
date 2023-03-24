@@ -14,7 +14,7 @@
     "cli"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "homepage": "https://react-svgr.com",
   "funding": {
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.js",
+    "build": "rollup -c ../../build/rollup.config.mjs",
     "prepublishOnly": "npm run reset && npm run build"
   },
   "dependencies": {
@@ -42,7 +42,7 @@
     "glob": "^8.0.3"
   },
   "devDependencies": {
-    "@types/glob": "^8.0.0",
+    "@types/glob": "^8.1.0",
     "del": "^6.1.1"
   }
 }
