@@ -30,14 +30,14 @@
   "license": "MIT",
   "scripts": {
     "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.js",
+    "build": "rollup -c ../../build/rollup.config.mjs",
     "prepublishOnly": "npm run reset && npm run build"
   },
   "peerDependencies": {
     "@svgr/core": "*"
   },
   "dependencies": {
-    "deepmerge": "^4.2.2",
-    "prettier": "^2.7.1"
+    "deepmerge": "^4.3.1",
+    "prettier": "^2.8.7"
   }
 }

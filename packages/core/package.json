@@ -34,14 +34,14 @@
   "license": "MIT",
   "scripts": {
     "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.js",
+    "build": "rollup -c ../../build/rollup.config.mjs",
     "prepublishOnly": "npm run reset && npm run build"
   },
   "dependencies": {
-    "@babel/core": "^7.19.6",
+    "@babel/core": "^7.21.3",
     "@svgr/babel-preset": "^6.5.1",
     "@svgr/plugin-jsx": "^6.5.1",
     "camelcase": "^6.2.0",
-    "cosmiconfig": "^7.0.1"
+    "cosmiconfig": "^8.1.3"
   }
 }
