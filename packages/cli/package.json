@@ -14,7 +14,7 @@
     "cli"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "homepage": "https://react-svgr.com",
   "funding": {
