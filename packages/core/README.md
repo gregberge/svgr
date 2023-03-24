@@ -34,7 +34,7 @@ Use `svgr.sync(code, config, state)` if you would like to use sync version.
 
 ### Plugins
 
-By default `@svgr/core` doesn't include `svgo` and `prettier` plugins, if you want them, you have to install them and include them in config.
+By default `@svgr/core` doesn't include any plugin, if you want them, you have to install them and include them in config.
 
 ```js
 svgr(svgCode, {
@@ -54,7 +54,3 @@ MIT
 [package]: https://www.npmjs.com/package/@svgr/core
 [license-badge]: https://img.shields.io/npm/l/@svgr/core.svg?style=flat-square
 [license]: https://github.com/smooth-code/svgr/blob/master/LICENSE
-
-```
-
-```

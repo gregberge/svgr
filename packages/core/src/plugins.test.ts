@@ -16,12 +16,12 @@ describe('#getPlugins', () => {
     expect(getPlugins({}, state)).toEqual(['from-state-plugin'])
   })
 
-  it('should default to ["@svgr/plugin-jsx"]', () => {
-    expect(getPlugins({}, {})).toEqual([jsx])
+  it('should default to []', () => {
+    expect(getPlugins({}, {})).toEqual([])
   })
 
   it('should support caller with "defaultPlugins" in second choice', () => {
-    expect(getPlugins({}, { caller: {} })).toEqual([jsx])
+    expect(getPlugins({}, { caller: {} })).toEqual([])
   })
 })
 
