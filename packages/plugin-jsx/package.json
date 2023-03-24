@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.21.3",
-    "@svgr/babel-preset": "^6.5.1",
-    "@svgr/hast-util-to-babel-ast": "^6.5.1",
+    "@svgr/babel-preset": "*",
+    "@svgr/hast-util-to-babel-ast": "*",
     "svg-parser": "^2.0.4"
   }
 }

@@ -30,14 +30,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@svgr/babel-plugin-add-jsx-attribute": "^6.5.1",
+    "@svgr/babel-plugin-add-jsx-attribute": "*",
     "@svgr/babel-plugin-remove-jsx-attribute": "*",
     "@svgr/babel-plugin-remove-jsx-empty-expression": "*",
-    "@svgr/babel-plugin-replace-jsx-attribute-value": "^6.5.1",
-    "@svgr/babel-plugin-svg-dynamic-title": "^6.5.1",
-    "@svgr/babel-plugin-svg-em-dimensions": "^6.5.1",
-    "@svgr/babel-plugin-transform-react-native-svg": "^6.5.1",
-    "@svgr/babel-plugin-transform-svg-component": "^6.5.1"
+    "@svgr/babel-plugin-replace-jsx-attribute-value": "*",
+    "@svgr/babel-plugin-svg-dynamic-title": "*",
+    "@svgr/babel-plugin-svg-em-dimensions": "*",
+    "@svgr/babel-plugin-transform-react-native-svg": "*",
+    "@svgr/babel-plugin-transform-svg-component": "*"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0-0"

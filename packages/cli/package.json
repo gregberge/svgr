@@ -31,10 +31,10 @@
     "prepublishOnly": "npm run reset && npm run build"
   },
   "dependencies": {
-    "@svgr/core": "^6.5.1",
-    "@svgr/plugin-jsx": "^6.5.1",
-    "@svgr/plugin-prettier": "^6.5.1",
-    "@svgr/plugin-svgo": "^6.5.1",
+    "@svgr/core": "*",
+    "@svgr/plugin-jsx": "*",
+    "@svgr/plugin-prettier": "*",
+    "@svgr/plugin-svgo": "*",
     "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
     "commander": "^9.4.1",

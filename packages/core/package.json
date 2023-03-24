@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.21.3",
-    "@svgr/babel-preset": "^6.5.1",
+    "@svgr/babel-preset": "*",
     "camelcase": "^6.2.0",
     "cosmiconfig": "^8.1.3"
   }
