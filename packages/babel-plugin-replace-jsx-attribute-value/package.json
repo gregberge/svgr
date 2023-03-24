@@ -1,7 +1,7 @@
 {
   "name": "@svgr/babel-plugin-replace-jsx-attribute-value",
   "description": "Replace JSX attribute value",
-  "version": "6.5.1",
+  "version": "7.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

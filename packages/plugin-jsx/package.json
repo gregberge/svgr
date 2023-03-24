@@ -1,7 +1,7 @@
 {
   "name": "@svgr/plugin-jsx",
   "description": "Transform SVG into JSX",
-  "version": "6.5.1",
+  "version": "7.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.21.3",
-    "@svgr/babel-preset": "*",
-    "@svgr/hast-util-to-babel-ast": "*",
+    "@svgr/babel-preset": "^7.0.0",
+    "@svgr/hast-util-to-babel-ast": "^7.0.0",
     "svg-parser": "^2.0.4"
   }
 }

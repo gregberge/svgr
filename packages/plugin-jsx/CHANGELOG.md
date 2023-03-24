@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/gregberge/svgr/compare/v6.5.1...v7.0.0) (2023-03-24)
+
+
+### Features
+
+* allow specifying `jsxRuntimeImport` in config ([86bb86f](https://github.com/gregberge/svgr/commit/86bb86f47748618f729742e56199355d9c0bc518)), closes [#801](https://github.com/gregberge/svgr/issues/801) [#801](https://github.com/gregberge/svgr/issues/801)
+
+
+
+
+
 ## [6.5.1](https://github.com/gregberge/svgr/compare/v6.5.0...v6.5.1) (2022-10-27)
 
 ### Reverts

@@ -1,7 +1,7 @@
 {
   "name": "@svgr/cli",
   "description": "SVGR command line.",
-  "version": "6.5.1",
+  "version": "7.0.0",
   "repository": "https://github.com/gregberge/svgr/tree/main/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
@@ -31,10 +31,10 @@
     "prepublishOnly": "npm run reset && npm run build"
   },
   "dependencies": {
-    "@svgr/core": "*",
-    "@svgr/plugin-jsx": "*",
-    "@svgr/plugin-prettier": "*",
-    "@svgr/plugin-svgo": "*",
+    "@svgr/core": "^7.0.0",
+    "@svgr/plugin-jsx": "^7.0.0",
+    "@svgr/plugin-prettier": "^7.0.0",
+    "@svgr/plugin-svgo": "^7.0.0",
     "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
     "commander": "^9.4.1",

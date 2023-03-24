@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/gregberge/svgr/compare/v6.5.1...v7.0.0) (2023-03-24)
+
+
+### Features
+
+* allow specifying `jsxRuntimeImport` in config ([86bb86f](https://github.com/gregberge/svgr/commit/86bb86f47748618f729742e56199355d9c0bc518)), closes [#801](https://github.com/gregberge/svgr/issues/801) [#801](https://github.com/gregberge/svgr/issues/801)
+* remove @svgr/plugin-jsx from core ([a0f078d](https://github.com/gregberge/svgr/commit/a0f078db13936800a32c14ade08b670a14b5a886))
+* upgrade to svgo v3 ([#798](https://github.com/gregberge/svgr/issues/798)) ([21b6209](https://github.com/gregberge/svgr/commit/21b6209ef34c51cc0313901f31061afe587ab29b))
+
+
+### BREAKING CHANGES
+
+* plugin-jsx is no longer included by default in core
+* svgr now requires Node.js v14+
+
+
+
+
+
 ## [6.5.1](https://github.com/gregberge/svgr/compare/v6.5.0...v6.5.1) (2022-10-27)
 
 ### Reverts

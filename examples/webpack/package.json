@@ -5,10 +5,11 @@
     "start": "webpack serve"
   },
   "devDependencies": {
-    "@svgr/webpack": "*",
+    "@svgr/webpack": "^7.0.0",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.1"
-  }
+  },
+  "version": "7.0.0"
 }

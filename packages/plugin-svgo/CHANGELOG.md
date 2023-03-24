@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/gregberge/svgr/compare/v6.5.1...v7.0.0) (2023-03-24)
+
+
+### Features
+
+* upgrade to svgo v3 ([#798](https://github.com/gregberge/svgr/issues/798)) ([21b6209](https://github.com/gregberge/svgr/commit/21b6209ef34c51cc0313901f31061afe587ab29b))
+
+
+### BREAKING CHANGES
+
+* svgr now requires Node.js v14+
+
+
+
+
+
 ## [6.5.1](https://github.com/gregberge/svgr/compare/v6.5.0...v6.5.1) (2022-10-27)
 
 **Note:** Version bump only for package @svgr/plugin-svgo

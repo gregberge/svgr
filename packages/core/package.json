@@ -1,7 +1,7 @@
 {
   "name": "@svgr/core",
   "description": "Transform SVG into React Components.",
-  "version": "6.5.1",
+  "version": "7.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.21.3",
-    "@svgr/babel-preset": "*",
+    "@svgr/babel-preset": "^7.0.0",
     "camelcase": "^6.2.0",
     "cosmiconfig": "^8.1.3"
   }
