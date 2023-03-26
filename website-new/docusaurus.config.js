@@ -82,7 +82,7 @@ const config = {
             position: 'right',
           },
           {
-            href: '/docs',
+            href: '/docs/getting-started',
             label: 'Docs',
             position: 'right',
           },

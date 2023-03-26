@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: grid;
   grid-template-columns: min-content 1fr;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
 `
 
 const Editors = styled.div`
@@ -84,6 +84,8 @@ const EditorTitleContainer = styled.div`
 `
 
 const EditorTitle = styled.h3`
+  margin: 0;
+  font-size: inherit;
   display: flex;
   align-items: center;
   font-weight: bold;
