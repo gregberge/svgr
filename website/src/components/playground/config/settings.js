@@ -3,7 +3,7 @@ const parseObject = (value) =>
     const [left, right] = assignment.split('=')
     return {
       ...obj,
-      [left]: right,
+      [left.trim()]: right.trim(),
     }
   }, {})
 
