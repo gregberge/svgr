@@ -26,6 +26,13 @@ const initialPrettierConfig = JSON.stringify({ semi: false }, null, 2)
 
 export const settings = [
   {
+    label: 'Dimensions',
+    name: 'dimensions',
+    type: 'boolean',
+    group: 'global',
+    default: true,
+  },
+  {
     label: 'Icon',
     name: 'icon',
     type: 'boolean',
@@ -100,6 +107,31 @@ export const settings = [
     group: 'global',
     transform: parseObject,
     default: '',
+  },
+  {
+    label: 'Export Type',
+    name: 'exportType',
+    type: 'enum',
+    values: ['named', 'default'],
+    group: 'global',
+    default: 'default',
+  },
+  {
+    label: 'Named export',
+    name: 'namedExport',
+    placeholder: 'ReactComponent',
+    type: 'string',
+    group: 'global',
+    default: 'ReactComponent',
+  },
+  {
+    label: 'JSX runtime',
+    name: 'jsxRuntime',
+    type: 'enum',
+    values: ['classic', 'classic-preact', 'automatic', 'none'],
+    group: 'global',
+    transform: (value) => (value === 'none' ? 'classic' : value),
+    default: 'none',
   },
   {
     label: 'Enable',
