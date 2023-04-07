@@ -35,7 +35,7 @@
   "scripts": {
     "reset": "rm -rf dist",
     "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "npm run reset && npm run build"
+    "prepublishOnly": "pnpm run reset && pnpm run build"
   },
   "dependencies": {
     "@babel/core": "^7.21.3",
@@ -44,9 +44,9 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.0",
     "@rollup/pluginutils": "^5.0.2",
-    "@svgr/core": "^7.0.0",
-    "@svgr/plugin-jsx": "^7.0.0",
-    "@svgr/plugin-svgo": "^7.0.0"
+    "@svgr/core": "workspace:*",
+    "@svgr/plugin-jsx": "workspace:*",
+    "@svgr/plugin-svgo": "workspace:*"
   },
   "devDependencies": {
     "rollup": "^3.20.2",

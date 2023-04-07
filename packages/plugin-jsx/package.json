@@ -31,12 +31,19 @@
   "scripts": {
     "reset": "rm -rf dist",
     "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "npm run reset && npm run build"
+    "prepublishOnly": "pnpm run reset && pnpm run build"
   },
   "dependencies": {
     "@babel/core": "^7.21.3",
-    "@svgr/babel-preset": "^7.0.0",
-    "@svgr/hast-util-to-babel-ast": "^7.0.0",
+    "@svgr/babel-preset": "workspace:*",
+    "@svgr/hast-util-to-babel-ast": "workspace:*",
     "svg-parser": "^2.0.4"
+  },
+  "devDependencies": {
+    "@svgr/core": "workspace:*",
+    "@types/svg-parser": "^2.0.3"
+  },
+  "peerDependencies": {
+    "@svgr/core": "workspace:*"
   }
 }

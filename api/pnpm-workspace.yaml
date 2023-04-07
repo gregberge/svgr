@@ -1,0 +1,2 @@
+# https://github.com/pnpm/pnpm/issues/2412
+# This is only created so that api package doesn't try to use the virtual store from the repo's root

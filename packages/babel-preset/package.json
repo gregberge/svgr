@@ -30,14 +30,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@svgr/babel-plugin-add-jsx-attribute": "^7.0.0",
-    "@svgr/babel-plugin-remove-jsx-attribute": "^7.0.0",
-    "@svgr/babel-plugin-remove-jsx-empty-expression": "^7.0.0",
-    "@svgr/babel-plugin-replace-jsx-attribute-value": "^7.0.0",
-    "@svgr/babel-plugin-svg-dynamic-title": "^7.0.0",
-    "@svgr/babel-plugin-svg-em-dimensions": "^7.0.0",
-    "@svgr/babel-plugin-transform-react-native-svg": "^7.0.0",
-    "@svgr/babel-plugin-transform-svg-component": "^7.0.0"
+    "@svgr/babel-plugin-add-jsx-attribute": "workspace:*",
+    "@svgr/babel-plugin-remove-jsx-attribute": "workspace:*",
+    "@svgr/babel-plugin-remove-jsx-empty-expression": "workspace:*",
+    "@svgr/babel-plugin-replace-jsx-attribute-value": "workspace:*",
+    "@svgr/babel-plugin-svg-dynamic-title": "workspace:*",
+    "@svgr/babel-plugin-svg-em-dimensions": "workspace:*",
+    "@svgr/babel-plugin-transform-react-native-svg": "workspace:*",
+    "@svgr/babel-plugin-transform-svg-component": "workspace:*"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0-0"
@@ -45,6 +45,6 @@
   "scripts": {
     "reset": "rm -rf dist",
     "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "npm run reset && npm run build"
+    "prepublishOnly": "pnpm run reset && pnpm run build"
   }
 }

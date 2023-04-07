@@ -31,7 +31,14 @@ export default [
   ...(pkg.main
     ? [
         bundle({
-          plugins: [dts()],
+          plugins: [
+            dts({
+              compilerOptions: {
+                // https://github.com/Swatinem/rollup-plugin-dts/issues/143
+                preserveSymlinks: false,
+              },
+            }),
+          ],
           output: {
             file: `${name}.d.ts`,
             format: 'es',

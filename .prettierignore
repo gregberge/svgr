@@ -7,3 +7,5 @@ dist/
 .next/
 /website/.cache/
 /website/public/
+pnpm-workspace.yaml
+pnpm-lock.yaml

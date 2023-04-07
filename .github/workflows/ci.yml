@@ -25,21 +25,20 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
 
-      - name: Use latest npm
-        run: npm i -g npm@latest --registry=https://registry.npmjs.org
-        if: ${{ matrix.node-version == '14.x' }}
+      - name: Use latest pnpm
+        run: npm i -g pnpm@latest --registry=https://registry.npmjs.org
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Test
-        run: npm run test -- --ci --coverage
+        run: pnpm run test --ci --coverage
 
       - name: Codecov
         run: npx codecov
