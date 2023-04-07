@@ -25,9 +25,8 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
 
-      - name: Use latest npm
+      - name: Use latest pnpm
         run: npm i -g pnpm@latest --registry=https://registry.npmjs.org
-        if: ${{ matrix.node-version == '14.x' }}
 
       - name: Install dependencies
         run: pnpm install
