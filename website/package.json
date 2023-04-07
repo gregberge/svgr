@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "pnpm@8.1.1",
   "dependencies": {
     "@xstyled/styled-components": "^3.7.3",
     "ariakit": "^2.0.0-next.43",

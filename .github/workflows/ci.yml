@@ -38,7 +38,7 @@ jobs:
         run: pnpm run lint
 
       - name: Test
-        run: pnpm run test -- --ci --coverage
+        run: pnpm run test --ci --coverage
 
       - name: Codecov
         run: npx codecov

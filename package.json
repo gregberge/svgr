@@ -8,6 +8,7 @@
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest --runInBand"
   },
+  "packageManager": "pnpm@8.1.1",
   "devDependencies": {
     "@types/babel__core": "^7.20.0",
     "@types/node": "^18.15.11",
