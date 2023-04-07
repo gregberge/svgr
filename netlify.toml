@@ -2,3 +2,5 @@
   base = "website/"
   publish = "public/"
   command = "pnpm run build"
+[build.environment]
+  PNPM_FLAGS = "--shamefully-hoist"
