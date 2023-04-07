@@ -10,22 +10,23 @@ We expect project participants to adhere to our Code of Conduct. Please read [th
 
 All work on SVGR happens directly on [GitHub](/). Both core team members and external contributors send pull requests which go through the same review process.
 
+The SVGR repo is a monorepo using pnpm workspaces and [Lerna](https://lerna.js.org/docs/recipes/using-pnpm-with-lerna). The package manager used to install and link dependencies must be [pnpm](https://pnpm.io/). Note that website still uses npm, as there are some errors reported when using pnpm in gatsby.
+
 ### Online one click Setup
 
 You can use Gitpod(An Online Open Source VS Code like IDE which is free for Open Source) for contributing online. With a single click it will start a workspace and automatically:
 
 - clone the `svgr` repo.
-- install all the dependencies in `/` and `/website`.
+- install dependencies in '/': `pnpm install`
+- install dependencies in '/website': `npm install`
 - run `pnpm run dev` in `/`.
-- run `pnpm run dev` in `/website` to start the dev server.
+- run `npm run dev` in `/website` to start the dev server.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 ### Workflow and Pull Requests
 
 _Before_ submitting a pull request, please make sure the following is done…
-
-The SVGR repo is a monorepo using pnpm workspaces and [Lerna](https://lerna.js.org/docs/recipes/using-pnpm-with-lerna). The package manager used to install and link dependencies must be [pnpm](https://pnpm.io/).
 
 1.  Fork the repo and create your branch from `main`. A guide on how to fork a repository: https://help.github.com/articles/fork-a-repo/
 
