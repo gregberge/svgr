@@ -1,18 +1,16 @@
 {
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ],
   "scripts": {
-    "build": "lerna run build",
-    "dev": "lerna run build --parallel -- --watch",
+    "build": "pnpm -r run build",
+    "dev": "pnpm -r --parallel run build --watch",
     "format": "prettier --write .",
     "lint": "eslint . && prettier --check .",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest --runInBand"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.20.0",
+    "@types/node": "^18.15.11",
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
@@ -20,6 +18,9 @@
     "@types/jest": "^29.5.0",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
+    "@svgr/plugin-jsx": "workspace:*",
+    "@svgr/plugin-svgo": "workspace:*",
+    "@svgr/plugin-prettier": "workspace:*",
     "babel-jest": "^29.5.0",
     "codecov": "^3.8.3",
     "conventional-github-releaser": "^3.1.5",

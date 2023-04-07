@@ -34,6 +34,6 @@
   "scripts": {
     "reset": "rm -rf dist",
     "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "npm run reset && npm run build"
+    "prepublishOnly": "pnpm run reset && pnpm run build"
   }
 }

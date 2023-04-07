@@ -16,14 +16,16 @@ You can use Gitpod(An Online Open Source VS Code like IDE which is free for Open
 
 - clone the `svgr` repo.
 - install all the dependencies in `/` and `/website`.
-- run `npm run dev` in `/`.
-- run `npm run dev` in `/website` to start the dev server.
+- run `pnpm run dev` in `/`.
+- run `pnpm run dev` in `/website` to start the dev server.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 ### Workflow and Pull Requests
 
 _Before_ submitting a pull request, please make sure the following is done…
+
+The SVGR repo is a monorepo using pnpm workspaces and [Lerna](https://lerna.js.org/docs/recipes/using-pnpm-with-lerna). The package manager used to install and link dependencies must be [pnpm](https://pnpm.io/).
 
 1.  Fork the repo and create your branch from `main`. A guide on how to fork a repository: https://help.github.com/articles/fork-a-repo/
 
@@ -37,13 +39,13 @@ _Before_ submitting a pull request, please make sure the following is done…
 
     Note: Replace `<your_username>` with your GitHub username
 
-2.  Run `npm install` and `npm run build`.
+2.  Run `pnpm install` and `pnpm run build`.
 
 3.  If you've added code that should be tested, add tests. You can use watch mode that continuously transforms changed files to make your life easier.
 
     ```sh
     # in the background
-    npm run dev
+    pnpm run dev
     ```
 
 4.  If you've changed APIs, update the documentation.
@@ -51,13 +53,13 @@ _Before_ submitting a pull request, please make sure the following is done…
 5.  Ensure the linting is good via `npm run lint`.
 
     ```sh-session
-    $ npm run lint
+    $ pnpm run lint
     ```
 
 6.  Ensure the test suite passes via `npm run test`.
 
     ```sh-session
-    $ npm run test
+    $ pnpm run test
     ```
 
 ## Bugs
