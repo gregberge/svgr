@@ -1,5 +1,6 @@
 import { types as t, template } from '@babel/core'
 import type { Options, TemplateVariables, JSXRuntimeImport } from './types'
+import type { ImportDeclaration } from '@babel/types'
 
 const tsOptionalPropertySignature = (
   ...args: Parameters<typeof t.tsPropertySignature>
@@ -18,16 +19,24 @@ interface Context {
   importSource: string
 }
 
-const getOrCreateImport = ({ imports }: Context, sourceValue: string) => {
+const getOrCreateImport = (
+  { imports }: Context,
+  sourceValue: string,
+  importKind: ImportDeclaration['importKind'] = undefined,
+) => {
   const existing = imports.find(
     (imp) =>
       imp.source.value === sourceValue &&
+      imp.importKind === importKind &&
       !imp.specifiers.some(
         (specifier) => specifier.type === 'ImportNamespaceSpecifier',
       ),
   )
   if (existing) return existing
   const imp = t.importDeclaration([], t.stringLiteral(sourceValue))
+  if (importKind) {
+    imp.importKind = importKind
+  }
   imports.push(imp)
   return imp
 }
@@ -35,13 +44,13 @@ const getOrCreateImport = ({ imports }: Context, sourceValue: string) => {
 const tsTypeReferenceSVGProps = (ctx: Context) => {
   if (ctx.opts.native) {
     const identifier = t.identifier('SvgProps')
-    getOrCreateImport(ctx, 'react-native-svg').specifiers.push(
+    getOrCreateImport(ctx, 'react-native-svg', 'type').specifiers.push(
       t.importSpecifier(identifier, identifier),
     )
     return t.tsTypeReference(identifier)
   }
   const identifier = t.identifier('SVGProps')
-  getOrCreateImport(ctx, ctx.importSource).specifiers.push(
+  getOrCreateImport(ctx, ctx.importSource, 'type').specifiers.push(
     t.importSpecifier(identifier, identifier),
   )
   return t.tsTypeReference(
