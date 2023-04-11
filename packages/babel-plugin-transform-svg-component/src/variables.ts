@@ -34,7 +34,7 @@ const getOrCreateImport = (
   )
   if (existing) return existing
   const imp = t.importDeclaration([], t.stringLiteral(sourceValue))
-  if (importKind) {
+  if (importKind !== undefined) {
     imp.importKind = importKind
   }
   imports.push(imp)
