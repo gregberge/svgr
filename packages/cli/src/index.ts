@@ -103,7 +103,7 @@ program
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
   .option(
     '--filename-case <case>',
-    'specify filename case ("pascal", "kebab", "camel") (default: "pascal")',
+    'specify filename case ("pascal", "kebab", "camel", "snake") (default: "pascal")',
   )
   .option(
     '--icon [size]',
