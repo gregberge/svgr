@@ -40,7 +40,7 @@ ${variables.interfaces};
 const ${variables.componentName} = (${variables.props}) => (
   ${variables.jsx}
 );
- 
+
 ${variables.exports};
 `
 }
@@ -105,7 +105,7 @@ The customization is the same, a file that exports a function:
 const path = require('path')
 
 function defaultIndexTemplate(filePaths) {
-  const exportEntries = filePaths.map((filePath) => {
+  const exportEntries = filePaths.map(({ path: filePath }) => {
     const basename = path.basename(filePath, path.extname(filePath))
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     return `export { default as ${exportName} } from './${basename}'`

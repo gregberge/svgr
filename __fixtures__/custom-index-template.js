@@ -1,7 +1,7 @@
 const path = require('path')
 
 function indexTemplate(files) {
-  const exportEntries = files.map(file => {
+  const exportEntries = files.map(({path: file}) => {
     const basename = path.basename(file, path.extname(file))
     return `export { ${basename} } from './${basename}';`
   })
