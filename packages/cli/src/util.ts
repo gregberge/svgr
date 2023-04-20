@@ -9,6 +9,7 @@ import prettier from '@svgr/plugin-prettier'
 import camelCase from 'camelcase'
 // @ts-ignore
 import dashify from 'dashify'
+import { snakeCase } from 'snake-case'
 
 export function transformFilename(
   filename: string,
@@ -21,6 +22,8 @@ export function transformFilename(
       return camelCase(filename)
     case 'pascal':
       return camelCase(filename, { pascalCase: true })
+    case 'snake':
+      return snakeCase(filename)
     default:
       throw new Error(`Unknown --filename-case ${filenameCase}`)
   }

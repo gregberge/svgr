@@ -25,10 +25,12 @@ describe('util', () => {
       expect(transformFilename('FooBar', 'camel')).toBe('fooBar')
       expect(transformFilename('FooBar', 'kebab')).toBe('foo-bar')
       expect(transformFilename('FooBar', 'pascal')).toBe('FooBar')
+      expect(transformFilename('FooBar', 'snake')).toBe('foo_bar')
 
       expect(transformFilename('foo_bar', 'camel')).toBe('fooBar')
       expect(transformFilename('foo_bar', 'kebab')).toBe('foo-bar')
       expect(transformFilename('foo_bar', 'pascal')).toBe('FooBar')
+      expect(transformFilename('foo_bar', 'snake')).toBe('foo_bar')
     })
   })
 

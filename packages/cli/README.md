@@ -22,7 +22,7 @@ Options:
   -d, --out-dir <dirname>          output files into a directory
   --ignore-existing                ignore existing files when used with --out-dir
   --ext <ext>                      specify a custom file extension (default: "js")
-  --filename-case <case>           specify filename case ("pascal", "kebab", "camel") (default: "pascal")
+  --filename-case <case>           specify filename case ("pascal", "kebab", "camel", "snake") (default: "pascal")
   --icon                           use "1em" as width and height
   --native                         add react-native support with react-native-svg
   --memo                           add React.memo into the result component

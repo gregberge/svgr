@@ -131,6 +131,16 @@ exports[`cli should support different filename cases with directory output: --fi
 ]
 `;
 
+exports[`cli should support different filename cases with directory output: --filename-case=snake 1`] = `
+[
+  "camel_case.js",
+  "index.js",
+  "kebab_case.js",
+  "multiple_dashes.js",
+  "pascal_case.js",
+]
+`;
+
 exports[`cli should support stdin filepath 1`] = `
 "import * as React from 'react'
 const SvgFile = (props) => (
