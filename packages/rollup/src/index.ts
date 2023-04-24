@@ -1,9 +1,9 @@
 import * as fs from 'fs'
-import { transform, Config } from '@svgr/core'
+import { Config, transform } from '@svgr/core'
 import { createFilter, CreateFilter } from '@rollup/pluginutils'
-import { transformAsync, createConfigItem } from '@babel/core'
+import { createConfigItem, transformAsync } from '@babel/core'
 import svgo from '@svgr/plugin-svgo'
-import jsx from '@svgr/plugin-jsx'
+import jsx, { getJsxRuntimeOptions } from '@svgr/plugin-jsx'
 // @ts-ignore
 import presetReact from '@babel/preset-react'
 // @ts-ignore
@@ -14,26 +14,31 @@ import presetTS from '@babel/preset-typescript'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
 import type { PluginImpl } from 'rollup'
 
-const babelOptions = {
+const getBabelOptions = (config: Config) => ({
   babelrc: false,
   configFile: false,
   presets: [
-    createConfigItem(presetReact, { type: 'preset' }),
+    ['@babel/preset-react', getJsxRuntimeOptions(config)],
     createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
   ],
   plugins: [createConfigItem(pluginTransformReactConstantElements)],
+})
+
+const getTypeScriptBabelOptions = (config: Config) => {
+  const babelOptions = getBabelOptions(config)
+
+  return {
+    ...babelOptions,
+    presets: [
+      ...babelOptions.presets,
+      createConfigItem(
+        [presetTS, { allowNamespaces: true, allExtensions: true, isTSX: true }],
+        { type: 'preset' },
+      ),
+    ],
+  }
 }
 
-const typeScriptBabelOptions = {
-  ...babelOptions,
-  presets: [
-    ...babelOptions.presets,
-    createConfigItem(
-      [presetTS, { allowNamespaces: true, allExtensions: true, isTSX: true }],
-      { type: 'preset' },
-    ),
-  ],
-}
 export interface Options extends Config {
   include?: Parameters<CreateFilter>[0]
   exclude?: Parameters<CreateFilter>[1]
@@ -67,7 +72,9 @@ const plugin: PluginImpl<Options> = (options = {}) => {
       if (babel) {
         const result = await transformAsync(
           jsCode,
-          options.typescript ? typeScriptBabelOptions : babelOptions,
+          options.typescript
+            ? getTypeScriptBabelOptions(options)
+            : getBabelOptions(options),
         )
         if (!result?.code) {
           throw new Error(`Error while transforming using Babel`)
