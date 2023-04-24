@@ -14,13 +14,29 @@ import presetTS from '@babel/preset-typescript'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
 import type * as webpack from 'webpack'
 
+// Removes `jsx` prefix from options (e.g. jsxRuntime -> runtime)
+const transformJsxOptions = (config: Config): Record<string, unknown> =>
+  Object.fromEntries(
+    Object.entries(config).map(([key, value]) => {
+      if (!key.startsWith('jsx')) return [key, value]
+
+      return [
+        key
+          .replace(/^jsx/, '')
+          .replace(/^([A-Z])/, (match) => `${match.toLowerCase()}`),
+        value,
+      ]
+    }),
+  )
+
 const getBabelOptions = (config: Config) => ({
   babelrc: false,
   configFile: false,
   presets: [
-    createConfigItem([presetReact, getJsxRuntimeOptions(config)], {
-      type: 'preset',
-    }),
+    createConfigItem(
+      [presetReact, transformJsxOptions(getJsxRuntimeOptions(config))],
+      { type: 'preset' },
+    ),
     createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
   ],
   plugins: [createConfigItem(pluginTransformReactConstantElements)],
