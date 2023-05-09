@@ -35,11 +35,16 @@ export const isCompilable = (filename: string): boolean => {
 }
 
 export interface IndexTemplate {
-  (paths: string[]): string
+  (paths: FileInfo[]): string
 }
 
-const defaultIndexTemplate: IndexTemplate = (paths) => {
-  const exportEntries = paths.map((filePath) => {
+interface FileInfo {
+  path: string
+  originalPath: string
+}
+
+const defaultIndexTemplate: IndexTemplate = (paths: FileInfo[]) => {
+  const exportEntries = paths.map(({ path: filePath }) => {
     const basename = path.basename(filePath, path.extname(filePath))
     const exportName = formatExportName(basename)
     return `export { default as ${exportName} } from './${basename}'`
@@ -92,7 +97,7 @@ export const dirCommand: SvgrCommand = async (
 
   const generateIndex = async (
     dest: string,
-    files: string[],
+    files: FileInfo[],
     opts: Options,
   ) => {
     const ext = resolveExtension(opts, extOpt, false)
@@ -119,17 +124,27 @@ export const dirCommand: SvgrCommand = async (
     if (stats.isDirectory()) {
       const dirname = filename
       const files = await fs.readdir(dirname)
-      const results = await Promise.all(
+      const results = (await Promise.all(
         files.map(async (relativeFile) => {
           const absFile = path.join(dirname, relativeFile)
-          return handle(absFile, root)
+          return [absFile, await handle(absFile, root)]
         }),
-      )
-      const transformed = results.filter((result) => result.transformed)
+      )) as [
+        string,
+        {
+          dest: string | null
+          transformed: boolean
+        },
+      ][]
+      const transformed = results.filter(([, result]) => result.transformed)
       if (transformed.length) {
         const destFiles = results
-          .map((result) => result.dest)
-          .filter(Boolean) as string[]
+          .filter(([, result]) => result.dest)
+          .map(([originalPath, result]) => ({
+            path: result.dest,
+            originalPath,
+          }))
+          .filter(({ path }) => path) as FileInfo[]
         const dest = path.resolve(
           outDir as string,
           path.relative(root, dirname),
