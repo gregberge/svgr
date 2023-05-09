@@ -44,6 +44,6 @@
     "@types/svg-parser": "^2.0.3"
   },
   "peerDependencies": {
-    "@svgr/core": "workspace:*"
+    "@svgr/core": "*"
   }
 }

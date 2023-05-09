@@ -34,7 +34,7 @@
     "prepublishOnly": "pnpm run reset && pnpm run build"
   },
   "peerDependencies": {
-    "@svgr/core": "workspace:*"
+    "@svgr/core": "*"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
