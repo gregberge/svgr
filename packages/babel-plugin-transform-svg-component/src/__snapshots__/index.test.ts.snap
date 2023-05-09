@@ -332,7 +332,7 @@ export default SvgComponent;"
 
 exports[`plugin typescript with "descProp" and "expandProps" adds "desc", "descId" props and expands props 1`] = `
 "import * as React from "react";
-import { SVGProps } from "react";
+import type { SVGProps } from "react";
 interface SVGRProps {
   desc?: string;
   descId?: string;
@@ -347,7 +347,7 @@ export default SvgComponent;"
 
 exports[`plugin typescript with "expandProps" add props 1`] = `
 "import * as React from "react";
-import { SVGProps } from "react";
+import type { SVGProps } from "react";
 const SvgComponent = (props: SVGProps<SVGSVGElement>) => <svg><g /></svg>;
 export default SvgComponent;"
 `;
@@ -377,7 +377,8 @@ export default img;"
 
 exports[`plugin typescript with "native" and "expandProps" option adds import from "react-native-svg" and adds props 1`] = `
 "import * as React from "react";
-import Svg, { SvgProps } from "react-native-svg";
+import Svg from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
 const SvgComponent = (props: SvgProps) => <Svg><g /></Svg>;
 export default SvgComponent;"
 `;
@@ -391,7 +392,8 @@ export default SvgComponent;"
 
 exports[`plugin typescript with "native", "ref" and "expandProps" option adds import from "react-native-svg" and adds props and adds ForwardRef component 1`] = `
 "import * as React from "react";
-import Svg, { SvgProps } from "react-native-svg";
+import Svg from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
 import { Ref, forwardRef } from "react";
 const SvgComponent = (props: SvgProps, ref: Ref<SVGSVGElement>) => <Svg><g /></Svg>;
 const ForwardRef = forwardRef(SvgComponent);
@@ -409,7 +411,8 @@ export default ForwardRef;"
 
 exports[`plugin typescript with "ref" and "expandProps" option expands props 1`] = `
 "import * as React from "react";
-import { SVGProps, Ref, forwardRef } from "react";
+import type { SVGProps } from "react";
+import { Ref, forwardRef } from "react";
 const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => <svg><g /></svg>;
 const ForwardRef = forwardRef(SvgComponent);
 export default ForwardRef;"
@@ -425,7 +428,7 @@ export default ForwardRef;"
 
 exports[`plugin typescript with "titleProp" "descProp" and "expandProps" adds "title", "titleId", "desc", "descId" props and expands props 1`] = `
 "import * as React from "react";
-import { SVGProps } from "react";
+import type { SVGProps } from "react";
 interface SVGRProps {
   title?: string;
   titleId?: string;
@@ -474,7 +477,7 @@ export default SvgComponent;"
 
 exports[`plugin typescript with "titleProp" and "expandProps" adds "title", "titleId" props and expands props 1`] = `
 "import * as React from "react";
-import { SVGProps } from "react";
+import type { SVGProps } from "react";
 interface SVGRProps {
   title?: string;
   titleId?: string;

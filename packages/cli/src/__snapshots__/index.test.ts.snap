@@ -468,7 +468,8 @@ export default SvgFile
 
 exports[`cli should support various args: --typescript --ref --desc-prop 1`] = `
 "import * as React from 'react'
-import { SVGProps, Ref, forwardRef } from 'react'
+import type { SVGProps } from 'react'
+import { Ref, forwardRef } from 'react'
 interface SVGRProps {
   desc?: string;
   descId?: string;
@@ -497,7 +498,8 @@ export default ForwardRef
 
 exports[`cli should support various args: --typescript --ref --title-prop 1`] = `
 "import * as React from 'react'
-import { SVGProps, Ref, forwardRef } from 'react'
+import type { SVGProps } from 'react'
+import { Ref, forwardRef } from 'react'
 interface SVGRProps {
   title?: string;
   titleId?: string;
@@ -526,7 +528,8 @@ export default ForwardRef
 
 exports[`cli should support various args: --typescript --ref 1`] = `
 "import * as React from 'react'
-import { SVGProps, Ref, forwardRef } from 'react'
+import type { SVGProps } from 'react'
+import { Ref, forwardRef } from 'react'
 const SvgFile = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -546,7 +549,7 @@ export default ForwardRef
 
 exports[`cli should support various args: --typescript 1`] = `
 "import * as React from 'react'
-import { SVGProps } from 'react'
+import type { SVGProps } from 'react'
 const SvgFile = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
     <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
