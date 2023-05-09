@@ -1,7 +1,7 @@
 {
   "name": "@svgr/cli",
   "description": "SVGR command line.",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "repository": "https://github.com/gregberge/svgr/tree/main/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {

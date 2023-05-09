@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/gregberge/svgr/compare/v7.0.0...v8.0.0) (2023-05-09)
+
+
+### Features
+
+* **types:** change `SVGProps` from import to import type ([#853](https://github.com/gregberge/svgr/issues/853)) ([095f021](https://github.com/gregberge/svgr/commit/095f0216288ccb5b96a75f154fe3aead074bfa99))
+
+
+
+
+
 # [7.0.0](https://github.com/gregberge/svgr/compare/v6.5.1...v7.0.0) (2023-03-24)
 
 

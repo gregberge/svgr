@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/gregberge/svgr/compare/v7.0.0...v8.0.0) (2023-05-09)
+
+
+### Features
+
+* add snake_case filename option ([#857](https://github.com/gregberge/svgr/issues/857)) ([428b0c7](https://github.com/gregberge/svgr/commit/428b0c7f4c5205bb67ae3e9e7c7e819ec3fc03ba))
+
+
+
+
+
 # [7.0.0](https://github.com/gregberge/svgr/compare/v6.5.1...v7.0.0) (2023-03-24)
 
 

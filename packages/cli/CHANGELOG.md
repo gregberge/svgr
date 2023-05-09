@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/gregberge/svgr/compare/v7.0.0...v8.0.0) (2023-05-09)
+
+
+### Features
+
+* add snake_case filename option ([#857](https://github.com/gregberge/svgr/issues/857)) ([428b0c7](https://github.com/gregberge/svgr/commit/428b0c7f4c5205bb67ae3e9e7c7e819ec3fc03ba))
+* make index template more flexible ([#861](https://github.com/gregberge/svgr/issues/861)) ([003009c](https://github.com/gregberge/svgr/commit/003009c7b234cfe66686b629d3251edb8d46c759))
+* **types:** change `SVGProps` from import to import type ([#853](https://github.com/gregberge/svgr/issues/853)) ([095f021](https://github.com/gregberge/svgr/commit/095f0216288ccb5b96a75f154fe3aead074bfa99))
+
+
+### BREAKING CHANGES
+
+* index template now receives an array of objects containing both the created
+component path (`path`) and the original SVG path (`originalPath`)
+
+
+
+
+
 # [7.0.0](https://github.com/gregberge/svgr/compare/v6.5.1...v7.0.0) (2023-03-24)
 
 

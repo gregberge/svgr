@@ -1,7 +1,7 @@
 {
   "name": "@svgr/plugin-svgo",
   "description": "Optimize SVG",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

@@ -92,7 +92,7 @@ importers:
   examples/webpack:
     devDependencies:
       '@svgr/webpack':
-        specifier: ^7.0.0
+        specifier: ^8.0.0
         version: link:../../packages/webpack
       html-webpack-plugin:
         specifier: ^5.5.0
