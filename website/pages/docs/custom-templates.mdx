@@ -99,7 +99,12 @@ module.exports = {
 
 When you use the CLI with `--out-dir` option, an index file is automatically generated.
 
-The customization is the same, a file that exports a function:
+The customization is the same, a file that exports a function. The function receives an argument that is an array containing objects made of the original file path and the path of the file containing the generated React component:
+
+- `originalPath`: the original file's path
+- `path`: the React component's file's path
+
+Default template only uses `path` and it is similar to this:
 
 ```js
 const path = require('path')
@@ -111,6 +116,37 @@ function defaultIndexTemplate(filePaths) {
     return `export { default as ${exportName} } from './${basename}'`
   })
   return exportEntries.join('\n')
+}
+
+module.exports = defaultIndexTemplate
+```
+
+but you could implement a more advanced template exploiting the original file name too:
+
+```js
+const path = require('path')
+
+function defaultIndexTemplate(filePaths) {
+  const entries = filePaths.map(({ path: filePath, originalPath }) => {
+    const originalFileName = path.basename(
+      originalPath,
+      path.extname(originalPath),
+    )
+    const basename = path.basename(filePath, path.extname(filePath))
+    const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
+    const importLine = `import ${exportName} from './${basename}';`
+    const mapLine = `${
+      /.*[.-].*/.test(originalFileName)
+        ? `'${originalFileName}'`
+        : originalFileName
+    }: ${exportName}`
+    return { importLine, mapLine }
+  })
+  return `${entries.map(({ importLine }) => importLine).join('\n')}
+export const map = {
+${entries.map(({ mapLine }) => mapLine).join(',\n')}
+}
+`
 }
 
 module.exports = defaultIndexTemplate
