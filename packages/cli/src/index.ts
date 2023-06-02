@@ -38,7 +38,7 @@ const parseConfig = (name: string) => (arg: string) => {
     }
 
     const ext = path.extname(arg)
-    if (ext === '.js' || ext === '.json') {
+    if (ext === '.js' || ext === '.json' || ext === '.cjs') {
       return require(path.join(process.cwd(), arg))
     }
 
