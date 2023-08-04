@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
-    "prettier": "^2.8.7"
+    "prettier": "^3.0.1",
+    "@prettier/sync": "^0.3.0"
   },
   "devDependencies": {
     "@svgr/core": "workspace:*"

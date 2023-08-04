@@ -34,7 +34,7 @@
     "prepublishOnly": "pnpm run reset && pnpm run build"
   },
   "dependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.22.9",
     "@svgr/babel-preset": "workspace:*",
     "@svgr/hast-util-to-babel-ast": "workspace:*",
     "svg-parser": "^2.0.4"

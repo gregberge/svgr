@@ -1,4 +1,4 @@
-import { format, resolveConfig } from 'prettier'
+import { format, resolveConfig } from '@prettier/sync'
 // @ts-ignore
 import deepmerge from 'deepmerge'
 import type { Plugin } from '@svgr/core'
@@ -7,7 +7,7 @@ const prettierPlugin: Plugin = (code, config, state) => {
   if (!config.prettier) return code
   const filePath = state.filePath || process.cwd()
   const prettierRcConfig = config.runtimeConfig
-    ? resolveConfig.sync(filePath, { editorconfig: true })
+    ? resolveConfig(filePath, { editorconfig: true })
     : {}
   return format(
     code,
