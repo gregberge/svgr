@@ -4,17 +4,17 @@ import {
   NodePath,
   types as t,
   template as babelTemplate,
-  ParserOptions,
 } from '@babel/core'
 import type { Options } from './types'
 import { defaultTemplate } from './defaultTemplate'
 import { getVariables } from './variables'
+import { TemplateBuilderOptions } from '@babel/template'
 
 export type { Options, Template } from './types'
 
 const plugin = (_: ConfigAPI, opts: Options) => {
   const template = opts.template || defaultTemplate
-  const plugins: ParserOptions['plugins'] = opts.typescript
+  const plugins: TemplateBuilderOptions['plugins'] = opts.typescript
     ? ['jsx', 'typescript']
     : ['jsx']
   const tpl = babelTemplate.smart({ plugins, preserveComments: true }).ast

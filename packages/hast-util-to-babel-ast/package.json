@@ -34,8 +34,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@babel/types": "^7.21.3",
-    "entities": "^4.4.0"
+    "@babel/types": "^7.22.5",
+    "entities": "^4.5.0"
   },
   "scripts": {
     "reset": "rm -rf dist",

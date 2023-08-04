@@ -38,18 +38,18 @@
     "prepublishOnly": "pnpm run reset && pnpm run build"
   },
   "dependencies": {
-    "@babel/core": "^7.21.3",
-    "@babel/plugin-transform-react-constant-elements": "^7.21.3",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.21.0",
+    "@babel/core": "^7.22.9",
+    "@babel/plugin-transform-react-constant-elements": "^7.22.5",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@rollup/pluginutils": "^5.0.2",
     "@svgr/core": "workspace:*",
     "@svgr/plugin-jsx": "workspace:*",
     "@svgr/plugin-svgo": "workspace:*"
   },
   "devDependencies": {
-    "rollup": "^3.20.2",
+    "rollup": "^3.27.2",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-url": "^3.0.1"
   }
