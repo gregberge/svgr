@@ -10,6 +10,7 @@ const explorer = cosmiconfigSync('svgo', {
     '.svgorc.yaml',
     '.svgorc.yml',
     'svgo.config.js',
+    'svgo.config.cjs',
     '.svgo.yml',
   ],
   transform: (result) => result && result.config,
