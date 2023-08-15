@@ -119,7 +119,7 @@ export const loadConfig = async (
     state.filePath && baseConfig.runtimeConfig !== false
       ? await resolveConfig(state.filePath, configFile)
       : {}
-  return { ...DEFAULT_CONFIG, ...rcConfig, ...baseConfig }
+  return { ...DEFAULT_CONFIG, ...baseConfig, ...rcConfig }
 }
 
 loadConfig.sync = (
@@ -130,5 +130,5 @@ loadConfig.sync = (
     state.filePath && baseConfig.runtimeConfig !== false
       ? resolveConfig.sync(state.filePath, configFile)
       : {}
-  return { ...DEFAULT_CONFIG, ...rcConfig, ...baseConfig }
+  return { ...DEFAULT_CONFIG, ...baseConfig, ...rcConfig }
 }
