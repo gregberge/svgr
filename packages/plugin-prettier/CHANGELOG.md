@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/gregberge/svgr/compare/v8.0.1...v8.1.0) (2023-08-15)
+
+**Note:** Version bump only for package @svgr/plugin-prettier
+
+
+
+
+
 ## [8.0.1](https://github.com/gregberge/svgr/compare/v8.0.0...v8.0.1) (2023-05-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/gregberge/svgr/compare/v8.0.1...v8.1.0) (2023-08-15)
+
+
+### Bug Fixes
+
+* **react-native:** fix duplicate import ([#894](https://github.com/gregberge/svgr/issues/894)) ([e612b6a](https://github.com/gregberge/svgr/commit/e612b6a1a4e822178f1e15b82bd2991bf1e84cec))
+
+
+
+
+
 # [8.0.0](https://github.com/gregberge/svgr/compare/v7.0.0...v8.0.0) (2023-05-09)
 
 **Note:** Version bump only for package @svgr/babel-plugin-transform-react-native-svg

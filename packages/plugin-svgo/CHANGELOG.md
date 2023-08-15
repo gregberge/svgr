@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/gregberge/svgr/compare/v8.0.1...v8.1.0) (2023-08-15)
+
+
+### Features
+
+* **esm:** add support for svgo.config.cjs ([#879](https://github.com/gregberge/svgr/issues/879)) ([ae91e2e](https://github.com/gregberge/svgr/commit/ae91e2eacbe1156480c96219b993000eb1e7b9bf))
+
+
+
+
+
 ## [8.0.1](https://github.com/gregberge/svgr/compare/v8.0.0...v8.0.1) (2023-05-09)
 
 

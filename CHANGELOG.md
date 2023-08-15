@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/gregberge/svgr/compare/v8.0.1...v8.1.0) (2023-08-15)
+
+
+### Bug Fixes
+
+* **cli:** fix default dimensions, prettier & svgo ([571d5c8](https://github.com/gregberge/svgr/commit/571d5c8bd18bc13c12eeb27a9052fa065aeb012e))
+* **config:** prefer cli config over rc config ([#845](https://github.com/gregberge/svgr/issues/845)) ([8b97248](https://github.com/gregberge/svgr/commit/8b972484266c45c7f8e4acce4fe2930a024fb4bc))
+* **react-native:** fix duplicate import ([#894](https://github.com/gregberge/svgr/issues/894)) ([e612b6a](https://github.com/gregberge/svgr/commit/e612b6a1a4e822178f1e15b82bd2991bf1e84cec))
+
+
+### Features
+
+* **esm:** add support for svgo.config.cjs ([#879](https://github.com/gregberge/svgr/issues/879)) ([ae91e2e](https://github.com/gregberge/svgr/commit/ae91e2eacbe1156480c96219b993000eb1e7b9bf))
+
+
+
+
+
 ## [8.0.1](https://github.com/gregberge/svgr/compare/v8.0.0...v8.0.1) (2023-05-09)
 
 

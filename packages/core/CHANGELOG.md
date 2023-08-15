@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/gregberge/svgr/compare/v8.0.1...v8.1.0) (2023-08-15)
+
+
+### Bug Fixes
+
+* **config:** prefer cli config over rc config ([#845](https://github.com/gregberge/svgr/issues/845)) ([8b97248](https://github.com/gregberge/svgr/commit/8b972484266c45c7f8e4acce4fe2930a024fb4bc))
+
+
+
+
+
 # [8.0.0](https://github.com/gregberge/svgr/compare/v7.0.0...v8.0.0) (2023-05-09)
 
 
