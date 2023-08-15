@@ -199,6 +199,9 @@ async function run() {
   }
 
   const programOpts = noUndefinedKeys(program.opts<Options>())
+  if (programOpts.dimensions) delete programOpts.dimensions
+  if (programOpts.svgo) delete programOpts.svgo
+  if (programOpts.prettier) delete programOpts.prettier
   const opts = (await loadConfig(programOpts, {
     filePath: process.cwd(),
   })) as Options
