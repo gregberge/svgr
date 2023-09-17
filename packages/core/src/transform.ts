@@ -4,7 +4,7 @@ import { resolvePlugin, getPlugins } from './plugins'
 import type { Config } from './config'
 import type { State } from './state'
 
-const run = (code: string, config: Config, state: Partial<State>): string => {
+export const run = (code: string, config: Config, state: Partial<State>): string => {
   const expandedState = expandState(state)
   const plugins = getPlugins(config, state).map(resolvePlugin)
   let nextCode = String(code).replace('\0', '')
