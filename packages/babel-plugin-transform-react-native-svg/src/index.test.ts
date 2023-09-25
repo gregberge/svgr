@@ -26,4 +26,29 @@ describe('plugin', () => {
       <Svg><G /></Svg>;"
     `)
   })
+
+  it('should add deal with type imports properly', () => {
+    const code = transform(
+      `
+      import Svg from 'react-native-svg';
+      import type { SvgProps } from "react-native-svg";
+
+      const ComponentSvg = () => <svg><g /></svg>;
+    `,
+      {
+        plugins: [
+          '@babel/plugin-syntax-jsx',
+          ['@babel/plugin-syntax-typescript', { isTSX: true }],
+          plugin,
+        ],
+        configFile: false,
+      },
+    )?.code
+
+    expect(code).toMatchInlineSnapshot(`
+      "import Svg, { G } from 'react-native-svg';
+      import type { SvgProps } from "react-native-svg";
+      const ComponentSvg = () => <Svg><G /></Svg>;"
+    `)
+  })
 })

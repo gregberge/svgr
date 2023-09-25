@@ -79,9 +79,13 @@ const plugin = () => {
 
   const importDeclarationVisitor = {
     ImportDeclaration(path: NodePath<t.ImportDeclaration>, state: State) {
+      const isNotTypeImport =
+        !path.get('importKind').hasNode() ||
+        path.node.importKind == null ||
+        path.node.importKind === 'value'
       if (
         path.get('source').isStringLiteral({ value: 'react-native-svg' }) &&
-        !path.get('importKind').hasNode()
+        isNotTypeImport
       ) {
         state.replacedComponents.forEach((component) => {
           if (
