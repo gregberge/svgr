@@ -14,7 +14,12 @@ const initialSvgoConfig = JSON.stringify(
     plugins: [
       {
         name: 'preset-default',
-        params: { overrides: { removeTitle: false } },
+        params: {
+          overrides: {
+            removeTitle: false,
+            removeViewBox: false,
+          },
+        },
       },
     ],
   },
