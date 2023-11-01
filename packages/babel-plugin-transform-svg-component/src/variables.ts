@@ -66,6 +66,12 @@ const tsTypeReferenceSVGRef = (ctx: Context) => {
   getOrCreateImport(ctx, ctx.importSource).specifiers.push(
     t.importSpecifier(identifier, identifier),
   )
+  if (ctx.opts.native) {
+    return t.tsTypeReference(
+      identifier,
+      t.tsTypeParameterInstantiation([t.tsTypeReference(t.identifier('Svg'))]),
+    )
+  }
   return t.tsTypeReference(
     identifier,
     t.tsTypeParameterInstantiation([
