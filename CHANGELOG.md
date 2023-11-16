@@ -156,7 +156,7 @@ component path (`path`) and the original SVG path (`originalPath`)
 
 ### BREAKING CHANGES
 
-- svgr v6 is now only compatible with **Webpack v5** and up. See the (https://react-svgr.com/docs/migrate/#webpack)[migration guide]
+- svgr v6 is now only compatible with **Webpack v5** and up. See the [migration guide](https://react-svgr.com/docs/migrate/#webpack)
 
 ### Bug Fixes
 
