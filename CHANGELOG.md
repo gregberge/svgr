@@ -154,6 +154,10 @@ component path (`path`) and the original SVG path (`originalPath`)
 
 # [6.1.0](https://github.com/gregberge/svgr/compare/v6.0.0...v6.1.0) (2021-12-01)
 
+### BREAKING CHANGES
+
+- svgr v6 is now only compatible with **Webpack v5** and up. See the [migration guide](https://react-svgr.com/docs/migrate/#webpack)
+
 ### Bug Fixes
 
 - fix previous export system ([1872829](https://github.com/gregberge/svgr/commit/187282977af841cd5a2243a23abba72b20eec2fa)), closes [#635](https://github.com/gregberge/svgr/issues/635)
