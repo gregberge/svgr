@@ -1,11 +1,12 @@
 import { parse } from 'svg-parser'
 import generate from '@babel/generator'
 import hastToBabelAst from './index'
+import type { Configuration } from './configuration'
 
-function transform(code: string) {
+function transform(code: string, config: Partial<Configuration> = {}) {
   const hastTree = parse(code)
 
-  const babelTree = hastToBabelAst(hastTree)
+  const babelTree = hastToBabelAst(hastTree, config)
 
   const { code: generatedCode } = generate(babelTree)
 
@@ -30,6 +31,25 @@ describe('hast-util-to-babel-ast', () => {
 </svg>
 `
     expect(transform(code)).toMatchSnapshot()
+  })
+
+  it('transforms SVG without transforming attributes', () => {
+    const code = `
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Dismiss</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Dismiss" stroke="#063855" stroke-width="2">
+            <path d="M51,37 L37,51" id="Shape"></path>
+            <path d="M51,51 L37,37" id="Shape"></path>
+        </g>
+    </g>
+</svg>
+`
+    expect(transform(code, { transformAttributes: false })).toMatchSnapshot()
   })
 
   it('transforms "aria-x"', () => {
