@@ -30,6 +30,21 @@ npm install --save-dev @svgr/plugin-jsx
 - Converting the [HAST](https://github.com/syntax-tree/hast) into a [Babel AST](https://github.com/babel/babel/blob/master/packages/babel-parser/ast/spec.md)
 - Applying [`@svgr/babel-preset`](../babel-preset/README.md) transformations
 
+## Skipping attribute transformations
+
+For non-React implementations such as Preact, you can pass `false` to `jsx.transformAttributes`
+and attributes will remain in their original form. If `jsx.transformAttributes` is `true` (the
+default value), attributes will be transformed to their React equivalents—usually camelCase.
+```js
+// .svgrrc.js
+
+module.exports = {
+  jsx: {
+    transformAttributes: false,
+  },
+}
+```
+
 ## Applying custom transformations
 
 You can extend the Babel config applied in this plugin using `jsx.babelConfig` config path:
