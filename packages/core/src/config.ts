@@ -46,7 +46,7 @@ export interface Config {
   // JSX
   jsx?: {
     babelConfig?: BabelTransformOptions
-    transformAttributes?: boolean
+    transformAttributes?: boolean | ((key: string) => string)
   }
 }
 

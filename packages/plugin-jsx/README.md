@@ -45,6 +45,25 @@ module.exports = {
 }
 ```
 
+A function can also be passed to `transformAttributes`, which will be used _instead of_ the
+default logic. It will be called with the attribute to transform and expect the transformed
+attribute as a return value:
+
+```js
+// .svgrrc.js
+
+module.exports = {
+  jsx: {
+    transformAttributes: (attribute) => {
+      if (attribute === 'fill') {
+        return 'currentColor'
+      }
+      return attribute
+    },
+  },
+}
+```
+
 ## Applying custom transformations
 
 You can extend the Babel config applied in this plugin using `jsx.babelConfig` config path:

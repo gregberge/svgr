@@ -3,6 +3,7 @@ import type { ElementNode } from 'svg-parser'
 import { isNumeric, kebabCase, replaceSpaces } from './util'
 import { stringToObjectStyle } from './stringToObjectStyle'
 import { ATTRIBUTE_MAPPING, ELEMENT_ATTRIBUTE_MAPPING } from './mappings'
+import type { TransformAttributes } from './configuration'
 
 const convertAriaAttribute = (kebabKey: string) => {
   const [aria, ...parts] = kebabKey.split('-')
@@ -12,9 +13,13 @@ const convertAriaAttribute = (kebabKey: string) => {
 const getKey = (
   key: string,
   node: ElementNode,
-  transformAttributes: boolean,
+  transformAttributes: TransformAttributes,
 ) => {
   if (!transformAttributes) return t.jsxIdentifier(key)
+
+  if (typeof transformAttributes === 'function') {
+    return t.jsxIdentifier(transformAttributes(key))
+  }
 
   const lowerCaseKey = key.toLowerCase()
   const mappedElementAttribute =
@@ -61,7 +66,7 @@ const getValue = (key: string, value: string[] | string | number) => {
 
 export const getAttributes = (
   node: ElementNode,
-  transformAttributes: boolean,
+  transformAttributes: TransformAttributes,
 ): t.JSXAttribute[] => {
   if (!node.properties) return []
   const keys = Object.keys(node.properties)

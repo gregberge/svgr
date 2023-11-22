@@ -1,5 +1,7 @@
+export type TransformAttributes = boolean | ((key: string) => string)
+
 export interface Configuration {
-  transformAttributes: boolean
+  transformAttributes: TransformAttributes
 }
 
 export const getConfig = <K extends keyof Configuration>(
