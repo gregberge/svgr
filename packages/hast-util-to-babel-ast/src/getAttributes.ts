@@ -9,9 +9,13 @@ const convertAriaAttribute = (kebabKey: string) => {
   return `${aria}-${parts.join('').toLowerCase()}`
 }
 
-const getKey = (key: string, node: ElementNode, transformAttributes: boolean) => {
-  if (!transformAttributes) return t.jsxIdentifier(key);
-  
+const getKey = (
+  key: string,
+  node: ElementNode,
+  transformAttributes: boolean,
+) => {
+  if (!transformAttributes) return t.jsxIdentifier(key)
+
   const lowerCaseKey = key.toLowerCase()
   const mappedElementAttribute =
     // @ts-ignore
@@ -55,7 +59,10 @@ const getValue = (key: string, value: string[] | string | number) => {
   return t.stringLiteral(replaceSpaces(value))
 }
 
-export const getAttributes = (node: ElementNode, transformAttributes: boolean): t.JSXAttribute[] => {
+export const getAttributes = (
+  node: ElementNode,
+  transformAttributes: boolean,
+): t.JSXAttribute[] => {
   if (!node.properties) return []
   const keys = Object.keys(node.properties)
   const attributes = []
@@ -64,7 +71,10 @@ export const getAttributes = (node: ElementNode, transformAttributes: boolean): 
   while (++index < keys.length) {
     const key = keys[index]
     const value = node.properties[key]
-    const attribute = t.jsxAttribute(getKey(key, node, transformAttributes), getValue(key, value))
+    const attribute = t.jsxAttribute(
+      getKey(key, node, transformAttributes),
+      getValue(key, value),
+    )
     attributes.push(attribute)
   }
 
