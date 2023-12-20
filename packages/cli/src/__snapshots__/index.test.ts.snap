@@ -13,18 +13,6 @@ export default SvgFile;
 "
 `;
 
-exports[`cli should not work with a directory without --out-dir option 1`] = `
-"import * as React from 'react'
-const SvgFile = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
-    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
-  </svg>
-)
-export default SvgFile
-
-"
-`;
-
 exports[`cli should support --index-template in cli 1`] = `
 "export { File } from './File'
 "
