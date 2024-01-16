@@ -9,7 +9,7 @@ import prettier from '@svgr/plugin-prettier'
 import camelCase from 'camelcase'
 // @ts-ignore
 import dashify from 'dashify'
-import { snakeCase } from 'snake-case'
+import snakeCase from 'just-snake-case'
 
 export function transformFilename(
   filename: string,
