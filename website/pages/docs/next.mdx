@@ -85,3 +85,36 @@ const Example = () => (
 ```
 
 Please refer to [SVGR webpack guide](/docs/webpack/) for advanced use cases.
+
+## TypeScript
+
+Using SVGR with TypeScript support.
+
+**Type decleration**
+
+Add a custom type decleration file (e.g. **svgr.d.ts**) to the root of your repo.
+
+```ts
+declare module '*.svg' {
+  import { FC, SVGProps } from 'react'
+  const content: FC<SVGProps<SVGElement>>
+  export default content
+}
+```
+
+**tsconfig.json**
+
+Add the type decleration file to your tsconfig.json's `include` array. **Ensure it's the first item.**
+
+```json
+{
+  "include": [
+    "svgr.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
+  // ...other config
+}
+```
