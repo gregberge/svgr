@@ -1,9 +1,9 @@
 import { callbackify } from 'util'
-import { transformAsync, createConfigItem } from '@babel/core'
-import { transform, Config, State } from '@svgr/core'
+import { createConfigItem, transformAsync } from '@babel/core'
+import { Config, State, transform } from '@svgr/core'
 import { normalize } from 'path'
 import svgo from '@svgr/plugin-svgo'
-import jsx from '@svgr/plugin-jsx'
+import jsx, { getJsxRuntimeOptions } from '@svgr/plugin-jsx'
 // @ts-ignore
 import presetReact from '@babel/preset-react'
 // @ts-ignore
@@ -14,25 +14,47 @@ import presetTS from '@babel/preset-typescript'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
 import type * as webpack from 'webpack'
 
-const babelOptions = {
+// Removes `jsx` prefix from options (e.g. jsxRuntime -> runtime)
+const transformJsxOptions = (config: Config): Record<string, unknown> =>
+  Object.fromEntries(
+    Object.entries(config).map(([key, value]) => {
+      if (!key.startsWith('jsx')) return [key, value]
+
+      return [
+        key
+          .replace(/^jsx/, '')
+          .replace(/^([A-Z])/, (match) => `${match.toLowerCase()}`),
+        value,
+      ]
+    }),
+  )
+
+const getBabelOptions = (config: Config) => ({
   babelrc: false,
   configFile: false,
   presets: [
-    createConfigItem(presetReact, { type: 'preset' }),
+    createConfigItem(
+      [presetReact, transformJsxOptions(getJsxRuntimeOptions(config))],
+      { type: 'preset' },
+    ),
     createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
   ],
   plugins: [createConfigItem(pluginTransformReactConstantElements)],
-}
+})
 
-const typeScriptBabelOptions = {
-  ...babelOptions,
-  presets: [
-    ...babelOptions.presets,
-    createConfigItem(
-      [presetTS, { allowNamespaces: true, allExtensions: true, isTSX: true }],
-      { type: 'preset' },
-    ),
-  ],
+const getTypeScriptBabelOptions = (config: Config) => {
+  const babelOptions = getBabelOptions(config)
+
+  return {
+    ...babelOptions,
+    presets: [
+      ...babelOptions.presets,
+      createConfigItem(
+        [presetTS, { allowNamespaces: true, allExtensions: true, isTSX: true }],
+        { type: 'preset' },
+      ),
+    ],
+  }
 }
 
 interface LoaderOptions extends Config {
@@ -46,7 +68,9 @@ const tranformSvg = callbackify(
     if (!babel) return jsCode
     const result = await transformAsync(
       jsCode,
-      options.typescript ? typeScriptBabelOptions : babelOptions,
+      options.typescript
+        ? getTypeScriptBabelOptions(options)
+        : getBabelOptions(options),
     )
     if (!result?.code) {
       throw new Error(`Error while transforming using Babel`)

@@ -1,11 +1,13 @@
 import { Config } from './config'
 import type { State } from './state'
 
+type Default<T> = { default: T }
+
 export interface Plugin {
   (code: string, config: Config, state: State): string
 }
 
-export type ConfigPlugin = string | Plugin
+export type ConfigPlugin = string | Plugin | Default<string | Plugin>
 
 const DEFAULT_PLUGINS: Plugin[] = []
 
@@ -24,7 +26,12 @@ export const getPlugins = (
   return DEFAULT_PLUGINS
 }
 
-export const resolvePlugin = (plugin: ConfigPlugin): Plugin => {
+export const resolvePlugin = (input: ConfigPlugin): Plugin => {
+  const plugin: string | Plugin =
+    (input as Default<string | Plugin>)?.default != null
+      ? (input as Default<string | Plugin>).default
+      : (input as string | Plugin)
+
   if (typeof plugin === 'function') {
     return plugin
   }
