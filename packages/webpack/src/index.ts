@@ -35,7 +35,7 @@ const typeScriptBabelOptions = {
   ],
 }
 
-interface LoaderOptions extends Config {
+export interface LoaderOptions extends Config {
   babel?: boolean
 }
 
