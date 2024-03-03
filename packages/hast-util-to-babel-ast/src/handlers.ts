@@ -5,6 +5,7 @@ import { getAttributes } from './getAttributes'
 import { ELEMENT_TAG_NAME_MAPPING } from './mappings'
 import type { RootNode, ElementNode, TextNode } from 'svg-parser'
 import type { Helpers } from './helpers'
+import { getConfig } from './configuration'
 
 export const root = (h: Helpers, node: RootNode): t.Program =>
   // @ts-ignore
@@ -44,7 +45,6 @@ export const element = (
   parent: RootNode | ElementNode,
 ): t.JSXElement | t.ExpressionStatement | null => {
   if (!node.tagName) return null
-
   const children = all(h, node)
   const selfClosing = children.length === 0
 
@@ -52,7 +52,7 @@ export const element = (
 
   const openingElement = t.jsxOpeningElement(
     t.jsxIdentifier(name),
-    getAttributes(node),
+    getAttributes(node, getConfig(h.config, 'transformAttributes')),
     selfClosing,
   )
 

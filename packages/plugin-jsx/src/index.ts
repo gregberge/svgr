@@ -39,7 +39,9 @@ const jsxPlugin: Plugin = (code, config, state) => {
   const filePath = state.filePath || 'unknown'
   const hastTree = parse(code)
 
-  const babelTree = hastToBabelAst(hastTree)
+  const babelTree = hastToBabelAst(hastTree, {
+    transformAttributes: config.jsx?.transformAttributes ?? true,
+  })
 
   const svgPresetOptions: SvgrPresetOptions = {
     ref: config.ref,
