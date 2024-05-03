@@ -222,7 +222,7 @@ function CopyFeedback(props) {
           <x.div my={24}>
             <SponsorLink
               onClick={trackLink}
-              href="https://twitter.com/neoziro"
+              href="https://twitter.com/gregberge_"
               target="_blank"
               rel="noopener noreferrer"
               bg="#1DA1F3"
