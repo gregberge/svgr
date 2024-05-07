@@ -24,6 +24,8 @@ export function transformFilename(
       return camelCase(filename, { pascalCase: true })
     case 'snake':
       return snakeCase(filename)
+    case 'keep':
+      return filename
     default:
       throw new Error(`Unknown --filename-case ${filenameCase}`)
   }
