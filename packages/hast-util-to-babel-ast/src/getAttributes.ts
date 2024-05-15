@@ -3,13 +3,24 @@ import type { ElementNode } from 'svg-parser'
 import { isNumeric, kebabCase, replaceSpaces } from './util'
 import { stringToObjectStyle } from './stringToObjectStyle'
 import { ATTRIBUTE_MAPPING, ELEMENT_ATTRIBUTE_MAPPING } from './mappings'
+import type { TransformAttributes } from './configuration'
 
 const convertAriaAttribute = (kebabKey: string) => {
   const [aria, ...parts] = kebabKey.split('-')
   return `${aria}-${parts.join('').toLowerCase()}`
 }
 
-const getKey = (key: string, node: ElementNode) => {
+const getKey = (
+  key: string,
+  node: ElementNode,
+  transformAttributes: TransformAttributes,
+) => {
+  if (!transformAttributes) return t.jsxIdentifier(key)
+
+  if (typeof transformAttributes === 'function') {
+    return t.jsxIdentifier(transformAttributes(key))
+  }
+
   const lowerCaseKey = key.toLowerCase()
   const mappedElementAttribute =
     // @ts-ignore
@@ -53,7 +64,10 @@ const getValue = (key: string, value: string[] | string | number) => {
   return t.stringLiteral(replaceSpaces(value))
 }
 
-export const getAttributes = (node: ElementNode): t.JSXAttribute[] => {
+export const getAttributes = (
+  node: ElementNode,
+  transformAttributes: TransformAttributes,
+): t.JSXAttribute[] => {
   if (!node.properties) return []
   const keys = Object.keys(node.properties)
   const attributes = []
@@ -62,7 +76,10 @@ export const getAttributes = (node: ElementNode): t.JSXAttribute[] => {
   while (++index < keys.length) {
     const key = keys[index]
     const value = node.properties[key]
-    const attribute = t.jsxAttribute(getKey(key, node), getValue(key, value))
+    const attribute = t.jsxAttribute(
+      getKey(key, node, transformAttributes),
+      getValue(key, value),
+    )
     attributes.push(attribute)
   }
 
