@@ -49,7 +49,7 @@ Using SVGR into Remix is possible by configuring `package.json` scripts.
   "watch": {
     "icons": {
       "patterns": [
-        "icons"
+        "app/icons"
       ],
       "extensions": "svg",
       "quiet": false
@@ -88,7 +88,7 @@ module.exports = {
 **Your code**
 
 ```js
-import Star from '~/icons/star.svg'
+import Star from '~/components/icons/Star'
 
 const Example = () => (
   <div>
