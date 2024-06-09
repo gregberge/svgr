@@ -3,7 +3,14 @@
 exports[`util #convertFile should convert a file 1`] = `
 "import * as React from 'react'
 const SvgFile = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={48}
+    height={1}
+    viewBox="0 0 48 1"
+    {...props}
+  >
+    <title>{'Rectangle 5'}</title>
     <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
@@ -21,6 +28,7 @@ const SvgFile = (props) => (
     viewBox="0 0 48 1"
     {...props}
   >
+    <title>{'Rectangle 5'}</title>
     <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
