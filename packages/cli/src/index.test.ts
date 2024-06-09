@@ -97,7 +97,7 @@ describe('cli', () => {
 
   it('should support --svgo-config as json', async () => {
     const result = await cli(
-      `--svgo-config '{"plugins":[{"name":"preset-default","params":{"overrides":{"removeTitle":false}}}]}' __fixtures__/simple/file.svg`,
+      `--svgo-config '{"plugins":["preset-default", "removeTitle"]}' __fixtures__/simple/file.svg`,
     )
     expect(result).toMatchSnapshot()
   })

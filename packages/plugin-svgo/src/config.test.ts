@@ -17,34 +17,4 @@ describe('#getSvgoConfig', () => {
       })
     })
   })
-
-  describe('with `config.icons` enabled', () => {
-    it('returns config with `removeViewBox: false`', async () => {
-      const config = { icon: true }
-      expect(await getSvgoConfig(config, state)).toEqual({
-        plugins: [
-          {
-            name: 'preset-default',
-            params: { overrides: { removeViewBox: false } },
-          },
-          'prefixIds',
-        ],
-      })
-    })
-  })
-
-  describe('with `config.dimensions` disabled', () => {
-    it('returns config with `removeViewBox: false`', async () => {
-      const config = { dimensions: false }
-      expect(await getSvgoConfig(config, state)).toEqual({
-        plugins: [
-          {
-            name: 'preset-default',
-            params: { overrides: { removeViewBox: false } },
-          },
-          'prefixIds',
-        ],
-      })
-    })
-  })
 })
