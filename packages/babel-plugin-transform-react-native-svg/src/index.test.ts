@@ -17,15 +17,16 @@ describe('plugin', () => {
   })
 it('should transform elements with filter', () => {
   const svg = `
-    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="blurEffect">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+      <svg height="150" width="150">
+        <filter id="filter1">
+          <feGaussianBlur stdDeviation="3" />
         </filter>
-      </defs>
-      <circle cx="100" cy="100" r="50" fill="green" />
-      <circle cx="150" cy="100" r="50" fill="green" filter="url(#blurEffect)" />
-    </svg>
+        <g filter="url(#filter1)">
+          <circle cx="75" cy="50" r="40" fill="blue" fill-opacity="0.5" />
+          <circle cx="55" cy="90" r="40" fill="green" fill-opacity="0.5" />
+          <circle cx="95" cy="90" r="40" fill="red" fill-opacity="0.5" />
+        </g>
+      </svg>
   `
 
   const code = testPlugin(svg)
