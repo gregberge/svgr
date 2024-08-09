@@ -15,6 +15,33 @@ describe('plugin', () => {
     const code = testPlugin('<svg><div /></svg>')
     expect(code).toMatchInlineSnapshot(`"<Svg></Svg>;"`)
   })
+it('should transform elements with filter', () => {
+  const svg = `
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="blurEffect">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+        </filter>
+      </defs>
+      <circle cx="100" cy="100" r="50" fill="green" />
+      <circle cx="150" cy="100" r="50" fill="green" filter="url(#blurEffect)" />
+    </svg>
+  `
+
+  const code = testPlugin(svg)
+  expect(code).toMatchInlineSnapshot(`
+    "<Svg height={150} width={150}>
+      <Filter id=\\"filter1\\">
+        <FeGaussianBlur stdDeviation={3} />
+      </Filter>
+      <G filter=\\"url(#filter1)\\">
+        <Circle cx={75} cy={50} r={40} fill=\\"blue\\" fillOpacity={0.5} />
+        <Circle cx={55} cy={90} r={40} fill=\\"green\\" fillOpacity={0.5} />
+        <Circle cx={95} cy={90} r={40} fill=\\"red\\" fillOpacity={0.5} />
+      </G>
+    </Svg>;"
+  `)
+})
 
   it('should add import', () => {
     const code = testPlugin(
