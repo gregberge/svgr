@@ -54,6 +54,16 @@ it('should transform elements with filter', () => {
       <Svg><G /></Svg>;"
     `)
   })
+  it('should add version warning', () => {
+    const code = testPlugin(
+      `import Svg from 'react-native-svg'; <svg> <filter id="filter1"> <feGaussianBlur stdDeviation="3" /></filter></svg>;`,
+    )
+    expect(code).toMatchInlineSnapshot(`
+      "import Svg, { Filter, FeGaussianBlur } from 'react-native-svg';
+      /* Using svg filters is only supported on react-native-svg v15.5.0 or later. */
+      <Svg><Filter id=\\"filter1\\"><FeGaussianBlur stdDeviation={3} /></Filter></Svg>;"
+    `)
+  })
 
   it('should add deal with type imports properly', () => {
     const code = transform(

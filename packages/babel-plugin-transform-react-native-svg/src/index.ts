@@ -4,6 +4,7 @@ import { NodePath, types as t } from '@babel/core'
 interface State {
   replacedComponents: Set<string>
   unsupportedComponents: Set<string>
+  filterComponents: Set<string>
 }
 
 const elementToComponent: { [key: string]: string } = {
@@ -77,6 +78,10 @@ const plugin = () => {
       state.replacedComponents.add(component)
       return
     }
+    // Add filter elements to show warning
+    if (component.includes('fe') || component.includes('filter')) {
+      state.filterComponents.add(name)
+    }
 
     // Remove element if not supported
     state.unsupportedComponents.add(name)
@@ -142,6 +147,12 @@ const plugin = () => {
         path.addComment(
           'trailing',
           ` SVGR has dropped some elements not supported by react-native-svg: ${componentList} `,
+        )
+      }
+      if (state.filterComponents.size && !path.has('trailingComments')) {
+        path.addComment(
+          'trailing',
+          ` Using svg filters is only supported on react-native-svg v15.5.0 or later. `,
         )
       }
     },
