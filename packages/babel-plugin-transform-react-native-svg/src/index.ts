@@ -65,8 +65,7 @@ const plugin = () => {
     const { name } = namePath.node
 
     // Replace element by react-native-svg components
-    const component = elementToComponent[name]
-
+    const component = elementToComponent[name.toLowerCase()] // Case insensitive
     if (component) {
       namePath.replaceWith(t.jsxIdentifier(component))
       if (path.has('closingElement')) {
@@ -75,15 +74,15 @@ const plugin = () => {
           .get('name') as NodePath<t.JSXIdentifier>
         closingNamePath.replaceWith(t.jsxIdentifier(component))
       }
+      // Add filter elements to show warning
+      if (name.includes('fe') || name.includes('filter')) {
+        state.filterComponents.add(name)
+      }
       state.replacedComponents.add(component)
       return
     }
-    // Add filter elements to show warning
-    if (component.includes('fe') || component.includes('filter')) {
-      state.filterComponents.add(name)
-    }
 
-    // Remove element if not supported
+    // Remove unsupported element
     state.unsupportedComponents.add(name)
     path.remove()
   }
@@ -149,7 +148,29 @@ const plugin = () => {
           ` SVGR has dropped some elements not supported by react-native-svg: ${componentList} `,
         )
       }
+
       if (state.filterComponents.size && !path.has('trailingComments')) {
+        state.filterComponents.forEach((filter) => {
+          if (
+            !path
+              .get('specifiers')
+              .some((specifier) =>
+                specifier
+                  .get('local')
+                  .isIdentifier({ name: elementToComponent[filter] }),
+              )
+          ) {
+            if (elementToComponent[filter]) {
+              path.pushContainer(
+                'specifiers',
+                t.importSpecifier(
+                  t.identifier(elementToComponent[filter]),
+                  t.identifier(elementToComponent[filter]),
+                ),
+              )
+            }
+          }
+        })
         path.addComment(
           'trailing',
           ` Using svg filters is only supported on react-native-svg v15.5.0 or later. `,
@@ -163,6 +184,7 @@ const plugin = () => {
       Program(path: NodePath<t.Program>, state: Partial<State>) {
         state.replacedComponents = new Set()
         state.unsupportedComponents = new Set()
+        state.filterComponents = new Set()
 
         path.traverse(svgElementVisitor, state as State)
         path.traverse(importDeclarationVisitor, state as State)

@@ -15,8 +15,9 @@ describe('plugin', () => {
     const code = testPlugin('<svg><div /></svg>')
     expect(code).toMatchInlineSnapshot(`"<Svg></Svg>;"`)
   })
-it('should transform elements with filter', () => {
-  const svg = `
+
+  it('should transform elements with filter', () => {
+    const svg = `
       <svg height="150" width="150">
         <filter id="filter1">
           <feGaussianBlur stdDeviation="3" />
@@ -27,22 +28,22 @@ it('should transform elements with filter', () => {
           <circle cx="95" cy="90" r="40" fill="red" fill-opacity="0.5" />
         </g>
       </svg>
-  `
+    `
 
-  const code = testPlugin(svg)
-  expect(code).toMatchInlineSnapshot(`
-    "<Svg height={150} width={150}>
-      <Filter id=\\"filter1\\">
-        <FeGaussianBlur stdDeviation={3} />
-      </Filter>
-      <G filter=\\"url(#filter1)\\">
-        <Circle cx={75} cy={50} r={40} fill=\\"blue\\" fillOpacity={0.5} />
-        <Circle cx={55} cy={90} r={40} fill=\\"green\\" fillOpacity={0.5} />
-        <Circle cx={95} cy={90} r={40} fill=\\"red\\" fillOpacity={0.5} />
-      </G>
-    </Svg>;"
-  `)
-})
+    const code = testPlugin(svg)
+    expect(code).toMatchInlineSnapshot(`
+      "<Svg height="150" width="150">
+              <Filter id="filter1">
+                <FeGaussianBlur stdDeviation="3" />
+              </Filter>
+              <G filter="url(#filter1)">
+                <Circle cx="75" cy="50" r="40" fill="blue" fill-opacity="0.5" />
+                <Circle cx="55" cy="90" r="40" fill="green" fill-opacity="0.5" />
+                <Circle cx="95" cy="90" r="40" fill="red" fill-opacity="0.5" />
+              </G>
+            </Svg>;"
+    `)
+  })
 
   it('should add import', () => {
     const code = testPlugin(
@@ -54,14 +55,15 @@ it('should transform elements with filter', () => {
       <Svg><G /></Svg>;"
     `)
   })
+
   it('should add version warning', () => {
     const code = testPlugin(
-      `import Svg from 'react-native-svg'; <svg> <filter id="filter1"> <feGaussianBlur stdDeviation="3" /></filter></svg>;`,
+      `import Svg from 'react-native-svg'; <svg> <filter id="filter1"><feGaussianBlur stdDeviation="3" /></filter></svg>;`,
     )
     expect(code).toMatchInlineSnapshot(`
       "import Svg, { Filter, FeGaussianBlur } from 'react-native-svg';
       /* Using svg filters is only supported on react-native-svg v15.5.0 or later. */
-      <Svg><Filter id=\\"filter1\\"><FeGaussianBlur stdDeviation={3} /></Filter></Svg>;"
+      <Svg> <Filter id="filter1"><FeGaussianBlur stdDeviation="3" /></Filter></Svg>;"
     `)
   })
 
