@@ -1,0 +1,115 @@
+---
+section: Usage
+title: Command Line
+slug: /docs/cli/
+sidebar_position: 20
+---
+
+# Command Line
+
+Use SVGR from command line to transform a single file or a whole directory.
+
+<carbon-ad />
+
+## Install
+
+Depending you usage, you can install `@svgr/cli` locally in your project:
+
+```sh
+npm install --save-dev @svgr/cli
+# or use yarn
+yarn add --dev @svgr/cli
+```
+
+or use it on the fly using `npx @svgr/cli`.
+
+## Options
+
+All [SVGR options](https://react-svgr.com/docs/options/) are available from command line or in configuration. Command line options have precedence over config file options.
+
+## Transform a single file
+
+### From file
+
+Transforms a single file by specifying file as the single argument.
+
+```sh
+npx @svgr/cli -- icons/clock-icon.svg
+```
+
+### From standard input
+
+`@svgr/cli` supports standard input, just redirect file contents using `<` operator.
+
+```sh
+npx @svgr/cli < icons/clock-icon.svg
+```
+
+### Output the result in another file
+
+You can easily create another file using `>` operator.
+
+```sh
+npx @svgr/cli -- icons/clock-icon.svg > dist/ClockIcon.js
+```
+
+## Transform a whole directory
+
+Transforms a whole directory using `--out-dir` option. All SVG presents in this directory tree are transformed into React components.
+
+```sh
+# Usage: npx @svgr/cli [--out-dir dir] [--ignore-existing] [src-dir]
+$ npx @svgr/cli --out-dir dist -- icons
+icons/web/clock-icon.svg -> dist/web/ClockIcon.js
+icons/web/wifi-icon.svg -> dist/web/WifiIcon.js
+icons/spinner/cog-icon.svg -> dist/spinner/CogIcon.js
+icons/spinner/spinner-icon.svg -> dist/spinner/SpinnerIcon.js
+```
+
+### Avoid replacing existing files
+
+Even if it is not recommended, you may be tempted to modify generated files. If you do so, you should use the `--ignore-existing` option to avoid replacing existing files.
+
+```sh
+npx @svgr/cli --out-dir dist --ignore-existing -- icons
+```
+
+### Use a different filename case
+
+By default, filenames uses "PascalCase", you can specify a different case for generated files using `--filename-case` option.
+
+```sh
+npx @svgr/cli --out-dir dist --filename-case kebab -- icons
+```
+
+### Disable index generation
+
+By default an index is generated, giving you opportunity to import all your components from the directory. If you does not want auto-generated index, turn it off using `--no-index` option.
+
+```sh
+npx @svgr/cli --out-dir dist --no-index -- icons
+```
+
+### Use a custom index template
+
+Advanced use cases could lead you to customize the index template. The `--index-template <template>` argument let you specify a custom one.
+
+```js
+// index-template.js
+const path = require('path')
+
+function defaultIndexTemplate(filePaths) {
+  const exportEntries = filePaths.map((filePath) => {
+    const basename = path.basename(filePath, path.extname(filePath))
+    const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
+    return `export { default as ${exportName} } from './${basename}'`
+  })
+  return exportEntries.join('\n')
+}
+
+module.exports = defaultIndexTemplate
+```
+
+```sh
+npx @svgr/cli  --out-dir dist --index-template index-template.js -- icons
+```
