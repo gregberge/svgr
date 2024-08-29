@@ -231,9 +231,9 @@ Output files into a directory.
 
 Specify a template function (API) to change default index.js output (when --out-dir is used).
 
-| Default                                                                                        | CLI Override       | API Override               |
-| ---------------------------------------------------------------------------------------------- | ------------------ | -------------------------- |
-| [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/cli/src/dirCommand.ts) | `--index-template` | indexTemplate: files => '' |
+| Default                                                                                        | CLI Override       | API Override  |
+| ---------------------------------------------------------------------------------------------- | ------------------ | ------------- |
+| [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/cli/src/dirCommand.ts) | `--index-template` | not available |
 
 ## index.js file
 
@@ -247,9 +247,9 @@ Disable index.js file generation
 
 When used with `--out-dir`, it ignores already existing files.
 
-| Default | CLI Override        | API Override              |
-| ------- | ------------------- | ------------------------- |
-| `false` | `--ignore-existing` | `ignoreExisting: boolean` |
+| Default | CLI Override        | API Override  |
+| ------- | ------------------- | ------------- |
+| `false` | `--ignore-existing` | not available |
 
 ## Filename case
 
