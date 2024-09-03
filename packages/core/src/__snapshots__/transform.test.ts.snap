@@ -7,10 +7,12 @@ const SvgComponent = ({ desc, descId, ...props }) => (
     xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
+    viewBox="0 0 88 88"
     aria-describedby={descId}
     {...props}
   >
     {desc ? <desc id={descId}>{desc}</desc> : null}
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -30,6 +32,7 @@ exports[`convert config accepts options {"dimensions":false} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" {...props}>
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -48,7 +51,14 @@ export default SvgComponent
 exports[`convert config accepts options {"expandProps":"start"} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" width={88} height={88}>
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+  >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -67,7 +77,13 @@ export default SvgComponent
 exports[`convert config accepts options {"expandProps":false} 1`] = `
 "import * as React from 'react'
 const SvgComponent = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+  >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -86,7 +102,14 @@ export default SvgComponent
 exports[`convert config accepts options {"exportType":"named"} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -112,6 +135,7 @@ const SvgComponent = (props) => (
     viewBox="0 0 88 88"
     {...props}
   >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -137,6 +161,7 @@ const SvgComponent = (props) => (
     viewBox="0 0 88 88"
     {...props}
   >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -162,6 +187,7 @@ const SvgComponent = (props) => (
     viewBox="0 0 88 88"
     {...props}
   >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -181,7 +207,14 @@ exports[`convert config accepts options {"memo":true} 1`] = `
 "import * as React from 'react'
 import { memo } from 'react'
 const SvgComponent = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -201,7 +234,14 @@ export default Memo
 exports[`convert config accepts options {"namedExport":"Component","state":{"caller":{"previousExport":"export default \\"logo.svg\\";"}}} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -221,8 +261,14 @@ export default 'logo.svg'
 exports[`convert config accepts options {"native":true,"expandProps":false} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
+/* SVGR has dropped some elements not supported by react-native-svg: title */
 const SvgComponent = () => (
-  <Svg xmlns="http://www.w3.org/2000/svg" width={88} height={88}>
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+  >
     <G
       fill="none"
       fillRule="evenodd"
@@ -241,6 +287,7 @@ export default SvgComponent
 exports[`convert config accepts options {"native":true,"icon":true} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
+/* SVGR has dropped some elements not supported by react-native-svg: title */
 const SvgComponent = (props) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
@@ -267,12 +314,14 @@ export default SvgComponent
 exports[`convert config accepts options {"native":true,"ref":true} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
+/* SVGR has dropped some elements not supported by react-native-svg: title */
 import { forwardRef } from 'react'
 const SvgComponent = (props, ref) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
+    viewBox="0 0 88 88"
     ref={ref}
     {...props}
   >
@@ -295,8 +344,15 @@ export default ForwardRef
 exports[`convert config accepts options {"native":true} 1`] = `
 "import * as React from 'react'
 import Svg, { G, Path } from 'react-native-svg'
+/* SVGR has dropped some elements not supported by react-native-svg: title */
 const SvgComponent = (props) => (
-  <Svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
     <G
       fill="none"
       fillRule="evenodd"
@@ -314,7 +370,7 @@ export default SvgComponent
 
 exports[`convert config accepts options {"prettier":false} 1`] = `
 "import * as React from "react";
-const SvgComponent = props => <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}><g fill="none" fillRule="evenodd" stroke="#063855" strokeLinecap="square" strokeWidth={2}><path d="M51 37 37 51M51 51 37 37" /></g></svg>;
+const SvgComponent = props => <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} viewBox="0 0 88 88" {...props}><title>{"Dismiss"}</title><g fill="none" fillRule="evenodd" stroke="#063855" strokeLinecap="square" strokeWidth={2}><path d="M51 37 37 51M51 51 37 37" /></g></svg>;
 export default SvgComponent;"
 `;
 
@@ -326,9 +382,11 @@ const SvgComponent = (props, ref) => (
     xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
+    viewBox="0 0 88 88"
     ref={ref}
     {...props}
   >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -348,7 +406,14 @@ export default ForwardRef
 exports[`convert config accepts options {"replaceAttrValues":{"none":"{black}"}} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
+    <title>{'Dismiss'}</title>
     <g
       fill={black}
       fillRule="evenodd"
@@ -367,7 +432,14 @@ export default SvgComponent
 exports[`convert config accepts options {"replaceAttrValues":{"none":"black"}} 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
+    <title>{'Dismiss'}</title>
     <g
       fill="black"
       fillRule="evenodd"
@@ -390,10 +462,12 @@ const SvgComponent = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
+    viewBox="0 0 88 88"
     a="b"
     b={props.b}
     {...props}
   >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -449,10 +523,15 @@ const SvgComponent = ({ title, titleId, ...props }) => (
     xmlns="http://www.w3.org/2000/svg"
     width={88}
     height={88}
+    viewBox="0 0 88 88"
     aria-labelledby={titleId}
     {...props}
   >
-    {title ? <title id={titleId}>{title}</title> : null}
+    {title === undefined ? (
+      <title id={titleId}>{'Dismiss'}</title>
+    ) : title ? (
+      <title id={titleId}>{title}</title>
+    ) : null}
     <g
       fill="none"
       fillRule="evenodd"
@@ -517,7 +596,14 @@ export default SvgComponent
 exports[`convert should convert 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
+    <title>{'Dismiss'}</title>
     <g
       fill="none"
       fillRule="evenodd"
@@ -563,7 +649,6 @@ const SvgComponent = (props) => (
             visibility: 'visible',
             display: 'inline',
             overflow: 'visible',
-            enableBackground: 'accumulate',
           }}
         />
         <rect
@@ -584,7 +669,6 @@ const SvgComponent = (props) => (
             visibility: 'visible',
             display: 'inline',
             overflow: 'visible',
-            enableBackground: 'accumulate',
           }}
         />
       </g>
@@ -614,7 +698,14 @@ export default SvgComponent
 exports[`convert should not remove all style tags 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
+    <title>{'Dismiss'}</title>
     <style>{'path{fill:red}'}</style>
     <g
       id="prefix__Blocks"
@@ -643,9 +734,7 @@ const SvgComponent = (props) => (
     xmlSpace="preserve"
     width={25}
     height={25}
-    style={{
-      enableBackground: 'new 0 0 25 25',
-    }}
+    viewBox="0 0 25 25"
     {...props}
   >
     <path
@@ -665,20 +754,24 @@ export default SvgComponent
 exports[`convert should remove style tags 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
-    <style />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={88}
+    height={88}
+    viewBox="0 0 88 88"
+    {...props}
+  >
+    <title>{'Dismiss'}</title>
     <g
-      fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
       style={{
         fill: 'red',
       }}
     >
-      <g id="prefix__Dismiss" stroke="#063855" strokeWidth={2}>
-        <path id="prefix__Shape" d="M51 37 37 51" />
-        <path d="M51 51 37 37" />
-      </g>
+      <path d="M51 37 37 51M51 51 37 37" />
     </g>
   </svg>
 )
