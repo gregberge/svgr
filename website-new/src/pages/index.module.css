@@ -1,0 +1,143 @@
+.heroOuter {
+  overflow: hidden;
+  padding-top: 8px;
+  padding-bottom: 48px;
+}
+.hero {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0px auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.heroInner {
+  background-image: url(images/hero-bg.png);
+  background-repeat: no-repeat;
+  background-position: center top 10%;
+  background-size: 100%;
+  padding-top: 65%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .heroInner {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 96px;
+    padding-top: 0;
+    background-image: url(images/hero-bg.png);
+    background-position: center right;
+    background-size: 58%;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    text-align: left;
+  }
+}
+
+.heroMain {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .heroMain {
+    width: 50%;
+  }
+}
+
+.heroTitle {
+  font-size: 60px;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .heroTitle {
+    padding-top: 24px;
+    font-size: 48px;
+  }
+}
+@media (min-width: 1280px) {
+  .heroTitle {
+    font-size: 60px;
+  }
+}
+
+.heroSubtitle {
+  font-size: 24px;
+}
+
+.heroButtons {
+  margin: -8px;
+}
+.heroButtons > .heroButton {
+  margin: 8px;
+}
+
+.heroButton {
+  appearance: none;
+  border-radius: 4px;
+  transition: all 300ms ease 0s;
+  font-weight: 500;
+  border: 0px none;
+  display: inline-flex;
+  -moz-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+  text-decoration: none !important;
+}
+.heroButton.primary {
+  background-color: rgb(234, 88, 12);
+  color: rgb(255, 255, 255);
+}
+.heroButton.primary:hover {
+  color: #fff;
+  background-color: rgb(194, 65, 12);
+}
+
+.heroButton:not(.primary) {
+  background-color: rgb(212, 212, 216);
+  color: rgb(0, 0, 0);
+}
+.heroButton:not(.primary):hover {
+  background-color: rgb(161, 161, 170);
+  color: rgb(0, 0, 0);
+}
+
+.features {
+  border-top: 1px solid #d4d4d8;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.featuresInner {
+  max-width: 1440px;
+  margin: -24px auto;
+  display: flex;
+  padding-right: 16px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .featuresInner {
+    flex-direction: row;
+  }
+}
+
+.featuresItem {
+  padding: 24px 48px 8px 8px;
+  font-size: 16px;
+  border-left: 1px dashed #d4d4d8;
+}
+@media (min-width: 768px) {
+  .featuresItem {
+    padding: 24px 48px 48px 8px;
+  }
+}
+
+.featuresItemTitle {
+  font-size: 16px;
+  margin: 16px 0px 16px -9px;
+  border-left: 1px solid rgb(251, 146, 60);
+  padding-left: 9px;
+  font-weight: 500;
+}
