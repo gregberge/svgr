@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { program, Command } from 'commander'
 import * as path from 'path'
-import { glob } from 'glob'
+import { globSync } from 'glob'
 import { readFileSync, promises as fsPromises } from 'fs'
 import { loadConfig, Config } from '@svgr/core'
 import { fileCommand } from './fileCommand'
@@ -178,7 +178,7 @@ program.parse(process.argv)
 async function run() {
   const errors: string[] = []
   const filenames = program.args.reduce((globbed, input) => {
-    let files = glob.sync(input)
+    let files = globSync(input)
     if (!files.length) files = [input]
     return [...globbed, ...files]
   }, [] as string[])
