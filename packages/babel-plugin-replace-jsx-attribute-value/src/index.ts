@@ -45,9 +45,34 @@ const addJSXAttribute = (api: ConfigAPI, opts: Options) => {
 
         opts.values.forEach(({ value, newValue, literal }) => {
           if (!valuePath.isStringLiteral({ value })) return
-          const attributeValue = getAttributeValue(newValue, literal)
-          if (attributeValue) {
-            valuePath.replaceWith(attributeValue)
+
+          // Handle cases where newValue is a dynamic expression (e.g., props.someValue)
+          if (typeof newValue === 'string' && newValue.includes('props.')) {
+            const expression = (template.ast(newValue) as t.ExpressionStatement)
+              .expression
+
+            // Ensure attribute is only replaced if the new value is defined
+            const conditionalExpression = t.conditionalExpression(
+              t.logicalExpression(
+                '&&',
+                t.identifier('props'),
+                t.memberExpression(
+                  t.identifier('props'),
+                  t.identifier(newValue.split('.')[1]), // Extracts the attribute name
+                ),
+              ),
+              expression, // Use the dynamic value if defined
+              t.stringLiteral(value), // Retain original attribute value if undefined
+            )
+
+            valuePath.replaceWith(
+              t.jsxExpressionContainer(conditionalExpression),
+            )
+          } else {
+            const attributeValue = getAttributeValue(newValue, literal)
+            if (attributeValue) {
+              valuePath.replaceWith(attributeValue)
+            }
           }
         })
       },
