@@ -7,8 +7,9 @@ var SvgIcon = function SvgIcon() {
   return _svg || (_svg = /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: 88,
-    height: 88
-  }, /*#__PURE__*/React.createElement("g", {
+    height: 88,
+    viewBox: "0 0 88 88"
+  }, /*#__PURE__*/React.createElement("title", null, "Dismiss"), /*#__PURE__*/React.createElement("g", {
     fill: "none",
     fillRule: "evenodd",
     stroke: "#063855",
@@ -27,8 +28,9 @@ exports[`webpack loader transforms file (babel: false) 1`] = `
 const SvgIcon = () => /*#__PURE__*/React.createElement("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: 88,
-  height: 88
-}, /*#__PURE__*/React.createElement("g", {
+  height: 88,
+  viewBox: "0 0 88 88"
+}, /*#__PURE__*/React.createElement("title", null, "Dismiss"), /*#__PURE__*/React.createElement("g", {
   fill: "none",
   fillRule: "evenodd",
   stroke: "#063855",
@@ -41,15 +43,16 @@ export default SvgIcon;"
 `;
 
 exports[`webpack loader transforms file (typescript: true) 1`] = `
-"var _g;
+"var _title, _g;
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 import * as React from "react";
 var SvgIcon = function SvgIcon(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
     width: 88,
-    height: 88
-  }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    height: 88,
+    viewBox: "0 0 88 88"
+  }, props), _title || (_title = /*#__PURE__*/React.createElement("title", null, "Dismiss")), _g || (_g = /*#__PURE__*/React.createElement("g", {
     fill: "none",
     fillRule: "evenodd",
     stroke: "#063855",
@@ -69,8 +72,9 @@ var SvgIcon = function SvgIcon() {
   return _svg || (_svg = /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: 88,
-    height: 88
-  }, /*#__PURE__*/React.createElement("g", {
+    height: 88,
+    viewBox: "0 0 88 88"
+  }, /*#__PURE__*/React.createElement("title", null, "Dismiss"), /*#__PURE__*/React.createElement("g", {
     fill: "none",
     fillRule: "evenodd",
     stroke: "#063855",
@@ -90,8 +94,9 @@ var SvgIcon = function SvgIcon() {
   return _svg || (_svg = /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: 88,
-    height: 88
-  }, /*#__PURE__*/React.createElement("g", {
+    height: 88,
+    viewBox: "0 0 88 88"
+  }, /*#__PURE__*/React.createElement("title", null, "Dismiss"), /*#__PURE__*/React.createElement("g", {
     fill: "none",
     fillRule: "evenodd",
     stroke: "#063855",
