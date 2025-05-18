@@ -123,3 +123,23 @@ Add the type decleration file to your tsconfig.json's `include` array. **Ensure 
   // ...other config
 }
 ```
+
+## Turbopack
+
+When using Turbopack, make sure to update your `next.config.js` file according to the official Next.js documentation to ensure compatibility and optimal performance.
+
+**next.config.js**
+```
+module.exports = {
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
+}
+```
+
+For more details, refer to: https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#configuring-webpack-loaders
