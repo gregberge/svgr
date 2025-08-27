@@ -90,7 +90,49 @@ Please refer to [SVGR webpack guide](/docs/webpack/) for advanced use cases.
 
 Using SVGR with TypeScript support.
 
-**Type decleration**
+If you are using TypeScript and have **next.config.ts** (rather than next.config.js), it will look something like:
+
+```js
+import type { NextConfig } from "next";
+import type { webpack } from "next/dist/compiled/webpack/webpack"
+type Configuration = webpack.Configuration;
+
+const nextConfig: NextConfig = {
+  webpack(config: Configuration) {
+      // Grab the existing rule that handles SVG imports
+      const fileLoaderRule = config.module?.rules?.find((rule: any) =>
+        rule.test?.test?.('.svg')
+      );
+
+      if (fileLoaderRule && config.module?.rules) {
+        config.module.rules.push(
+          // Reapply the existing rule, but only for svg imports ending in ?url
+          {
+            ...fileLoaderRule,
+            test: /\.svg$/i,
+            resourceQuery: /url/, // *.svg?url
+          },
+          // Convert all other *.svg imports to React components
+          {
+            test: /\.svg$/i,
+            issuer: fileLoaderRule.issuer,
+            resourceQuery: { not: [/url/] }, // exclude if *.svg?url
+            use: ['@svgr/webpack'],
+          }
+        );
+
+        // Modify the file loader rule to ignore *.svg, since we have it handled now.
+        fileLoaderRule.exclude = /\.svg$/i;
+      }
+
+      return config;
+    },
+};
+
+export default nextConfig;
+```
+
+**Type declaration**
 
 Add a custom type decleration file (e.g. **svgr.d.ts**) to the root of your repo.
 
