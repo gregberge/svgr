@@ -40,9 +40,8 @@
   "dependencies": {
     "@babel/core": "^7.21.3",
     "@svgr/babel-preset": "workspace:*",
-    "camelcase": "^6.2.0",
-    "cosmiconfig": "^8.3.6",
-    "snake-case": "^3.0.4"
+    "change-case": "^4.0.0",
+    "cosmiconfig": "^8.3.6"
   },
   "devDependencies": {
     "svgo": "^3.0.2"

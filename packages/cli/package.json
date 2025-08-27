@@ -35,12 +35,11 @@
     "@svgr/plugin-jsx": "workspace:*",
     "@svgr/plugin-prettier": "workspace:*",
     "@svgr/plugin-svgo": "workspace:*",
-    "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
+    "change-case": "^4.0.0",
     "commander": "^9.4.1",
     "dashify": "^2.0.0",
-    "glob": "^8.0.3",
-    "snake-case": "^3.0.4"
+    "glob": "^8.0.3"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
