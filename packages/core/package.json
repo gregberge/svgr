@@ -24,7 +24,7 @@
     "api"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "homepage": "https://react-svgr.com",
   "funding": {
@@ -45,6 +45,6 @@
     "snake-case": "^3.0.4"
   },
   "devDependencies": {
-    "svgo": "^3.0.2"
+    "svgo": "^4.0.0-rc.4"
   }
 }
