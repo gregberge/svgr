@@ -40,7 +40,7 @@
     "commander": "^9.4.1",
     "dashify": "^2.0.0",
     "glob": "^8.0.3",
-    "snake-case": "^3.0.4"
+    "just-snake-case": "^3.2.0"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",

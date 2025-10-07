@@ -225,9 +225,9 @@ importers:
       glob:
         specifier: ^8.0.3
         version: 8.0.3
-      snake-case:
-        specifier: ^3.0.4
-        version: 3.0.4
+      just-snake-case:
+        specifier: ^3.2.0
+        version: 3.2.0
     devDependencies:
       '@types/glob':
         specifier: ^8.1.0
@@ -250,9 +250,9 @@ importers:
       cosmiconfig:
         specifier: ^8.3.6
         version: 8.3.6(typescript@5.0.2)
-      snake-case:
-        specifier: ^3.0.4
-        version: 3.0.4
+      just-snake-case:
+        specifier: ^3.2.0
+        version: 3.2.0
     devDependencies:
       svgo:
         specifier: ^3.0.2
@@ -5039,6 +5039,7 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.5.0
+    dev: true
 
   /dot-prop@3.0.0:
     resolution: {integrity: sha512-k4ELWeEU3uCcwub7+dWydqQBRjAjkV9L33HjVRG5Xo2QybI6ja/v+4W73SRi8ubCqJz0l9XsTP1NbewfyqaSlw==}
@@ -7492,6 +7493,10 @@ packages:
     resolution: {integrity: sha512-S59eriX5u3/QhMNq3v/gm8Kd0w8OS6Tz2FS1NG4blv+z0MuQcBRJyFWjdovM0Rad4/P4aUPFtnkNjMjyMlMSYA==}
     dev: true
 
+  /just-snake-case@3.2.0:
+    resolution: {integrity: sha512-iugHP9bSE0jOq3BzN0W0rdu/OOkFirPe8FtUw6v9y37UlbUDgJ1x4xiGNfUhI6mV9dc/paaifyiyn+F+mrm8gw==}
+    dev: false
+
   /keyv@3.0.0:
     resolution: {integrity: sha512-eguHnq22OE3uVoSYG0LVWNP+4ppamWr9+zWBe1bsNcovIMy6huUJFPgy4mGwCd/rnl3vOLGW1MTlu4c57CT1xA==}
     dependencies:
@@ -7780,6 +7785,7 @@ packages:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
       tslib: 2.5.0
+    dev: true
 
   /lowercase-keys@1.0.0:
     resolution: {integrity: sha512-RPlX0+PHuvxVDZ7xX+EBVAp4RsVxP/TdDSN2mJYdiq1Lc4Hz7EUSjUI7RZrKKlmrIzVhf6Jo2stj7++gVarS0A==}
@@ -8314,6 +8320,7 @@ packages:
     dependencies:
       lower-case: 2.0.2
       tslib: 2.5.0
+    dev: true
 
   /node-addon-api@3.2.1:
     resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
@@ -10040,13 +10047,6 @@ packages:
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
     dev: true
 
-  /snake-case@3.0.4:
-    resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
-    dependencies:
-      dot-case: 3.0.4
-      tslib: 2.5.0
-    dev: false
-
   /sockjs@0.3.24:
     resolution: {integrity: sha512-GJgLTZ7vYb/JtPSSZ10hsOYIvEYsjbNU+zPdIHcUaWVNUEPivzxku31865sSSud0Da0W4lEeOPlmw93zLQchuQ==}
     dependencies:
@@ -10612,6 +10612,7 @@ packages:
 
   /tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
+    dev: true
 
   /tsutils@3.21.0(typescript@5.0.2):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
