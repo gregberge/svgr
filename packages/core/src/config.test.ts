@@ -56,7 +56,7 @@ describe('svgo', () => {
 
       it('should not load config with "runtimeConfig: false', async () => {
         const config = await getMethod(loadConfig, mode)(
-          { useRuntimeConfig: false },
+          { runtimeConfig: false },
           { filePath: path.join(__dirname, '__fixtures__/svgr/icon.svg') },
         )
         expect(config).toMatchSnapshot()
