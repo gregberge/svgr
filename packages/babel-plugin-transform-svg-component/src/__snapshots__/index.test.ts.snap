@@ -395,7 +395,7 @@ exports[`plugin typescript with "native", "ref" and "expandProps" option adds im
 import Svg from "react-native-svg";
 import type { SvgProps } from "react-native-svg";
 import { Ref, forwardRef } from "react";
-const SvgComponent = (props: SvgProps, ref: Ref<SVGSVGElement>) => <Svg><g /></Svg>;
+const SvgComponent = (props: SvgProps, ref: Ref<Svg>) => <Svg><g /></Svg>;
 const ForwardRef = forwardRef(SvgComponent);
 export default ForwardRef;"
 `;
@@ -404,7 +404,7 @@ exports[`plugin typescript with "native", "ref" option adds import from "react-n
 "import * as React from "react";
 import Svg from "react-native-svg";
 import { Ref, forwardRef } from "react";
-const SvgComponent = (_, ref: Ref<SVGSVGElement>) => <Svg><g /></Svg>;
+const SvgComponent = (_, ref: Ref<Svg>) => <Svg><g /></Svg>;
 const ForwardRef = forwardRef(SvgComponent);
 export default ForwardRef;"
 `;
