@@ -1,0 +1,53 @@
+---
+section: Usage
+title: Jest
+slug: /docs/jest/
+sidebar_position: 70
+---
+
+# Jest
+
+Configure [Jest](https://jestjs.io/) to work properly with SVGR.
+
+<carbon-ad />
+
+## 1. Create a mock file
+
+Create a mock file `__mocks__/svg.js`:
+
+```jsx
+export default 'SvgrURL'
+export const ReactComponent = 'div'
+```
+
+The above mock would support the following import syntaxes:
+
+```js
+import logoURL from '../assets/logo.svg'
+// and
+import { ReactComponent as Logo } from '../assets/logo.svg'
+```
+
+## 2. Configure Jest
+
+In your `package.json`
+
+```json
+"jest": {
+  "moduleNameMapper": {
+    "\\.svg": "<rootDir>/__mocks__/svg.js"
+  }
+}
+```
+
+or in your `jest.config.js`
+
+```js
+module.exports = {
+  moduleNameMapper: {
+    '\\.svg$': '<rootDir>/__mocks__/svg.js',
+  },
+}
+```
+
+Your snapshots will include all properties on the icon components, so they will be tested.

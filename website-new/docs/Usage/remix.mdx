@@ -1,0 +1,98 @@
+---
+section: Usage
+title: Remix
+slug: /docs/remix/
+sidebar_position: 45
+---
+
+# Remix
+
+Configure your [Remix](https://remix.run/) project to import SVG as React components in your application.
+
+<carbon-ad />
+
+## Install
+
+```bash
+npm install --save-dev @svgr/cli @svgr/plugin-svgo @svgr/plugin-jsx @svgr/plugin-prettier npm-watch npm-run-all
+```
+
+## Usage
+
+Using SVGR into Remix is possible by configuring `package.json` scripts.
+
+**package.json**
+
+```js
+{
+  //...
+  "scripts": {
+    //...
+
+    // task to convert icons to components
+    // you may change the input and output directories
+    "icons": "npx @svgr/cli --out-dir app/components/icons -- app/icons",
+
+    // watch task
+    "icons:watch": "npm-watch icons",
+
+    // compile once and start watching for changes
+    "dev:svg": "run-s icons icons:watch",
+
+    // remix dev
+    "dev:remix": "remix dev",
+
+    // run all dev: scripts including `dev:svg`
+    "dev": "run-p dev:*"
+  },
+  // npm-watch configuration
+  "watch": {
+    "icons": {
+      "patterns": [
+        "icons"
+      ],
+      "extensions": "svg",
+      "quiet": false
+    }
+  },
+  //...
+}
+```
+
+**svgr.config.js**
+
+```js
+module.exports = {
+  plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
+  typescript: true,
+}
+```
+
+**svgo.config.js**
+
+```js
+module.exports = {
+  plugins: [
+    {
+      name: 'preset-default',
+      params: {
+        overrides: {
+          removeViewBox: false,
+        },
+      },
+    },
+  ],
+}
+```
+
+**Your code**
+
+```js
+import Star from '~/icons/star.svg'
+
+const Example = () => (
+  <div>
+    <Star />
+  </div>
+)
+```

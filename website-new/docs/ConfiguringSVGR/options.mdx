@@ -1,0 +1,282 @@
+---
+section: Configuring SVGR
+title: Options
+slug: /docs/options/
+sidebar_position: 10
+---
+
+# Options
+
+SVGR ships with a handful of customizable options, usable in both the CLI and
+API.
+
+<carbon-ad />
+
+## Config file
+
+Specify a custom config file.
+
+| Default | CLI Override    | API Override         |
+| ------- | --------------- | -------------------- |
+| `null`  | `--config-file` | `configFile: string` |
+
+## Runtime config
+
+Disable runtime config (`.svgrrc`, `.svgo.yml`, `.prettierrc`).
+
+| Default | CLI Override          | API Override             |
+| ------- | --------------------- | ------------------------ |
+| `true`  | `--no-runtime-config` | `runtimeConfig: boolean` |
+
+## JSX runtime
+
+Specify a JSX runtime to use.
+
+- "classic": adds `import * as React from 'react'` on the top of file
+- "automatic": do not add anything
+- "classic-preact": adds `import { h } from 'preact'` on the top of file
+
+| Default   | CLI Override    | API Override                                               |
+| --------- | --------------- | ---------------------------------------------------------- |
+| `classic` | `--jsx-runtime` | `jsxRuntime: 'classic' \| 'automatic' \| 'classic-preact'` |
+
+## JSX runtime import source
+
+Specify a custom JSX runtime source to use. Allows to customize the import added at the top of generated file.
+
+Example: `jsxRuntimeImport: { source: 'preact', specifiers: ['h'] }` for "classic-preact" equivalent.
+
+| Default | CLI Override | API Override                                                 |
+| ------- | ------------ | ------------------------------------------------------------ |
+| `null`  | -            | `jsxRuntimeImport: { source: string, specifiers: string[] }` |
+
+## Icon
+
+Replace SVG `width` and `height` by a custom value. If value is omitted, it uses `1em` in order to make SVG size inherits from text size.
+
+| Default | CLI Override     | API Override                        |
+| ------- | ---------------- | ----------------------------------- |
+| `false` | `--icon [value]` | `icon: boolean \| string \| number` |
+
+:::caution
+
+If you use `--icon` without any argument, be careful of separating files from arguments using `--`, ex: `svgr --icon -- assets/svg`
+
+:::
+
+## Native
+
+Modify all SVG nodes with uppercase and use a specific template with
+[`react-native-svg`](https://github.com/react-native-community/react-native-svg) imports. **All unsupported nodes will be removed.**
+
+| Default | CLI Override | API Override      |
+| ------- | ------------ | ----------------- |
+| `false` | `--native`   | `native: boolean` |
+
+## TypeScript
+
+Generates `.tsx` files with [TypeScript](https://www.typescriptlang.org/) typings.
+
+| Default | CLI Override   | API Override          |
+| ------- | -------------- | --------------------- |
+| `false` | `--typescript` | `typescript: boolean` |
+
+## Dimensions
+
+Keep `width` and `height` attributes from the root SVG tag.
+
+Removal is guaranteed if `dimensions: false`, unlike the `removeDimensions: true` SVGO plugin option which also generates a `viewBox` from the dimensions if no `viewBox` is present.
+
+**NOTE:**
+
+- Any SVGO processing will occur prior to this removal.
+- When removing dimensions, SVGO will be configured not to remove the `viewBox` if one is present. You can override this behaviour via your own config.
+
+| Default | CLI Override      | API Override          |
+| ------- | ----------------- | --------------------- |
+| `true`  | `--no-dimensions` | `dimensions: boolean` |
+
+## Expand props
+
+All properties given to component will be forwarded on SVG tag. Possible values: `"start"`, `"end"` or `false` (`"none"` in CLI).
+
+| Default | CLI Override     | API Override          |
+| ------- | ---------------- | --------------------- |
+| `end`   | `--expand-props` | `expandProps: string` |
+
+## Prettier
+
+Use [Prettier](https://github.com/prettier/prettier) to format JavaScript code
+output.
+
+| Default | CLI Override    | API Override        |
+| ------- | --------------- | ------------------- |
+| `true`  | `--no-prettier` | `prettier: boolean` |
+
+## Prettier config
+
+Specify Prettier config. [See Prettier options](https://prettier.io/docs/en/options.html).
+
+| Default | CLI Override        | API Override                     |
+| ------- | ------------------- | -------------------------------- |
+| `null`  | `--prettier-config` | `prettierConfig: PrettierConfig` |
+
+## SVGO
+
+Use [SVGO](https://github.com/svg/svgo/) to optimize SVG code before transforming it into a component.
+
+**NOTE:** SVGR implicitly enables the [`prefixIds` SVGO plugin](https://github.com/svg/svgo/blob/master/plugins/prefixIds.js) which adds a prefix to values of `id` and `class` attributes to [reduce the chance of collision issues](https://github.com/gregberge/svgr/issues/210).
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `true`  | `--no-svgo`  | `svgo: boolean` |
+
+## SVGO config
+
+Specify SVGO config. [See SVGO options](https://github.com/svg/svgo#configuration).
+
+| Default | CLI Override    | API Override             |
+| ------- | --------------- | ------------------------ |
+| `null`  | `--svgo-config` | `svgoConfig: SVGOConfig` |
+
+## Ref
+
+Setting this to `true` will forward ref to the root SVG tag.
+
+| Default | CLI Override | API Override   |
+| ------- | ------------ | -------------- |
+| `false` | `--ref`      | `ref: boolean` |
+
+## Memo
+
+Setting this to `true` will wrap the exported component in [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo).
+
+| Default | CLI Override | API Override    |
+| ------- | ------------ | --------------- |
+| `false` | `--memo`     | `memo: boolean` |
+
+## Replace attribute value
+
+Replace an attribute value by an other. The main usage of this option is to change an icon color to "currentColor" in order to inherit from text color.
+
+| Default | CLI Override                      | API Override                                   |
+| ------- | --------------------------------- | ---------------------------------------------- |
+| `[]`    | `--replace-attr-values <old=new>` | `replaceAttrValues: { [key: string]: string }` |
+
+:::caution
+
+You can specify dynamic property using curly braces: `{ '#000': "{props.color}" }` or `--replace-attr-values #000={props.color}`. It is particularly useful with a custom template.
+
+:::
+
+## SVG props
+
+Add props to the root SVG tag.
+
+| Default | CLI Override               | API Override                          |
+| ------- | -------------------------- | ------------------------------------- |
+| `[]`    | `--svg-props <name=value>` | `svgProps: { [key: string]: string }` |
+
+:::caution
+
+You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particularly useful with a custom template.
+
+:::
+
+### Accessibility
+
+SVGs by default have an implicit `role="graphics-document"`. To make SVG content accessible you may want to override the default behavior which can be done via the `svgProps` override.
+
+#### For web:
+
+| Default | CLI Override           | API Override                |
+| ------- | ---------------------- | --------------------------- |
+| `[]`    | `--svg-props role=img` | `svgProps: { role: 'img' }` |
+
+#### For native:
+
+| Default | CLI Override                          | API Override                               |
+| ------- | ------------------------------------- | ------------------------------------------ |
+| `[]`    | `--svg-props accessibilityRole=image` | `svgProps: { accessibilityRole: 'image' }` |
+
+Typically for role=img you will want to add either `alt` text or `aria` label/description properties to describe the image when rendering the SVG in your application.
+
+:::caution
+
+**NOTE**: On the web once you add `role: 'img'` some screen-readers will automatically announce any `title`/`text`/`desc` nodes within your SVG.
+
+SVGO can be configured to remove those nodes via the built-in `removeDesc` and `removeTitle` plugins if you only want to use `aria` properties during consumption of the SVGs.
+
+:::
+
+## Title
+
+Add title tag via title property. If titleProp is set to true and no title is provided (`title={undefined}`) at render time, this will fallback to an existing title element in the svg if exists.
+
+| Default | CLI Override   | API Override         |
+| ------- | -------------- | -------------------- |
+| `false` | `--title-prop` | `titleProp: boolean` |
+
+## Description
+
+Add desc tag via desc property. If descProp is set to true and no description is provided (`desc={undefined}`) at render time, this will fallback to an existing desc element in the svg if exists.
+
+| Default | CLI Override  | API Override        |
+| ------- | ------------- | ------------------- |
+| `false` | `--desc-prop` | `descProp: boolean` |
+
+## Template
+
+Specify a template file (CLI) or a template function (API) to use. For an example of template, see [the default one](https://github.com/gregberge/svgr/blob/main/packages/babel-plugin-transform-svg-component/src/defaultTemplate.ts).
+
+| Default                                                                                                                              | CLI Override | API Override       |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ------------------ |
+| [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/babel-plugin-transform-svg-component/src/defaultTemplate.ts) | `--template` | `template: <func>` |
+
+## Output Directory
+
+Output files into a directory.
+
+| Default     | CLI Override          | API Override     |
+| ----------- | --------------------- | ---------------- |
+| `undefined` | `--out-dir <dirname>` | `outDir: string` |
+
+## index.js template
+
+Specify a template function (API) to change default index.js output (when --out-dir is used).
+
+| Default                                                                                        | CLI Override       | API Override               |
+| ---------------------------------------------------------------------------------------------- | ------------------ | -------------------------- |
+| [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/cli/src/dirCommand.ts) | `--index-template` | indexTemplate: files => '' |
+
+## index.js file
+
+Disable index.js file generation
+
+| Default | CLI Override | API Override     |
+| ------- | ------------ | ---------------- |
+| `false` | `--no-index` | `index: boolean` |
+
+## Ignore existing
+
+When used with `--out-dir`, it ignores already existing files.
+
+| Default | CLI Override        | API Override              |
+| ------- | ------------------- | ------------------------- |
+| `false` | `--ignore-existing` | `ignoreExisting: boolean` |
+
+## Filename case
+
+Specify a custom filename case. Possible values: `pascal` for PascalCase, `kebab` for kebab-case or `camel` for camelCase.
+
+| Default  | CLI Override      | API Override           |
+| -------- | ----------------- | ---------------------- |
+| `pascal` | `--filename-case` | `filenameCase: string` |
+
+## File extension
+
+Specify a custom extension for generated files.
+
+| Default | CLI Override | API Override  |
+| ------- | ------------ | ------------- |
+| `"js"`  | `--ext`      | `ext: string` |
