@@ -39,7 +39,7 @@ describe('util', () => {
       expect(formatExportName('foo')).toBe('Foo')
       expect(formatExportName('foo-bar')).toBe('FooBar')
       expect(formatExportName('2foo')).toBe('Svg2foo')
-      expect(formatExportName('2foo-bar')).toBe('Svg2FooBar')
+      expect(formatExportName('2foo-bar')).toBe('Svg2fooBar')
     })
   })
 })

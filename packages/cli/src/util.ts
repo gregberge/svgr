@@ -6,10 +6,8 @@ import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
 import prettier from '@svgr/plugin-prettier'
 // @ts-ignore
-import camelCase from 'camelcase'
-// @ts-ignore
 import dashify from 'dashify'
-import { snakeCase } from 'snake-case'
+import { camelCase, pascalCase, snakeCase } from 'change-case'
 
 export function transformFilename(
   filename: string,
@@ -21,7 +19,7 @@ export function transformFilename(
     case 'camel':
       return camelCase(filename)
     case 'pascal':
-      return camelCase(filename, { pascalCase: true })
+      return pascalCase(filename)
     case 'snake':
       return snakeCase(filename)
     default:
@@ -64,12 +62,12 @@ export const politeWrite = (data: string, silent?: boolean): void => {
 
 export const formatExportName = (name: string): string => {
   if (/[-]/g.test(name) && /^\d/.test(name)) {
-    return `Svg${camelCase(name, { pascalCase: true })}`
+    return `Svg${pascalCase(name)}`
   }
 
   if (/^\d/.test(name)) {
     return `Svg${name}`
   }
 
-  return camelCase(name, { pascalCase: true })
+  return pascalCase(name)
 }
