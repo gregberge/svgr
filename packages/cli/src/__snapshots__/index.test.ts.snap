@@ -129,6 +129,16 @@ exports[`cli should support different filename cases with directory output: --fi
 ]
 `;
 
+exports[`cli should support different filename cases with directory output: --filename-case=keep 1`] = `
+[
+  "PascalCase.js",
+  "camelCase.js",
+  "index.js",
+  "kebab-case.js",
+  "multiple---dashes.js",
+]
+`;
+
 exports[`cli should support different filename cases with directory output: --filename-case=pascal 1`] = `
 [
   "CamelCase.js",

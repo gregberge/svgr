@@ -155,6 +155,7 @@ describe('cli', () => {
     [2, '--filename-case=pascal'],
     [3, '--filename-case=kebab'],
     [4, '--filename-case=snake'],
+    [5, '--filename-case=keep'],
   ])(
     'should support different filename cases with directory output',
     async (index, args) => {
