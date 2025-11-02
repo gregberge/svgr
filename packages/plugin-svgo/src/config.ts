@@ -19,9 +19,6 @@ const explorer = cosmiconfigSync('svgo', {
 
 const getSvgoConfigFromSvgrConfig = (config: Config): any => {
   const params = { overrides: {} as any }
-  if (config.icon || config.dimensions === false) {
-    params.overrides.removeViewBox = false
-  }
   if (config.native) {
     params.overrides.inlineStyles = {
       onlyMatchedOnce: false,
