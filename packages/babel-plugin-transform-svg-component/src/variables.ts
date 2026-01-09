@@ -49,15 +49,13 @@ const tsTypeReferenceSVGProps = (ctx: Context) => {
     )
     return t.tsTypeReference(identifier)
   }
-  const identifier = t.identifier('SVGProps')
+  const identifier = t.identifier('ComponentProps')
   getOrCreateImport(ctx, ctx.importSource, 'type').specifiers.push(
     t.importSpecifier(identifier, identifier),
   )
   return t.tsTypeReference(
     identifier,
-    t.tsTypeParameterInstantiation([
-      t.tsTypeReference(t.identifier('SVGSVGElement')),
-    ]),
+    t.tsTypeParameterInstantiation([t.tsTypeReference(t.identifier("'svg'"))]),
   )
 }
 
