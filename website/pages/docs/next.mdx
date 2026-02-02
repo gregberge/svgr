@@ -21,7 +21,9 @@ yarn add --dev @svgr/webpack
 
 ## Usage
 
-Using SVGR in Next.js is possible with `@svgr/webpack`.
+Using SVGR in Next.js and older is possible with `@svgr/webpack`.
+
+Webpack module example (Next.js 13.0.0):
 
 **next.config.js**
 
@@ -43,6 +45,45 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
+  /* other config options here */
+};
+
+export default nextConfig;
+
+```
+Turbopack example for Next.js 13.0.0 - 15.2.x:
+
+**next.config.js**
+
+```js
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  experimental: {
+    turbo: {
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        }
+      }
+    }
+  }
+  /* other config options here */
+};
+
+export default nextConfig;
+
+```
+
+Using SVGR in Next.js ^15.3.0 Turbopack example.
+
+**next.config.js**
+
+```js
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   turbopack: {
     rules: {
       "*.svg": {
@@ -57,6 +98,8 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 
 ```
+
+More examples can be found in the [next.js: configuring webpack loaders](https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#configuring-webpack-loaders).
 
 **Your code**
 
@@ -89,9 +132,9 @@ Please refer to [SVGR webpack guide](/docs/webpack/) for advanced use cases.
 
 Using SVGR with TypeScript support.
 
-**Type decleration**
+**Type declaration**
 
-Add a custom type decleration file (e.g. **svgr.d.ts**) to the root of your repo.
+Add a custom type declaration file (e.g. **svgr.d.ts**) to the root of your repo.
 
 ```ts
 declare module '*.svg' {
@@ -108,7 +151,7 @@ declare module '*.svg?url' {
 
 **tsconfig.json**
 
-Add the type decleration file to your tsconfig.json's `include` array. **Ensure it's the first item.**
+Add the type declaration file to your tsconfig.json's `include` array. **Ensure it's the first item.**
 
 ```json
 {
