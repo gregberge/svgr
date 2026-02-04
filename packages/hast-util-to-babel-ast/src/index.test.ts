@@ -93,11 +93,20 @@ describe('hast-util-to-babel-ast', () => {
     const code = `<svg><path style="--index: 1; font-size: 24px;"></path><path style="--index: 2"></path></svg>`
     expect(transform(code)).toMatchInlineSnapshot(`
       "<svg><path style={{
-          "--index": 1,
+          "--index": "1",
           fontSize: 24
         }} /><path style={{
-          "--index": 2
+          "--index": "2"
         }} /></svg>;"
     `)
+  })
+
+  it('preserves units in CSS custom property values', () => {
+    const code = `<svg style="--size: 20px; --spacing: 1.5rem; --width: 100%; --gradient: linear-gradient(red, blue);"></svg>`
+    const output = transform(code)
+    expect(output).toContain(`"--size": "20px"`)
+    expect(output).toContain(`"--spacing": "1.5rem"`)
+    expect(output).toContain(`"--width": "100%"`)
+    expect(output).toContain(`"--gradient": "linear-gradient(red, blue)"`)
   })
 })
