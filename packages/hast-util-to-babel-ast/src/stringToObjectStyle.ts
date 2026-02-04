@@ -30,7 +30,8 @@ const formatKey = (key: string) => {
 /**
  * Format style value into JSX style object value.
  */
-const formatValue = (value: string) => {
+const formatValue = (value: string, key: string) => {
+  if (VAR_REGEX.test(key)) return t.stringLiteral(value)
   if (isNumeric(value)) return t.numericLiteral(Number(value))
   if (isConvertiblePixelValue(value))
     return t.numericLiteral(Number(trimEnd(value, 'px')))
@@ -53,7 +54,7 @@ export const stringToObjectStyle = (rawStyle: string): t.ObjectExpression => {
     const value = style.substr(firstColon + 1).trim()
     const key = style.substr(0, firstColon)
     if (key !== '') {
-      const property = t.objectProperty(formatKey(key), formatValue(value))
+      const property = t.objectProperty(formatKey(key), formatValue(value, key))
       properties.push(property)
     }
   }
