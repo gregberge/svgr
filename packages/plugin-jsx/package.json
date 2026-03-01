@@ -20,7 +20,7 @@
     "svgr-plugin"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "homepage": "https://react-svgr.com",
   "funding": {
