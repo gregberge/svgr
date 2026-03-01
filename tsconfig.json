@@ -1,17 +1,25 @@
 {
+  "exclude": ["node_modules/**"],
   "compilerOptions": {
-    "moduleResolution": "Node",
-    "target": "es2019",
-    "lib": [
-      "es2019",
-      "es2020.bigint",
-      "es2020.string",
-      "es2020.symbol.wellknown"
-    ],
+    "baseUrl": ".",
+    "paths": {
+      "@svgr/*": ["packages/*/src"]
+    },
+    "lib": ["ES2022", "DOM"],
     "module": "ESNext",
-    "strict": true,
-    "sourceMap": true,
+    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "importHelpers": true,
     "declaration": true,
-    "resolveJsonModule": true
+    "sourceMap": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true
   }
 }

@@ -2,12 +2,12 @@
   "name": "@svgr/webpack",
   "description": "SVGR webpack loader.",
   "version": "8.1.0",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
@@ -24,7 +24,7 @@
     "webpack-loader"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "homepage": "https://react-svgr.com",
   "funding": {
@@ -33,24 +33,23 @@
   },
   "license": "MIT",
   "scripts": {
-    "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "pnpm run reset && pnpm run build"
+    "check-types": "tsc",
+    "build": "tsdown"
   },
   "dependencies": {
-    "@babel/core": "^7.21.3",
-    "@babel/plugin-transform-react-constant-elements": "^7.21.3",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.21.0",
+    "@babel/core": "^7.29.0",
+    "@babel/plugin-transform-react-constant-elements": "^7.27.1",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
     "@svgr/core": "workspace:*",
     "@svgr/plugin-jsx": "workspace:*",
     "@svgr/plugin-svgo": "workspace:*"
   },
   "devDependencies": {
-    "babel-loader": "^9.1.2",
+    "babel-loader": "^10.0.0",
     "memory-fs": "^0.5.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.76.3"
+    "webpack": "^5.105.3"
   }
 }

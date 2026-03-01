@@ -2,12 +2,11 @@
   "name": "@svgr/core",
   "description": "Transform SVG into React Components.",
   "version": "8.1.0",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -24,7 +23,7 @@
     "api"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "homepage": "https://react-svgr.com",
   "funding": {
@@ -33,9 +32,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "npm run reset && npm run build"
+    "check-types": "tsc",
+    "build": "tsdown"
   },
   "dependencies": {
     "@babel/core": "^7.21.3",

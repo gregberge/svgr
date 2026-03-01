@@ -2,12 +2,12 @@
   "name": "@svgr/babel-plugin-transform-svg-component",
   "description": "Transform SVG into component",
   "version": "8.0.0",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
@@ -31,12 +31,11 @@
   "peerDependencies": {
     "@babel/core": "^7.0.0-0"
   },
-  "scripts": {
-    "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "pnpm run reset && pnpm run build"
-  },
   "devDependencies": {
     "@types/babel__template": "^7.4.1"
+  },
+  "scripts": {
+    "check-types": "tsc",
+    "build": "tsdown"
   }
 }
