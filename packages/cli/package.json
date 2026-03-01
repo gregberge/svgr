@@ -2,6 +2,7 @@
   "name": "@svgr/cli",
   "description": "SVGR command line.",
   "version": "8.1.0",
+  "type": "module",
   "repository": "https://github.com/gregberge/svgr/tree/main/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
@@ -26,9 +27,8 @@
     "svgr": "./bin/svgr"
   },
   "scripts": {
-    "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "pnpm run reset && pnpm run build"
+    "check-types": "tsc",
+    "build": "tsdown"
   },
   "dependencies": {
     "@svgr/core": "workspace:*",

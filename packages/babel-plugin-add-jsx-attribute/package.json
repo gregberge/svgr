@@ -2,12 +2,13 @@
   "name": "@svgr/babel-plugin-add-jsx-attribute",
   "description": "Add JSX attribute",
   "version": "8.0.0",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "commonjs",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
@@ -32,8 +33,7 @@
     "@babel/core": "^7.0.0-0"
   },
   "scripts": {
-    "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.mjs",
-    "prepublishOnly": "pnpm run reset && pnpm run build"
+    "check-types": "tsc",
+    "build": "tsdown"
   }
 }

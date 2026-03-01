@@ -1,0 +1,59 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "env": ["NODE_ENV"],
+      "outputs": ["dist/**"],
+      "inputs": [
+        "$TURBO_ROOT$/tsconfig.json",
+        "$TURBO_ROOT$/tsconfig.build.json",
+        "tsconfig.json",
+        "tsup.config.ts",
+        "package.json",
+        "src/**"
+      ]
+    },
+    "check-types": {
+      "dependsOn": ["build", "^check-types"],
+      "outputs": [],
+      "inputs": [
+        "$TURBO_ROOT$/tsconfig.json",
+        "tsconfig.json",
+        "package.json",
+        "**/*.{ts,mts,cts}",
+        "!dist/**"
+      ]
+    },
+    "check-format": {
+      "outputs": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/.gitignore",
+        "$TURBO_ROOT$/.prettierignore",
+        "$TURBO_ROOT$/prettier.config.js"
+      ]
+    },
+    "//#check-format:root": {
+      "inputs": ["$TURBO_DEFAULT$", "!packages/**"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": [],
+      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/eslint.config.mjs"]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "build-e2e": {
+      "dependsOn": ["build"],
+      "cache": false
+    },
+    "e2e": {
+      "env": ["ARGOS_TOKEN", "NODE_VERSION", "OS", "GITHUB_*"],
+      "dependsOn": ["build-e2e"],
+      "outputs": []
+    }
+  }
+}
