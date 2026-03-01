@@ -1,3 +1,8 @@
 packages:
-  - 'packages/*'
-  - 'examples/**'
+  - packages/*
+  - examples/**
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - nx
