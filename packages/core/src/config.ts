@@ -6,6 +6,10 @@ import type { TransformOptions as BabelTransformOptions } from '@babel/core'
 import type { ConfigPlugin } from './plugins'
 import type { State } from './state'
 
+export interface RuntimeIdsConfig {
+  importSource?: string
+}
+
 export interface Config {
   ref?: boolean
   titleProp?: boolean
@@ -26,6 +30,7 @@ export interface Config {
   prettierConfig?: PrettierOptions
   svgo?: boolean
   svgoConfig?: SvgoConfig
+  runtimeIds?: boolean | RuntimeIdsConfig
   configFile?: string
   template?: TransformOptions['template']
   memo?: boolean
@@ -63,6 +68,7 @@ export const DEFAULT_CONFIG: Config = {
   svgProps: undefined,
   svgo: true,
   svgoConfig: undefined,
+  runtimeIds: false,
   template: undefined,
   index: false,
   titleProp: false,
