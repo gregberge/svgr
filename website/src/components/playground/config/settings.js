@@ -68,6 +68,13 @@ export const settings = [
     default: false,
   },
   {
+    label: 'Runtime IDs',
+    name: 'runtimeIds',
+    type: 'boolean',
+    group: 'global',
+    default: false,
+  },
+  {
     label: 'Title prop',
     name: 'titleProp',
     type: 'boolean',

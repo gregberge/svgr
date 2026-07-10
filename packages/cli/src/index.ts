@@ -159,6 +159,10 @@ program
     parseConfig('--svgo-config'),
   )
   .option('--no-svgo', 'disable SVGO')
+  .option(
+    '--runtime-ids',
+    'make SVG ids unique for each rendered component instance',
+  )
   .option('--silent', 'suppress output')
   .option('--stdin', 'force reading input from stdin')
   .option(

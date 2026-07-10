@@ -5,6 +5,7 @@ import svgrBabelPreset, {
   Options as SvgrPresetOptions,
 } from '@svgr/babel-preset'
 import type { Plugin, Config } from '@svgr/core'
+import runtimeIdsPlugin from './runtimeIds'
 
 const getJsxRuntimeOptions = (config: Config): Partial<SvgrPresetOptions> => {
   if (config.jsxRuntimeImport) {
@@ -35,11 +36,37 @@ const getJsxRuntimeOptions = (config: Config): Partial<SvgrPresetOptions> => {
   }
 }
 
+const getRuntimeIdsOptions = (config: Config) => {
+  if (!config.runtimeIds) return null
+
+  const importSource =
+    typeof config.runtimeIds === 'object'
+      ? config.runtimeIds.importSource
+      : undefined
+
+  return {
+    importSource:
+      importSource ??
+      (config.jsxRuntime === 'classic-preact' ? 'preact/hooks' : 'react'),
+    typescript: config.typescript,
+  }
+}
+
 const jsxPlugin: Plugin = (code, config, state) => {
   const filePath = state.filePath || 'unknown'
   const hastTree = parse(code)
 
   const babelTree = hastToBabelAst(hastTree)
+  const babelConfig = config.jsx?.babelConfig ?? {}
+  const runtimeIdsOptions = getRuntimeIdsOptions(config)
+  const runtimeIdsPlugins = runtimeIdsOptions
+    ? [
+        [
+          runtimeIdsPlugin,
+          { ...runtimeIdsOptions, componentName: state.componentName },
+        ],
+      ]
+    : []
 
   const svgPresetOptions: SvgrPresetOptions = {
     ref: config.ref,
@@ -76,7 +103,8 @@ const jsxPlugin: Plugin = (code, config, state) => {
     ast: false,
     // @ts-ignore
     inputSourceMap: false,
-    ...(config.jsx && config.jsx.babelConfig),
+    ...babelConfig,
+    plugins: [...runtimeIdsPlugins, ...(babelConfig.plugins ?? [])],
   })
 
   if (!result?.code) {

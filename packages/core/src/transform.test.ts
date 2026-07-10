@@ -352,5 +352,31 @@ describe('convert', () => {
         await convertWithAllPlugins(svg, { descProp: true }),
       ).toMatchSnapshot()
     })
+
+    it('runtimeIds: rewrites ids and references after svgo prefixing', async () => {
+      const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <clipPath id="a"><path /></clipPath>
+          <linearGradient id="b"><stop /></linearGradient>
+        </defs>
+        <g clip-path="url(#a)">
+          <path fill="url(#b)" style="filter:url(#a);color:#fff" />
+          <use xlink:href="#a" />
+        </g>
+      </svg>
+`
+      const result = await convertWithAllPlugins(svg, { runtimeIds: true })
+
+      expect(result).toContain('React.useId()')
+      expect(result).toContain('_getSvgId')
+      expect(result).toContain('prefix__a')
+      expect(result).toContain('prefix__b')
+      expect(result).not.toContain('id="prefix__a"')
+      expect(result).not.toContain('id="prefix__b"')
+      expect(result).not.toContain('url(#prefix__a)')
+      expect(result).not.toContain('url(#prefix__b)')
+      expect(result).not.toContain('xlinkHref="#prefix__a"')
+    })
   })
 })

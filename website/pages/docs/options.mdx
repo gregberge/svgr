@@ -153,6 +153,18 @@ Setting this to `true` will wrap the exported component in [`React.memo`](https:
 | ------- | ------------ | --------------- |
 | `false` | `--memo`     | `memo: boolean` |
 
+## Runtime IDs
+
+Setting this to `true` will rewrite SVG `id` attributes and their internal references so each rendered component instance gets unique IDs generated with React `useId`.
+
+This is useful for SVGs that contain reusable definitions such as masks, clip paths, filters, gradients, or patterns and are rendered multiple times in the same DOM. It is disabled by default because some applications rely on predictable SVG IDs for CSS or scripts.
+
+For custom JSX runtimes, set `runtimeIds: { importSource: 'custom-runtime/hooks' }` to import `useId` from a different module. The `classic-preact` JSX runtime uses `preact/hooks` automatically.
+
+| Default | CLI Override    | API Override                                       |
+| ------- | --------------- | -------------------------------------------------- |
+| `false` | `--runtime-ids` | `runtimeIds: boolean \| { importSource?: string }` |
+
 ## Replace attribute value
 
 Replace an attribute value by an other. The main usage of this option is to change an icon color to "currentColor" in order to inherit from text color.
@@ -231,8 +243,8 @@ Output files into a directory.
 
 Specify a template function (API) to change default index.js output (when --out-dir is used).
 
-| Default                                                                                        | CLI Override       | API Override  |
-| ---------------------------------------------------------------------------------------------- | ------------------ | ------------- |
+| Default                                                                                        | CLI Override       | API Override            |
+| ---------------------------------------------------------------------------------------------- | ------------------ | ----------------------- |
 | [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/cli/src/dirCommand.ts) | `--index-template` | `indexTemplate: <func>` |
 
 ## index.js file
