@@ -27,6 +27,16 @@ describe('plugin', () => {
     `)
   })
 
+  it('should transform filter elements', () => {
+    const code = testPlugin(
+      `import Svg from 'react-native-svg'; <svg><filter><feFlood /><feBlend /></filter></svg>;`,
+    )
+    expect(code).toMatchInlineSnapshot(`
+      "import Svg, { Filter, FeFlood, FeBlend } from 'react-native-svg';
+      <Svg><Filter><FeFlood /><FeBlend /></Filter></Svg>;"
+    `)
+  })
+
   it('should add deal with type imports properly', () => {
     const code = transform(
       `
