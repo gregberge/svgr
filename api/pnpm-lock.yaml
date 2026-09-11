@@ -525,15 +525,7 @@ packages:
       '@svgr/core': 7.0.0
       cosmiconfig: 8.1.3
       deepmerge: 4.3.1
-      svgo: 3.0.2
-    dev: false
-
-  /@trysound/sax@0.2.0:
-    resolution:
-      {
-        integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==,
-      }
-    engines: { node: '>=10.13.0' }
+      svgo: 3.3.5
     dev: false
 
   /ansi-styles@3.2.1:
@@ -1000,6 +992,14 @@ packages:
     engines: { node: '>=4' }
     dev: false
 
+  /sax@1.6.1:
+    resolution:
+      {
+        integrity: sha512-42tBVwLWnaQvW5zc4HbZrTuWccECCZfBi92FDuwtqxasH+JbPB3/FOKb1m222K42R4WxuxzzMsTswfzgtSu64Q==,
+      }
+    engines: { node: '>=11.0.0' }
+    dev: false
+
   /semver@6.3.0:
     resolution:
       {
@@ -1033,20 +1033,21 @@ packages:
       }
     dev: false
 
-  /svgo@3.0.2:
+  /svgo@3.3.5:
     resolution:
       {
-        integrity: sha512-Z706C1U2pb1+JGP48fbazf3KxHrWOsLme6Rv7imFBn5EnuanDW1GPaA/P1/dvObE670JDePC3mnj0k0B7P0jjQ==,
+        integrity: sha512-8SQMzdrvWaD8deUmrnYB+ASyxBVgWUOilg+A75nE/76WdLpj6LopCwiAVvkzkcqy/9b7t2Mg7faFLjg0ZRcZ3w==,
       }
     engines: { node: '>=14.0.0' }
     hasBin: true
     dependencies:
-      '@trysound/sax': 0.2.0
       commander: 7.2.0
       css-select: 5.1.0
       css-tree: 2.3.1
+      css-what: 6.1.0
       csso: 5.0.5
       picocolors: 1.0.0
+      sax: 1.6.1
     dev: false
 
   /to-fast-properties@2.0.0:

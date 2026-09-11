@@ -563,7 +563,6 @@ const SvgComponent = (props) => (
             visibility: 'visible',
             display: 'inline',
             overflow: 'visible',
-            enableBackground: 'accumulate',
           }}
         />
         <rect
@@ -584,7 +583,6 @@ const SvgComponent = (props) => (
             visibility: 'visible',
             display: 'inline',
             overflow: 'visible',
-            enableBackground: 'accumulate',
           }}
         />
       </g>
@@ -643,9 +641,6 @@ const SvgComponent = (props) => (
     xmlSpace="preserve"
     width={25}
     height={25}
-    style={{
-      enableBackground: 'new 0 0 25 25',
-    }}
     {...props}
   >
     <path
@@ -666,19 +661,16 @@ exports[`convert should remove style tags 1`] = `
 "import * as React from 'react'
 const SvgComponent = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={88} height={88} {...props}>
-    <style />
     <g
-      fill="none"
       fillRule="evenodd"
+      stroke="#063855"
       strokeLinecap="square"
+      strokeWidth={2}
       style={{
         fill: 'red',
       }}
     >
-      <g id="prefix__Dismiss" stroke="#063855" strokeWidth={2}>
-        <path id="prefix__Shape" d="M51 37 37 51" />
-        <path d="M51 51 37 37" />
-      </g>
+      <path d="M51 37 37 51M51 51 37 37" />
     </g>
   </svg>
 )
